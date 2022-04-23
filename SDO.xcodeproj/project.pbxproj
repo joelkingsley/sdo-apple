@@ -13,10 +13,14 @@
 		F1F0100A2800AF10005DC240 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */; };
 		F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE32800AF0E005DC240 /* SDOApp.swift */; };
 		F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE32800AF0E005DC240 /* SDOApp.swift */; };
-		F1F0100D2800AF10005DC240 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE42800AF0E005DC240 /* ContentView.swift */; };
 		F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE42800AF0E005DC240 /* ContentView.swift */; };
 		F1F0100F2800AF10005DC240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F00FE52800AF10005DC240 /* Assets.xcassets */; };
 		F1F010102800AF10005DC240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F00FE52800AF10005DC240 /* Assets.xcassets */; };
+		F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102028019353005DC240 /* AppTabNavigation.swift */; };
+		F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010232801A9E1005DC240 /* HomeTabView.swift */; };
+		F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010272801D71A005DC240 /* MusicTabView.swift */; };
+		F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */; };
+		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		F1F010032800AF10005DC240 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F010072800AF10005DC240 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		F1F0102028019353005DC240 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		F1F010232801A9E1005DC240 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		F1F010272801D71A005DC240 /* MusicTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTabView.swift; sourceTree = "<group>"; };
+		F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsTabView.swift; sourceTree = "<group>"; };
+		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F00FE22800AF0E005DC240 /* Shared */,
+				F1F0101F280192C3005DC240 /* iOS */,
 				F1F00FF12800AF10005DC240 /* macOS */,
 				F1F00FFA2800AF10005DC240 /* Tests iOS */,
 				F1F010062800AF10005DC240 /* Tests macOS */,
@@ -98,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				F1F00FE32800AF0E005DC240 /* SDOApp.swift */,
-				F1F00FE42800AF0E005DC240 /* ContentView.swift */,
 				F1F00FE52800AF10005DC240 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -118,6 +127,7 @@
 		F1F00FF12800AF10005DC240 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				F1F00FE42800AF0E005DC240 /* ContentView.swift */,
 				F1F00FF22800AF10005DC240 /* macOS.entitlements */,
 			);
 			path = macOS;
@@ -139,6 +149,26 @@
 				F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		F1F0101F280192C3005DC240 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F1F0102028019353005DC240 /* AppTabNavigation.swift */,
+				F1F010222801A9CE005DC240 /* Tabs */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		F1F010222801A9CE005DC240 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				F1F010232801A9E1005DC240 /* HomeTabView.swift */,
+				F1F010272801D71A005DC240 /* MusicTabView.swift */,
+				F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */,
+				F1F0102D2801E016005DC240 /* LibraryTabView.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +329,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1F0100D2800AF10005DC240 /* ContentView.swift in Sources */,
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
+				F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */,
+				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
+				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
+				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
+				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +505,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -479,12 +514,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = online.sounddoctrine.SDO;
+				PRODUCT_BUNDLE_IDENTIFIER = "online.sounddoctrine.sdo-apple";
 				PRODUCT_NAME = SDO;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -501,6 +536,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -509,12 +545,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = online.sounddoctrine.SDO;
+				PRODUCT_BUNDLE_IDENTIFIER = "online.sounddoctrine.sdo-apple";
 				PRODUCT_NAME = SDO;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -539,7 +575,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = online.sounddoctrine.SDO;
+				PRODUCT_BUNDLE_IDENTIFIER = "online.sounddoctrine.sdo-apple";
 				PRODUCT_NAME = SDO;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -567,7 +603,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = online.sounddoctrine.SDO;
+				PRODUCT_BUNDLE_IDENTIFIER = "online.sounddoctrine.sdo-apple";
 				PRODUCT_NAME = SDO;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

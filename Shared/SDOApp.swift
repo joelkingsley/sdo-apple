@@ -11,7 +11,11 @@ import SwiftUI
 struct SDOApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(iOS)
+                AppTabNavigation()
+            #else
+                ContentView()
+            #endif
         }
     }
 }
