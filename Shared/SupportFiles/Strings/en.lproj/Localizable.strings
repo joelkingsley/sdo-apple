@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  SDO
+
+  Created by Joel Kingsley on 23/04/2022.
+  
+*/
+
+"tabHomeLabel" = "Home";
+"tabMusicLabel" = "Music";
+"tabSubscriptionsLabel" = "Subscriptions";
+"tabLibraryLabel" = "Library";

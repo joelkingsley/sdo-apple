@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39DD797BD471A56EF9C8C2EC /* Pods_SDO__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971AA31AB8DA3A4F562AB6F1 /* Pods_SDO__macOS_.framework */; };
+		9DE9B187B53B4890767062FE /* Pods_SDO__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E613F95DA443B511166EA5 /* Pods_SDO__iOS_.framework */; };
+		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
+		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F1F00FFC2800AF10005DC240 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FFB2800AF10005DC240 /* Tests_iOS.swift */; };
 		F1F00FFE2800AF10005DC240 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FFD2800AF10005DC240 /* Tests_iOSLaunchTests.swift */; };
 		F1F010082800AF10005DC240 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010072800AF10005DC240 /* Tests_macOS.swift */; };
@@ -21,6 +25,8 @@
 		F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010272801D71A005DC240 /* MusicTabView.swift */; };
 		F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */; };
 		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
+		F1F05BE928172EE300FDF704 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F05BE828172EE300FDF704 /* Extensions.swift */; };
+		F1F05BEA28172EE300FDF704 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F05BE828172EE300FDF704 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		197D4364B0B97FD55D767424 /* Pods-SDO (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDO (macOS).debug.xcconfig"; path = "Target Support Files/Pods-SDO (macOS)/Pods-SDO (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		1A252803E3430BF39E4C64FF /* Pods-SDO (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDO (macOS).release.xcconfig"; path = "Target Support Files/Pods-SDO (macOS)/Pods-SDO (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		57E613F95DA443B511166EA5 /* Pods_SDO__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDO__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971AA31AB8DA3A4F562AB6F1 /* Pods_SDO__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDO__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC69868FEB271E521B2968F /* Pods-SDO (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDO (iOS).release.xcconfig"; path = "Target Support Files/Pods-SDO (iOS)/Pods-SDO (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		E1D9E8292090E4573440B557 /* Pods-SDO (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDO (iOS).debug.xcconfig"; path = "Target Support Files/Pods-SDO (iOS)/Pods-SDO (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		F106769C2813FEB100B8B843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1F00FE32800AF0E005DC240 /* SDOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOApp.swift; sourceTree = "<group>"; };
 		F1F00FE42800AF0E005DC240 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F1F00FE52800AF10005DC240 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +72,7 @@
 		F1F010272801D71A005DC240 /* MusicTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTabView.swift; sourceTree = "<group>"; };
 		F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsTabView.swift; sourceTree = "<group>"; };
 		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
+		F1F05BE828172EE300FDF704 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE9B187B53B4890767062FE /* Pods_SDO__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39DD797BD471A56EF9C8C2EC /* Pods_SDO__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +109,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D5EDB5404115456F399D33D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1D9E8292090E4573440B557 /* Pods-SDO (iOS).debug.xcconfig */,
+				DDC69868FEB271E521B2968F /* Pods-SDO (iOS).release.xcconfig */,
+				197D4364B0B97FD55D767424 /* Pods-SDO (macOS).debug.xcconfig */,
+				1A252803E3430BF39E4C64FF /* Pods-SDO (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8465483692AF82E7C6724CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E613F95DA443B511166EA5 /* Pods_SDO__iOS_.framework */,
+				971AA31AB8DA3A4F562AB6F1 /* Pods_SDO__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F10676952813FD3400B8B843 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F1F05BE828172EE300FDF704 /* Extensions.swift */,
+				F10676962813FD3F00B8B843 /* Strings */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		F10676962813FD3F00B8B843 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				F106769D2813FEB100B8B843 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		F1F00FDD2800AF0E005DC240 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +155,8 @@
 				F1F00FFA2800AF10005DC240 /* Tests iOS */,
 				F1F010062800AF10005DC240 /* Tests macOS */,
 				F1F00FEB2800AF10005DC240 /* Products */,
+				3D5EDB5404115456F399D33D /* Pods */,
+				A8465483692AF82E7C6724CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +165,7 @@
 			children = (
 				F1F00FE32800AF0E005DC240 /* SDOApp.swift */,
 				F1F00FE52800AF10005DC240 /* Assets.xcassets */,
+				F10676952813FD3400B8B843 /* SupportFiles */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -178,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F010132800AF10005DC240 /* Build configuration list for PBXNativeTarget "SDO (iOS)" */;
 			buildPhases = (
+				21AD28838BD2E3C2A4B1C7A4 /* [CP] Check Pods Manifest.lock */,
 				F1F00FE62800AF10005DC240 /* Sources */,
 				F1F00FE72800AF10005DC240 /* Frameworks */,
 				F1F00FE82800AF10005DC240 /* Resources */,
+				5BB62A8A6ED3469FFF36280A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F010162800AF10005DC240 /* Build configuration list for PBXNativeTarget "SDO (macOS)" */;
 			buildPhases = (
+				1B9EAA5438E2F41E211D79F2 /* [CP] Check Pods Manifest.lock */,
 				F1F00FEC2800AF10005DC240 /* Sources */,
 				F1F00FED2800AF10005DC240 /* Frameworks */,
 				F1F00FEE2800AF10005DC240 /* Resources */,
@@ -277,6 +337,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = F1F00FDD2800AF0E005DC240;
 			productRefGroup = F1F00FEB2800AF10005DC240 /* Products */;
@@ -297,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F0100F2800AF10005DC240 /* Assets.xcassets in Resources */,
+				F106769A2813FEB100B8B843 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F010102800AF10005DC240 /* Assets.xcassets in Resources */,
+				F106769B2813FEB100B8B843 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +387,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B9EAA5438E2F41E211D79F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDO (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21AD28838BD2E3C2A4B1C7A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDO (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BB62A8A6ED3469FFF36280A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SDO (iOS)/Pods-SDO (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SDO (iOS)/Pods-SDO (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDO (iOS)/Pods-SDO (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1F00FE62800AF10005DC240 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -335,6 +462,7 @@
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
+				F1F05BE928172EE300FDF704 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
+				F1F05BEA28172EE300FDF704 /* Extensions.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,11 +509,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		F106769D2813FEB100B8B843 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F106769C2813FEB100B8B843 /* en */,
+				F106769E2813FECB00B8B843 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		F1F010112800AF10005DC240 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -444,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -494,6 +637,7 @@
 		};
 		F1F010142800AF10005DC240 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1D9E8292090E4573440B557 /* Pods-SDO (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -525,6 +669,7 @@
 		};
 		F1F010152800AF10005DC240 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDC69868FEB271E521B2968F /* Pods-SDO (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -557,6 +702,7 @@
 		};
 		F1F010172800AF10005DC240 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 197D4364B0B97FD55D767424 /* Pods-SDO (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -585,6 +731,7 @@
 		};
 		F1F010182800AF10005DC240 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A252803E3430BF39E4C64FF /* Pods-SDO (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

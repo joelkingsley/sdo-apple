@@ -23,28 +23,28 @@ struct AppTabNavigation: View {
                 HomeTabView()
             }.tabItem {
                 Label("Home", systemImage: "house.fill")
-                    .accessibilityLabel(Text("Home"))
+                    .accessibilityLabel(Text("tabHomeLabel"))
             }.tag(Tab.Home)
             
             NavigationView {
                 MusicTabView()
             }.tabItem {
                 Label("Music", systemImage: "music.note")
-                    .accessibilityLabel(Text("Music"))
+                    .accessibilityLabel(Text("tabMusicLabel"))
             }.tag(Tab.Music)
             
             NavigationView {
                 SubscriptionsTabView()
             }.tabItem {
                 Label("Subscriptions", systemImage: "rectangle.stack.badge.play.fill")
-                    .accessibilityLabel(Text("Subscriptions"))
+                    .accessibilityLabel(Text("tabSubscriptionsLabel"))
             }.tag(Tab.Subscriptions)
             
             NavigationView {
                 LibraryTabView()
             }.tabItem {
                 Label("Library", systemImage: "play.rectangle.on.rectangle.fill")
-                    .accessibilityLabel(Text("Library"))
+                    .accessibilityLabel(Text("tabLibraryLabel"))
             }.tag(Tab.Library)
         }
     }
