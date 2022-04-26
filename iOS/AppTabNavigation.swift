@@ -22,29 +22,29 @@ struct AppTabNavigation: View {
             NavigationView {
                 HomeTabView()
             }.tabItem {
-                Label("Home", systemImage: "house.fill")
-                    .accessibilityLabel(Text("tabHomeLabel"))
+                Label(LocalizedStringKey("tabHomeLabel"), systemImage: "house.fill")
+                    .accessibilityLabel(LocalizedStringKey("tabHomeLabel"))
             }.tag(Tab.Home)
             
             NavigationView {
                 MusicTabView()
             }.tabItem {
-                Label("Music", systemImage: "music.note")
-                    .accessibilityLabel(Text("tabMusicLabel"))
+                Label(LocalizedStringKey("tabMusicLabel"), systemImage: "music.note")
+                    .accessibilityLabel(LocalizedStringKey("tabMusicLabel"))
             }.tag(Tab.Music)
             
             NavigationView {
                 SubscriptionsTabView()
             }.tabItem {
-                Label("Subscriptions", systemImage: "rectangle.stack.badge.play.fill")
-                    .accessibilityLabel(Text("tabSubscriptionsLabel"))
+                Label(LocalizedStringKey("tabSubscriptionsLabel"), systemImage: "rectangle.stack.badge.play.fill")
+                    .accessibilityLabel(LocalizedStringKey("tabSubscriptionsLabel"))
             }.tag(Tab.Subscriptions)
             
             NavigationView {
                 LibraryTabView()
             }.tabItem {
-                Label("Library", systemImage: "play.rectangle.on.rectangle.fill")
-                    .accessibilityLabel(Text("tabLibraryLabel"))
+                Label(LocalizedStringKey("tabLibraryLabel"), systemImage: "play.rectangle.on.rectangle.fill")
+                    .accessibilityLabel(LocalizedStringKey("tabLibraryLabel"))
             }.tag(Tab.Library)
         }
     }
@@ -52,6 +52,6 @@ struct AppTabNavigation: View {
 
 struct AppTabNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabNavigation()
+        AppTabNavigation().environment(\.locale, Locale(identifier: "en"))
     }
 }
