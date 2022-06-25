@@ -114,7 +114,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F10497AA2855427300E7EDB5 /* View */ = {
+		F10497AA2855427300E7EDB5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				F1F0102028019353005DC240 /* AppTabNavigation.swift */,
@@ -122,7 +122,7 @@
 				F1E493DD286757A1008611D7 /* Screens */,
 				F10497AC285542CA00E7EDB5 /* Components */,
 			);
-			path = View;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		F10497AB285542B000E7EDB5 /* Application */ = {
@@ -306,7 +306,7 @@
 		F1F0101F280192C3005DC240 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F10497AA2855427300E7EDB5 /* View */,
+				F10497AA2855427300E7EDB5 /* Presentation */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
