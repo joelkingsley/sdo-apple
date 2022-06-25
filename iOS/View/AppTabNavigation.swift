@@ -20,8 +20,19 @@ struct AppTabNavigation: View {
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
-                HomeTabView()
-            }.tabItem {
+                HomeTabView(
+                    viewModel: HomeTabViewModel(
+                        videos: [
+                            "Your List": [exampleVideo1, exampleVideo2],
+                            "Popular on SDO": [exampleVideo1, exampleVideo2, exampleVideo1, exampleVideo2],
+                            "Continue Watching": [exampleVideo1, exampleVideo2],
+                            "New Releases": [exampleVideo1, exampleVideo2],
+                            "Short Clips": [exampleVideo2]
+                        ]
+                    )
+                )
+            }
+            .tabItem {
                 Label(LocalizedStringKey("tabHomeLabel"), systemImage: "house.fill")
                     .accessibilityLabel(LocalizedStringKey("tabHomeLabel"))
             }.tag(Tab.Home)
