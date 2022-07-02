@@ -10,20 +10,74 @@ import SwiftUI
 struct HomeTabView: View {
     let viewModel: HomeTabViewModel
     
+    var appCustomToolbar: some View {
+        HStack {
+            Image(
+                systemName: "globe.asia.australia.fill"
+            )
+            .foregroundColor(.accentColor)
+            .font(.system(size: 25))
+            
+            VStack {
+                HStack {
+                    Text(verbatim: "Sound Doctrine")
+                        .font(
+                            .custom(
+                                "Copperplate",
+                                fixedSize: 25
+                            )
+                            .weight(.heavy)
+                        )
+                        .foregroundColor(.accentColor)
+                    Spacer()
+                }
+                
+                HStack {
+                    Text(verbatim: "Online")
+                        .font(
+                            .custom(
+                                "Copperplate",
+                                fixedSize: 15
+                            )
+                            .weight(.heavy)
+                        )
+                        .foregroundColor(.accentColor)
+                    Spacer()
+                }
+                
+                Spacer()
+            }
+            
+            Spacer()
+        }
+        .padding(.vertical, 20)
+        .padding(.horizontal, 20)
+    }
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
+        ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
+                appCustomToolbar
+                
+                TopVideoPreview(video: exampleVideo1)
+                    .padding(.bottom, 30)
+                
                 ForEach(viewModel.allCategories, id: \.self) { category in
                     VStack {
                         HStack {
                             Text(category)
-                                .font(.title3)
+                                .font(
+                                    .custom(
+                                        "Copperplate",
+                                        size: 20)
+                                )
                                 .bold()
+                                .foregroundColor(.accentColor)
                             Spacer()
                         }
                         .padding(.leading, 20)
-                        
-                        ScrollView(.horizontal, showsIndicators: true) {
+
+                        ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 let videos = [
                                     exampleVideo1,
@@ -31,8 +85,6 @@ struct HomeTabView: View {
                                 ]
                                 ForEach(videos) { video in
                                     VideoThumbnail(video: video)
-                                        .frame(width: 250, height: 150)
-                                        .padding(.trailing, 20)
                                 }
                             }
                             .padding(.leading, 20)
@@ -41,44 +93,8 @@ struct HomeTabView: View {
                 }
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack {
-                    Image(
-                        systemName: "globe.asia.australia.fill"
-                    )
-                    .foregroundColor(.accentColor)
-                    .font(.system(size: 25))
-                    
-                    VStack {
-                        Text(verbatim: "Sound Doctrine")
-                            .font(
-                                .custom(
-                                    "Copperplate",
-                                    fixedSize: 25
-                                )
-                                .weight(.heavy)
-                            )
-                            .foregroundColor(.accentColor)
-                        
-                        HStack {
-                            Text(verbatim: "Online")
-                                .font(
-                                    .custom(
-                                        "Copperplate",
-                                        fixedSize: 15
-                                    )
-                                    .weight(.heavy)
-                                )
-                                .foregroundColor(.accentColor)
-                            Spacer()
-                        }
-                    }
-                }
-                .padding(.top, 10)
-                .padding(.bottom, 20)
-            }
-        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 

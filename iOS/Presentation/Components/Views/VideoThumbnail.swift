@@ -12,23 +12,37 @@ struct VideoThumbnail: View {
     var video: VideoData
     
     var body: some View {
-        KFImage(video.thumbnailURL)
-            .resizable()
-            .scaledToFill()
+        VStack {
+            KFImage(video.thumbnailURL)
+                .resizable()
+                .scaledToFit()
+            
+            HStack {
+                Text(video.name)
+                    .font(.caption)
+                    .foregroundColor(.black)
+                Spacer()
+            }
+            HStack {
+                Text("\(video.channel)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+            Spacer()
+        }
+        .background(Color.white)
+        .frame(
+            width: 250,
+            height: 200
+        )
     }
 }
 
 struct VideoThumbnail_Previews: PreviewProvider {
     static var previews: some View {
         VideoThumbnail(
-            video: VideoData(
-                id: 1,
-                name: "Once Saved Always Saved",
-                thumbnailURL: URL(
-                    string: "https://m.media-amazon.com/images/M/MV5BNDI5ZjI3YjEtNDZmNS00OTU1LWI4NDEtYThiMDJlMzhlYjI4XkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_FMjpg_UX1000_.jpg"
-                )!,
-                categories: []
-            )
+            video: exampleVideo1
         )
     }
 }

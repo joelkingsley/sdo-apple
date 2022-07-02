@@ -10,7 +10,9 @@ import Foundation
 struct VideoData: Identifiable {
     var id: Int
     var name: String
+    var channel: String
     var thumbnailURL: URL
+    var publishedDate: Date
     
     var categories: [String]
 }

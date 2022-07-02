@@ -15,10 +15,12 @@ struct AppTabNavigation: View {
         case Library
     }
     
+    @Binding var isNavigationBarHidden: Bool
     @State private var selection: Tab = .Home
     
     var body: some View {
         TabView(selection: $selection) {
+            // Home Tab
             NavigationView {
                 HomeTabView(
                     viewModel: HomeTabViewModel(
@@ -36,7 +38,13 @@ struct AppTabNavigation: View {
                 Label(LocalizedStringKey("tabHomeLabel"), systemImage: "house.fill")
                     .accessibilityLabel(LocalizedStringKey("tabHomeLabel"))
             }.tag(Tab.Home)
+            .navigationBarTitle("")
+            .navigationBarHidden(self.isNavigationBarHidden)
+            .onAppear {
+                self.isNavigationBarHidden = true
+            }
             
+            // Music Tab
             NavigationView {
                 MusicTabView()
             }.tabItem {
@@ -44,6 +52,7 @@ struct AppTabNavigation: View {
                     .accessibilityLabel(LocalizedStringKey("tabMusicLabel"))
             }.tag(Tab.Music)
             
+            // Subscriptions Tab
             NavigationView {
                 SubscriptionsTabView()
             }.tabItem {
@@ -51,6 +60,7 @@ struct AppTabNavigation: View {
                     .accessibilityLabel(LocalizedStringKey("tabSubscriptionsLabel"))
             }.tag(Tab.Subscriptions)
             
+            // Library Tab
             NavigationView {
                 LibraryTabView()
             }.tabItem {
@@ -63,6 +73,8 @@ struct AppTabNavigation: View {
 
 struct AppTabNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabNavigation().environment(\.locale, Locale(identifier: "en"))
+        AppTabNavigation(
+            isNavigationBarHidden: Binding.constant(true))
+        .environment(\.locale, Locale(identifier: "en"))
     }
 }
