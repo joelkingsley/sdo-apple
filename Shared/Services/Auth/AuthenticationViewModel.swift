@@ -5,59 +5,47 @@
 //  Created by Joel Kingsley on 27/06/2022.
 //
 
-import GoogleSignIn
+import Foundation
+import FirebaseAuth
 
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
 final class AuthenticationViewModel: ObservableObject {
-  /// The user's log in status.
-  /// - note: This will publish updates when its value changes.
-  @Published var state: State
-  private var authenticator: GoogleSignInAuthenticator {
-    return GoogleSignInAuthenticator(authViewModel: self)
-  }
-  /// The user-authorized scopes.
-  /// - note: If the user is logged out, then this will default to empty.
-  var authorizedScopes: [String] {
-    switch state {
-    case .signedIn(let user):
-      return user.grantedScopes ?? []
-    case .signedOut:
-      return []
+    /// The user's log in status.
+    /// - note: This will publish updates when its value changes.
+    @Published var state: AuthState
+    
+    private var authService: SDOAuthService {
+        return FirebaseAuthService()
     }
-  }
 
-  /// Creates an instance of this view model.
-  init() {
-    if let user = GIDSignIn.sharedInstance.currentUser {
-      self.state = .signedIn(user)
-    } else {
-      self.state = .signedOut
+    /// Creates an instance of this view model.
+    init() {
+        self.state = .signedOut
     }
-  }
+    
+    func restorePreviousSignIn() {
+        Task {
+            let state = await authService.restorePreviousSignIn()
+            await MainActor.run(body: { [weak self] in
+                self?.state = state
+            })
+        }
+    }
 
-  /// Signs the user in.
-  func signIn() {
-    authenticator.signIn()
-  }
+    /// Signs the user in with Google
+    func signInWithGoogle() {
+        Task {
+            let state = await authService.signInWithGoogle()
+            await MainActor.run(body: { [weak self] in
+                self?.state = state
+            })
+        }
+    }
 
-  /// Signs the user out.
-  func signOut() {
-    authenticator.signOut()
-  }
-
-  /// Disconnects the previously granted scope and logs the user out.
-  func disconnect() {
-    authenticator.disconnect()
-  }
-
-}
-
-extension AuthenticationViewModel {
-  /// An enumeration representing logged in status.
-  enum State {
-    /// The user is logged in and is the associated value of this case.
-    case signedIn(GIDGoogleUser)
-    /// The user is logged out.
-    case signedOut
-  }
+    /// Signs the user out.
+    func signOut() {
+        if authService.signOut() {
+            self.state = .signedOut
+        }
+    }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HomeTabView: View {
-    let viewModel: HomeTabViewModel
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @ObservedObject var homeTabViewModel = HomeTabViewModel()
     
     var appCustomToolbar: some View {
         HStack {
@@ -62,7 +63,7 @@ struct HomeTabView: View {
                 TopVideoPreview(video: exampleVideo1)
                     .padding(.bottom, 30)
                 
-                ForEach(viewModel.allCategories, id: \.self) { category in
+                ForEach(homeTabViewModel.allCategories, id: \.self) { category in
                     VStack {
                         HStack {
                             Text(category)
@@ -79,37 +80,26 @@ struct HomeTabView: View {
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                let videos = [
-                                    exampleVideo1,
-                                    exampleVideo2
-                                ]
-                                ForEach(videos) { video in
-                                    VideoThumbnail(video: video)
+                                ForEach(homeTabViewModel.videos[category] ?? []) { video in
+                                    VideoThumbnail(video: exampleVideo1)
                                 }
                             }
                             .padding(.leading, 20)
                         }
                     }
                 }
+                
+                Button("Sign Out") {
+                    
+                }
             }
         }
-        .navigationBarTitle("")
         .navigationBarHidden(true)
     }
 }
 
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView(
-            viewModel: HomeTabViewModel(
-                videos: [
-                    "Your List": [exampleVideo1, exampleVideo2],
-                    "Popular on SDO": [exampleVideo1, exampleVideo2, exampleVideo1, exampleVideo2],
-                    "Continue Watching": [exampleVideo1, exampleVideo2],
-                    "New Releases": [exampleVideo1, exampleVideo2],
-                    "Short Clips": [exampleVideo2]
-                ]
-            )
-        )
+        HomeTabView()
     }
 }

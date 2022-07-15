@@ -10,73 +10,59 @@ import GoogleSignIn
 
 /// An observable class for authenticating via Google.
 final class GoogleSignInAuthenticator: ObservableObject {
-  #if os(iOS)
-  private let clientID = "339443240109-d0v5vs4eqg7s9okddajsh6qbkfh9h6u8.apps.googleusercontent.com"
-  #elseif os(macOS)
-  private let clientID = "339443240109-d0v5vs4eqg7s9okddajsh6qbkfh9h6u8.apps.googleusercontent.com"
-  #endif
+    #if os(iOS)
+    private let clientID = "339443240109-d0v5vs4eqg7s9okddajsh6qbkfh9h6u8.apps.googleusercontent.com"
+    #elseif os(macOS)
+    private let clientID = "339443240109-d0v5vs4eqg7s9okddajsh6qbkfh9h6u8.apps.googleusercontent.com"
+    #endif
 
-  private lazy var configuration: GIDConfiguration = {
-    return GIDConfiguration(clientID: clientID)
-  }()
+    private lazy var configuration: GIDConfiguration = {
+        return GIDConfiguration(clientID: clientID)
+    }()
 
-  private var authViewModel: AuthenticationViewModel
-
-  /// Creates an instance of this authenticator.
-  /// - parameter authViewModel: The view model this authenticator will set logged in status on.
-  init(authViewModel: AuthenticationViewModel) {
-    self.authViewModel = authViewModel
+    /// Signs in the user based upon the selected account.'
+    /// - note: Successful calls to this will return the `GIDGoogleUser`
+    func signIn() async throws -> GIDGoogleUser {
+    #if os(iOS)
+        guard let rootViewController = await UIApplication.shared.keyWindow?.rootViewController else {
+            throw BusinessErrors.clientError()
+        }
+        return try await withCheckedThrowingContinuation { continuation in
+            GIDSignIn.sharedInstance.signIn(
+                with: configuration,
+                presenting: rootViewController
+            ) { user, error in
+                guard let user = user else {
+                    AppLogger.error(String(describing: error))
+                    continuation.resume(with: .failure(BusinessErrors.serverError()))
+                    return
+                }
+                continuation.resume(with: .success(user))
+            }
+        }
+    #elseif os(macOS)
+        guard let presentingWindow = NSApplication.shared.windows.first else {
+            AppLogger.error("There is no presenting window!")
+            throw BusinessErrors.clientError()
+        }
+        return try await withCheckedThrowingContinuation { continuation in
+            GIDSignIn.sharedInstance.signIn(
+                with: configuration,
+                presenting: presentingWindow
+            ) { user, error in
+                guard let user = user else {
+                    AppLogger.error(String(describing: error))
+                    continuation.resume(with: .failure(BusinessErrors.serverError()))
+                    return
+                }
+                continuation.resume(with: .success(user))
+            }
+        }
+    #endif
   }
 
-  /// Signs in the user based upon the selected account.'
-  /// - note: Successful calls to this will set the `authViewModel`'s `state` property.
-  func signIn() {
-#if os(iOS)
-      guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
-      print("There is no root view controller!")
-      return
+    /// Signs out the current user.
+    func signOut() {
+        GIDSignIn.sharedInstance.signOut()
     }
-
-    GIDSignIn.sharedInstance.signIn(with: configuration,
-                                    presenting: rootViewController) { user, error in
-      guard let user = user else {
-        print("Error! \(String(describing: error))")
-        return
-      }
-      self.authViewModel.state = .signedIn(user)
-    }
-
-#elseif os(macOS)
-    guard let presentingWindow = NSApplication.shared.windows.first else {
-      print("There is no presenting window!")
-      return
-    }
-
-    GIDSignIn.sharedInstance.signIn(with: configuration,
-                                    presenting: presentingWindow) { user, error in
-      guard let user = user else {
-        print("Error! \(String(describing: error))")
-        return
-      }
-      self.authViewModel.state = .signedIn(user)
-    }
-#endif
-  }
-
-  /// Signs out the current user.
-  func signOut() {
-    GIDSignIn.sharedInstance.signOut()
-    authViewModel.state = .signedOut
-  }
-
-  /// Disconnects the previously granted scope and signs the user out.
-  func disconnect() {
-    GIDSignIn.sharedInstance.disconnect { error in
-      if let error = error {
-        print("Encountered error disconnecting scope: \(error).")
-      }
-      self.signOut()
-    }
-  }
-
 }

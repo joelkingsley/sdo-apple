@@ -8,5 +8,7 @@
 import Foundation
 
 protocol SDOAuthService {
-    
+    func restorePreviousSignIn() async -> AuthState
+    func signInWithGoogle() async -> AuthState
+    func signOut() -> Bool
 }

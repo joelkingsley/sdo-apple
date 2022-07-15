@@ -6,32 +6,19 @@
 //
 
 import SwiftUI
-import FirebaseCore
 import GoogleSignIn
 
 @main
 struct SDOApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var authViewModel = AuthenticationViewModel()
-    
-    init() {
-        FirebaseApp.configure()
-    }
     
     var body: some Scene {
         WindowGroup {
           ContentView()
             .environmentObject(authViewModel)
             .onAppear {
-              GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                if let user = user {
-                  self.authViewModel.state = .signedIn(user)
-                } else if let error = error {
-                  self.authViewModel.state = .signedOut
-                  print("There was an error restoring the previous sign-in: \(error)")
-                } else {
-                  self.authViewModel.state = .signedOut
-                }
-              }
+                authViewModel.restorePreviousSignIn()
             }
             .onOpenURL { url in
               GIDSignIn.sharedInstance.handle(url)

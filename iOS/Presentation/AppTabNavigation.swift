@@ -15,6 +15,7 @@ struct AppTabNavigation: View {
         case Library
     }
     
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Binding var isNavigationBarHidden: Bool
     @State private var selection: Tab = .Home
     
@@ -22,17 +23,7 @@ struct AppTabNavigation: View {
         TabView(selection: $selection) {
             // Home Tab
             NavigationView {
-                HomeTabView(
-                    viewModel: HomeTabViewModel(
-                        videos: [
-                            "Your List": [exampleVideo1, exampleVideo2],
-                            "Popular on SDO": [exampleVideo1, exampleVideo2, exampleVideo1, exampleVideo2],
-                            "Continue Watching": [exampleVideo1, exampleVideo2],
-                            "New Releases": [exampleVideo1, exampleVideo2],
-                            "Short Clips": [exampleVideo2]
-                        ]
-                    )
-                )
+                HomeTabView()
             }
             .tabItem {
                 Label(LocalizedStringKey("tabHomeLabel"), systemImage: "house.fill")

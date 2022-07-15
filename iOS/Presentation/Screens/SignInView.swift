@@ -20,10 +20,9 @@ struct SignInView: View {
     
     var body: some View {
         VStack {
-            GoogleSignInButton(
-              viewModel: googleSignInButtonViewModel,
-              action: authViewModel.signIn
-            )
+            GoogleSignInButton(viewModel: googleSignInButtonViewModel) {
+                authViewModel.signInWithGoogle()
+            }
             .padding()
           Spacer()
         }

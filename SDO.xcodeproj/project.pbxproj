@@ -12,6 +12,10 @@
 		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1157BA9286D6F8700309134 /* TopVideoPreview.swift */; };
+		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
+		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
+		F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
+		F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -49,6 +53,10 @@
 		F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4941728699800008611D7 /* NotAvailableView.swift */; };
 		F1EE14EE286EFB320020CD74 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = F1EE14ED286EFB320020CD74 /* Apollo */; };
 		F1EE14F0286EFB320020CD74 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = F1EE14EF286EFB320020CD74 /* ApolloWebSocket */; };
+		F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE14F7287210770020CD74 /* BusinessError.swift */; };
+		F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE14F7287210770020CD74 /* BusinessError.swift */; };
+		F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE14FB2872118A0020CD74 /* AppLogger.swift */; };
+		F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE14FB2872118A0020CD74 /* AppLogger.swift */; };
 		F1F00FFC2800AF10005DC240 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FFB2800AF10005DC240 /* Tests_iOS.swift */; };
 		F1F00FFE2800AF10005DC240 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FFD2800AF10005DC240 /* Tests_iOSLaunchTests.swift */; };
 		F1F010082800AF10005DC240 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010072800AF10005DC240 /* Tests_macOS.swift */; };
@@ -89,6 +97,9 @@
 		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F1157BA9286D6F8700309134 /* TopVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreview.swift; sourceTree = "<group>"; };
+		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
+		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -105,6 +116,8 @@
 		F1E4940E2868E6A1008611D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F1E494122869910B008611D7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F1E4941728699800008611D7 /* NotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotAvailableView.swift; sourceTree = "<group>"; };
+		F1EE14F7287210770020CD74 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
+		F1EE14FB2872118A0020CD74 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
 		F1F00FE32800AF0E005DC240 /* SDOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOApp.swift; sourceTree = "<group>"; };
 		F1F00FE42800AF0E005DC240 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F1F00FE52800AF10005DC240 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F00FE32800AF0E005DC240 /* SDOApp.swift */,
+				F13983792881FAED004A2375 /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -249,6 +263,15 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		F13983742881E7C0004A2375 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F13983752881E7D0004A2375 /* AuthState.swift */,
+				F13983772881EC19004A2375 /* SDOUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F1E493C52866F4B7008611D7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E493D82866FB1A008611D7 /* VideoData.swift */,
+				F1EE14F7287210770020CD74 /* BusinessError.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -309,6 +333,7 @@
 		F1E493F02867A1D3008611D7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				F13983742881E7C0004A2375 /* Models */,
 				F1E493F12867A202008611D7 /* SDOAuthService.swift */,
 				F1E493F62867A248008611D7 /* FirebaseAuthService.swift */,
 				F1E494052868E004008611D7 /* GoogleSignInAuthenticator.swift */,
@@ -329,6 +354,7 @@
 		F1E493FD2867A57A008611D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F1EE14FA287211820020CD74 /* Utilities */,
 				F1E493FE2867A581008611D7 /* PropertyWrappers */,
 			);
 			path = Helpers;
@@ -371,6 +397,14 @@
 			children = (
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		F1EE14FA287211820020CD74 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F1EE14FB2872118A0020CD74 /* AppLogger.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F1F00FDD2800AF0E005DC240 = {
@@ -642,17 +676,22 @@
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493D92866FB1A008611D7 /* VideoData.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
+				F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */,
+				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
+				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
+				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
+				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
 				F1E4940F2868E6A1008611D7 /* Extensions.swift in Sources */,
 				F10497A92855426100E7EDB5 /* KitchenSinkView.swift in Sources */,
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
@@ -670,10 +709,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
+				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
+				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
