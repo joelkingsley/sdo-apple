@@ -11,54 +11,9 @@ struct HomeTabView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var homeTabViewModel = HomeTabViewModel()
     
-    var appCustomToolbar: some View {
-        HStack {
-            Image(
-                systemName: "globe.asia.australia.fill"
-            )
-            .foregroundColor(.accentColor)
-            .font(.system(size: 25))
-            
-            VStack {
-                HStack {
-                    Text(verbatim: "Sound Doctrine")
-                        .font(
-                            .custom(
-                                "Copperplate",
-                                fixedSize: 25
-                            )
-                            .weight(.heavy)
-                        )
-                        .foregroundColor(.accentColor)
-                    Spacer()
-                }
-                
-                HStack {
-                    Text(verbatim: "Online")
-                        .font(
-                            .custom(
-                                "Copperplate",
-                                fixedSize: 15
-                            )
-                            .weight(.heavy)
-                        )
-                        .foregroundColor(.accentColor)
-                    Spacer()
-                }
-                
-                Spacer()
-            }
-            
-            Spacer()
-        }
-        .padding(.vertical, 20)
-        .padding(.horizontal, 20)
-    }
-    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                appCustomToolbar
                 
                 TopVideoPreview(video: exampleVideo1)
                     .padding(.bottom, 30)
@@ -90,11 +45,15 @@ struct HomeTabView: View {
                 }
                 
                 Button("Sign Out") {
-                    
+                    authViewModel.signOut()
                 }
             }
         }
-        .navigationBarHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                appCustomToolbar
+            }
+        }
     }
 }
 

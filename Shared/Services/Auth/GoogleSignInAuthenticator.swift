@@ -28,16 +28,22 @@ final class GoogleSignInAuthenticator: ObservableObject {
             throw BusinessErrors.clientError()
         }
         return try await withCheckedThrowingContinuation { continuation in
-            GIDSignIn.sharedInstance.signIn(
-                with: configuration,
-                presenting: rootViewController
-            ) { user, error in
-                guard let user = user else {
-                    AppLogger.error(String(describing: error))
-                    continuation.resume(with: .failure(BusinessErrors.serverError()))
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    continuation.resume(with: .failure(BusinessErrors.clientError()))
                     return
                 }
-                continuation.resume(with: .success(user))
+                GIDSignIn.sharedInstance.signIn(
+                    with: self.configuration,
+                    presenting: rootViewController
+                ) { user, error in
+                    guard let user = user else {
+                        AppLogger.error(String(describing: error))
+                        continuation.resume(with: .failure(BusinessErrors.serverError()))
+                        return
+                    }
+                    continuation.resume(with: .success(user))
+                }
             }
         }
     #elseif os(macOS)
@@ -46,16 +52,22 @@ final class GoogleSignInAuthenticator: ObservableObject {
             throw BusinessErrors.clientError()
         }
         return try await withCheckedThrowingContinuation { continuation in
-            GIDSignIn.sharedInstance.signIn(
-                with: configuration,
-                presenting: presentingWindow
-            ) { user, error in
-                guard let user = user else {
-                    AppLogger.error(String(describing: error))
-                    continuation.resume(with: .failure(BusinessErrors.serverError()))
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    continuation.resume(with: .failure(BusinessErrors.clientError()))
                     return
                 }
-                continuation.resume(with: .success(user))
+                GIDSignIn.sharedInstance.signIn(
+                    with: self.configuration,
+                    presenting: presentingWindow
+                ) { user, error in
+                    guard let user = user else {
+                        AppLogger.error(String(describing: error))
+                        continuation.resume(with: .failure(BusinessErrors.serverError()))
+                        return
+                    }
+                    continuation.resume(with: .success(user))
+                }
             }
         }
     #endif

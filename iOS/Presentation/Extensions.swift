@@ -24,25 +24,29 @@ extension UIApplication {
     
 }
 
-var appToolbarContent: some View {
+/// Custom app toolbar
+var appCustomToolbar: some View {
     HStack {
         Image(
             systemName: "globe.asia.australia.fill"
         )
         .foregroundColor(.accentColor)
         .font(.system(size: 25))
-        
+
         VStack {
-            Text(verbatim: "Sound Doctrine")
-                .font(
-                    .custom(
-                        "Copperplate",
-                        fixedSize: 25
+            HStack {
+                Text(verbatim: "Sound Doctrine")
+                    .font(
+                        .custom(
+                            "Copperplate",
+                            fixedSize: 25
+                        )
+                        .weight(.heavy)
                     )
-                    .weight(.heavy)
-                )
-                .foregroundColor(.accentColor)
-            
+                    .foregroundColor(.accentColor)
+                Spacer()
+            }
+
             HStack {
                 Text(verbatim: "Online")
                     .font(
@@ -55,8 +59,11 @@ var appToolbarContent: some View {
                     .foregroundColor(.accentColor)
                 Spacer()
             }
+            
+            Spacer()
         }
     }
-    .padding(.top, 10)
-    .padding(.bottom, 20)
+    .padding(.top, 20)
+    .padding(.bottom, 30)
+    .padding(.leading, 20)
 }
