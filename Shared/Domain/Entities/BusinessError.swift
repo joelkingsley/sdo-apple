@@ -13,9 +13,6 @@ enum BusinessErrors: BusinessError {
     // Generic Errors
     struct serverError: BusinessError {}
     struct clientError: BusinessError {}
-    
-    // Google Sign In Errors
-    struct emptyWordList: BusinessError {}
 }
 
 extension BusinessErrors.serverError: LocalizedError {
@@ -27,11 +24,5 @@ extension BusinessErrors.serverError: LocalizedError {
 extension BusinessErrors.clientError: LocalizedError {
     var errorDescription: String? {
         return "Client error"
-    }
-}
-
-extension BusinessErrors.emptyWordList: LocalizedError {
-    var errorDescription: String? {
-        return "Empty word list in file"
     }
 }
