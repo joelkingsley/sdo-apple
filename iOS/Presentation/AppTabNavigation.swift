@@ -10,7 +10,7 @@ import SwiftUI
 struct AppTabNavigation: View {
     enum Tab {
         case Home
-        case Music
+        case Search
         case Subscriptions
         case Library
     }
@@ -37,11 +37,11 @@ struct AppTabNavigation: View {
             
             // Music Tab
             NavigationView {
-                MusicTabView()
+                SearchTabView()
             }.tabItem {
-                Label(LocalizedStringKey("tabMusicLabel"), systemImage: "music.note")
-                    .accessibilityLabel(LocalizedStringKey("tabMusicLabel"))
-            }.tag(Tab.Music)
+                Label(LocalizedStringKey("tabSearchLabel"), systemImage: "magnifyingglass")
+                    .accessibilityLabel(LocalizedStringKey("tabSearchLabel"))
+            }.tag(Tab.Search)
             
             // Subscriptions Tab
             NavigationView {
