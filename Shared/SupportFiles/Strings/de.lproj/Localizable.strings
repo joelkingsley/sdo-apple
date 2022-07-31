@@ -6,7 +6,25 @@
   
 */
 
-"tabHomeLabel" = "Startseite";
-"tabSearchLabel" = "Suche";
-"tabSubscriptionsLabel" = "Abonnements";
-"tabLibraryLabel" = "Profil";
+// Home
+"homeTabLabel" = "Startseite";
+"homeScreenTitle" = "Startseite";
+
+// Search
+"searchTabLabel" = "Suche";
+"searchScreenTitle" = "Suche";
+"searchBarPlaceholderLabel" = "Videos, Channels and More";
+"searchBrowseLabel" = "Browse";
+"searchSermonsButtonLabel" = "Sermons";
+"searchDocumentariesButtonLabel" = "Documentaries";
+"searchShortsButtonLabel" = "Shorts";
+"searchMusicButtonLabel" = "Music";
+"searchChannelsButtonLabel" = "Channels";
+
+// Subscriptions
+"subscriptionsTabLabel" = "Abonnements";
+"subscriptionsScreenTitle" = "Abonnements";
+
+// Library
+"libraryTabLabel" = "Profil";
+"libraryScreenTitle" = "Profil";

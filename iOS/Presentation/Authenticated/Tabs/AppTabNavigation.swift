@@ -26,8 +26,8 @@ struct AppTabNavigation: View {
                 HomeTabView()
             }
             .tabItem {
-                Label(LocalizedStringKey("tabHomeLabel"), systemImage: "house.fill")
-                    .accessibilityLabel(LocalizedStringKey("tabHomeLabel"))
+                Label("homeTabLabel", systemImage: "house.fill")
+                    .accessibilityLabel("homeTabLabel")
             }.tag(Tab.Home)
             .navigationBarTitle("")
             .navigationBarHidden(self.isNavigationBarHidden)
@@ -35,28 +35,34 @@ struct AppTabNavigation: View {
                 self.isNavigationBarHidden = true
             }
             
-            // Music Tab
+            // Search Tab
             NavigationView {
                 SearchTabView()
-            }.tabItem {
-                Label(LocalizedStringKey("tabSearchLabel"), systemImage: "magnifyingglass")
-                    .accessibilityLabel(LocalizedStringKey("tabSearchLabel"))
+            }
+            .tabItem {
+                Label("searchTabLabel", systemImage: "magnifyingglass")
+                    .accessibilityLabel("searchTabLabel")
             }.tag(Tab.Search)
+            .navigationBarTitle("")
+            .navigationBarHidden(self.isNavigationBarHidden)
+            .onAppear {
+                self.isNavigationBarHidden = true
+            }
             
             // Subscriptions Tab
             NavigationView {
                 SubscriptionsTabView()
             }.tabItem {
-                Label(LocalizedStringKey("tabSubscriptionsLabel"), systemImage: "rectangle.stack.badge.play.fill")
-                    .accessibilityLabel(LocalizedStringKey("tabSubscriptionsLabel"))
+                Label("subscriptionsTabLabel", systemImage: "rectangle.stack.badge.play.fill")
+                    .accessibilityLabel("subscriptionsTabLabel")
             }.tag(Tab.Subscriptions)
             
             // Library Tab
             NavigationView {
                 LibraryTabView()
             }.tabItem {
-                Label(LocalizedStringKey("tabLibraryLabel"), systemImage: "play.rectangle.on.rectangle.fill")
-                    .accessibilityLabel(LocalizedStringKey("tabLibraryLabel"))
+                Label("libraryTabLabel", systemImage: "play.rectangle.on.rectangle.fill")
+                    .accessibilityLabel("libraryTabLabel")
             }.tag(Tab.Library)
         }
     }

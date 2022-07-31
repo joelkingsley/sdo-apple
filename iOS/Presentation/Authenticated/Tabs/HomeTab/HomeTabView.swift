@@ -14,21 +14,12 @@ struct HomeTabView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                
-                TopVideoPreview(video: exampleVideo1)
-                    .padding(.bottom, 30)
-                
                 ForEach(homeTabViewModel.allCategories, id: \.self) { category in
                     VStack {
                         HStack {
                             Text(category)
-                                .font(
-                                    .custom(
-                                        "Copperplate",
-                                        size: 20)
-                                )
+                                .font(.title2)
                                 .bold()
-                                .foregroundColor(.accentColor)
                             Spacer()
                         }
                         .padding(.leading, 20)
@@ -36,12 +27,13 @@ struct HomeTabView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(homeTabViewModel.videos[category] ?? []) { video in
-                                    VideoThumbnail(video: exampleVideo1)
+                                    VideoThumbnail(video: exampleVideo1, style: .medium)
                                 }
                             }
                             .padding(.leading, 20)
                         }
                     }
+                    .padding(.top, 10)
                 }
                 
                 Button("Sign Out") {
@@ -49,11 +41,7 @@ struct HomeTabView: View {
                 }
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                appCustomToolbar
-            }
-        }
+        .navigationTitle("homeScreenTitle")
     }
 }
 

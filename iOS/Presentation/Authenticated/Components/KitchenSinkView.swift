@@ -29,7 +29,7 @@ struct KitchenSinkView: View {
                             exampleVideo2
                         ]
                         ForEach(videos) { video in
-                            VideoThumbnail(video: video)
+                            VideoThumbnail(video: video, style: .medium)
                                 .frame(width: 300, height: 200)
                                 .padding(.leading, 30)
                                 .padding(.trailing, 30)
