@@ -9,29 +9,48 @@ import SwiftUI
 
 struct TileButton: View {
     
-    var text: LocalizedStringKey
+    let text: LocalizedStringKey
+    
+    let imageName: String
     
     var action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            HStack {
-                Spacer()
-                Text(text)
-                    .font(.callout)
-                    .bold()
-                    .frame(height: 60, alignment: .center)
-                Spacer()
+            ZStack {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFill()
+                LinearGradient(
+                    colors: [
+                        Color.purple,
+                        Color.blue
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .trailing)
+                .opacity(0.5)
+                
+                HStack {
+                    VStack {
+                        Spacer()
+                        Text(text)
+                            .font(.callout)
+                            .bold()
+                            .padding()
+                    }
+                    Spacer()
+                }
+                .layoutPriority(1)
             }
+            .frame(height: 80)
         }
-        .foregroundColor(Color(uiColor: .systemBackground))
-        .background(Color(uiColor: .label))
+        .foregroundColor(Color(uiColor: .white))
         .cornerRadius(5)
     }
 }
 
 struct TileButton_Previews: PreviewProvider {
     static var previews: some View {
-        TileButton(text: "Channels") {}
+        TileButton(text: "Channels", imageName: "shorts") {}
     }
 }
