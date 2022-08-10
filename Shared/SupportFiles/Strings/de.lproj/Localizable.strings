@@ -13,13 +13,14 @@
 // Search
 "searchTabLabel" = "Suche";
 "searchScreenTitle" = "Suche";
-"searchBarPlaceholderLabel" = "Videos, Channels and More";
-"searchBrowseLabel" = "Browse";
-"searchSermonsButtonLabel" = "Sermons";
-"searchDocumentariesButtonLabel" = "Documentaries";
-"searchShortsButtonLabel" = "Shorts";
-"searchMusicButtonLabel" = "Music";
-"searchChannelsButtonLabel" = "Channels";
+"searchBarPlaceholderLabel" = "Videos, Kanäle und mehr";
+"searchBrowseLabel" = "Durchsuche";
+"searchSermonsButtonLabel" = "Predigten";
+"searchDocumentariesButtonLabel" = "Dokumentarfilme";
+"searchShortsButtonLabel" = "Kurze Videos";
+"searchMusicButtonLabel" = "Musik";
+"searchChannelsButtonLabel" = "Kanäle";
+"searchLanguagesLabel" = "Sprachen";
 
 // Subscriptions
 "subscriptionsTabLabel" = "Abonnements";
