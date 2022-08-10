@@ -12,6 +12,10 @@
 		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1157BA9286D6F8700309134 /* TopVideoPreview.swift */; };
+		F11B805928A3D3CF00F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
+		F11B805B28A4197900F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
+		F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */; };
+		F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
 		F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
@@ -19,8 +23,6 @@
 		F139837E28821964004A2375 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F139837D28821964004A2375 /* FirebaseDatabaseSwift */; };
 		F13983CE28906EDA004A2375 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = F13983CD28906ED9004A2375 /* schema.json */; };
 		F13983CF28906EDA004A2375 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = F13983CD28906ED9004A2375 /* schema.json */; };
-		F13983D3289071B1004A2375 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F13983D2289071B1004A2375 /* Queries.graphql */; };
-		F13983D4289071B1004A2375 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F13983D2289071B1004A2375 /* Queries.graphql */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -100,11 +102,12 @@
 		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F1157BA9286D6F8700309134 /* TopVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreview.swift; sourceTree = "<group>"; };
+		F11B805828A3D3CF00F3E5F5 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
 		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F13983CD28906ED9004A2375 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		F13983D2289071B1004A2375 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -303,7 +306,8 @@
 		F13983D12890718C004A2375 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				F13983D2289071B1004A2375 /* Queries.graphql */,
+				F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */,
+				F11B805828A3D3CF00F3E5F5 /* Queries.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -537,7 +541,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F010132800AF10005DC240 /* Build configuration list for PBXNativeTarget "SDO (iOS)" */;
 			buildPhases = (
-				F13983D02890710B004A2375 /* Generate Apollo GraphQL API */,
+				F13983D02890710B004A2375 /* Download GraphQL schema and generate Swift types */,
 				F1F00FE62800AF10005DC240 /* Sources */,
 				F1F00FE72800AF10005DC240 /* Frameworks */,
 				F1F00FE82800AF10005DC240 /* Resources */,
@@ -676,7 +680,7 @@
 			files = (
 				F13983CE28906EDA004A2375 /* schema.json in Resources */,
 				F1F0100F2800AF10005DC240 /* Assets.xcassets in Resources */,
-				F13983D3289071B1004A2375 /* Queries.graphql in Resources */,
+				F11B805928A3D3CF00F3E5F5 /* Queries.graphql in Resources */,
 				F106769A2813FEB100B8B843 /* Localizable.strings in Resources */,
 				F1E494092868E0FE008611D7 /* GoogleService-Info.plist in Resources */,
 			);
@@ -687,8 +691,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13983CF28906EDA004A2375 /* schema.json in Resources */,
+				F11B805B28A4197900F3E5F5 /* Queries.graphql in Resources */,
 				F1F010102800AF10005DC240 /* Assets.xcassets in Resources */,
-				F13983D4289071B1004A2375 /* Queries.graphql in Resources */,
 				F106769B2813FEB100B8B843 /* Localizable.strings in Resources */,
 				F1E4940A2868E0FF008611D7 /* GoogleService-Info.plist in Resources */,
 			);
@@ -711,8 +715,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F13983D02890710B004A2375 /* Generate Apollo GraphQL API */ = {
+		F13983D02890710B004A2375 /* Download GraphQL schema and generate Swift types */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -720,14 +725,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Generate Apollo GraphQL API";
+			name = "Download GraphQL schema and generate Swift types";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Shared/SupportFiles/schema.json\" GraphQLAPI.swift\n";
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\n# Download schema from Hasura\ncd \"${SRCROOT}/Shared/SupportFiles\"\necho \"Joel 1\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://sdo-hasura.hasura.app/v1/graphql\" --header=\"X-Hasura-Access-Key: Yr1mw58ZZaU2kva6JNTdcqOzUj233TxxkUJYMcTzgvb2YHtIzmDj81MWlmhCpn8v\"\n\n# Generate Swift types from GraphQL schema\ncd \"${SRCROOT}/Shared/Data/GraphQL\"\necho \"Joel 2\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"../../SupportFiles/schema.json\" GraphQLAPI.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -752,6 +757,7 @@
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
+				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
@@ -776,6 +782,7 @@
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
+				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,

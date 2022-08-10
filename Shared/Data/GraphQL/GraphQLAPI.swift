@@ -82,7 +82,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "query_root", "channels": channels.map { (value: Channel) -> ResultMap in value.resultMap }])
     }
 
-    /// fetch data from the table: "channels"
+    /// An array relationship
     public var channels: [Channel] {
       get {
         return (resultMap["channels"] as! [ResultMap]).map { (value: ResultMap) -> Channel in Channel(unsafeResultMap: value) }
@@ -98,7 +98,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("channel_id", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("channel_id", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_name", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_type_name", type: .nonNull(.scalar(channel_types_enum.self))),
         ]
@@ -110,7 +110,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(channelId: Int, channelName: String, channelTypeName: channel_types_enum) {
+      public init(channelId: String, channelName: String, channelTypeName: channel_types_enum) {
         self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type_name": channelTypeName])
       }
 
@@ -123,9 +123,9 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         }
       }
 
-      public var channelId: Int {
+      public var channelId: String {
         get {
-          return resultMap["channel_id"]! as! Int
+          return resultMap["channel_id"]! as! String
         }
         set {
           resultMap.updateValue(newValue, forKey: "channel_id")
