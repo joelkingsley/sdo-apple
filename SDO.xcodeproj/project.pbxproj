@@ -12,6 +12,7 @@
 		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1157BA9286D6F8700309134 /* TopVideoPreview.swift */; };
+		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
 		F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
@@ -98,6 +99,7 @@
 		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F1157BA9286D6F8700309134 /* TopVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreview.swift; sourceTree = "<group>"; };
+		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
 		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				F13983D52891D83F004A2375 /* SearchTabView.swift */,
+				F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
+				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
