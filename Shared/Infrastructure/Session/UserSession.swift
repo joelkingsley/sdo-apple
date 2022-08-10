@@ -6,19 +6,25 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+extension Key: CaseIterable {
+    static var allCases: [Key] {
+        return [.accessToken]
+    }
+
+    static let accessToken: Key = "accessToken"
+}
 
 enum UserSession {
-    static func setUserSession() {
-        
+    @UserDefault(key: .accessToken)
+    public static var accessToken: String?
+    
+    static func setUserSession(user: SDOUser) async throws {
+        accessToken = try await user.getIDToken()
     }
     
     static func clearSession() {
         Key.allCases.forEach { UserDefaults.standard.removeObject(forKey: $0.rawValue) }
-    }
-}
-
-extension Key: CaseIterable {
-    static var allCases: [Key] {
-        return []
     }
 }
