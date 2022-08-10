@@ -65,8 +65,8 @@ struct TopVideoPreview: View {
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        .white.opacity(0.0),
-                        .white.opacity(0.98)
+                        Color(uiColor: UIColor.systemBackground).opacity(0.0),
+                        Color(uiColor: UIColor.systemBackground).opacity(0.98)
                     ]),
                     startPoint: .top,
                     endPoint: .bottom

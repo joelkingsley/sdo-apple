@@ -1,32 +1,16 @@
 //
-//  Extensions.swift
-//  SDO
+//  AppCustomToolbar.swift
+//  SDO (iOS)
 //
-//  Created by Joel Kingsley on 27/06/2022.
+//  Created by Joel Kingsley on 31/07/2022.
 //
 
+import Foundation
 import SwiftUI
-
-extension UIApplication {
-    
-    var keyWindow: UIWindow? {
-        // Get connected scenes
-        return UIApplication.shared.connectedScenes
-            // Keep only active scenes, onscreen and visible to the user
-            .filter { $0.activationState == .foregroundActive }
-            // Keep only the first `UIWindowScene`
-            .first(where: { $0 is UIWindowScene })
-            // Get its associated windows
-            .flatMap({ $0 as? UIWindowScene })?.windows
-            // Finally, keep only the key window
-            .first(where: \.isKeyWindow)
-    }
-    
-}
 
 /// Custom app toolbar
 var appCustomToolbar: some View {
-    HStack {
+    HStack(alignment: .top) {
         Image(
             systemName: "globe.asia.australia.fill"
         )
@@ -59,11 +43,7 @@ var appCustomToolbar: some View {
                     .foregroundColor(.accentColor)
                 Spacer()
             }
-            
-            Spacer()
         }
     }
-    .padding(.top, 20)
-    .padding(.bottom, 30)
-    .padding(.leading, 20)
+    .padding(.bottom, 5)
 }

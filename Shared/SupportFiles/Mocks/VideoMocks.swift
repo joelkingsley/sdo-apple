@@ -12,7 +12,7 @@ let exampleVideo1 = VideoData(
     name: "Once Saved Always Saved",
     channel: "Faithful Word Baptist",
     thumbnailURL: URL(
-        string: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Steven_L_Anderson_preaching_at_his_church_in_April_2017.jpg"
+        string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
     )!,
     publishedDate: Date(),
     categories: []
@@ -23,7 +23,7 @@ let exampleVideo2 = VideoData(
     name: "Once Saved Always Saved",
     channel: "Faithful Word Baptist",
     thumbnailURL: URL(
-        string: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Steven_L_Anderson_preaching_at_his_church_in_April_2017.jpg"
+        string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
     )!,
     publishedDate: Date(),
     categories: []

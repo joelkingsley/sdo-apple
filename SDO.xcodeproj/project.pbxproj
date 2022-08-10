@@ -22,7 +22,10 @@
 		F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
 		F139837E28821964004A2375 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F139837D28821964004A2375 /* FirebaseDatabaseSwift */; };
 		F13983CE28906EDA004A2375 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = F13983CD28906ED9004A2375 /* schema.json */; };
-		F13983CF28906EDA004A2375 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = F13983CD28906ED9004A2375 /* schema.json */; };
+		F13983D62891D841004A2375 /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D52891D83F004A2375 /* SearchTabView.swift */; };
+		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
+		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
+		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -51,7 +54,6 @@
 		F1E4940A2868E0FF008611D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1E494082868E0FE008611D7 /* GoogleService-Info.plist */; };
 		F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4940B2868E148008611D7 /* AuthenticationViewModel.swift */; };
 		F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4940B2868E148008611D7 /* AuthenticationViewModel.swift */; };
-		F1E4940F2868E6A1008611D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4940E2868E6A1008611D7 /* Extensions.swift */; };
 		F1E494132869910B008611D7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E494122869910B008611D7 /* SignInView.swift */; };
 		F1E494142869910B008611D7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E494122869910B008611D7 /* SignInView.swift */; };
 		F1E4941528699316008611D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE42800AF0E005DC240 /* ContentView.swift */; };
@@ -73,7 +75,6 @@
 		F1F010102800AF10005DC240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F00FE52800AF10005DC240 /* Assets.xcassets */; };
 		F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102028019353005DC240 /* AppTabNavigation.swift */; };
 		F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010232801A9E1005DC240 /* HomeTabView.swift */; };
-		F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010272801D71A005DC240 /* MusicTabView.swift */; };
 		F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */; };
 		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,10 @@
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
 		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F13983CD28906ED9004A2375 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		F13983D52891D83F004A2375 /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
+		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
+		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
+		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -121,7 +126,6 @@
 		F1E494052868E004008611D7 /* GoogleSignInAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInAuthenticator.swift; sourceTree = "<group>"; };
 		F1E494082868E0FE008611D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F1E4940B2868E148008611D7 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		F1E4940E2868E6A1008611D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F1E494122869910B008611D7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F1E4941728699800008611D7 /* NotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotAvailableView.swift; sourceTree = "<group>"; };
 		F1EE14F7287210770020CD74 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
@@ -140,7 +144,6 @@
 		F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		F1F0102028019353005DC240 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		F1F010232801A9E1005DC240 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		F1F010272801D71A005DC240 /* MusicTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTabView.swift; sourceTree = "<group>"; };
 		F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsTabView.swift; sourceTree = "<group>"; };
 		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,11 +192,9 @@
 		F10497AA2855427300E7EDB5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F1F0102028019353005DC240 /* AppTabNavigation.swift */,
-				F1E4940E2868E6A1008611D7 /* Extensions.swift */,
-				F1F010222801A9CE005DC240 /* Tabs */,
-				F1E493DD286757A1008611D7 /* Screens */,
-				F10497AC285542CA00E7EDB5 /* Components */,
+				F13983DE2896CFD2004A2375 /* Authenticated */,
+				F13983DD2896CFB5004A2375 /* Unauthenticated */,
+				F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -214,6 +215,7 @@
 				F1E493C52866F4B7008611D7 /* Buttons */,
 				F10497A82855426100E7EDB5 /* KitchenSinkView.swift */,
 				F10497B12859AB2A00E7EDB5 /* QueryTag.swift */,
+				F13983E02896D072004A2375 /* AppCustomToolbar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -221,19 +223,19 @@
 		F10497AD2859A7E900E7EDB5 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				F13983DF2896D005004A2375 /* VideoDetail */,
 				F1F010232801A9E1005DC240 /* HomeTabView.swift */,
 				F1E493DE2867593F008611D7 /* HomeTabViewModel.swift */,
-				F1157BA9286D6F8700309134 /* TopVideoPreview.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
 		};
-		F10497AE2859A7EF00E7EDB5 /* MusicTab */ = {
+		F10497AE2859A7EF00E7EDB5 /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
-				F1F010272801D71A005DC240 /* MusicTabView.swift */,
+				F13983D52891D83F004A2375 /* SearchTabView.swift */,
 			);
-			path = MusicTab;
+			path = SearchTab;
 			sourceTree = "<group>";
 		};
 		F10497AF2859A7FB00E7EDB5 /* SubscriptionsTab */ = {
@@ -312,11 +314,45 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
+		F13983D92895B188004A2375 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F1E4941628699750008611D7 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F13983DD2896CFB5004A2375 /* Unauthenticated */ = {
+			isa = PBXGroup;
+			children = (
+				F1E493DD286757A1008611D7 /* Screens */,
+			);
+			path = Unauthenticated;
+			sourceTree = "<group>";
+		};
+		F13983DE2896CFD2004A2375 /* Authenticated */ = {
+			isa = PBXGroup;
+			children = (
+				F10497AC285542CA00E7EDB5 /* Components */,
+				F1F010222801A9CE005DC240 /* Tabs */,
+			);
+			path = Authenticated;
+			sourceTree = "<group>";
+		};
+		F13983DF2896D005004A2375 /* VideoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F1157BA9286D6F8700309134 /* TopVideoPreview.swift */,
+			);
+			path = VideoDetail;
+			sourceTree = "<group>";
+		};
 		F1E493C52866F4B7008611D7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				F1E493CC2866F541008611D7 /* TogglableButton.swift */,
 				F1E493CE2866F5CB008611D7 /* ActionButton.swift */,
+				F13983D72895A782004A2375 /* TileButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -465,7 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				F10497AB285542B000E7EDB5 /* Application */,
-				F1E4941628699750008611D7 /* Views */,
+				F13983D92895B188004A2375 /* Presentation */,
 				F1E493FD2867A57A008611D7 /* Helpers */,
 				F1E493F92867A312008611D7 /* Infrastructure */,
 				F1E493EF2867A1C4008611D7 /* Services */,
@@ -526,8 +562,9 @@
 		F1F010222801A9CE005DC240 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				F1F0102028019353005DC240 /* AppTabNavigation.swift */,
 				F10497AD2859A7E900E7EDB5 /* HomeTab */,
-				F10497AE2859A7EF00E7EDB5 /* MusicTab */,
+				F10497AE2859A7EF00E7EDB5 /* SearchTab */,
 				F10497AF2859A7FB00E7EDB5 /* SubscriptionsTab */,
 				F10497B02859A80500E7EDB5 /* LibraryTab */,
 			);
@@ -743,12 +780,13 @@
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493D92866FB1A008611D7 /* VideoData.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
+				F13983D82895A783004A2375 /* TileButton.swift in Sources */,
 				F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
+				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
-				F1F010282801D71A005DC240 /* MusicTabView.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
@@ -760,13 +798,14 @@
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
-				F1E4940F2868E6A1008611D7 /* Extensions.swift in Sources */,
 				F10497A92855426100E7EDB5 /* KitchenSinkView.swift in Sources */,
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E4941528699316008611D7 /* ContentView.swift in Sources */,
 				F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
+				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
+				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
