@@ -20,6 +20,7 @@
 		F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */; };
 		F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
 		F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
+		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
 		F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
@@ -111,6 +112,7 @@
 		F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraGraphQLService.swift; sourceTree = "<group>"; };
 		F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOGraphQLService.swift; sourceTree = "<group>"; };
+		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
 		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				F13983D52891D83F004A2375 /* SearchTabView.swift */,
+				F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
+				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,

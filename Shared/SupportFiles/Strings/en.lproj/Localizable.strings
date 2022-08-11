@@ -20,6 +20,7 @@
 "searchShortsButtonLabel" = "Shorts";
 "searchMusicButtonLabel" = "Music";
 "searchChannelsButtonLabel" = "Channels";
+"searchLanguagesLabel" = "Languages";
 
 // Subscriptions
 "subscriptionsTabLabel" = "Subscriptions";
