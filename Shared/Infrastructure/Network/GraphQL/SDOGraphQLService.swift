@@ -27,3 +27,35 @@ protocol SDOGraphQLService {
         queue: DispatchQueue
     ) async throws -> Mutation.Data
 }
+
+// MARK: - Syntax Sugar
+
+extension SDOGraphQLService {
+    /// Executes a GraphQL query and returns a data response or throws an error
+    func executeQuery<Query: GraphQLQuery>(
+        query: Query,
+        cachePolicy: CachePolicy = .fetchIgnoringCacheCompletely,
+        contextIdentifier: UUID? = nil,
+        queue: DispatchQueue = .global()
+    ) async throws -> Query.Data {
+        return try await executeQuery(
+            query: query,
+            cachePolicy: cachePolicy,
+            contextIdentifier: contextIdentifier,
+            queue: queue
+        )
+    }
+    
+    /// Executes a GraphQL mutation and returns a data response or throws an error
+    func executeMutation<Mutation: GraphQLMutation>(
+        mutation: Mutation,
+        publishResultToStore: Bool = true,
+        queue: DispatchQueue = .global()
+    ) async throws -> Mutation.Data {
+        return try await executeMutation(
+            mutation: mutation,
+            publishResultToStore: publishResultToStore,
+            queue: queue
+        )
+    }
+}

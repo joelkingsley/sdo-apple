@@ -53,7 +53,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         __typename
         channel_id
         channel_name
-        channel_type_name
+        channel_type
       }
     }
     """
@@ -82,7 +82,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "query_root", "channels": channels.map { (value: Channel) -> ResultMap in value.resultMap }])
     }
 
-    /// An array relationship
+    /// fetch data from the table: "channels"
     public var channels: [Channel] {
       get {
         return (resultMap["channels"] as! [ResultMap]).map { (value: ResultMap) -> Channel in Channel(unsafeResultMap: value) }
@@ -100,7 +100,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_id", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("channel_type_name", type: .nonNull(.scalar(channel_types_enum.self))),
+          GraphQLField("channel_type", type: .nonNull(.scalar(channel_types_enum.self))),
         ]
       }
 
@@ -110,8 +110,8 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(channelId: String, channelName: String, channelTypeName: channel_types_enum) {
-        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type_name": channelTypeName])
+      public init(channelId: String, channelName: String, channelType: channel_types_enum) {
+        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType])
       }
 
       public var __typename: String {
@@ -141,12 +141,12 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         }
       }
 
-      public var channelTypeName: channel_types_enum {
+      public var channelType: channel_types_enum {
         get {
-          return resultMap["channel_type_name"]! as! channel_types_enum
+          return resultMap["channel_type"]! as! channel_types_enum
         }
         set {
-          resultMap.updateValue(newValue, forKey: "channel_type_name")
+          resultMap.updateValue(newValue, forKey: "channel_type")
         }
       }
     }

@@ -2,6 +2,6 @@ query GetAllChannels {
   channels {
     channel_id
     channel_name
-    channel_type_name
+    channel_type
   }
 }
