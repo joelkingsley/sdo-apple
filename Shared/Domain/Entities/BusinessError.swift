@@ -13,6 +13,8 @@ enum BusinessErrors: BusinessError {
     // Generic Errors
     struct serverError: BusinessError {}
     struct clientError: BusinessError {}
+    struct noContent: BusinessError {}
+    struct parsingError: BusinessError {}
 }
 
 extension BusinessErrors.serverError: LocalizedError {
@@ -24,5 +26,17 @@ extension BusinessErrors.serverError: LocalizedError {
 extension BusinessErrors.clientError: LocalizedError {
     var errorDescription: String? {
         return "Client error"
+    }
+}
+
+extension BusinessErrors.noContent: LocalizedError {
+    var errorDescription: String? {
+        return "No Content"
+    }
+}
+
+extension BusinessErrors.parsingError: LocalizedError {
+    var errorDescription: String? {
+        return "Parsing Error"
     }
 }

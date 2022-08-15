@@ -12,16 +12,33 @@
 		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1157BA9286D6F8700309134 /* TopVideoPreview.swift */; };
+		F11B805928A3D3CF00F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
+		F11B805B28A4197900F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
+		F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */; };
+		F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */; };
+		F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */; };
+		F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */; };
+		F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
+		F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
 		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
 		F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
 		F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983792881FAED004A2375 /* AppDelegate.swift */; };
 		F139837E28821964004A2375 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F139837D28821964004A2375 /* FirebaseDatabaseSwift */; };
+		F13983CE28906EDA004A2375 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = F13983CD28906ED9004A2375 /* schema.json */; };
 		F13983D62891D841004A2375 /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D52891D83F004A2375 /* SearchTabView.swift */; };
 		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
 		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
 		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
+		F1BC021C28AA108C008C9361 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021B28AA108C008C9361 /* ChannelData.swift */; };
+		F1BC021D28AA108C008C9361 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021B28AA108C008C9361 /* ChannelData.swift */; };
+		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
+		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
+		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
+		F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
+		F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022628AA16FC008C9361 /* ChannelRepository.swift */; };
+		F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022628AA16FC008C9361 /* ChannelRepository.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -99,14 +116,23 @@
 		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F1157BA9286D6F8700309134 /* TopVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreview.swift; sourceTree = "<group>"; };
+		F11B805828A3D3CF00F3E5F5 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
+		F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraGraphQLService.swift; sourceTree = "<group>"; };
+		F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOGraphQLService.swift; sourceTree = "<group>"; };
 		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
 		F13983792881FAED004A2375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F13983CD28906ED9004A2375 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		F13983D52891D83F004A2375 /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
 		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
+		F1BC021B28AA108C008C9361 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
+		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
+		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
+		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -252,6 +278,7 @@
 		F10676952813FD3400B8B843 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F13983CD28906ED9004A2375 /* schema.json */,
 				F1E494082868E0FE008611D7 /* GoogleService-Info.plist */,
 				F1E493DA28675710008611D7 /* Mocks */,
 				F10676962813FD3F00B8B843 /* Strings */,
@@ -286,6 +313,8 @@
 		F139837F288219F6004A2375 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F1BC021E28AA10E9008C9361 /* DataMapping */,
+				F13983D12890718C004A2375 /* GraphQL */,
 				F139838028821A46004A2375 /* Repositories */,
 			);
 			path = Data;
@@ -294,8 +323,18 @@
 		F139838028821A46004A2375 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F13983D12890718C004A2375 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */,
+				F11B805828A3D3CF00F3E5F5 /* Queries.graphql */,
+			);
+			path = GraphQL;
 			sourceTree = "<group>";
 		};
 		F13983D92895B188004A2375 /* Presentation */ = {
@@ -331,6 +370,22 @@
 			path = VideoDetail;
 			sourceTree = "<group>";
 		};
+		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		F1BC022528AA16F0008C9361 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				F1BC022628AA16FC008C9361 /* ChannelRepository.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		F1E493C52866F4B7008611D7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +407,7 @@
 		F1E493D62866FAEC008611D7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F1BC022528AA16F0008C9361 /* Interfaces */,
 				F1E493D72866FAF1008611D7 /* Entities */,
 			);
 			path = Domain;
@@ -361,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E493D82866FB1A008611D7 /* VideoData.swift */,
+				F1BC021B28AA108C008C9361 /* ChannelData.swift */,
 				F1EE14F7287210770020CD74 /* BusinessError.swift */,
 			);
 			path = Entities;
@@ -455,6 +512,8 @@
 		F1EE14F6286F68090020CD74 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */,
+				F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -562,6 +621,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F010132800AF10005DC240 /* Build configuration list for PBXNativeTarget "SDO (iOS)" */;
 			buildPhases = (
+				F13983D02890710B004A2375 /* Download GraphQL schema and generate Swift types */,
 				F1F00FE62800AF10005DC240 /* Sources */,
 				F1F00FE72800AF10005DC240 /* Frameworks */,
 				F1F00FE82800AF10005DC240 /* Resources */,
@@ -698,7 +758,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13983CE28906EDA004A2375 /* schema.json in Resources */,
 				F1F0100F2800AF10005DC240 /* Assets.xcassets in Resources */,
+				F11B805928A3D3CF00F3E5F5 /* Queries.graphql in Resources */,
 				F106769A2813FEB100B8B843 /* Localizable.strings in Resources */,
 				F1E494092868E0FE008611D7 /* GoogleService-Info.plist in Resources */,
 			);
@@ -708,6 +770,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11B805B28A4197900F3E5F5 /* Queries.graphql in Resources */,
 				F1F010102800AF10005DC240 /* Assets.xcassets in Resources */,
 				F106769B2813FEB100B8B843 /* Localizable.strings in Resources */,
 				F1E4940A2868E0FF008611D7 /* GoogleService-Info.plist in Resources */,
@@ -730,6 +793,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F13983D02890710B004A2375 /* Download GraphQL schema and generate Swift types */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Download GraphQL schema and generate Swift types";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\nuser_input_plist_url=\"SDO.xcodeproj/xcuserdata/$USER.xcuserdatad/UserEnvironmentVariables.plist\"\nuser_input_hasura_access_key=$(/usr/libexec/PlistBuddy -c 'print:HASURA_ACCESS_KEY' ${user_input_plist_url})\nif [ -n \"$user_input_hasura_access_key\" ]; then\n    # Download schema from Hasura\n    cd \"${SRCROOT}/Shared/SupportFiles\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://sdo-hasura.hasura.app/v1/graphql\" --header=\"X-Hasura-Access-Key: $user_input_hasura_access_key\"\n\n    # Generate Swift types from GraphQL schema\n    cd \"${SRCROOT}/Shared/Data/GraphQL\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"../../SupportFiles/schema.json\" GraphQLAPI.swift\nelse\n    echo \"Skipping downloading GraphQL schema and generating Swift types\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1F00FE62800AF10005DC240 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -740,22 +825,28 @@
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
 				F13983D82895A783004A2375 /* TileButton.swift in Sources */,
 				F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */,
+				F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
+				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
+				F1BC021C28AA108C008C9361 /* ChannelData.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
+				F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
+				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
+				F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F10497A92855426100E7EDB5 /* KitchenSinkView.swift in Sources */,
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
@@ -766,6 +857,7 @@
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
+				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,13 +870,20 @@
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
+				F1BC021D28AA108C008C9361 /* ChannelData.swift in Sources */,
+				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
+				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
+				F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
+				F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1E493F42867A215008611D7 /* VideoData.swift in Sources */,
+				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1E494142869910B008611D7 /* SignInView.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,

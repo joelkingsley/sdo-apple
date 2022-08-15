@@ -29,6 +29,9 @@ final class AuthenticationViewModel: ObservableObject {
             await MainActor.run(body: { [weak self] in
                 self?.state = state
             })
+            if case let .signedIn(user) = state {
+                try? await UserSession.setUserSession(user: user)
+            }
         }
     }
 
@@ -39,6 +42,9 @@ final class AuthenticationViewModel: ObservableObject {
             await MainActor.run(body: { [weak self] in
                 self?.state = state
             })
+            if case let .signedIn(user) = state {
+                try? await UserSession.setUserSession(user: user)
+            }
         }
     }
 
