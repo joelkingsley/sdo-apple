@@ -30,7 +30,7 @@ struct TogglableButton: View {
                     .foregroundColor(.accentColor)
                 Text(text)
                     .foregroundColor(.accentColor)
-                    .font(.system(size: 14))
+                    .font(.sdoCallout)
                     .bold()
             }
         }

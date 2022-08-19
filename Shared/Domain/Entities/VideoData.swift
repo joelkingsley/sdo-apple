@@ -13,6 +13,7 @@ struct VideoData: Identifiable {
     var channel: String
     var thumbnailURL: URL
     var publishedDate: Date
+    var views: Int
     
     var categories: [String]
 }

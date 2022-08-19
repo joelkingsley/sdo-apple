@@ -20,11 +20,11 @@ struct ActionButton: View {
                 Spacer()
                 
                 Image(systemName: imageName)
-                    .font(.headline)
+                    .font(.sdoHeadline)
                 
                 Text(text)
                     .bold()
-                    .font(.system(size: 16))
+                    .font(.sdoCallout)
                 
                 Spacer()
             }

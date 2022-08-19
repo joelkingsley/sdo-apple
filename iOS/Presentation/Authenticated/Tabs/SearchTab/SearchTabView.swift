@@ -16,7 +16,7 @@ struct SearchTabView: View {
             VStack {
                 HStack {
                     Text("searchBrowseLabel")
-                        .font(.title2)
+                        .font(.sdoTitle2)
                         .bold()
                     Spacer()
                 }
@@ -54,7 +54,7 @@ struct SearchTabView: View {
                 
                 HStack {
                     Text("searchLanguagesLabel")
-                        .font(.title2)
+                        .font(.sdoTitle2)
                         .bold()
                     Spacer()
                 }
@@ -70,7 +70,9 @@ struct SearchTabView: View {
                                 HStack {
                                     Text(language.0)
                                         .padding(.horizontal, 5)
+                                        .font(.sdoBody)
                                     Text(language.1)
+                                        .font(.sdoBody)
                                     Spacer()
                                 }
                                 Divider()
@@ -86,7 +88,7 @@ struct SearchTabView: View {
                 text: $searchText,
                 placement: .navigationBarDrawer(displayMode: .always),
                 prompt: "searchBarPlaceholderLabel")
-            .navigationTitle("searchScreenTitle")
+            .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
         }
     }
 }

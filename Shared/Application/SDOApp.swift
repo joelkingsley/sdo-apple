@@ -13,6 +13,18 @@ struct SDOApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var authViewModel = AuthenticationViewModel()
     
+    init() {
+        for family in UIFont.familyNames {
+             AppLogger.debug(family)
+
+             for names in UIFont.fontNames(forFamilyName: family){
+                 AppLogger.debug("== \(names)")
+             }
+        }
+        
+        SDOTheme.initializeTheme()
+    }
+    
     var body: some Scene {
         WindowGroup {
           ContentView()

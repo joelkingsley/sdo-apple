@@ -34,7 +34,7 @@ struct TileButton: View {
                     VStack {
                         Spacer()
                         Text(text)
-                            .font(.callout)
+                            .font(.sdoCallout)
                             .bold()
                             .padding()
                     }

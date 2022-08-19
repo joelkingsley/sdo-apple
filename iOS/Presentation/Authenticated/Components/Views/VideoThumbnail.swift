@@ -19,6 +19,8 @@ struct VideoThumbnail: View {
     
     let style: VideoThumbnailStyle
     
+    @Binding var thumbnailWidth: CGFloat
+    
     private var imageWidth: CGFloat {
         switch style {
         case .large:
@@ -26,7 +28,7 @@ struct VideoThumbnail: View {
         case .medium:
             return 250
         case .small:
-            return 150
+            return 200
         }
     }
     
@@ -37,36 +39,25 @@ struct VideoThumbnail: View {
         case .medium:
             return 150
         case .small:
-            return 100
+            return 120
         }
     }
     
     var body: some View {
-        VStack {
+        GeometryReader { geometry in
             KFImage(video.thumbnailURL)
                 .resizable()
                 .scaledToFill()
                 .frame(
                     width: imageWidth,
-                    height: imageHeight
+                    height: geometry.size.height
                 )
                 .cornerRadius(15)
-            Group {
-                HStack {
-                    Text(video.name)
-                        .font(.callout)
-                        .foregroundColor(Color(uiColor:UIColor.label))
-                    Spacer()
+                .onAppear {
+                    thumbnailWidth = imageWidth
                 }
-                HStack {
-                    Text("\(video.channel)")
-                        .font(.footnote)
-                        .foregroundColor(Color(uiColor:UIColor.secondaryLabel))
-                    Spacer()
-                }
-            }
-            .frame(width: imageWidth, height: 15, alignment: .leading)
         }
+        .frame(height: imageHeight)
     }
 }
 
@@ -74,7 +65,8 @@ struct VideoThumbnail_Previews: PreviewProvider {
     static var previews: some View {
         VideoThumbnail(
             video: exampleVideo1,
-            style: .large
+            style: .large,
+            thumbnailWidth: Binding.constant(200)
         )
     }
 }

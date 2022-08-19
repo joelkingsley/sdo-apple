@@ -31,7 +31,7 @@ struct TopVideoPreview: View {
                 HStack {
                     ForEach(video.categories, id: \.self) { category in
                         Text(category)
-                            .font(.footnote)
+                            .font(.sdoFootnote)
                         if !isCategoryLast(category) {
                             Image(systemName: "circle.fill")
                                 .foregroundColor(.blue)

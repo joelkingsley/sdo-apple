@@ -12,36 +12,17 @@ struct HomeTabView: View {
     @ObservedObject var homeTabViewModel = HomeTabViewModel()
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack {
-                ForEach(homeTabViewModel.allCategories, id: \.self) { category in
-                    VStack {
-                        HStack {
-                            Text(category)
-                                .font(.title2)
-                                .bold()
-                            Spacer()
-                        }
-                        .padding(.leading, 20)
-
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(homeTabViewModel.videos[category] ?? []) { video in
-                                    VideoThumbnail(video: exampleVideo1, style: .medium)
-                                }
-                            }
-                            .padding(.leading, 20)
-                        }
-                    }
-                    .padding(.top, 10)
-                }
-                
-                Button("Sign Out") {
-                    authViewModel.signOut()
+        VStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack {
+                    ContinueWatchingRow(videos: [exampleVideo1, exampleVideo2])
+                    YourListRow(videos: [exampleVideo1, exampleVideo2])
+                    NewReleasesRow(videos: [exampleVideo1, exampleVideo2])
                 }
             }
         }
-        .navigationTitle("homeScreenTitle")
+        .edgesIgnoringSafeArea(.horizontal)
+        .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
     }
 }
 
