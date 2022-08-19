@@ -15,6 +15,7 @@ struct KitchenSinkView: View {
             center: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868),
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
+    @State var thumbnailWidth: CGFloat = 0
     
     var body: some View {
         VStack {
@@ -29,7 +30,7 @@ struct KitchenSinkView: View {
                             exampleVideo2
                         ]
                         ForEach(videos) { video in
-                            VideoThumbnail(video: video, style: .medium)
+                            VideoThumbnail(video: video, style: .medium, thumbnailWidth: $thumbnailWidth)
                                 .frame(width: 300, height: 200)
                                 .padding(.leading, 30)
                                 .padding(.trailing, 30)

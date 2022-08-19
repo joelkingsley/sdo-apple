@@ -6,9 +6,16 @@
   
 */
 
+// App Strings
+"appNamePart1" = "Sound Doctrine";
+"appNamePart2" = "Online";
+
 // Home
 "homeTabLabel" = "Home";
 "homeScreenTitle" = "Home";
+"homeContinueWatchingLabel" = "Continue Watching";
+"homeNewReleasesLabel" = "New Releases";
+"homeYourListLabel" = "Your List";
 
 // Search
 "searchTabLabel" = "Search";
@@ -29,3 +36,25 @@
 // Library
 "libraryTabLabel" = "Library";
 "libraryScreenTitle" = "Library";
+
+// Videos
+"videoDetailScheduledLabel" = "Scheduled";
+"videoDetailViewsLabel" = "views";
+"videoDetailViewLabel" = "view";
+"videoDetailPublishedDateLabel %@" = "%@ ago";
+
+// Date Units
+"seconds" = "seconds";
+"second" = "second";
+"minutes" = "minutes";
+"minute" = "minute";
+"hours" = "hours";
+"hour" = "hour";
+"days" = "days";
+"day" = "day";
+"weeks" = "weeks";
+"week" = "week";
+"months" = "months";
+"month" = "month";
+"years" = "years";
+"year" = "year";

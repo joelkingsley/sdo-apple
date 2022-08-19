@@ -54,4 +54,12 @@ final class AuthenticationViewModel: ObservableObject {
             self.state = .signedOut
         }
     }
+    
+    /// Returns the profile image url string of the logged-in user
+    func getUserProfileImage() -> URL? {
+        guard case let .signedIn(user) = state else {
+            return nil
+        }
+        return user.photoURL
+    }
 }

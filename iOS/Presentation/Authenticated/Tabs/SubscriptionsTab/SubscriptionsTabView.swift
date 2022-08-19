@@ -10,6 +10,7 @@ import SwiftUI
 struct SubscriptionsTabView: View {
     var body: some View {
         Text("Subscriptions Tab")
+            .navigationBarTitle(Text("subscriptionsScreenTitle", comment: "Label: Navigation bar title of Subscriptions Screen"))
     }
 }
 

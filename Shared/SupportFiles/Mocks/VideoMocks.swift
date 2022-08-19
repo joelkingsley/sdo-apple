@@ -15,6 +15,7 @@ let exampleVideo1 = VideoData(
         string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
     )!,
     publishedDate: Date(),
+    views: 2000,
     categories: []
 )
 
@@ -26,5 +27,6 @@ let exampleVideo2 = VideoData(
         string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
     )!,
     publishedDate: Date(),
+    views: 1000213,
     categories: []
 )

@@ -6,9 +6,16 @@
   
 */
 
+// App Strings
+"appNamePart1" = "Gesunde Lehre";
+"appNamePart2" = "Online";
+
 // Home
 "homeTabLabel" = "Startseite";
 "homeScreenTitle" = "Startseite";
+"homeContinueWatchingLabel" = "Weiter beobachten";
+"homeNewReleasesLabel" = "Neue Veröffentlichungen";
+"homeYourListLabel" = "Ihre Liste";
 
 // Search
 "searchTabLabel" = "Suche";
@@ -29,3 +36,25 @@
 // Library
 "libraryTabLabel" = "Profil";
 "libraryScreenTitle" = "Profil";
+
+// Videos
+"videoDetailScheduledLabel" = "Geplant";
+"videoDetailViewsLabel" = "Aufrufe";
+"videoDetailViewLabel" = "Aufruf";
+"videoDetailPublishedDateLabel %@" = "Vor %@";
+
+// Date Units
+"seconds" = "Sekunden";
+"second" = "Sekunde";
+"minutes" = "Minuten";
+"minute" = "Minute";
+"hours" = "Stunden";
+"hour" = "Stunde";
+"days" = "Tage";
+"day" = "Tag";
+"weeks" = "Wochen";
+"week" = "Woche";
+"months" = "Monaten";
+"month" = "Monat";
+"years" = "Jahre";
+"year" = "Jahr";

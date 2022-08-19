@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct LibraryTabView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
     var body: some View {
-        Text("Library Tab")
+        Button("Sign Out") {
+            authViewModel.signOut()
+        }
+        .navigationBarTitle(Text("libraryScreenTitle", comment: "Label: Navigation bar title of Library Screen"))
     }
 }
 
