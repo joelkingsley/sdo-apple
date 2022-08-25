@@ -10,7 +10,7 @@ import SwiftUI
 struct VideoThumbnailsRowViewModel {
     func getThumbnailDescription(ofVideo video: VideoData) -> String {
         var description = ""
-        description.append(video.channel)
+        description.append(video.channel.channelName)
         description.append(" ")
         description.append("·")
         description.append(" ")
@@ -25,7 +25,7 @@ struct VideoThumbnailsRowViewModel {
         description.append("·")
         description.append(" ")
         
-        let timeInterval = Date().timeIntervalSince(video.publishedDate)
+        let timeInterval = Date().timeIntervalSince(video.datePublished)
         if !timeInterval.isLess(than: 0)
         {
             description.append(

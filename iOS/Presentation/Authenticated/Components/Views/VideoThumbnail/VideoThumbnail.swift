@@ -15,7 +15,7 @@ enum VideoThumbnailStyle {
 }
 
 struct VideoThumbnail: View {
-    let video: VideoData
+    let video: ThumbnailableVideo
     
     let style: VideoThumbnailStyle
     

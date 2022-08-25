@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeTabView: View {
-    @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var homeTabViewModel = HomeTabViewModel()
+    @ObservedObject var homeTabViewModel: HomeTabViewModel
+    
+    init(authViewModel: AuthenticationViewModel) {
+        self.homeTabViewModel = HomeTabViewModel(authViewModel: authViewModel)
+    }
     
     var body: some View {
         VStack {
@@ -23,11 +26,16 @@ struct HomeTabView: View {
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
+        .onAppear {
+            Task {
+                await homeTabViewModel.onLoaded()
+            }
+        }
     }
 }
 
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView()
+        HomeTabView(authViewModel: AuthenticationViewModel())
     }
 }

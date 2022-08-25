@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
+@MainActor
 final class AuthenticationViewModel: ObservableObject {
     /// The user's log in status.
     /// - note: This will publish updates when its value changes.
@@ -24,11 +25,9 @@ final class AuthenticationViewModel: ObservableObject {
     }
     
     func restorePreviousSignIn() {
-        Task {
+        Task { [weak self] in
             let state = await authService.restorePreviousSignIn()
-            await MainActor.run(body: { [weak self] in
-                self?.state = state
-            })
+            self?.state = state
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
             }
@@ -37,11 +36,9 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Google
     func signInWithGoogle() {
-        Task {
+        Task { [weak self] in
             let state = await authService.signInWithGoogle()
-            await MainActor.run(body: { [weak self] in
-                self?.state = state
-            })
+            self?.state = state
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
             }
@@ -61,5 +58,13 @@ final class AuthenticationViewModel: ObservableObject {
             return nil
         }
         return user.photoURL
+    }
+    
+    /// Returns the user object if in `signedIn` state
+    func getUser() -> SDOUser? {
+        guard case let .signedIn(user) = state else {
+            return nil
+        }
+        return user
     }
 }

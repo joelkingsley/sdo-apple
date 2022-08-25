@@ -43,7 +43,7 @@ extension HasuraGraphQLService: SDOGraphQLService {
         query: Query,
         cachePolicy: CachePolicy = .fetchIgnoringCacheCompletely,
         contextIdentifier: UUID? = nil,
-        queue: DispatchQueue = .global()
+        queue: DispatchQueue = .main
     ) async throws -> Query.Data {
         return try await withCheckedThrowingContinuation({ continuation in
             apolloClient?.fetch(
@@ -56,23 +56,15 @@ extension HasuraGraphQLService: SDOGraphQLService {
                 case let .success(graphQLResult):
                     if let errors = graphQLResult.errors {
                         AppLogger.error(String(describing: errors))
-                        DispatchQueue.main.async {
-                            continuation.resume(throwing: BusinessErrors.serverError())
-                        }
+                        continuation.resume(throwing: BusinessErrors.serverError())
                     } else if let data = graphQLResult.data {
-                        DispatchQueue.main.async {
-                            continuation.resume(returning: data)
-                        }
+                        continuation.resume(returning: data)
                     } else {
-                        DispatchQueue.main.async {
-                            continuation.resume(throwing: BusinessErrors.noContent())
-                        }
+                        continuation.resume(throwing: BusinessErrors.noContent())
                     }
                 case let .failure(error):
                     AppLogger.error(String(describing: error))
-                    DispatchQueue.main.async {
-                        continuation.resume(throwing: BusinessErrors.serverError())
-                    }
+                    continuation.resume(throwing: BusinessErrors.serverError())
                 }
             }
         })
@@ -81,7 +73,7 @@ extension HasuraGraphQLService: SDOGraphQLService {
     func executeMutation<Mutation: GraphQLMutation>(
         mutation: Mutation,
         publishResultToStore: Bool = true,
-        queue: DispatchQueue = .global()
+        queue: DispatchQueue = .main
     ) async throws -> Mutation.Data {
         return try await withCheckedThrowingContinuation({ continuation in
             apolloClient?.perform(
@@ -93,23 +85,15 @@ extension HasuraGraphQLService: SDOGraphQLService {
                 case let .success(graphQLResult):
                     if let errors = graphQLResult.errors {
                         AppLogger.error(String(describing: errors))
-                        DispatchQueue.main.async {
-                            continuation.resume(throwing: BusinessErrors.serverError())
-                        }
+                        continuation.resume(throwing: BusinessErrors.serverError())
                     } else if let data = graphQLResult.data {
-                        DispatchQueue.main.async {
-                            continuation.resume(returning: data)
-                        }
+                        continuation.resume(returning: data)
                     } else {
-                        DispatchQueue.main.async {
-                            continuation.resume(throwing: BusinessErrors.noContent())
-                        }
+                        continuation.resume(throwing: BusinessErrors.noContent())
                     }
                 case let .failure(error):
                     AppLogger.error(String(describing: error))
-                    DispatchQueue.main.async {
-                        continuation.resume(throwing: BusinessErrors.serverError())
-                    }
+                    continuation.resume(throwing: BusinessErrors.serverError())
                 }
             }
         })
@@ -144,7 +128,7 @@ class AuthGraphQLInterceptor: ApolloInterceptor {
         let accessToken = UserSession.accessToken ?? ""
         request.addHeader(name: "Authorization", value: "Bearer \(accessToken)")
         AppLogger.debug("Request : \(request)")
-        AppLogger.debug("Response : \(String(describing: response?.httpResponse))")
+        AppLogger.debug("Response : \(String(describing: response?.parsedResponse))")
         chain.proceedAsync(request: request, response: response, completion: completion)
     }
 }

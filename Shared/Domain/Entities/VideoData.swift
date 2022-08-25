@@ -7,13 +7,29 @@
 
 import Foundation
 
-struct VideoData: Identifiable {
-    var id: Int
-    var name: String
-    var channel: String
-    var thumbnailURL: URL
-    var publishedDate: Date
-    var views: Int
+struct VideoData: Identifiable, ThumbnailableVideo {
+    var id: UUID {
+        return UUID(uuidString: videoId) ?? UUID()
+    }
     
-    var categories: [String]
+    let videoId: String
+    let videoTitle: String
+    let videoDescription: String
+    let videoType: VideoTypeData
+    let channel: ChannelData
+    let speaker: SpeakerData
+    let language: LanguageData
+    let thumbnailURL: URL
+    let datePublished: Date
+    let views: Int
+    let gcpStorageFileName: String
+    let gcpStorageBucketName: String
+    var categories: [String] = []
+}
+
+enum VideoTypeData {
+    case sermon
+    case documentary
+    case short
+    case music
 }

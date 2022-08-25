@@ -37,7 +37,7 @@ struct YourListRow: View {
                                 VideoThumbnail(video: video, style: .small, thumbnailWidth: $thumbnailWidth)
                                 Group {
                                     HStack {
-                                        Text(video.name)
+                                        Text(video.videoTitle)
                                             .font(.sdoCallout)
                                             .foregroundColor(Color(uiColor:UIColor.label))
                                         Spacer()

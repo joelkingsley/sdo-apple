@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ChannelRepository {
-    func getAllChannels() async -> Result<[ChannelData], BusinessError>
+    func getAllChannels() async -> Result<[GetAllChannelsQuery.Data.Channel], BusinessError>
 }

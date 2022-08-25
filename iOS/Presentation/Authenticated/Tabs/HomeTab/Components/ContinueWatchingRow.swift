@@ -37,7 +37,7 @@ struct ContinueWatchingRow: View {
                                 VideoThumbnail(video: video, style: .large, thumbnailWidth: $thumbnailWidth)
                                 Group {
                                     HStack {
-                                        Text(video.name)
+                                        Text(video.videoTitle)
                                             .font(.sdoCallout)
                                             .foregroundColor(Color(uiColor:UIColor.label))
                                         Spacer()
