@@ -7,6 +7,10 @@
 
 import Foundation
 
+/**
+ Repository that performs operations related to Channels
+ */
 protocol ChannelRepository {
-    func getAllChannels() async -> Result<[ChannelData], BusinessError>
+    /// Gets list of all the channels
+    func getAllChannels() async -> Result<[GetAllChannelsQuery.Data.Channel], BusinessError>
 }

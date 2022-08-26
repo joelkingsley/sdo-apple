@@ -8,7 +8,15 @@
 import SwiftUI
 
 enum SDOTheme {
-    static func initializeTheme() {}
+    static func initializeTheme() {
+//        for family in UIFont.familyNames {
+//             AppLogger.debug(family)
+//
+//             for names in UIFont.fontNames(forFamilyName: family){
+//                 AppLogger.debug("== \(names)")
+//             }
+//        }
+    }
 }
 
 extension Font {

@@ -7,26 +7,20 @@
 
 import Foundation
 
-let exampleVideo1 = VideoData(
-    id: 1,
-    name: "Once Saved Always Saved",
-    channel: "Faithful Word Baptist",
-    thumbnailURL: URL(
-        string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
-    )!,
-    publishedDate: Date(),
-    views: 2000,
-    categories: []
+let exampleVideo1 = HomeScreenData.HomeVideo(
+    videoId: "dummy1",
+    title: "Being Baptist",
+    channelName: "Verity Baptist Church",
+    thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
+    datePublished: Date(timeIntervalSinceNow: -60000),
+    views: 2_001
 )
 
-let exampleVideo2 = VideoData(
-    id: 2,
-    name: "Once Saved Always Saved",
-    channel: "Faithful Word Baptist",
-    thumbnailURL: URL(
-        string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
-    )!,
-    publishedDate: Date(),
-    views: 1000213,
-    categories: []
+let exampleVideo2 = HomeScreenData.HomeVideo(
+    videoId: "dummy2",
+    title: "Being Baptist",
+    channelName: "Verity Baptist Church",
+    thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
+    datePublished: Date(timeIntervalSinceNow: -60000),
+    views: 10_012_321
 )

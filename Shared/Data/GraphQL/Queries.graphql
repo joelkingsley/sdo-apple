@@ -5,3 +5,38 @@ query GetAllChannels {
     channel_type
   }
 }
+
+query GetHomeScreenData($uuid: String!) {
+  continueWatching:continue_watching(where: {user_uuid: {_eq: $uuid}}) {
+    resume_time
+    video {
+      video_id
+      channel {
+        channel_name
+      }
+      date_published
+      title
+      views
+    }
+  }
+  userList:user_list(where: {user_uuid: {_eq: $uuid}}) {
+    video {
+      video_id
+      channel {
+        channel_name
+      }
+      date_published
+      title
+      views
+    }
+  }
+  newReleases:videos(order_by: {date_published: desc}) {
+    video_id
+    channel {
+      channel_name
+    }
+    date_published
+    title
+    views
+  }
+}

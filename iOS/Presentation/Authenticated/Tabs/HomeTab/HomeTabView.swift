@@ -8,16 +8,31 @@
 import SwiftUI
 
 struct HomeTabView: View {
-    @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var homeTabViewModel = HomeTabViewModel()
+    @ObservedObject var homeTabViewModel: HomeTabViewModel
+    
+    init(authViewModel: AuthenticationViewModel) {
+        self.homeTabViewModel = HomeTabViewModel(authViewModel: authViewModel)
+        self.homeTabViewModel.onLoaded()
+    }
     
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack {
-                    ContinueWatchingRow(videos: [exampleVideo1, exampleVideo2])
-                    YourListRow(videos: [exampleVideo1, exampleVideo2])
-                    NewReleasesRow(videos: [exampleVideo1, exampleVideo2])
+                    if let homeScreenData = homeTabViewModel.homeScreenData {
+                        if !homeScreenData.continueWatchingVideos.isEmpty {
+                            ContinueWatchingRow(videos: homeScreenData.continueWatchingVideos)
+                        }
+                        if !homeScreenData.userListVideos.isEmpty {
+                            YourListRow(videos: homeScreenData.userListVideos)
+                        }
+                        if !homeScreenData.newReleasesVideos.isEmpty {
+                            NewReleasesRow(videos: homeScreenData.newReleasesVideos)
+                        }
+                    } else {
+                        // TODO: Display error view here
+                        Text("Error View")
+                    }
                 }
             }
         }
@@ -28,6 +43,6 @@ struct HomeTabView: View {
 
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView()
+        HomeTabView(authViewModel: AuthenticationViewModel())
     }
 }
