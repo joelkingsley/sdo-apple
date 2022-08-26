@@ -13,10 +13,11 @@ struct VideoData: Identifiable, ThumbnailableVideo {
     }
     
     let videoId: String
-    let videoTitle: String
+    let title: String
     let videoDescription: String
     let videoType: VideoTypeData
     let channel: ChannelData
+    let channelName: String
     let speaker: SpeakerData
     let language: LanguageData
     let thumbnailURL: URL

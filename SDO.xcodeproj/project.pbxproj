@@ -59,8 +59,10 @@
 		F1D6521428B7DEAB0084907A /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521228B7DEAB0084907A /* LanguageData.swift */; };
 		F1D6521628B7DEE50084907A /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521528B7DEE50084907A /* SpeakerData.swift */; };
 		F1D6521728B7DEE50084907A /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521528B7DEE50084907A /* SpeakerData.swift */; };
-		F1D6521A28B7E3F40084907A /* ThumnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumnailableVideo.swift */; };
-		F1D6521B28B7E3F40084907A /* ThumnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumnailableVideo.swift */; };
+		F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */; };
+		F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */; };
+		F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521C28B812C50084907A /* HomeScreenData.swift */; };
+		F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521C28B812C50084907A /* HomeScreenData.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -167,7 +169,8 @@
 		F1D6520F28B7DE980084907A /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
 		F1D6521228B7DEAB0084907A /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
 		F1D6521528B7DEE50084907A /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
-		F1D6521928B7E3F40084907A /* ThumnailableVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumnailableVideo.swift; sourceTree = "<group>"; };
+		F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailableVideo.swift; sourceTree = "<group>"; };
+		F1D6521C28B812C50084907A /* HomeScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenData.swift; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -450,7 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E493D12866FA01008611D7 /* VideoThumbnail.swift */,
-				F1D6521928B7E3F40084907A /* ThumnailableVideo.swift */,
+				F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */,
 			);
 			path = VideoThumbnail;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				F1D6520F28B7DE980084907A /* VideoData.swift */,
 				F1D6521228B7DEAB0084907A /* LanguageData.swift */,
 				F1D6521528B7DEE50084907A /* SpeakerData.swift */,
+				F1D6521C28B812C50084907A /* HomeScreenData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -934,6 +938,7 @@
 				F1D6521628B7DEE50084907A /* SpeakerData.swift in Sources */,
 				F1E4941528699316008611D7 /* ContentView.swift in Sources */,
 				F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
+				F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
@@ -941,7 +946,7 @@
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
-				F1D6521A28B7E3F40084907A /* ThumnailableVideo.swift in Sources */,
+				F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -955,6 +960,7 @@
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1D6520E28B7DE8E0084907A /* ChannelData.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
+				F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F1CA156D28AE097A005EDF85 /* SDOTheme.swift in Sources */,
 				F1EA5AA228B607B700102469 /* HasuraVideoRepository.swift in Sources */,
 				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
@@ -965,7 +971,7 @@
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
-				F1D6521B28B7E3F40084907A /* ThumnailableVideo.swift in Sources */,
+				F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1D6521128B7DE980084907A /* VideoData.swift in Sources */,

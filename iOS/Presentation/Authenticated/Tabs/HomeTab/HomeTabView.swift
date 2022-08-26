@@ -12,25 +12,32 @@ struct HomeTabView: View {
     
     init(authViewModel: AuthenticationViewModel) {
         self.homeTabViewModel = HomeTabViewModel(authViewModel: authViewModel)
+        self.homeTabViewModel.onLoaded()
     }
     
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack {
-                    ContinueWatchingRow(videos: [exampleVideo1, exampleVideo2])
-                    YourListRow(videos: [exampleVideo1, exampleVideo2])
-                    NewReleasesRow(videos: [exampleVideo1, exampleVideo2])
+                    if let homeScreenData = homeTabViewModel.homeScreenData {
+                        if !homeScreenData.continueWatchingVideos.isEmpty {
+                            ContinueWatchingRow(videos: homeScreenData.continueWatchingVideos)
+                        }
+                        if !homeScreenData.userListVideos.isEmpty {
+                            YourListRow(videos: homeScreenData.userListVideos)
+                        }
+                        if !homeScreenData.newReleasesVideos.isEmpty {
+                            NewReleasesRow(videos: homeScreenData.newReleasesVideos)
+                        }
+                    } else {
+                        // TODO: Display error view here
+                        Text("Error View")
+                    }
                 }
             }
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
-        .onAppear {
-            Task {
-                await homeTabViewModel.onLoaded()
-            }
-        }
     }
 }
 

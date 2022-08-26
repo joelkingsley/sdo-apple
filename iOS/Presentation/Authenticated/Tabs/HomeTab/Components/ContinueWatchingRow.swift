@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContinueWatchingRow: View {
-    let videos: [VideoData]
+    let videos: [HomeScreenData.HomeVideo]
     let videoThumbnailsRowViewModel = VideoThumbnailsRowViewModel()
     
     @State var thumbnailWidth: CGFloat = 0
@@ -37,7 +37,7 @@ struct ContinueWatchingRow: View {
                                 VideoThumbnail(video: video, style: .large, thumbnailWidth: $thumbnailWidth)
                                 Group {
                                     HStack {
-                                        Text(video.videoTitle)
+                                        Text(video.title)
                                             .font(.sdoCallout)
                                             .foregroundColor(Color(uiColor:UIColor.label))
                                         Spacer()
@@ -68,6 +68,8 @@ struct ContinueWatchingRow: View {
 
 struct ContinueWatchingRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContinueWatchingRow(videos: [exampleVideo1, exampleVideo2])
+        ContinueWatchingRow(videos: [
+            exampleVideo1, exampleVideo2
+        ])
     }
 }

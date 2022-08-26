@@ -8,8 +8,13 @@
 import SwiftUI
 import Kingfisher
 
+protocol TopPreviewableVideo {
+    var thumbnailURL: URL { get }
+    var categories: [String] { get }
+}
+
 struct TopVideoPreview: View {
-    var video: VideoData
+    var video: TopPreviewableVideo
     
     func isCategoryLast(_ category: String) -> Bool {
         if let index = video.categories.firstIndex(of: category),
@@ -79,6 +84,7 @@ struct TopVideoPreview: View {
 
 struct TopVideoPreview_Previews: PreviewProvider {
     static var previews: some View {
-        TopVideoPreview(video: exampleVideo1)
+//        TopVideoPreview(video: exampleVideo1)
+        EmptyView()
     }
 }

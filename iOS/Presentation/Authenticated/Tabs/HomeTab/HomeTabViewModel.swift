@@ -14,26 +14,19 @@ class HomeTabViewModel: ObservableObject {
     private let channelRepository: ChannelRepository = HasuraChannelRepository(graphQLService: HasuraGraphQLService())
     private let authViewModel: AuthenticationViewModel
     
-    @Published var homeScreenData: GetDataForHomeScreenQuery.Data?
+    @Published var homeScreenData: HomeScreenData?
     
     init(authViewModel: AuthenticationViewModel) {
         self.authViewModel = authViewModel
+    }
+    
+    func onLoaded() {
         Task {
-            await getAllChannels()
+            await getDataForHomeScreen()
         }
     }
     
-    func getAllChannels() async {
-        let result = await channelRepository.getAllChannels()
-        switch result {
-        case let .success(data):
-            AppLogger.debug(data)
-        case let .failure(error):
-            AppLogger.error(error.localizedDescription)
-        }
-    }
-    
-    func onLoaded() async {
+    private func getDataForHomeScreen() async {
         guard let user = authViewModel.getUser() else {
             return
         }

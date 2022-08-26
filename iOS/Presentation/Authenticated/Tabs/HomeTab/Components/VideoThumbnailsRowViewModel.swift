@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct VideoThumbnailsRowViewModel {
-    func getThumbnailDescription(ofVideo video: VideoData) -> String {
+    func getThumbnailDescription(ofVideo video: ThumbnailableVideo) -> String {
         var description = ""
-        description.append(video.channel.channelName)
+        description.append(video.channelName)
         description.append(" ")
         description.append("·")
         description.append(" ")

@@ -9,9 +9,8 @@ import Foundation
 
 protocol ThumbnailableVideo {
     var id: UUID { get }
-    var videoTitle: String { get }
-    var videoDescription: String { get }
-    var channel: ChannelData { get }
+    var title: String { get }
+    var channelName: String { get }
     var thumbnailURL: URL { get }
     var datePublished: Date { get }
     var views: Int { get }

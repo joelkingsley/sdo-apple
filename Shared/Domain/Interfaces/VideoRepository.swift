@@ -8,5 +8,5 @@
 import Foundation
 
 protocol VideoRepository {
-    func getDataForHomeScreen(userUuid: String) async -> Result<GetDataForHomeScreenQuery.Data, BusinessError>
+    func getDataForHomeScreen(userUuid: String) async -> Result<HomeScreenData, BusinessError>
 }

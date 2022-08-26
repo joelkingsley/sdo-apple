@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewReleasesRow: View {
-    let videos: [VideoData]
+    let videos: [HomeScreenData.HomeVideo]
     let videoThumbnailsRowViewModel = VideoThumbnailsRowViewModel()
     
     @State var thumbnailWidth: CGFloat = 0
@@ -37,7 +37,7 @@ struct NewReleasesRow: View {
                                 VideoThumbnail(video: video, style: .small, thumbnailWidth: $thumbnailWidth)
                                 Group {
                                     HStack {
-                                        Text(video.videoTitle)
+                                        Text(video.title)
                                             .font(.sdoCallout)
                                             .foregroundColor(Color(uiColor:UIColor.label))
                                         Spacer()
@@ -68,6 +68,8 @@ struct NewReleasesRow: View {
 
 struct NewReleasesRow_Previews: PreviewProvider {
     static var previews: some View {
-        NewReleasesRow(videos: [exampleVideo1, exampleVideo2])
+        NewReleasesRow(videos: [
+            exampleVideo1, exampleVideo2
+        ])
     }
 }

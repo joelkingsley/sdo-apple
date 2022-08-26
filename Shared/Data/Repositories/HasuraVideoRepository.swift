@@ -14,9 +14,9 @@ class HasuraVideoRepository: VideoRepository {
         self.graphQLService = graphQLService
     }
     
-    func getDataForHomeScreen(userUuid: String) async -> Result<GetDataForHomeScreenQuery.Data, BusinessError> {
+    func getDataForHomeScreen(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
         do {
-            let data = try await graphQLService.executeQuery(query: GetDataForHomeScreenQuery(uuid: userUuid))
+            let data = try await graphQLService.executeQuery(query: GetDataForHomeScreenQuery(uuid: userUuid)).toEntity()
             return .success(data)
         } catch {
             AppLogger.error("Error in getDataForHomeScreen: \(error)")
