@@ -39,6 +39,7 @@ struct ContinueWatchingRow: View {
                                     HStack {
                                         Text(video.title)
                                             .font(.sdoCallout)
+                                            .lineLimit(1)
                                             .foregroundColor(Color(uiColor:UIColor.label))
                                         Spacer()
                                     }

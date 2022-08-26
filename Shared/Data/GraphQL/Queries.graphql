@@ -6,7 +6,7 @@ query GetAllChannels {
   }
 }
 
-query GetDataForHomeScreen($uuid: String!) {
+query GetHomeScreenData($uuid: String!) {
   continueWatching:continue_watching(where: {user_uuid: {_eq: $uuid}}) {
     resume_time
     video {

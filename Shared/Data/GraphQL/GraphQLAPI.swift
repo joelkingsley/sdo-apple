@@ -153,11 +153,11 @@ public final class GetAllChannelsQuery: GraphQLQuery {
   }
 }
 
-public final class GetDataForHomeScreenQuery: GraphQLQuery {
+public final class GetHomeScreenDataQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetDataForHomeScreen($uuid: String!) {
+    query GetHomeScreenData($uuid: String!) {
       continueWatching: continue_watching(where: {user_uuid: {_eq: $uuid}}) {
         __typename
         resume_time
@@ -201,7 +201,7 @@ public final class GetDataForHomeScreenQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "GetDataForHomeScreen"
+  public let operationName: String = "GetHomeScreenData"
 
   public var uuid: String
 

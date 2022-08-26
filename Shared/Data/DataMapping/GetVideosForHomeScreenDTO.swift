@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension GetDataForHomeScreenQuery.Data {
+extension GetHomeScreenDataQuery.Data {
     func toEntity() throws -> HomeScreenData {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
