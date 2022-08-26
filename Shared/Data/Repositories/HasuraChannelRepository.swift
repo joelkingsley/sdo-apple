@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Repository that performs operations related to Channels
+ */
 class HasuraChannelRepository: ChannelRepository {
     let graphQLService: SDOGraphQLService
     
@@ -14,6 +17,7 @@ class HasuraChannelRepository: ChannelRepository {
         self.graphQLService = graphQLService
     }
     
+    /// Gets list of all the channels
     func getAllChannels() async -> Result<[GetAllChannelsQuery.Data.Channel], BusinessError> {
         do {
             let data = try await graphQLService.executeQuery(query: GetAllChannelsQuery())
