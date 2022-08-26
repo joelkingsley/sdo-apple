@@ -20,8 +20,8 @@ enum UserSession {
     @UserDefault(key: .accessToken)
     public static var accessToken: String?
     
-    static func setUserSession(user: SDOUser) async throws {
-        accessToken = try await user.getIDToken()
+    static func setUserSession(user: SDOUser, forcingRefresh: Bool = false) async throws {
+        accessToken = try await user.idTokenForcingRefresh(forcingRefresh)
     }
     
     static func clearSession() {
