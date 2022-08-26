@@ -29,7 +29,7 @@ final class AuthenticationViewModel: ObservableObject {
             let state = await authService.restorePreviousSignIn()
             self?.state = state
             if case let .signedIn(user) = state {
-                try? await UserSession.setUserSession(user: user)
+                try? await UserSession.setUserSession(user: user, forcingRefresh: true)
             }
         }
     }
