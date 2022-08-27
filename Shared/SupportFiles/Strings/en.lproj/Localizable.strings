@@ -42,6 +42,17 @@
 "videoDetailViewsLabel" = "views";
 "videoDetailViewLabel" = "view";
 "videoDetailPublishedDateLabel %@" = "%@ ago";
+"videoDetailVideoTypeSermon" = "Sermon";
+"videoDetailVideoTypeDocumentary" = "Documentary";
+"videoDetailVideoTypeShort" = "Short";
+"videoDetailVideoTypeMusic" = "Music";
+"videoDetailPlayButtonLabel" = "Play";
+"videoDetailMoreTextLabel" = "more";
+"videoDetailRelatedLabel" = "Related Videos";
+"videoDetailSubscribeToLabel %@" = "Subscribe to %@";
+"videoDetailTrySubscriptionLabel %@" = "Try %@";
+"videoDetailCostPerMonthText %@" = "%@/month";
+"videoDetailSubscriptionTrialCostLabel %@ %@" = "%@ free, then %@";
 
 // Date Units
 "seconds" = "seconds";

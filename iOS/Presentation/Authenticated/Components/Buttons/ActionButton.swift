@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ActionButton: View {
-    var imageName: String
+    var imageName: String?
     
-    var text: String
+    var customFont: Font?
+    
+    var text: LocalizedStringKey
     
     var action: () -> Void
     
@@ -19,20 +21,24 @@ struct ActionButton: View {
             HStack {
                 Spacer()
                 
-                Image(systemName: imageName)
-                    .font(.sdoHeadline)
+                if let imageName = imageName {
+                    Image(systemName: imageName)
+                        .font(.sdoHeadline)
+                }
                 
                 Text(text)
+                    .font(customFont)
                     .bold()
-                    .font(.sdoCallout)
+                    .allowsTightening(true)
                 
                 Spacer()
             }
+            .frame(height: 40)
         }
         .padding(.vertical, 6)
-        .foregroundColor(Color.white)
-        .background(Color.accentColor)
-        .cornerRadius(3.0)
+        .foregroundColor(Color(uiColor: .systemBackground))
+        .background(Color(uiColor: .label))
+        .cornerRadius(10)
     }
 
 }
