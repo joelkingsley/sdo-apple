@@ -42,6 +42,13 @@
 "videoDetailViewsLabel" = "Aufrufe";
 "videoDetailViewLabel" = "Aufruf";
 "videoDetailPublishedDateLabel %@" = "Vor %@";
+"videoDetailVideoTypeSermon" = "Predigt";
+"videoDetailVideoTypeDocumentary" = "Dokumentarfilm";
+"videoDetailVideoTypeShort" = "Kurze Video";
+"videoDetailVideoTypeMusic" = "Musik";
+"videoDetailPlayButtonLabel" = "Wiedergeben";
+"videoDetailMoreTextLabel" = "mehr";
+"videoDetailRelatedLabel" = "Verwandte Videos";
 
 // Date Units
 "seconds" = "Sekunden";

@@ -27,10 +27,10 @@ final class AuthenticationViewModel: ObservableObject {
     func restorePreviousSignIn() {
         Task { [weak self] in
             let state = await authService.restorePreviousSignIn()
-            self?.state = state
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user, forcingRefresh: true)
             }
+            self?.state = state
         }
     }
 
@@ -38,10 +38,10 @@ final class AuthenticationViewModel: ObservableObject {
     func signInWithGoogle() {
         Task { [weak self] in
             let state = await authService.signInWithGoogle()
-            self?.state = state
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
             }
+            self?.state = state
         }
     }
 

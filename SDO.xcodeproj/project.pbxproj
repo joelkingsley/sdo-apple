@@ -51,18 +51,20 @@
 		F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA158B28AF62EB005EDF85 /* Extensions+TimeInterval.swift */; };
 		F1D6520A28B7D3D40084907A /* GetVideosForHomeScreenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520928B7D3D40084907A /* GetVideosForHomeScreenDTO.swift */; };
 		F1D6520B28B7D3D40084907A /* GetVideosForHomeScreenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520928B7D3D40084907A /* GetVideosForHomeScreenDTO.swift */; };
-		F1D6520D28B7DE8E0084907A /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520C28B7DE8E0084907A /* ChannelData.swift */; };
-		F1D6520E28B7DE8E0084907A /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520C28B7DE8E0084907A /* ChannelData.swift */; };
-		F1D6521028B7DE980084907A /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520F28B7DE980084907A /* VideoData.swift */; };
-		F1D6521128B7DE980084907A /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6520F28B7DE980084907A /* VideoData.swift */; };
-		F1D6521328B7DEAB0084907A /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521228B7DEAB0084907A /* LanguageData.swift */; };
-		F1D6521428B7DEAB0084907A /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521228B7DEAB0084907A /* LanguageData.swift */; };
-		F1D6521628B7DEE50084907A /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521528B7DEE50084907A /* SpeakerData.swift */; };
-		F1D6521728B7DEE50084907A /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521528B7DEE50084907A /* SpeakerData.swift */; };
 		F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */; };
 		F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */; };
 		F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521C28B812C50084907A /* HomeScreenData.swift */; };
 		F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6521C28B812C50084907A /* HomeScreenData.swift */; };
+		F1D6522128B950A60084907A /* VideoDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522028B950A60084907A /* VideoDetailData.swift */; };
+		F1D6522228B950A60084907A /* VideoDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522028B950A60084907A /* VideoDetailData.swift */; };
+		F1D6522428B9645F0084907A /* VideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522328B9645F0084907A /* VideoDetailView.swift */; };
+		F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522328B9645F0084907A /* VideoDetailView.swift */; };
+		F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522628B9A9150084907A /* SubscriptionData.swift */; };
+		F1D6522828B9A9150084907A /* SubscriptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522628B9A9150084907A /* SubscriptionData.swift */; };
+		F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */; };
+		F1D6522D28BA34190084907A /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522C28BA34190084907A /* UIImageColors.swift */; };
+		F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522C28BA34190084907A /* UIImageColors.swift */; };
+		F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6523128BA40F80084907A /* RelatedRow.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -165,12 +167,14 @@
 		F1CA158528AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailsRowViewModel.swift; sourceTree = "<group>"; };
 		F1CA158B28AF62EB005EDF85 /* Extensions+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+TimeInterval.swift"; sourceTree = "<group>"; };
 		F1D6520928B7D3D40084907A /* GetVideosForHomeScreenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosForHomeScreenDTO.swift; sourceTree = "<group>"; };
-		F1D6520C28B7DE8E0084907A /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
-		F1D6520F28B7DE980084907A /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
-		F1D6521228B7DEAB0084907A /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
-		F1D6521528B7DEE50084907A /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
 		F1D6521928B7E3F40084907A /* ThumbnailableVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailableVideo.swift; sourceTree = "<group>"; };
 		F1D6521C28B812C50084907A /* HomeScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenData.swift; sourceTree = "<group>"; };
+		F1D6522028B950A60084907A /* VideoDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailData.swift; sourceTree = "<group>"; };
+		F1D6522328B9645F0084907A /* VideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailView.swift; sourceTree = "<group>"; };
+		F1D6522628B9A9150084907A /* SubscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionData.swift; sourceTree = "<group>"; };
+		F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewViewModel.swift; sourceTree = "<group>"; };
+		F1D6522C28BA34190084907A /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
+		F1D6523128BA40F80084907A /* RelatedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedRow.swift; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -407,7 +411,8 @@
 		F13983DF2896D005004A2375 /* VideoDetail */ = {
 			isa = PBXGroup;
 			children = (
-				F1157BA9286D6F8700309134 /* TopVideoPreview.swift */,
+				F1D6521F28B947190084907A /* Components */,
+				F1D6522328B9645F0084907A /* VideoDetailView.swift */,
 			);
 			path = VideoDetail;
 			sourceTree = "<group>";
@@ -458,6 +463,32 @@
 			path = VideoThumbnail;
 			sourceTree = "<group>";
 		};
+		F1D6521F28B947190084907A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1D6522F28BA40CC0084907A /* TopVideoPreview */,
+				F1D6523028BA40DB0084907A /* RelatedRow */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F1D6522F28BA40CC0084907A /* TopVideoPreview */ = {
+			isa = PBXGroup;
+			children = (
+				F1157BA9286D6F8700309134 /* TopVideoPreview.swift */,
+				F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */,
+			);
+			path = TopVideoPreview;
+			sourceTree = "<group>";
+		};
+		F1D6523028BA40DB0084907A /* RelatedRow */ = {
+			isa = PBXGroup;
+			children = (
+				F1D6523128BA40F80084907A /* RelatedRow.swift */,
+			);
+			path = RelatedRow;
+			sourceTree = "<group>";
+		};
 		F1E493C52866F4B7008611D7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,11 +520,9 @@
 			isa = PBXGroup;
 			children = (
 				F1EE14F7287210770020CD74 /* BusinessError.swift */,
-				F1D6520C28B7DE8E0084907A /* ChannelData.swift */,
-				F1D6520F28B7DE980084907A /* VideoData.swift */,
-				F1D6521228B7DEAB0084907A /* LanguageData.swift */,
-				F1D6521528B7DEE50084907A /* SpeakerData.swift */,
 				F1D6521C28B812C50084907A /* HomeScreenData.swift */,
+				F1D6522028B950A60084907A /* VideoDetailData.swift */,
+				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -598,6 +627,7 @@
 			children = (
 				F1EE14FB2872118A0020CD74 /* AppLogger.swift */,
 				F1CA158B28AF62EB005EDF85 /* Extensions+TimeInterval.swift */,
+				F1D6522C28BA34190084907A /* UIImageColors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -898,24 +928,26 @@
 			files = (
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
+				F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetVideosForHomeScreenDTO.swift in Sources */,
 				F13983D82895A783004A2375 /* TileButton.swift in Sources */,
 				F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */,
-				F1D6521328B7DEAB0084907A /* LanguageData.swift in Sources */,
 				F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
+				F1D6522128B950A60084907A /* VideoDetailData.swift in Sources */,
 				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
-				F1D6521028B7DE980084907A /* VideoData.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
+				F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
 				F1CA158C28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
+				F1D6522428B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1CA156C28AE097A005EDF85 /* SDOTheme.swift in Sources */,
@@ -924,6 +956,7 @@
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1CA158028AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
@@ -934,9 +967,8 @@
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
 				F1CA157D28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
-				F1D6520D28B7DE8E0084907A /* ChannelData.swift in Sources */,
-				F1D6521628B7DEE50084907A /* SpeakerData.swift in Sources */,
 				F1E4941528699316008611D7 /* ContentView.swift in Sources */,
+				F1D6522D28BA34190084907A /* UIImageColors.swift in Sources */,
 				F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
 				F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
@@ -956,9 +988,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */,
+				F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
-				F1D6520E28B7DE8E0084907A /* ChannelData.swift in Sources */,
+				F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F1CA156D28AE097A005EDF85 /* SDOTheme.swift in Sources */,
@@ -967,29 +1000,28 @@
 				F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F1CA157E28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
-				F1D6521428B7DEAB0084907A /* LanguageData.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
-				F1D6521128B7DE980084907A /* VideoData.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
+				F1D6522228B950A60084907A /* VideoDetailData.swift in Sources */,
 				F1D6520B28B7D3D40084907A /* GetVideosForHomeScreenDTO.swift in Sources */,
 				F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F1E494142869910B008611D7 /* SignInView.swift in Sources */,
+				F1D6522828B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,
 				F1CA157B28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
 				F1EA5AA528B607D700102469 /* VideoRepository.swift in Sources */,
 				F1E493F52867A21C008611D7 /* VideoMocks.swift in Sources */,
 				F1CA158128AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
-				F1D6521728B7DEE50084907A /* SpeakerData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,7 +1204,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1204,7 +1236,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

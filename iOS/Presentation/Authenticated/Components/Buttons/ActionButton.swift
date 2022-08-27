@@ -10,7 +10,7 @@ import SwiftUI
 struct ActionButton: View {
     var imageName: String
     
-    var text: String
+    var text: LocalizedStringKey
     
     var action: () -> Void
     
@@ -23,16 +23,17 @@ struct ActionButton: View {
                     .font(.sdoHeadline)
                 
                 Text(text)
+                    .font(.sdoTitle2)
                     .bold()
-                    .font(.sdoCallout)
                 
                 Spacer()
             }
+            .frame(height: 40)
         }
         .padding(.vertical, 6)
-        .foregroundColor(Color.white)
-        .background(Color.accentColor)
-        .cornerRadius(3.0)
+        .foregroundColor(Color(uiColor: .systemBackground))
+        .background(Color(uiColor: .label))
+        .cornerRadius(10)
     }
 
 }

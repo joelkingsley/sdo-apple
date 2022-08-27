@@ -42,6 +42,13 @@
 "videoDetailViewsLabel" = "views";
 "videoDetailViewLabel" = "view";
 "videoDetailPublishedDateLabel %@" = "%@ ago";
+"videoDetailVideoTypeSermon" = "Sermon";
+"videoDetailVideoTypeDocumentary" = "Documentary";
+"videoDetailVideoTypeShort" = "Short";
+"videoDetailVideoTypeMusic" = "Music";
+"videoDetailPlayButtonLabel" = "Play";
+"videoDetailMoreTextLabel" = "more";
+"videoDetailRelatedLabel" = "Related Videos";
 
 // Date Units
 "seconds" = "seconds";
