@@ -14,4 +14,16 @@ struct TopVideoPreviewViewModel {
     init(video: TopPreviewableVideo) {
         self.video = video
     }
+    
+    var contentHeight: CGFloat {
+        if video.canUserWatch {
+            return 180
+        } else {
+            if video.subscriptionForWatching != nil {
+                return 300
+            } else {
+                return 240
+            }
+        }
+    }
 }

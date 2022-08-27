@@ -21649,6 +21649,12 @@
             "description": "unique or primary key constraint on columns \"video_id\"",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "videos_in_subscriptions_video_id_key",
+            "description": "unique or primary key constraint on columns \"video_id\"",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null

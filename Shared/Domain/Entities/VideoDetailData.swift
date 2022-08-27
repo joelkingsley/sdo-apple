@@ -48,20 +48,18 @@ struct VideoDetailData {
     let datePublished: Date
     let description: String
     let speaker: SpeakerData
-    let subscriptionsVideoBelongsTo: [SubscriptionData]
+    let canUserWatch: Bool
+    let subscriptionVideoBelongsTo: SubscriptionData?
+    let allAccessSubscription: SubscriptionData
     let relatedVideos: [RelatedVideo]
     let language: LanguageData
 }
 
 extension VideoDetailData: TopPreviewableVideo {
-    var subscriptionsForWatching: [SubscriptionData] {
-        return subscriptionsVideoBelongsTo
+    var subscriptionForWatching: SubscriptionData? {
+        return subscriptionVideoBelongsTo
     }
-    
-    var canUserWatch: Bool {
-        return true
-    }
-    
+
     var speakerName: String {
         return speaker.speakerName
     }

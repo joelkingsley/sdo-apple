@@ -16,7 +16,8 @@ protocol TopPreviewableVideo {
     var description: String { get }
     var speakerName: String { get }
     var canUserWatch: Bool { get }
-    var subscriptionsForWatching: [SubscriptionData] { get }
+    var subscriptionForWatching: SubscriptionData? { get }
+    var allAccessSubscription: SubscriptionData { get }
 }
 
 struct TopVideoPreview: View {
@@ -49,40 +50,68 @@ struct TopVideoPreview: View {
                         .padding(.top, -150)
                     })
                 Spacer()
-                    .frame(height: 150)
+                    .frame(height: topVideoPreviewViewModel.contentHeight)
             }
 
             VStack {
                 Spacer()
                 
-                Text(video.title)
-                    .font(.sdoTitle2)
-                    .bold()
-                    .foregroundColor(Color(uiColor: .label))
-                
-                Text(video.localizedType)
-                    .font(.sdoCallout)
-                    .foregroundColor(Color(uiColor: .secondaryLabel))
-                
-                Text(video.datePublished.formatted(date: .abbreviated, time: .omitted))
-                    .font(.sdoCaption)
-                    .foregroundColor(Color(uiColor: .secondaryLabel))
-                
-                Text(video.speakerName)
-                    .font(.sdoCaption)
-                    .foregroundColor(Color(uiColor: .secondaryLabel))
-                
-                HStack {
-                    Spacer()
+                Group {
+                    Text(video.title)
+                        .font(.sdoTitle2)
+                        .bold()
+                        .foregroundColor(Color(uiColor: .label))
                     
-                    if video.canUserWatch {
-                        ActionButton(imageName: "play.fill", text: "videoDetailPlayButtonLabel") {
-                            
+                    Text(video.localizedType)
+                        .font(.sdoCallout)
+                        .foregroundColor(Color(uiColor: .secondaryLabel))
+                    
+                    Text(video.datePublished.formatted(date: .abbreviated, time: .omitted))
+                        .font(.sdoCaption)
+                        .foregroundColor(Color(uiColor: .secondaryLabel))
+                    
+                    Text(video.speakerName)
+                        .font(.sdoCaption)
+                        .foregroundColor(Color(uiColor: .secondaryLabel))
+                }
+                
+                if video.canUserWatch {
+                    HStack {
+                        Spacer()
+                        ActionButton(imageName: "play.fill", customFont: .sdoTitle2, text: "videoDetailPlayButtonLabel") {
+                            // TODO: To display AVPlayer
                         }
                         .frame(width: 250)
+                        Spacer()
+                    }
+                } else {
+                    if let subscription = video.subscriptionForWatching {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                ActionButton(customFont: .sdoCallout, text: subscription.localizedSubscribeButtonText) {
+                                    // TODO: Subscribe user to given subscription
+                                }
+                                .frame(width: 250)
+                                Text(subscription.localizedSubscriptionCostText)
+                                    .font(.sdoCaption2)
+                            }
+                            Spacer()
+                        }
                     }
                     
-                    Spacer()
+                    HStack {
+                        Spacer()
+                        VStack {
+                            ActionButton(customFont: .sdoCallout, text: video.allAccessSubscription.localizedSubscribeButtonText) {
+                                // TODO: Subscribe user to all access subscription
+                            }
+                            .frame(width: 250)
+                            Text(video.allAccessSubscription.localizedSubscriptionCostText)
+                                .font(.sdoCaption2)
+                        }
+                        Spacer()
+                    }
                 }
                 
                 Text(video.description)

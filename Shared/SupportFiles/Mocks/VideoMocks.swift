@@ -33,12 +33,23 @@ let exampleVideoDetail1 = VideoDetailData(
     datePublished: Date(timeIntervalSinceNow: -60000),
     description: "Being Baptist traces the history from the historic anabaptists to the impact of the independent fundametal churches of today.",
     speaker: VideoDetailData.SpeakerData(speakerId: "dummy1", speakerName: "Pastor Roger Jimenez"),
-    subscriptionsVideoBelongsTo: [
-        SubscriptionData(
-            subscriptionId: "dummy1",
-            subscriptionName: "Verity Baptist"
-        )
-    ],
+    canUserWatch: false,
+    subscriptionVideoBelongsTo: SubscriptionData(
+        subscriptionId: "dummy1",
+        subscriptionName: "Verity Baptist",
+        subscriptionCost: 199,
+        currencyCode: "INR",
+        eligibleForTrial: true,
+        timeIntervalOfTrial: 2629748.16
+    ),
+    allAccessSubscription: SubscriptionData(
+        subscriptionId: "dummy2",
+        subscriptionName: "SDO All Access",
+        subscriptionCost: 349,
+        currencyCode: "INR",
+        eligibleForTrial: true,
+        timeIntervalOfTrial: 2629748.16
+    ),
     relatedVideos: [
         VideoDetailData.RelatedVideo(
             videoId: "dummy1",

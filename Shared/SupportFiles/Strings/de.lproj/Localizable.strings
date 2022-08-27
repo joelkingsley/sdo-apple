@@ -49,6 +49,10 @@
 "videoDetailPlayButtonLabel" = "Wiedergeben";
 "videoDetailMoreTextLabel" = "mehr";
 "videoDetailRelatedLabel" = "Verwandte Videos";
+"videoDetailSubscribeToLabel %@" = "%@ abonnieren";
+"videoDetailTrySubscriptionLabel %@" = "%@ kostenlos testen";
+"videoDetailCostPerMonthText %@" = "%@ pro Monat";
+"videoDetailSubscriptionTrialCostLabel %@ %@" = "%@ kostenlos, danach %@";
 
 // Date Units
 "seconds" = "Sekunden";

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ActionButton: View {
-    var imageName: String
+    var imageName: String?
+    
+    var customFont: Font?
     
     var text: LocalizedStringKey
     
@@ -19,12 +21,15 @@ struct ActionButton: View {
             HStack {
                 Spacer()
                 
-                Image(systemName: imageName)
-                    .font(.sdoHeadline)
+                if let imageName = imageName {
+                    Image(systemName: imageName)
+                        .font(.sdoHeadline)
+                }
                 
                 Text(text)
-                    .font(.sdoTitle2)
+                    .font(customFont)
                     .bold()
+                    .allowsTightening(true)
                 
                 Spacer()
             }

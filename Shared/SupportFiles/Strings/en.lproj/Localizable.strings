@@ -49,6 +49,10 @@
 "videoDetailPlayButtonLabel" = "Play";
 "videoDetailMoreTextLabel" = "more";
 "videoDetailRelatedLabel" = "Related Videos";
+"videoDetailSubscribeToLabel %@" = "Subscribe to %@";
+"videoDetailTrySubscriptionLabel %@" = "Try %@";
+"videoDetailCostPerMonthText %@" = "%@/month";
+"videoDetailSubscriptionTrialCostLabel %@ %@" = "%@ free, then %@";
 
 // Date Units
 "seconds" = "seconds";
