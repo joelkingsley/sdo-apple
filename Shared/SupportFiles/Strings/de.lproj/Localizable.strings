@@ -69,3 +69,6 @@
 "month" = "Monat";
 "years" = "Jahre";
 "year" = "Jahr";
+
+// Progress
+"progressViewLoadingLabel" = "Laden";
