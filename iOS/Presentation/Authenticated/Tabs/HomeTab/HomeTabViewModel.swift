@@ -14,7 +14,7 @@ class HomeTabViewModel: ObservableObject {
     private let channelRepository: ChannelRepository = HasuraChannelRepository(graphQLService: HasuraGraphQLService())
     private let authViewModel: AuthenticationViewModel
     
-    @Published var homeScreenData: HomeScreenData?
+    @Published var homeScreenData: Result<HomeScreenData, BusinessError>?
     
     init(authViewModel: AuthenticationViewModel) {
         self.authViewModel = authViewModel
@@ -33,9 +33,10 @@ class HomeTabViewModel: ObservableObject {
         switch await videoRepository.getDataForHomeScreen(userUuid: user.uid) {
         case let .success(data):
             AppLogger.debug(data)
-            homeScreenData = data
+            homeScreenData = .success(data)
         case let .failure(error):
             AppLogger.error(error.localizedDescription)
+            homeScreenData = .failure(error)
         }
     }
 }

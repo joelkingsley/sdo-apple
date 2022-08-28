@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct HomeTabView: View {
     @ObservedObject var homeTabViewModel: HomeTabViewModel
@@ -16,28 +17,34 @@ struct HomeTabView: View {
     }
     
     var body: some View {
-        VStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack {
-                    if let homeScreenData = homeTabViewModel.homeScreenData {
-                        if !homeScreenData.continueWatchingVideos.isEmpty {
-                            ContinueWatchingRow(videos: homeScreenData.continueWatchingVideos)
+        if let homeScreenData = homeTabViewModel.homeScreenData {
+            VStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack {
+                        switch homeScreenData {
+                        case let .success(data):
+                            if !data.continueWatchingVideos.isEmpty {
+                                ContinueWatchingRow(videos: data.continueWatchingVideos)
+                            }
+                            if !data.userListVideos.isEmpty {
+                                YourListRow(videos: data.userListVideos)
+                            }
+                            if !data.newReleasesVideos.isEmpty {
+                                NewReleasesRow(videos: data.newReleasesVideos)
+                            }
+                        case let .failure(error):
+                            // TODO: Display generic error card
+                            Text("Error occurred: \(error.localizedDescription)")
                         }
-                        if !homeScreenData.userListVideos.isEmpty {
-                            YourListRow(videos: homeScreenData.userListVideos)
-                        }
-                        if !homeScreenData.newReleasesVideos.isEmpty {
-                            NewReleasesRow(videos: homeScreenData.newReleasesVideos)
-                        }
-                    } else {
-                        // TODO: Display error view here
-                        Text("Error View")
                     }
                 }
             }
+            .edgesIgnoringSafeArea(.horizontal)
+            .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
+        } else {
+            ProgressView("progressViewLoadingLabel")
+                .progressViewStyle(.circular)
         }
-        .edgesIgnoringSafeArea(.horizontal)
-        .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
     }
 }
 
