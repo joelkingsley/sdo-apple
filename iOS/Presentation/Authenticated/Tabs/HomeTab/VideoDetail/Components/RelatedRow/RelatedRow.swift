@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RelatedRow: View {
-    let videos: [VideoDetailData.RelatedVideo]
+    let videos: [VideoDetailInfoData.RelatedVideo]
     @State var thumbnailWidth: CGFloat = 0
     let videoThumbnailsRowViewModel = VideoThumbnailsRowViewModel()
     
@@ -60,6 +60,6 @@ struct RelatedRow: View {
 
 struct RelatedRow_Previews: PreviewProvider {
     static var previews: some View {
-        RelatedRow(videos: exampleVideoDetail1.relatedVideos)
+        RelatedRow(videos: exampleVideoDetail1.infoData.relatedVideos)
     }
 }

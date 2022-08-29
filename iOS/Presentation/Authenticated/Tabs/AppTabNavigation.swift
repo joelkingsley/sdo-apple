@@ -23,7 +23,7 @@ struct AppTabNavigation: View {
         TabView(selection: $selection) {
             // Home Tab
             NavigationView {
-                HomeTabView(authViewModel: authViewModel)
+                HomeTabView()
             }
             .tabItem {
                 Label("homeTabLabel", systemImage: "house.fill")

@@ -12,6 +12,7 @@ query GetHomeScreenData($uuid: String!) {
     video {
       video_id
       channel {
+        channel_id
         channel_name
       }
       date_published
@@ -23,6 +24,7 @@ query GetHomeScreenData($uuid: String!) {
     video {
       video_id
       channel {
+        channel_id
         channel_name
       }
       date_published
@@ -33,10 +35,43 @@ query GetHomeScreenData($uuid: String!) {
   newReleases:videos(order_by: {date_published: desc}) {
     video_id
     channel {
+      channel_id
       channel_name
     }
     date_published
     title
+    views
+  }
+}
+
+query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
+  videoDetail:videos(where: {video_id: {_eq: $videoId}}) {
+    video_id
+    title
+    video_type
+    date_published
+    description
+    speaker {
+      speaker_id
+      speaker_name
+    }
+    channel {
+      channel_id
+      channel_name
+      channel_type
+    }
+    language {
+      language_code
+      source_country_flag
+    }
+  }
+  relatedVideos:videos(where: {channel_id: {_eq: $channelId}}) {
+    video_id
+    title
+    channel {
+      channel_name
+    }
+    date_published
     views
   }
 }

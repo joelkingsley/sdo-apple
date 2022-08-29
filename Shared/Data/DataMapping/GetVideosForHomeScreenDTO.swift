@@ -18,6 +18,7 @@ extension GetHomeScreenDataQuery.Data {
             return HomeScreenData.HomeVideo(
                 videoId: video.videoId,
                 title: video.title,
+                channelId: video.channel.channelId,
                 channelName: video.channel.channelName,
                 thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
                 datePublished: datePublished,
@@ -31,6 +32,7 @@ extension GetHomeScreenDataQuery.Data {
             return HomeScreenData.HomeVideo(
                 videoId: video.videoId,
                 title: video.title,
+                channelId: video.channel.channelId,
                 channelName: video.channel.channelName,
                 thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
                 datePublished: datePublished,
@@ -44,6 +46,7 @@ extension GetHomeScreenDataQuery.Data {
             return HomeScreenData.HomeVideo(
                 videoId: video.videoId,
                 title: video.title,
+                channelId: video.channel.channelId,
                 channelName: video.channel.channelName,
                 thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
                 datePublished: datePublished,

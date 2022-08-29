@@ -33,7 +33,7 @@ struct ContinueWatchingRow: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(videos) { video in
-                            NavigationLink(destination: VideoDetailView(videoDetail: exampleVideoDetail1)) {
+                            NavigationLink(destination: VideoDetailView(videoId: video.videoId, channelId: video.channelId)) {
                                 VStack {
                                     VideoThumbnail(video: video, style: .large, thumbnailWidth: $thumbnailWidth)
                                     Group {

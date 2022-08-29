@@ -9,12 +9,11 @@ import SwiftUI
 import SkeletonUI
 
 struct HomeTabView: View {
-    @ObservedObject var homeTabViewModel: HomeTabViewModel
-    
-    init(authViewModel: AuthenticationViewModel) {
-        self.homeTabViewModel = HomeTabViewModel(authViewModel: authViewModel)
-        self.homeTabViewModel.onLoaded()
-    }
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @ObservedObject var homeTabViewModel = HomeTabViewModel(
+        getHomeScreenDataUseCase: GetHomeScreenDataUseCase(
+            videoRepository: HasuraVideoRepository(
+                graphQLService: HasuraGraphQLService())))
     
     var body: some View {
         if let homeScreenData = homeTabViewModel.homeScreenData {
@@ -44,12 +43,15 @@ struct HomeTabView: View {
         } else {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)
+                .onAppear {
+                    homeTabViewModel.onLoaded(user: authViewModel.getUser())
+                }
         }
     }
 }
 
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabView(authViewModel: AuthenticationViewModel())
+        HomeTabView()
     }
 }

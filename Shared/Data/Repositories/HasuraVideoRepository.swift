@@ -18,12 +18,25 @@ class HasuraVideoRepository: VideoRepository {
     }
     
     /// Gets the data needed for the home screen
-    func getDataForHomeScreen(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
+    func getHomeScreenData(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
         do {
-            let data = try await graphQLService.executeQuery(query: GetHomeScreenDataQuery(uuid: userUuid)).toEntity()
+            let data = try await graphQLService.executeQuery(
+                query: GetHomeScreenDataQuery(uuid: userUuid)).toEntity()
             return .success(data)
         } catch {
-            AppLogger.error("Error in getDataForHomeScreen: \(error)")
+            AppLogger.error("Error in getHomeScreenData: \(error)")
+            return .failure(BusinessErrors.serverError())
+        }
+    }
+    
+    /// Gets detailed informational video data
+    func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailInfoData, BusinessError> {
+        do {
+            let data = try await graphQLService.executeQuery(
+                query: GetVideoDetailDataQuery(videoId: videoId, channelId: channelId)).toEntity()
+            return .success(data)
+        } catch {
+            AppLogger.error("Error in getVideoDetailData: \(error)")
             return .failure(BusinessErrors.serverError())
         }
     }
