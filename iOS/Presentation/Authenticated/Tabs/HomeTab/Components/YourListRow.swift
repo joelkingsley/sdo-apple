@@ -33,28 +33,30 @@ struct YourListRow: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(videos) { video in
-                            VStack {
-                                VideoThumbnail(video: video, style: .small, thumbnailWidth: $thumbnailWidth)
-                                Group {
-                                    HStack {
-                                        Text(video.title)
-                                            .font(.sdoCallout)
-                                            .lineLimit(1)
-                                            .foregroundColor(Color(uiColor:UIColor.label))
-                                        Spacer()
+                            NavigationLink(destination: VideoDetailView(videoId: video.videoId, channelId: video.channelId)) {
+                                VStack {
+                                    VideoThumbnail(video: video, style: .small, thumbnailWidth: $thumbnailWidth)
+                                    Group {
+                                        HStack {
+                                            Text(video.title)
+                                                .font(.sdoCallout)
+                                                .lineLimit(1)
+                                                .foregroundColor(Color(uiColor:UIColor.label))
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Text(videoThumbnailsRowViewModel.getThumbnailDescription(ofVideo: video))
+                                                .lineLimit(2)
+                                                .multilineTextAlignment(.leading)
+                                                .font(.sdoFootnote)
+                                                .foregroundColor(Color(uiColor:UIColor.secondaryLabel))
+                                            Spacer()
+                                        }
                                     }
-                                    HStack {
-                                        Text(videoThumbnailsRowViewModel.getThumbnailDescription(ofVideo: video))
-                                            .lineLimit(2)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.sdoFootnote)
-                                            .foregroundColor(Color(uiColor:UIColor.secondaryLabel))
-                                        Spacer()
-                                    }
+                                    .frame(width: thumbnailWidth)
+                                    Spacer()
+                                        .frame(height: 20)
                                 }
-                                .frame(width: thumbnailWidth)
-                                Spacer()
-                                    .frame(height: 20)
                             }
                         }
                         Spacer()

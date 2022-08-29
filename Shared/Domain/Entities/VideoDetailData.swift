@@ -8,64 +8,45 @@
 import Foundation
 
 struct VideoDetailData {
-    enum VideoType: String {
-        case sermon = "videoDetailVideoTypeSermon"
-        case documentary = "videoDetailVideoTypeDocumentary"
-        case short = "videoDetailVideoTypeShort"
-        case music = "videoDetailVideoTypeMusic"
-        
-        func localizedString() -> String {
-            return String(localized: String.LocalizationValue(self.rawValue))
-        }
-    }
-    
-    struct SpeakerData {
-        let speakerId: String
-        let speakerName: String
-    }
-    
-    struct RelatedVideo: ThumbnailableVideo, Identifiable {
-        var id: UUID {
-            return UUID(uuidString: videoId) ?? UUID()
-        }
-        let videoId: String
-        let title: String
-        let channelName: String
-        let thumbnailURL: URL
-        let datePublished: Date
-        let views: Int
-    }
-    
-    struct LanguageData {
-        let languageName: String
-        let sourceCountryFlag: String
-    }
-    
-    let videoId: String
-    let title: String
-    let thumbnailURL: URL
-    let videoType: VideoType
-    let datePublished: Date
-    let description: String
-    let speaker: SpeakerData
-    let canUserWatch: Bool
-    let subscriptionVideoBelongsTo: SubscriptionData?
-    let allAccessSubscription: SubscriptionData
-    let relatedVideos: [RelatedVideo]
-    let language: LanguageData
+    let infoData: VideoDetailInfoData
+    let subscriptionData: VideoDetailSubscriptionData
 }
 
 extension VideoDetailData: TopPreviewableVideo {
+    var title: String {
+        return infoData.title
+    }
+    
+    var thumbnailURL: URL {
+        return infoData.thumbnailURL
+    }
+    
+    var datePublished: Date {
+        return infoData.datePublished
+    }
+    
+    var description: String {
+        return infoData.description
+    }
+    
+    var canUserWatch: Bool {
+        return subscriptionData.canUserWatch
+    }
+    
+    var allAccessSubscription: SubscriptionData {
+        return subscriptionData.allAccessSubscription
+    }
+    
     var subscriptionForWatching: SubscriptionData? {
-        return subscriptionVideoBelongsTo
+        return subscriptionData.subscriptionVideoBelongsTo
     }
 
     var speakerName: String {
-        return speaker.speakerName
+        return infoData.speaker.speakerName
     }
     
     var localizedType: String {
-        let type = videoType.localizedString()
+        let type = infoData.videoType.localizedString()
         return type
     }
 }

@@ -10,27 +10,25 @@ import SwiftUI
 
 @MainActor
 class HomeTabViewModel: ObservableObject {
-    private let videoRepository: VideoRepository = HasuraVideoRepository(graphQLService: HasuraGraphQLService())
-    private let channelRepository: ChannelRepository = HasuraChannelRepository(graphQLService: HasuraGraphQLService())
-    private let authViewModel: AuthenticationViewModel
+    private let getHomeScreenDataUseCase: GetHomeScreenDataUseCase
     
     @Published var homeScreenData: Result<HomeScreenData, BusinessError>?
     
-    init(authViewModel: AuthenticationViewModel) {
-        self.authViewModel = authViewModel
+    init(getHomeScreenDataUseCase: GetHomeScreenDataUseCase) {
+        self.getHomeScreenDataUseCase = getHomeScreenDataUseCase
     }
     
-    func onLoaded() {
+    func onLoaded(user: SDOUser?) {
         Task {
-            await getDataForHomeScreen()
+            await getHomeScreenData(user: user)
         }
     }
     
-    private func getDataForHomeScreen() async {
-        guard let user = authViewModel.getUser() else {
+    private func getHomeScreenData(user: SDOUser?) async {
+        guard let user = user else {
             return
         }
-        switch await videoRepository.getDataForHomeScreen(userUuid: user.uid) {
+        switch await getHomeScreenDataUseCase.execute(userUuid: user.uid) {
         case let .success(data):
             AppLogger.debug(data)
             homeScreenData = .success(data)

@@ -14,6 +14,7 @@ struct HomeScreenData {
         }
         let videoId: String
         let title: String
+        let channelId: String
         let channelName: String
         let thumbnailURL: URL
         let datePublished: Date
