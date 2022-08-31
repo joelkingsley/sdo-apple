@@ -24,11 +24,7 @@ class HasuraChannelRepository: ChannelRepository {
             return .success(data.channels)
         } catch {
             AppLogger.error("Error in getAllChannels: \(error)")
-            if error is BusinessErrors.parsingError {
-                return .failure(error)
-            } else {
-                return .failure(BusinessErrors.serverError())
-            }
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
 }

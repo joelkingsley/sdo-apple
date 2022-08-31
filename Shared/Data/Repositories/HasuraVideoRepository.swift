@@ -25,7 +25,7 @@ class HasuraVideoRepository: VideoRepository {
             return .success(data)
         } catch {
             AppLogger.error("Error in getHomeScreenData: \(error)")
-            return .failure(BusinessErrors.serverError())
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
     
@@ -37,7 +37,19 @@ class HasuraVideoRepository: VideoRepository {
             return .success(data)
         } catch {
             AppLogger.error("Error in getVideoDetailData: \(error)")
-            return .failure(BusinessErrors.serverError())
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
+    
+    /// Gets a signed url for a video
+    func getSignedUrlForVideo(ofVideoId videoId: String) async -> Result<URL, BusinessError> {
+        do {
+            let data = try await graphQLService.executeMutation(
+                mutation: GetSignedUrlForVideoMutation(videoId: videoId)).toEntity()
+            return .success(data)
+        } catch {
+            AppLogger.error("Error in getVideoDetailData: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
 }

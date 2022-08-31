@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct VideoDetailView: View {
-    @ObservedObject var videoDetailViewModel = VideoDetailViewModel(
-        getVideoDetailDataUseCase: GetVideoDetailDataUseCase(
-            videoRepository: HasuraVideoRepository(
-                graphQLService: HasuraGraphQLService())))
+    @ObservedObject var videoDetailViewModel = VideoDetailViewModel()
     
     init(videoId: String, channelId: String) {
         self.videoDetailViewModel.videoId = videoId

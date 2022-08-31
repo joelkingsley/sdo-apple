@@ -69,7 +69,7 @@ let exampleVideoDetail1 = VideoDetailData(
         )
     ),
     subscriptionData: VideoDetailSubscriptionData(
-        canUserWatch: false,
+        signedUrl: nil,
         subscriptionVideoBelongsTo: SubscriptionData(
             subscriptionId: "dummy1",
             subscriptionName: "Verity Baptist",

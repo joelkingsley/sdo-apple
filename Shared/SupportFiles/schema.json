@@ -35,7 +35,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "GenerateStreamTokenInput",
+        "name": "GenerateSignedUrlInput",
         "description": null,
         "specifiedByUrl": null,
         "fields": null,
@@ -63,12 +63,12 @@
       },
       {
         "kind": "OBJECT",
-        "name": "GenerateStreamTokenOutput",
+        "name": "GenerateSignedUrlOutput",
         "description": null,
         "specifiedByUrl": null,
         "fields": [
           {
-            "name": "streamToken",
+            "name": "signedUrl",
             "description": null,
             "args": [],
             "type": {
@@ -6669,7 +6669,7 @@
             "deprecationReason": null
           },
           {
-            "name": "generateStreamToken",
+            "name": "generateSignedUrlForVideo",
             "description": null,
             "args": [
               {
@@ -6680,7 +6680,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "GenerateStreamTokenInput",
+                    "name": "GenerateSignedUrlInput",
                     "ofType": null
                   }
                 },
@@ -6690,9 +6690,13 @@
               }
             ],
             "type": {
-              "kind": "OBJECT",
-              "name": "GenerateStreamTokenOutput",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "GenerateSignedUrlOutput",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null

@@ -49,4 +49,8 @@ extension VideoDetailData: TopPreviewableVideo {
         let type = infoData.videoType.localizedString()
         return type
     }
+    
+    var signedUrl: URL? {
+        return subscriptionData.signedUrl
+    }
 }

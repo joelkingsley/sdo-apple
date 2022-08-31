@@ -1,0 +1,5 @@
+mutation GetSignedUrlForVideo($videoId: String!) {
+  generateSignedUrlForVideo(arg1: {videoId: $videoId}) {
+    signedUrl
+  }
+}
