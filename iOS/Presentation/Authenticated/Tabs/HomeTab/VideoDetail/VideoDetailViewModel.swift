@@ -7,17 +7,16 @@
 
 import Foundation
 
+@MainActor
 class VideoDetailViewModel: ObservableObject {
-    let getVideoDetailDataUseCase: GetVideoDetailDataUseCase
+    let getVideoDetailDataUseCase = GetVideoDetailDataUseCase(
+        videoRepository: HasuraVideoRepository(
+            graphQLService: HasuraGraphQLService()))
     
     var videoId: String!
     var channelId: String!
     
     @Published var videoDetailData: Result<VideoDetailData, BusinessError>?
-    
-    init(getVideoDetailDataUseCase: GetVideoDetailDataUseCase) {
-        self.getVideoDetailDataUseCase = getVideoDetailDataUseCase
-    }
     
     func onLoaded() {
         Task {

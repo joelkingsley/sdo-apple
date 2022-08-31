@@ -16,4 +16,7 @@ protocol VideoRepository {
     
     /// Gets detailed informational video data
     func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailInfoData, BusinessError>
+    
+    /// Gets a signed url for a video
+    func getSignedUrlForVideo(ofVideoId videoId: String) async -> Result<URL, BusinessError>
 }

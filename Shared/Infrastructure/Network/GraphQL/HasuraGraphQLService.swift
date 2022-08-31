@@ -56,15 +56,19 @@ extension HasuraGraphQLService: SDOGraphQLService {
                 case let .success(graphQLResult):
                     if let errors = graphQLResult.errors {
                         AppLogger.error(String(describing: errors))
-                        continuation.resume(throwing: BusinessErrors.serverError())
+                        guard let graphQLError = errors.first else {
+                            continuation.resume(throwing: ApiErrors.serverError())
+                            return
+                        }
+                        continuation.resume(throwing: GraphQLErrorTransformer.transform(graphQLError: graphQLError))
                     } else if let data = graphQLResult.data {
                         continuation.resume(returning: data)
                     } else {
-                        continuation.resume(throwing: BusinessErrors.noContent())
+                        continuation.resume(throwing: ApiErrors.noContent())
                     }
                 case let .failure(error):
                     AppLogger.error(String(describing: error))
-                    continuation.resume(throwing: BusinessErrors.serverError())
+                    continuation.resume(throwing: ApiErrors.serverError())
                 }
             }
         })
@@ -85,15 +89,19 @@ extension HasuraGraphQLService: SDOGraphQLService {
                 case let .success(graphQLResult):
                     if let errors = graphQLResult.errors {
                         AppLogger.error(String(describing: errors))
-                        continuation.resume(throwing: BusinessErrors.serverError())
+                        guard let graphQLError = errors.first else {
+                            continuation.resume(throwing: ApiErrors.serverError())
+                            return
+                        }
+                        continuation.resume(throwing: GraphQLErrorTransformer.transform(graphQLError: graphQLError))
                     } else if let data = graphQLResult.data {
                         continuation.resume(returning: data)
                     } else {
-                        continuation.resume(throwing: BusinessErrors.noContent())
+                        continuation.resume(throwing: ApiErrors.noContent())
                     }
                 case let .failure(error):
                     AppLogger.error(String(describing: error))
-                    continuation.resume(throwing: BusinessErrors.serverError())
+                    continuation.resume(throwing: ApiErrors.serverError())
                 }
             }
         })

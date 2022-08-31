@@ -10,13 +10,11 @@ import SwiftUI
 
 @MainActor
 class HomeTabViewModel: ObservableObject {
-    private let getHomeScreenDataUseCase: GetHomeScreenDataUseCase
+    private let getHomeScreenDataUseCase = GetHomeScreenDataUseCase(
+        videoRepository: HasuraVideoRepository(
+            graphQLService: HasuraGraphQLService()))
     
     @Published var homeScreenData: Result<HomeScreenData, BusinessError>?
-    
-    init(getHomeScreenDataUseCase: GetHomeScreenDataUseCase) {
-        self.getHomeScreenDataUseCase = getHomeScreenDataUseCase
-    }
     
     func onLoaded(user: SDOUser?) {
         Task {

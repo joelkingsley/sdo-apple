@@ -94,6 +94,99 @@ public enum video_types_enum: RawRepresentable, Equatable, Hashable, CaseIterabl
   }
 }
 
+public final class GetSignedUrlForVideoMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation GetSignedUrlForVideo($videoId: String!) {
+      generateSignedUrlForVideo(arg1: {videoId: $videoId}) {
+        __typename
+        signedUrl
+      }
+    }
+    """
+
+  public let operationName: String = "GetSignedUrlForVideo"
+
+  public var videoId: String
+
+  public init(videoId: String) {
+    self.videoId = videoId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["videoId": videoId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("generateSignedUrlForVideo", arguments: ["arg1": ["videoId": GraphQLVariable("videoId")]], type: .nonNull(.object(GenerateSignedUrlForVideo.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(generateSignedUrlForVideo: GenerateSignedUrlForVideo) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "generateSignedUrlForVideo": generateSignedUrlForVideo.resultMap])
+    }
+
+    public var generateSignedUrlForVideo: GenerateSignedUrlForVideo {
+      get {
+        return GenerateSignedUrlForVideo(unsafeResultMap: resultMap["generateSignedUrlForVideo"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "generateSignedUrlForVideo")
+      }
+    }
+
+    public struct GenerateSignedUrlForVideo: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["GenerateSignedUrlOutput"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("signedUrl", type: .nonNull(.scalar(String.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(signedUrl: String) {
+        self.init(unsafeResultMap: ["__typename": "GenerateSignedUrlOutput", "signedUrl": signedUrl])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var signedUrl: String {
+        get {
+          return resultMap["signedUrl"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "signedUrl")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

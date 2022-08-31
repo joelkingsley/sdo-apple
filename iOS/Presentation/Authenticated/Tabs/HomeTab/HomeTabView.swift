@@ -10,10 +10,7 @@ import SkeletonUI
 
 struct HomeTabView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var homeTabViewModel = HomeTabViewModel(
-        getHomeScreenDataUseCase: GetHomeScreenDataUseCase(
-            videoRepository: HasuraVideoRepository(
-                graphQLService: HasuraGraphQLService())))
+    @ObservedObject var homeTabViewModel = HomeTabViewModel()
     
     var body: some View {
         if let homeScreenData = homeTabViewModel.homeScreenData {
