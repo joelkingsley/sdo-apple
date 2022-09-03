@@ -47,32 +47,32 @@ class GetVideoDetailDataUseCase {
                     AppLogger.error(customError.localizedDescription)
                     switch customError.code {
                     case "TOKEN_INVALID":
-                        return .failure(BusinessErrors.unknownError())
+                        return .failure(BusinessErrors.unauthorized())
                     case "SERVER_ERROR":
                         return .failure(BusinessErrors.serverError())
                     case "SIGNING_URL_ERROR":
                         return .failure(BusinessErrors.serverError())
                     case "VIDEO_NOT_ACCESSIBLE_TO_USER":
-                        break
+                        let subscriptionData = VideoDetailSubscriptionData(
+                            signedUrl: nil,
+                            subscriptionVideoBelongsTo: nil,
+                            allAccessSubscription: SubscriptionData(
+                                subscriptionId: "",
+                                subscriptionName: "",
+                                subscriptionCost: 0,
+                                currencyCode: "",
+                                eligibleForTrial: false,
+                                timeIntervalOfTrial: 0
+                            )
+                        )
+                        return .success(
+                            VideoDetailData(infoData: infoData, subscriptionData: subscriptionData)
+                        )
                     default:
                         return .failure(BusinessErrors.serverError())
                     }
                 }
-                let subscriptionData = VideoDetailSubscriptionData(
-                    signedUrl: nil,
-                    subscriptionVideoBelongsTo: nil,
-                    allAccessSubscription: SubscriptionData(
-                        subscriptionId: "",
-                        subscriptionName: "",
-                        subscriptionCost: 0,
-                        currencyCode: "",
-                        eligibleForTrial: false,
-                        timeIntervalOfTrial: 0
-                    )
-                )
-                return .success(
-                    VideoDetailData(infoData: infoData, subscriptionData: subscriptionData)
-                )
+                return .failure(BusinessErrors.unknownError())
             }
         } catch {
             return .failure(error)

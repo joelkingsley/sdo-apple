@@ -15,6 +15,9 @@ enum ApiErrors: ApiError, Equatable {
     struct clientError: ApiError {}
     struct noContent: ApiError {}
     struct parsingError: ApiError {}
+    struct unknownError: ApiError {}
+    struct unauthorized: ApiError {}
+    struct unavailableError: ApiError {}
     
     struct customError: ApiError {
         let code: String
@@ -42,6 +45,24 @@ extension ApiErrors.noContent: LocalizedError {
 extension ApiErrors.parsingError: LocalizedError {
     var errorDescription: String? {
         return "Parsing Error"
+    }
+}
+
+extension ApiErrors.unknownError: LocalizedError {
+    var errorDescription: String? {
+        return "Unknown Error"
+    }
+}
+
+extension ApiErrors.unauthorized: LocalizedError {
+    var errorDescription: String? {
+        return "Unauthorized Error"
+    }
+}
+
+extension ApiErrors.unavailableError: LocalizedError {
+    var errorDescription: String? {
+        return "Unavailable Error"
     }
 }
 
