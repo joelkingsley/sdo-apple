@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import AVFoundation
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(
@@ -14,6 +15,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .moviePlayback)
+        }
+        catch {
+            AppLogger.error("Setting category to AVAudioSessionCategoryPlayback failed.", error.localizedDescription)
+        }
+
         return true
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import AVKit
 
 protocol TopPreviewableVideo {
     var title: String { get }
@@ -22,13 +23,16 @@ protocol TopPreviewableVideo {
 }
 
 struct TopVideoPreview: View {
-    var video: TopPreviewableVideo
-    
+    let video: TopPreviewableVideo
     let topVideoPreviewViewModel: TopVideoPreviewViewModel
+    let videoPlayerViewModel: VideoPlayerViewModel
+    
+    @State var isShowingPlayer: Bool = false
     
     init(video: TopPreviewableVideo) {
         self.video = video
         self.topVideoPreviewViewModel = TopVideoPreviewViewModel(video: video)
+        self.videoPlayerViewModel = VideoPlayerViewModel(url: video.signedUrl)
     }
     
     var body: some View {
@@ -79,10 +83,33 @@ struct TopVideoPreview: View {
                 if video.canUserWatch {
                     HStack {
                         Spacer()
-                        ActionButton(imageName: "play.fill", customFont: .sdoTitle2, text: "videoDetailPlayButtonLabel") {
-                            // TODO: To display AVPlayer
+
+                        NavigationLink(isActive: $isShowingPlayer) {
+                            if let player = videoPlayerViewModel.player {
+                                SDOVideoPlayer(
+                                    player: player,
+                                    willBeginFullScreenPresentationWithAnimationCoordinator: videoPlayerViewModel
+                                        .willBeginFullScreenPresentationHandler,
+                                    willEndFullScreenPresentationWithAnimationCoordinator: videoPlayerViewModel
+                                        .willEndFullScreenPresentationHandler
+                                )
+                                .aspectRatio(16/9, contentMode: .fit)
+                                .onDisappear {
+                                    videoPlayerViewModel.resetPlayer()
+                                }
+                            } else {
+                                Text("Error occurred")
+                            }
+                        } label: {
+                            EmptyView()
+                        }
+                        ActionButton(
+                            imageName: "play.fill",
+                            customFont: .sdoTitle2, text: "videoDetailPlayButtonLabel") {
+                            isShowingPlayer = true
                         }
                         .frame(width: 250)
+
                         Spacer()
                     }
                 } else {

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SkeletonUI
 
 struct HomeTabView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel

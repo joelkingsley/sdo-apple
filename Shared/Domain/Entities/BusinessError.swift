@@ -16,6 +16,8 @@ enum BusinessErrors: BusinessError {
     struct noContent: BusinessError {}
     struct parsingError: BusinessError {}
     struct unknownError: BusinessError {}
+    struct unauthorized: BusinessError {}
+    struct unavailableError: BusinessError {}
     struct customError: BusinessError {
         let code: String
     }
@@ -48,6 +50,18 @@ extension BusinessErrors.parsingError: LocalizedError {
 extension BusinessErrors.unknownError: LocalizedError {
     var errorDescription: String? {
         return "Unknown Error"
+    }
+}
+
+extension BusinessErrors.unauthorized: LocalizedError {
+    var errorDescription: String? {
+        return "Unauthorized Error"
+    }
+}
+
+extension BusinessErrors.unavailableError: LocalizedError {
+    var errorDescription: String? {
+        return "Unavailable Error"
     }
 }
 
