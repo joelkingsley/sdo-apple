@@ -8,11 +8,6 @@
 import Foundation
 
 struct VideoDetailSubscriptionData {
-    let signedUrl: URL?
     let subscriptionVideoBelongsTo: SubscriptionData?
     let allAccessSubscription: SubscriptionData
-    
-    var canUserWatch: Bool {
-        return signedUrl != nil
-    }
 }

@@ -40,7 +40,10 @@ struct TopVideoPreview: View {
             VStack {
                 KFImage(video.thumbnailURL)
                     .resizable()
-                    .scaledToFill()
+                    .aspectRatio(
+                        CGSize(width: 1280, height: 720),
+                        contentMode: .fill
+                    )
                     .clipped()
                     .overlay(content: {
                         LinearGradient(

@@ -10,6 +10,7 @@ import Foundation
 struct VideoDetailData {
     let infoData: VideoDetailInfoData
     let subscriptionData: VideoDetailSubscriptionData
+    let urlData: VideoUrlData
 }
 
 extension VideoDetailData: TopPreviewableVideo {
@@ -18,7 +19,7 @@ extension VideoDetailData: TopPreviewableVideo {
     }
     
     var thumbnailURL: URL {
-        return infoData.thumbnailURL
+        return urlData.thumbnailUrl
     }
     
     var datePublished: Date {
@@ -30,7 +31,7 @@ extension VideoDetailData: TopPreviewableVideo {
     }
     
     var canUserWatch: Bool {
-        return subscriptionData.canUserWatch
+        return urlData.isVideoAccessibleToUser && urlData.videoUrl != nil
     }
     
     var allAccessSubscription: SubscriptionData {
@@ -51,6 +52,6 @@ extension VideoDetailData: TopPreviewableVideo {
     }
     
     var signedUrl: URL? {
-        return subscriptionData.signedUrl
+        return urlData.videoUrl
     }
 }

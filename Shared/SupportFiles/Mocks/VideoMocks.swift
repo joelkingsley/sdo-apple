@@ -31,7 +31,6 @@ let exampleVideoDetail1 = VideoDetailData(
     infoData: VideoDetailInfoData(
         videoId: "dummy1",
         title: "Being Baptist",
-        thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
         videoType: .documentary,
         datePublished: Date(timeIntervalSinceNow: -60000),
         description: "Being Baptist traces the history from the historic anabaptists to the impact of the independent fundametal churches of today.",
@@ -69,7 +68,6 @@ let exampleVideoDetail1 = VideoDetailData(
         )
     ),
     subscriptionData: VideoDetailSubscriptionData(
-        signedUrl: nil,
         subscriptionVideoBelongsTo: SubscriptionData(
             subscriptionId: "dummy1",
             subscriptionName: "Verity Baptist",
@@ -86,5 +84,12 @@ let exampleVideoDetail1 = VideoDetailData(
             eligibleForTrial: true,
             timeIntervalOfTrial: 2629748.16
         )
+    ),
+    urlData: VideoUrlData(
+        videoUrl: nil,
+        thumbnailUrl: URL(
+            string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
+        )!,
+        isVideoAccessibleToUser: true
     )
 )

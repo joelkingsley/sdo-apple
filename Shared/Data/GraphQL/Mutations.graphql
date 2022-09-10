@@ -1,5 +1,7 @@
-mutation GetSignedUrlForVideo($videoId: String!) {
-  generateSignedUrlForVideo(arg1: {videoId: $videoId}) {
-    signedUrl
+mutation GetVideoUrlData($videoId: String!) {
+  getVideoUrlData(arg1: {videoId: $videoId}) {
+    videoUrl
+    thumbnailUrl
+    isVideoAccessibleToUser
   }
 }

@@ -27,8 +27,6 @@ struct CustomErrorView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-                .frame(height: 40)
             Text(customErrorViewModel.body.title)
                 .font(.sdoTitle)
             Text(customErrorViewModel.body.description)
@@ -66,8 +64,6 @@ struct CustomErrorView: View {
                     }
                 }
             }
-            Spacer()
-                .frame(height: 40)
         }
         .padding(.horizontal, 20)
         .onAppear {

@@ -47,7 +47,6 @@ struct VideoDetailInfoData {
     
     let videoId: String
     let title: String
-    let thumbnailURL: URL
     let videoType: VideoType
     let datePublished: Date
     let description: String

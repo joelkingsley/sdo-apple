@@ -35,7 +35,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "GenerateSignedUrlInput",
+        "name": "GetVideoUrlDataInput",
         "description": null,
         "specifiedByUrl": null,
         "fields": null,
@@ -63,12 +63,44 @@
       },
       {
         "kind": "OBJECT",
-        "name": "GenerateSignedUrlOutput",
+        "name": "GetVideoUrlDataOutput",
         "description": null,
         "specifiedByUrl": null,
         "fields": [
           {
-            "name": "signedUrl",
+            "name": "isVideoAccessibleToUser",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thumbnailUrl",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videoUrl",
             "description": null,
             "args": [],
             "type": {
@@ -7009,7 +7041,7 @@
             "deprecationReason": null
           },
           {
-            "name": "generateSignedUrlForVideo",
+            "name": "getVideoUrlData",
             "description": null,
             "args": [
               {
@@ -7020,7 +7052,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "GenerateSignedUrlInput",
+                    "name": "GetVideoUrlDataInput",
                     "ofType": null
                   }
                 },
@@ -7034,7 +7066,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "GenerateSignedUrlOutput",
+                "name": "GetVideoUrlDataOutput",
                 "ofType": null
               }
             },
@@ -21544,7 +21576,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -21560,7 +21592,39 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -21892,6 +21956,18 @@
                 "name": "video_types_enum",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videos_in_subscription",
+            "description": "An object relationship",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "videos_in_subscriptions",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -22725,6 +22801,30 @@
             "deprecationReason": null
           },
           {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "language",
             "description": null,
             "type": {
@@ -22826,6 +22926,18 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "video_types_enum_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videos_in_subscription",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "videos_in_subscriptions_bool_exp",
               "ofType": null
             },
             "defaultValue": null,
@@ -23584,6 +23696,46 @@
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "videos_in_subscriptions_obj_rel_insert_input",
+        "description": "input type for inserting object relation for remote table \"videos_in_subscriptions\"",
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "data",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "videos_in_subscriptions_insert_input",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "on_conflict",
+            "description": "upsert condition",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "videos_in_subscriptions_on_conflict",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "videos_in_subscriptions_on_conflict",
         "description": "on_conflict condition type for table \"videos_in_subscriptions\"",
         "specifiedByUrl": null,
@@ -24027,7 +24179,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -24039,7 +24191,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -24158,6 +24334,18 @@
             "deprecationReason": null
           },
           {
+            "name": "videos_in_subscription",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "videos_in_subscriptions_obj_rel_insert_input",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos_in_subscriptions",
             "description": null,
             "type": {
@@ -24230,7 +24418,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -24242,7 +24430,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -24363,7 +24575,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "type": {
               "kind": "ENUM",
               "name": "order_by",
@@ -24375,7 +24587,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "type": {
               "kind": "ENUM",
               "name": "order_by",
@@ -24494,7 +24730,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -24506,7 +24742,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -24627,7 +24887,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "type": {
               "kind": "ENUM",
               "name": "order_by",
@@ -24639,7 +24899,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "type": {
               "kind": "ENUM",
               "name": "order_by",
@@ -24962,6 +25246,30 @@
             "deprecationReason": null
           },
           {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "language",
             "description": null,
             "type": {
@@ -25070,6 +25378,18 @@
             "deprecationReason": null
           },
           {
+            "name": "videos_in_subscription",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "videos_in_subscriptions_order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos_in_subscriptions_aggregate",
             "description": null,
             "type": {
@@ -25166,6 +25486,18 @@
             "deprecationReason": null
           },
           {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "language_code",
             "description": "column name",
             "isDeprecated": false,
@@ -25249,7 +25581,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -25261,7 +25593,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -25577,7 +25933,7 @@
           },
           {
             "name": "gcp_storage_bucket_name",
-            "description": null,
+            "description": "Name of GCP bucket where video is stored",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -25589,7 +25945,31 @@
           },
           {
             "name": "gcp_storage_file_name",
-            "description": "The relative file path including the file extension (without bucket name)",
+            "description": "The relative file path including the file extension to the video (without bucket name)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "Name of GCP bucket where video is stored",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
+            "description": "The relative file path including the file extension to the thumbnail (without bucket name)",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -25759,6 +26139,18 @@
           },
           {
             "name": "gcp_storage_file_name",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_bucket_name",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gcp_thumbnail_file_name",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
