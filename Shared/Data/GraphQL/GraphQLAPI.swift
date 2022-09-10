@@ -101,7 +101,9 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
     mutation GetSignedUrlForVideo($videoId: String!) {
       generateSignedUrlForVideo(arg1: {videoId: $videoId}) {
         __typename
-        signedUrl
+        videoUrl
+        thumbnailUrl
+        isVideoAccessibleToUser
       }
     }
     """
@@ -152,7 +154,9 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("signedUrl", type: .nonNull(.scalar(String.self))),
+          GraphQLField("videoUrl", type: .nonNull(.scalar(String.self))),
+          GraphQLField("thumbnailUrl", type: .nonNull(.scalar(String.self))),
+          GraphQLField("isVideoAccessibleToUser", type: .nonNull(.scalar(Bool.self))),
         ]
       }
 
@@ -162,8 +166,8 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(signedUrl: String) {
-        self.init(unsafeResultMap: ["__typename": "GenerateSignedUrlOutput", "signedUrl": signedUrl])
+      public init(videoUrl: String, thumbnailUrl: String, isVideoAccessibleToUser: Bool) {
+        self.init(unsafeResultMap: ["__typename": "GenerateSignedUrlOutput", "videoUrl": videoUrl, "thumbnailUrl": thumbnailUrl, "isVideoAccessibleToUser": isVideoAccessibleToUser])
       }
 
       public var __typename: String {
@@ -175,12 +179,30 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
         }
       }
 
-      public var signedUrl: String {
+      public var videoUrl: String {
         get {
-          return resultMap["signedUrl"]! as! String
+          return resultMap["videoUrl"]! as! String
         }
         set {
-          resultMap.updateValue(newValue, forKey: "signedUrl")
+          resultMap.updateValue(newValue, forKey: "videoUrl")
+        }
+      }
+
+      public var thumbnailUrl: String {
+        get {
+          return resultMap["thumbnailUrl"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "thumbnailUrl")
+        }
+      }
+
+      public var isVideoAccessibleToUser: Bool {
+        get {
+          return resultMap["isVideoAccessibleToUser"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isVideoAccessibleToUser")
         }
       }
     }

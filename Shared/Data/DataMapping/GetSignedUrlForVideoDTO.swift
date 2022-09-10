@@ -8,10 +8,17 @@
 import Foundation
 
 extension GetSignedUrlForVideoMutation.Data {
-    func toEntity() throws -> URL {
-        guard let signedUrl = URL(string: generateSignedUrlForVideo.signedUrl) else {
+    func toEntity() throws -> VideoUrlData {
+        guard let thumbnailUrl = URL(string: generateSignedUrlForVideo.thumbnailUrl)
+        else {
             throw BusinessErrors.parsingError()
         }
-        return signedUrl
+        let videoUrl = URL(string: generateSignedUrlForVideo.videoUrl)
+        let isVideoAccessibleToUser = generateSignedUrlForVideo.isVideoAccessibleToUser
+        return VideoUrlData(
+            videoUrl: videoUrl,
+            thumbnailUrl: thumbnailUrl,
+            isVideoAccessibleToUser: isVideoAccessibleToUser
+        )
     }
 }

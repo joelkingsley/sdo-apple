@@ -63,6 +63,8 @@
 		F18105F128C3995900580101 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */; };
 		F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */; };
 		F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FC28C5DA2000580101 /* CustomErrorView.swift */; };
+		F181060028CCCC7600580101 /* VideoUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FF28CCCC7600580101 /* VideoUrlData.swift */; };
+		F181060128CCCC7600580101 /* VideoUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FF28CCCC7600580101 /* VideoUrlData.swift */; };
 		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
@@ -206,6 +208,7 @@
 		F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorViewModel.swift; sourceTree = "<group>"; };
 		F18105FC28C5DA2000580101 /* CustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorView.swift; sourceTree = "<group>"; };
+		F18105FF28CCCC7600580101 /* VideoUrlData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUrlData.swift; sourceTree = "<group>"; };
 		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
@@ -496,6 +499,16 @@
 			path = CustomErrorView;
 			sourceTree = "<group>";
 		};
+		F18105FE28CCCC2F00580101 /* VideoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F1D6522028B950A60084907A /* VideoDetailData.swift */,
+				F18105C528BCF04D00580101 /* VideoDetailInfoData.swift */,
+				F18105C828BCF0B400580101 /* VideoDetailSubscriptionData.swift */,
+			);
+			path = VideoDetail;
+			sourceTree = "<group>";
+		};
 		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,14 +617,13 @@
 		F1E493D72866FAF1008611D7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F18105FE28CCCC2F00580101 /* VideoDetail */,
 				F18105DE28BF552900580101 /* ApiError.swift */,
 				F1EE14F7287210770020CD74 /* BusinessError.swift */,
 				F1D6521C28B812C50084907A /* HomeScreenData.swift */,
-				F1D6522028B950A60084907A /* VideoDetailData.swift */,
 				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
 				F18105BF28BCE8C200580101 /* ChannelData.swift */,
-				F18105C528BCF04D00580101 /* VideoDetailInfoData.swift */,
-				F18105C828BCF0B400580101 /* VideoDetailSubscriptionData.swift */,
+				F18105FF28CCCC7600580101 /* VideoUrlData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1038,6 +1050,7 @@
 				F18105ED28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
+				F181060028CCCC7600580101 /* VideoUrlData.swift in Sources */,
 				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F18105E528BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
@@ -1101,6 +1114,7 @@
 				F18105D728BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */,
+				F181060128CCCC7600580101 /* VideoUrlData.swift in Sources */,
 				F18105D128BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */,

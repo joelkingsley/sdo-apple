@@ -41,8 +41,8 @@ class HasuraVideoRepository: VideoRepository {
         }
     }
     
-    /// Gets a signed url for a video
-    func getSignedUrlForVideo(ofVideoId videoId: String) async -> Result<URL, BusinessError> {
+    /// Gets a signed urls for given video
+    func getSignedUrlsForVideo(ofVideoId videoId: String) async -> Result<VideoUrlData, BusinessError> {
         do {
             let data = try await graphQLService.executeMutation(
                 mutation: GetSignedUrlForVideoMutation(videoId: videoId)).toEntity()
