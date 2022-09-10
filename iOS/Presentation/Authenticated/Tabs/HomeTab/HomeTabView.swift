@@ -28,8 +28,10 @@ struct HomeTabView: View {
                                 NewReleasesRow(videos: data.newReleasesVideos)
                             }
                         case let .failure(error):
-                            // TODO: Display generic error card
-                            Text("Error occurred: \(error.localizedDescription)")
+                            CustomErrorView(
+                                error: error,
+                                authViewModel: authViewModel
+                            )
                         }
                     }
                 }
