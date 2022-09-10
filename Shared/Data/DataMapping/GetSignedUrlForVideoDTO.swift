@@ -7,14 +7,13 @@
 
 import Foundation
 
-extension GetSignedUrlForVideoMutation.Data {
+extension GetVideoUrlDataMutation.Data {
     func toEntity() throws -> VideoUrlData {
-        guard let thumbnailUrl = URL(string: generateSignedUrlForVideo.thumbnailUrl)
-        else {
+        guard let thumbnailUrl = URL(string: getVideoUrlData.thumbnailUrl) else {
             throw BusinessErrors.parsingError()
         }
-        let videoUrl = URL(string: generateSignedUrlForVideo.videoUrl)
-        let isVideoAccessibleToUser = generateSignedUrlForVideo.isVideoAccessibleToUser
+        let videoUrl = URL(string: getVideoUrlData.videoUrl)
+        let isVideoAccessibleToUser = getVideoUrlData.isVideoAccessibleToUser
         return VideoUrlData(
             videoUrl: videoUrl,
             thumbnailUrl: thumbnailUrl,

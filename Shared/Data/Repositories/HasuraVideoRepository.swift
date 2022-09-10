@@ -45,7 +45,7 @@ class HasuraVideoRepository: VideoRepository {
     func getSignedUrlsForVideo(ofVideoId videoId: String) async -> Result<VideoUrlData, BusinessError> {
         do {
             let data = try await graphQLService.executeMutation(
-                mutation: GetSignedUrlForVideoMutation(videoId: videoId)).toEntity()
+                mutation: GetVideoUrlDataMutation(videoId: videoId)).toEntity()
             return .success(data)
         } catch {
             AppLogger.error("Error in getVideoDetailData: \(error)")

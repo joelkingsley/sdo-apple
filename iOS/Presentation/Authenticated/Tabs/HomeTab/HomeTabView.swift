@@ -13,11 +13,11 @@ struct HomeTabView: View {
     
     var body: some View {
         if let homeScreenData = homeTabViewModel.homeScreenData {
-            VStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack {
-                        switch homeScreenData {
-                        case let .success(data):
+            switch homeScreenData {
+            case let .success(data):
+                VStack {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVStack {
                             if !data.continueWatchingVideos.isEmpty {
                                 ContinueWatchingRow(videos: data.continueWatchingVideos)
                             }
@@ -27,17 +27,17 @@ struct HomeTabView: View {
                             if !data.newReleasesVideos.isEmpty {
                                 NewReleasesRow(videos: data.newReleasesVideos)
                             }
-                        case let .failure(error):
-                            CustomErrorView(
-                                error: error,
-                                authViewModel: authViewModel
-                            )
                         }
                     }
                 }
+                .edgesIgnoringSafeArea(.horizontal)
+                .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
+            case let .failure(error):
+                CustomErrorView(
+                    error: error,
+                    authViewModel: authViewModel
+                )
             }
-            .edgesIgnoringSafeArea(.horizontal)
-            .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))
         } else {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)

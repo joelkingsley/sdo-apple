@@ -94,12 +94,12 @@ public enum video_types_enum: RawRepresentable, Equatable, Hashable, CaseIterabl
   }
 }
 
-public final class GetSignedUrlForVideoMutation: GraphQLMutation {
+public final class GetVideoUrlDataMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    mutation GetSignedUrlForVideo($videoId: String!) {
-      generateSignedUrlForVideo(arg1: {videoId: $videoId}) {
+    mutation GetVideoUrlData($videoId: String!) {
+      getVideoUrlData(arg1: {videoId: $videoId}) {
         __typename
         videoUrl
         thumbnailUrl
@@ -108,7 +108,7 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
     }
     """
 
-  public let operationName: String = "GetSignedUrlForVideo"
+  public let operationName: String = "GetVideoUrlData"
 
   public var videoId: String
 
@@ -125,7 +125,7 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("generateSignedUrlForVideo", arguments: ["arg1": ["videoId": GraphQLVariable("videoId")]], type: .nonNull(.object(GenerateSignedUrlForVideo.selections))),
+        GraphQLField("getVideoUrlData", arguments: ["arg1": ["videoId": GraphQLVariable("videoId")]], type: .nonNull(.object(GetVideoUrlDatum.selections))),
       ]
     }
 
@@ -135,21 +135,21 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
       self.resultMap = unsafeResultMap
     }
 
-    public init(generateSignedUrlForVideo: GenerateSignedUrlForVideo) {
-      self.init(unsafeResultMap: ["__typename": "mutation_root", "generateSignedUrlForVideo": generateSignedUrlForVideo.resultMap])
+    public init(getVideoUrlData: GetVideoUrlDatum) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "getVideoUrlData": getVideoUrlData.resultMap])
     }
 
-    public var generateSignedUrlForVideo: GenerateSignedUrlForVideo {
+    public var getVideoUrlData: GetVideoUrlDatum {
       get {
-        return GenerateSignedUrlForVideo(unsafeResultMap: resultMap["generateSignedUrlForVideo"]! as! ResultMap)
+        return GetVideoUrlDatum(unsafeResultMap: resultMap["getVideoUrlData"]! as! ResultMap)
       }
       set {
-        resultMap.updateValue(newValue.resultMap, forKey: "generateSignedUrlForVideo")
+        resultMap.updateValue(newValue.resultMap, forKey: "getVideoUrlData")
       }
     }
 
-    public struct GenerateSignedUrlForVideo: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["GenerateSignedUrlOutput"]
+    public struct GetVideoUrlDatum: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["GetVideoUrlDataOutput"]
 
       public static var selections: [GraphQLSelection] {
         return [
@@ -167,7 +167,7 @@ public final class GetSignedUrlForVideoMutation: GraphQLMutation {
       }
 
       public init(videoUrl: String, thumbnailUrl: String, isVideoAccessibleToUser: Bool) {
-        self.init(unsafeResultMap: ["__typename": "GenerateSignedUrlOutput", "videoUrl": videoUrl, "thumbnailUrl": thumbnailUrl, "isVideoAccessibleToUser": isVideoAccessibleToUser])
+        self.init(unsafeResultMap: ["__typename": "GetVideoUrlDataOutput", "videoUrl": videoUrl, "thumbnailUrl": thumbnailUrl, "isVideoAccessibleToUser": isVideoAccessibleToUser])
       }
 
       public var __typename: String {

@@ -35,7 +35,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "GenerateSignedUrlInput",
+        "name": "GetVideoUrlDataInput",
         "description": null,
         "specifiedByUrl": null,
         "fields": null,
@@ -63,7 +63,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "GenerateSignedUrlOutput",
+        "name": "GetVideoUrlDataOutput",
         "description": null,
         "specifiedByUrl": null,
         "fields": [
@@ -7041,7 +7041,7 @@
             "deprecationReason": null
           },
           {
-            "name": "generateSignedUrlForVideo",
+            "name": "getVideoUrlData",
             "description": null,
             "args": [
               {
@@ -7052,7 +7052,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "GenerateSignedUrlInput",
+                    "name": "GetVideoUrlDataInput",
                     "ofType": null
                   }
                 },
@@ -7066,7 +7066,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "GenerateSignedUrlOutput",
+                "name": "GetVideoUrlDataOutput",
                 "ofType": null
               }
             },
