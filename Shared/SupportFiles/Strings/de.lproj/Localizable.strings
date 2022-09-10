@@ -72,3 +72,28 @@
 
 // Progress
 "progressViewLoadingLabel" = "Laden";
+
+// Error View
+"errorViewTryAgainActionLabel" = "Erneut versuchen";
+"errorViewReportIssueActionLabel" = "Bericht Ausgabe";
+
+"errorViewServerErrorTitle" = "Server-Fehler";
+"errorViewServerErrorDescription" = "Es scheint ein Problem auf unserer Seite aufgetreten zu sein. Bitte versuchen Sie es erneut.";
+
+"errorViewClientErrorTitle" = "Client-Fehler";
+"errorViewClientErrorDescription" = "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.";
+
+"errorViewNoContentTitle" = "Kein Inhalt";
+"errorViewNoContentDescription" = "Kein Inhalt gefunden. Bitte melden Sie dieses Problem, wenn es unerwartet auftritt.";
+
+"errorViewParsingErrorTitle" = "Parsing-Fehler";
+"errorViewParsingErrorDescription" = "Daten konnten nicht geparst werden. Bitte melden Sie dieses Problem, indem Sie hier klicken.";
+
+"errorViewUnknownErrorTitle" = "Unbekannter Fehler";
+"errorViewUnknownErrorDescription" = "Es ist etwas Unerwartetes passiert. Bitte melden Sie dieses Problem, indem Sie hier klicken.";
+
+"errorViewUnauthorizedTitle" = "Unbefugte";
+"errorViewUnauthorizedDescription" = "Sie sind zu diesem Inhalt nicht berechtigt.";
+
+"errorViewUnavailableTitle" = "Nicht verfügbar";
+"errorViewUnavailableDescription" = "Dieser Dienst ist derzeit nicht verfügbar. Bitte versuchen Sie es später noch einmal.";

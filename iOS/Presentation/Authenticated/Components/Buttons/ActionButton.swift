@@ -14,6 +14,10 @@ struct ActionButton: View {
     
     var text: LocalizedStringKey
     
+    var textColor = Color(uiColor: .systemBackground)
+    
+    var backgroundColor = Color(uiColor: .label)
+    
     var action: () -> Void
     
     var body: some View {
@@ -36,8 +40,8 @@ struct ActionButton: View {
             .frame(height: 40)
         }
         .padding(.vertical, 6)
-        .foregroundColor(Color(uiColor: .systemBackground))
-        .background(Color(uiColor: .label))
+        .foregroundColor(textColor)
+        .background(backgroundColor)
         .cornerRadius(10)
     }
 

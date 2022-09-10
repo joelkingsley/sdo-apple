@@ -72,3 +72,28 @@
 
 // Progress
 "progressViewLoadingLabel" = "Loading";
+
+// Error View
+"errorViewTryAgainActionLabel" = "Try Again";
+"errorViewReportIssueActionLabel" = "Report Issue";
+
+"errorViewServerErrorTitle" = "Server Error";
+"errorViewServerErrorDescription" = "There seem to have been a problem on our side. Please try again.";
+
+"errorViewClientErrorTitle" = "Client Error";
+"errorViewClientErrorDescription" = "Something is wrong. Please try again.";
+
+"errorViewNoContentTitle" = "No Content";
+"errorViewNoContentDescription" = "Found no content. Please report this issue if this is unexpected.";
+
+"errorViewParsingErrorTitle" = "Parsing Error";
+"errorViewParsingErrorDescription" = "Failed to parse data. Please report this issue by clicking here.";
+
+"errorViewUnknownErrorTitle" = "Unknown Error";
+"errorViewUnknownErrorDescription" = "Something unexpected occurred. Please report this issue by clicking here.";
+
+"errorViewUnauthorizedTitle" = "Unauthorized";
+"errorViewUnauthorizedDescription" = "You are not authorized to this content.";
+
+"errorViewUnavailableTitle" = "Unavailable";
+"errorViewUnavailableDescription" = "This service is currently unavailable. Please try again later.";

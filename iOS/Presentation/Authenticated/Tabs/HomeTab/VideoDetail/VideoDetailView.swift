@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VideoDetailView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var videoDetailViewModel = VideoDetailViewModel()
     
     init(videoId: String, channelId: String) {
@@ -22,12 +23,12 @@ struct VideoDetailView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         TopVideoPreview(video: data)
-                        
+
                         Divider()
                             .padding(.horizontal, 20)
-                        
+
                         RelatedRow(videos: data.infoData.relatedVideos)
-                        
+
                         Spacer()
                     }
                 }
@@ -47,7 +48,7 @@ struct VideoDetailView: View {
                                     .frame(width: 20, height: 20)
                             }
                             .foregroundColor(.accentColor.opacity(0.8))
-                            
+
                             Button {
                                 // Share video
                                 // TODO: To be integrated
@@ -62,8 +63,10 @@ struct VideoDetailView: View {
                     }
                 }
             case let .failure(error):
-                // TODO: Display generic error card
-                Text("Error occurred: \(error.localizedDescription)")
+                CustomErrorView(
+                    error: error,
+                    authViewModel: authViewModel
+                )
             }
         } else {
             ProgressView("progressViewLoadingLabel")

@@ -61,6 +61,8 @@
 		F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105EC28BFD7AB00580101 /* Extensions+AVPlayer.swift */; };
 		F18105F028C3995900580101 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */; };
 		F18105F128C3995900580101 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */; };
+		F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */; };
+		F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FC28C5DA2000580101 /* CustomErrorView.swift */; };
 		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
@@ -202,6 +204,8 @@
 		F18105E928BFB7AA00580101 /* SDOVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOVideoPlayer.swift; sourceTree = "<group>"; };
 		F18105EC28BFD7AB00580101 /* Extensions+AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+AVPlayer.swift"; sourceTree = "<group>"; };
 		F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
+		F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorViewModel.swift; sourceTree = "<group>"; };
+		F18105FC28C5DA2000580101 /* CustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorView.swift; sourceTree = "<group>"; };
 		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
@@ -483,6 +487,15 @@
 			path = SDOVideoPlayer;
 			sourceTree = "<group>";
 		};
+		F18105F328C54A0500580101 /* CustomErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				F18105FC28C5DA2000580101 /* CustomErrorView.swift */,
+				F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */,
+			);
+			path = CustomErrorView;
+			sourceTree = "<group>";
+		};
 		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +584,7 @@
 		F1E493D02866F9C4008611D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F18105F328C54A0500580101 /* CustomErrorView */,
 				F18105E828BFB78E00580101 /* SDOVideoPlayer */,
 				F1D6521828B7E3DC0084907A /* VideoThumbnail */,
 			);
@@ -1042,6 +1056,7 @@
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F18105EA28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */,
 				F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
 				F1CA158028AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
@@ -1063,6 +1078,7 @@
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
+				F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */,
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
 				F18105E228BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
