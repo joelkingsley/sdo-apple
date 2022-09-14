@@ -18,7 +18,7 @@ class HasuraVideoRepository: VideoRepository {
     }
     
     /// Gets the data needed for the home screen
-    func getHomeScreenData(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
+    func getHomeScreenInfoData(userUuid: String) async -> Result<HomeScreenInfoData, BusinessError> {
         do {
             let data = try await graphQLService.executeQuery(
                 query: GetHomeScreenDataQuery(uuid: userUuid)).toEntity()
@@ -36,19 +36,33 @@ class HasuraVideoRepository: VideoRepository {
                 query: GetVideoDetailDataQuery(videoId: videoId, channelId: channelId)).toEntity()
             return .success(data)
         } catch {
-            AppLogger.error("Error in getVideoDetailData: \(error)")
+            AppLogger.error("Error in getVideoDetailInfoData: \(error)")
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
     
-    /// Gets a signed urls for given video
+    /// Gets signed urls for given video
     func getSignedUrlsForVideo(ofVideoId videoId: String) async -> Result<VideoUrlData, BusinessError> {
         do {
             let data = try await graphQLService.executeMutation(
                 mutation: GetVideoUrlDataMutation(videoId: videoId)).toEntity()
             return .success(data)
         } catch {
-            AppLogger.error("Error in getVideoDetailData: \(error)")
+            AppLogger.error("Error in getSignedUrlsForVideo: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
+    
+    /// Gets signed thumbnail details for given videos
+    func getSignedThumbnailDetailsForVideos(
+        ofVideoIds videoIds: [String]
+    ) async -> Result<[VideoThumbnailDetails], BusinessError> {
+        do {
+            let data = try await graphQLService.executeMutation(
+                mutation: GetSignedThumbnailUrlOfVideosMutation(videoIds: videoIds)).toEntity()
+            return .success(data)
+        } catch {
+            AppLogger.error("Error in getSignedThumbnailDetailsForVideos: \(error)")
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }

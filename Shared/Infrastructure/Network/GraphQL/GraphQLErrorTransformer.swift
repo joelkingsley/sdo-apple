@@ -39,7 +39,11 @@ enum GraphQLErrorTransformer {
                 default:
                     return ApiErrors.unknownError()
                 }
-            } else {
+            } else if let code = graphQLErrorExtension["code"] as? String,
+                      let apiError = ApiErrorCodes(rawValue: code)?.toApiError() {
+                return apiError
+            }
+            else {
                 return ApiErrors.unknownError()
             }
         } catch {

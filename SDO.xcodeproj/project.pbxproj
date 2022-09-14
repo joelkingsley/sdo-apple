@@ -65,6 +65,14 @@
 		F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FC28C5DA2000580101 /* CustomErrorView.swift */; };
 		F181060028CCCC7600580101 /* VideoUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FF28CCCC7600580101 /* VideoUrlData.swift */; };
 		F181060128CCCC7600580101 /* VideoUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105FF28CCCC7600580101 /* VideoUrlData.swift */; };
+		F181060328CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181060228CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift */; };
+		F181060428CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181060228CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift */; };
+		F181060928CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */; };
+		F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */; };
+		F181061328CD1EC700580101 /* HomeScreenInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181061228CD1EC700580101 /* HomeScreenInfoData.swift */; };
+		F181061428CD1EC700580101 /* HomeScreenInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181061228CD1EC700580101 /* HomeScreenInfoData.swift */; };
+		F181061628CD206600580101 /* HomeScreenThumbnailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181061528CD206600580101 /* HomeScreenThumbnailData.swift */; };
+		F181061728CD206600580101 /* HomeScreenThumbnailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181061528CD206600580101 /* HomeScreenThumbnailData.swift */; };
 		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
@@ -209,6 +217,10 @@
 		F18105FA28C5D9FF00580101 /* CustomErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorViewModel.swift; sourceTree = "<group>"; };
 		F18105FC28C5DA2000580101 /* CustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorView.swift; sourceTree = "<group>"; };
 		F18105FF28CCCC7600580101 /* VideoUrlData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUrlData.swift; sourceTree = "<group>"; };
+		F181060228CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSignedThumbnailDetailsForVideosDTO.swift; sourceTree = "<group>"; };
+		F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailDetails.swift; sourceTree = "<group>"; };
+		F181061228CD1EC700580101 /* HomeScreenInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenInfoData.swift; sourceTree = "<group>"; };
+		F181061528CD206600580101 /* HomeScreenThumbnailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenThumbnailData.swift; sourceTree = "<group>"; };
 		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
@@ -509,6 +521,16 @@
 			path = VideoDetail;
 			sourceTree = "<group>";
 		};
+		F181060B28CD1B8900580101 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F1D6521C28B812C50084907A /* HomeScreenData.swift */,
+				F181061228CD1EC700580101 /* HomeScreenInfoData.swift */,
+				F181061528CD206600580101 /* HomeScreenThumbnailData.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +539,7 @@
 				F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */,
 				F18105DB28BE78CC00580101 /* GetSignedUrlForVideoDTO.swift */,
 				F18105E128BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift */,
+				F181060228CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -617,13 +640,14 @@
 		F1E493D72866FAF1008611D7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F181060B28CD1B8900580101 /* HomeScreen */,
 				F18105FE28CCCC2F00580101 /* VideoDetail */,
 				F18105DE28BF552900580101 /* ApiError.swift */,
 				F1EE14F7287210770020CD74 /* BusinessError.swift */,
-				F1D6521C28B812C50084907A /* HomeScreenData.swift */,
 				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
 				F18105BF28BCE8C200580101 /* ChannelData.swift */,
 				F18105FF28CCCC7600580101 /* VideoUrlData.swift */,
+				F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1033,6 +1057,7 @@
 				F18105DC28BE78CC00580101 /* GetSignedUrlForVideoDTO.swift in Sources */,
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
+				F181061628CD206600580101 /* HomeScreenThumbnailData.swift in Sources */,
 				F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */,
 				F18105C028BCE8C200580101 /* ChannelData.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetVideosForHomeScreenDTO.swift in Sources */,
@@ -1040,10 +1065,12 @@
 				F13983D82895A783004A2375 /* TileButton.swift in Sources */,
 				F1EE14FC2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
+				F181060328CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift in Sources */,
 				F1D6522128B950A60084907A /* VideoDetailData.swift in Sources */,
 				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F18105C628BCF04D00580101 /* VideoDetailInfoData.swift in Sources */,
 				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
+				F181060928CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
 				F18105DF28BF552900580101 /* ApiError.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
@@ -1098,6 +1125,7 @@
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F18105C928BCF0B400580101 /* VideoDetailSubscriptionData.swift in Sources */,
 				F18105D028BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
+				F181061328CD1EC700580101 /* HomeScreenInfoData.swift in Sources */,
 				F18105F028C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
 				F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
@@ -1123,6 +1151,7 @@
 				F18105D428BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
 				F18105E628BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
 				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F181061728CD206600580101 /* HomeScreenThumbnailData.swift in Sources */,
 				F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F1CA157E28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
@@ -1148,12 +1177,15 @@
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
+				F181061428CD1EC700580101 /* HomeScreenInfoData.swift in Sources */,
 				F18105C728BCF04D00580101 /* VideoDetailInfoData.swift in Sources */,
 				F1E494142869910B008611D7 /* SignInView.swift in Sources */,
 				F1D6522828B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,
+				F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
 				F1CA157B28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
 				F1EA5AA528B607D700102469 /* VideoRepository.swift in Sources */,
+				F181060428CD134100580101 /* GetSignedThumbnailDetailsForVideosDTO.swift in Sources */,
 				F1E493F52867A21C008611D7 /* VideoMocks.swift in Sources */,
 				F1CA158128AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
 				F18105CD28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,

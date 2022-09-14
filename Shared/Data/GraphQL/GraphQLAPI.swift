@@ -209,6 +209,152 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
   }
 }
 
+public final class GetSignedThumbnailUrlOfVideosMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation GetSignedThumbnailUrlOfVideos($videoIds: [String!]) {
+      getSignedThumbnailUrlOfVideos(arg1: {videoIds: $videoIds}) {
+        __typename
+        thumbnailDetails {
+          __typename
+          thumbnailUrl
+          videoId
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "GetSignedThumbnailUrlOfVideos"
+
+  public var videoIds: [String]?
+
+  public init(videoIds: [String]?) {
+    self.videoIds = videoIds
+  }
+
+  public var variables: GraphQLMap? {
+    return ["videoIds": videoIds]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("getSignedThumbnailUrlOfVideos", arguments: ["arg1": ["videoIds": GraphQLVariable("videoIds")]], type: .object(GetSignedThumbnailUrlOfVideo.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getSignedThumbnailUrlOfVideos: GetSignedThumbnailUrlOfVideo? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "getSignedThumbnailUrlOfVideos": getSignedThumbnailUrlOfVideos.flatMap { (value: GetSignedThumbnailUrlOfVideo) -> ResultMap in value.resultMap }])
+    }
+
+    public var getSignedThumbnailUrlOfVideos: GetSignedThumbnailUrlOfVideo? {
+      get {
+        return (resultMap["getSignedThumbnailUrlOfVideos"] as? ResultMap).flatMap { GetSignedThumbnailUrlOfVideo(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "getSignedThumbnailUrlOfVideos")
+      }
+    }
+
+    public struct GetSignedThumbnailUrlOfVideo: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["GetSignedThumbnailUrlOfVideosOutput"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("thumbnailDetails", type: .list(.nonNull(.object(ThumbnailDetail.selections)))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(thumbnailDetails: [ThumbnailDetail]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "GetSignedThumbnailUrlOfVideosOutput", "thumbnailDetails": thumbnailDetails.flatMap { (value: [ThumbnailDetail]) -> [ResultMap] in value.map { (value: ThumbnailDetail) -> ResultMap in value.resultMap } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var thumbnailDetails: [ThumbnailDetail]? {
+        get {
+          return (resultMap["thumbnailDetails"] as? [ResultMap]).flatMap { (value: [ResultMap]) -> [ThumbnailDetail] in value.map { (value: ResultMap) -> ThumbnailDetail in ThumbnailDetail(unsafeResultMap: value) } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [ThumbnailDetail]) -> [ResultMap] in value.map { (value: ThumbnailDetail) -> ResultMap in value.resultMap } }, forKey: "thumbnailDetails")
+        }
+      }
+
+      public struct ThumbnailDetail: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["VideoThumbnailDetails"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("thumbnailUrl", type: .nonNull(.scalar(String.self))),
+            GraphQLField("videoId", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(thumbnailUrl: String, videoId: String) {
+          self.init(unsafeResultMap: ["__typename": "VideoThumbnailDetails", "thumbnailUrl": thumbnailUrl, "videoId": videoId])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var thumbnailUrl: String {
+          get {
+            return resultMap["thumbnailUrl"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "thumbnailUrl")
+          }
+        }
+
+        public var videoId: String {
+          get {
+            return resultMap["videoId"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "videoId")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

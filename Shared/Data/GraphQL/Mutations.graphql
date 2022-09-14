@@ -5,3 +5,12 @@ mutation GetVideoUrlData($videoId: String!) {
     isVideoAccessibleToUser
   }
 }
+
+mutation GetSignedThumbnailUrlOfVideos($videoIds: [String!]) {
+  getSignedThumbnailUrlOfVideos(arg1: {videoIds: $videoIds}) {
+    thumbnailDetails {
+      thumbnailUrl
+      videoId
+    }
+  }
+}
