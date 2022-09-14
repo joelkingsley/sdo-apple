@@ -18,6 +18,88 @@ class GetHomeScreenDataUseCase {
     }
     
     func execute(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
-        return await videoRepository.getHomeScreenData(userUuid: userUuid)
+        do {
+            let homeScreenInfoData = try await videoRepository.getHomeScreenInfoData(userUuid: userUuid).get()
+            async let videoThumbnailDetailsForContinueWatchingVideosResult = videoRepository.getSignedThumbnailDetailsForVideos(
+                ofVideoIds: homeScreenInfoData.continueWatchingVideos.map { $0.infoData.videoId })
+            async let videoThumbnailDetailsForUserListVideosResult = videoRepository.getSignedThumbnailDetailsForVideos(
+                ofVideoIds: homeScreenInfoData.userListVideos.map { $0.infoData.videoId })
+            async let videoThumbnailDetailsForNewReleasesVideosResult = videoRepository.getSignedThumbnailDetailsForVideos(
+                ofVideoIds: homeScreenInfoData.newReleasesVideos.map { $0.infoData.videoId })
+            
+            do {
+                let thumbnailDetailsContinueWatchingVideos = try await videoThumbnailDetailsForContinueWatchingVideosResult.get()
+                let thumbnailDetailsUserListVideos = try await videoThumbnailDetailsForUserListVideosResult.get()
+                let thumbnailDetailsNewReleasesVideos = try await videoThumbnailDetailsForNewReleasesVideosResult.get()
+                return .success(
+                    HomeScreenData(
+                        continueWatchingVideos: try homeScreenInfoData.continueWatchingVideos.map({ video in
+                            guard let thumbnailURL = thumbnailDetailsContinueWatchingVideos.first(
+                                where: { $0.videoId == video.infoData.videoId})?.thumbnailUrl
+                            else {
+                                throw BusinessErrors.parsingError()
+                            }
+                            return HomeScreenData.HomeVideo(
+                                infoData: HomeScreenData.HomeVideo.HomeVideoInfoData(
+                                    videoId: video.infoData.videoId,
+                                    title: video.infoData.title,
+                                    channelId: video.infoData.channelId,
+                                    channelName: video.infoData.channelName,
+                                    datePublished: video.infoData.datePublished,
+                                    views: video.infoData.views
+                                ),
+                                thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
+                                    thumbnailURL: thumbnailURL
+                                )
+                            )
+                        }),
+                        userListVideos: try homeScreenInfoData.userListVideos.map({ video in
+                            guard let thumbnailURL = thumbnailDetailsUserListVideos.first(
+                                where: { $0.videoId == video.infoData.videoId})?.thumbnailUrl
+                            else {
+                                throw BusinessErrors.parsingError()
+                            }
+                            return HomeScreenData.HomeVideo(
+                                infoData: HomeScreenData.HomeVideo.HomeVideoInfoData(
+                                    videoId: video.infoData.videoId,
+                                    title: video.infoData.title,
+                                    channelId: video.infoData.channelId,
+                                    channelName: video.infoData.channelName,
+                                    datePublished: video.infoData.datePublished,
+                                    views: video.infoData.views
+                                ),
+                                thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
+                                    thumbnailURL: thumbnailURL
+                                )
+                            )
+                        }),
+                        newReleasesVideos: try homeScreenInfoData.newReleasesVideos.map({ video in
+                            guard let thumbnailURL = thumbnailDetailsNewReleasesVideos.first(
+                                where: { $0.videoId == video.infoData.videoId})?.thumbnailUrl
+                            else {
+                                throw BusinessErrors.parsingError()
+                            }
+                            return HomeScreenData.HomeVideo(
+                                infoData: HomeScreenData.HomeVideo.HomeVideoInfoData(
+                                    videoId: video.infoData.videoId,
+                                    title: video.infoData.title,
+                                    channelId: video.infoData.channelId,
+                                    channelName: video.infoData.channelName,
+                                    datePublished: video.infoData.datePublished,
+                                    views: video.infoData.views
+                                ),
+                                thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
+                                    thumbnailURL: thumbnailURL
+                                )
+                            )
+                        })
+                    )
+                )
+            } catch {
+                return .failure(error)
+            }
+        } catch {
+            return .failure(error)
+        }
     }
 }

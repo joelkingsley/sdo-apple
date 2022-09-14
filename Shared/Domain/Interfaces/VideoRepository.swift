@@ -12,11 +12,16 @@ import Foundation
  */
 protocol VideoRepository {
     /// Gets the data needed for the home screen
-    func getHomeScreenData(userUuid: String) async -> Result<HomeScreenData, BusinessError>
+    func getHomeScreenInfoData(userUuid: String) async -> Result<HomeScreenInfoData, BusinessError>
     
     /// Gets detailed informational video data
     func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailInfoData, BusinessError>
     
     /// Gets signed urls for a given video
     func getSignedUrlsForVideo(ofVideoId videoId: String) async -> Result<VideoUrlData, BusinessError>
+    
+    /// Gets signed thumbnail details for given videos
+    func getSignedThumbnailDetailsForVideos(
+        ofVideoIds videoIds: [String]
+    ) async -> Result<[VideoThumbnailDetails], BusinessError>
 }

@@ -9,6 +9,17 @@ import Foundation
 
 typealias ApiError = Error
 
+enum ApiErrorCodes: String {
+    case invalidJwt = "invalid-jwt"
+    
+    func toApiError() -> ApiError? {
+        switch self {
+        case .invalidJwt:
+            return ApiErrors.unauthorized()
+        }
+    }
+}
+
 enum ApiErrors: ApiError, Equatable {
     // Generic Errors
     struct serverError: ApiError {}

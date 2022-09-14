@@ -8,23 +8,31 @@
 import Foundation
 
 let exampleVideo1 = HomeScreenData.HomeVideo(
-    videoId: "dummy1",
-    title: "Being Baptist",
-    channelId: "dummy1",
-    channelName: "Verity Baptist Church",
-    thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
-    datePublished: Date(timeIntervalSinceNow: -60000),
-    views: 2_001
+    infoData: HomeScreenData.HomeVideo.HomeVideoInfoData(
+        videoId: "dummy1",
+        title: "Being Baptist",
+        channelId: "dummy1",
+        channelName: "Verity Baptist Church",
+        datePublished: Date(timeIntervalSinceNow: -60000),
+        views: 2_001
+    ),
+    thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
+        thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!
+    )
 )
 
 let exampleVideo2 = HomeScreenData.HomeVideo(
-    videoId: "dummy2",
-    title: "Being Baptist",
-    channelId: "dummy2",
-    channelName: "Verity Baptist Church",
-    thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
-    datePublished: Date(timeIntervalSinceNow: -60000),
-    views: 10_012_321
+    infoData: HomeScreenData.HomeVideo.HomeVideoInfoData(
+        videoId: "dummy2",
+        title: "Being Baptist",
+        channelId: "dummy1",
+        channelName: "Verity Baptist Church",
+        datePublished: Date(timeIntervalSinceNow: -60000),
+        views: 10_012_321
+    ),
+    thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
+        thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!
+    )
 )
 
 let exampleVideoDetail1 = VideoDetailData(
