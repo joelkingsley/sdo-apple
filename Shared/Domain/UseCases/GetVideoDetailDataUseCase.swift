@@ -46,18 +46,7 @@ class GetVideoDetailDataUseCase {
         } catch {
             if let customError = error as? BusinessErrors.customError {
                 AppLogger.error(customError.localizedDescription)
-                switch customError.code {
-                case "VIDEO_ID_NOT_SET":
-                    return .failure(BusinessErrors.clientError())
-                case "TOKEN_INVALID":
-                    return .failure(BusinessErrors.unauthorized())
-                case "SERVER_ERROR":
-                    return .failure(BusinessErrors.serverError())
-                case "SIGNING_URL_ERROR":
-                    return .failure(BusinessErrors.serverError())
-                default:
-                    return .failure(BusinessErrors.serverError())
-                }
+                return .failure(customError.asErrorForGetVideoDetailDataUseCase())
             }
             return .failure(error)
         }
