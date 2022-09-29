@@ -13,5 +13,5 @@ protocol ThumbnailableVideo {
     var channelName: String { get }
     var thumbnailURL: URL { get }
     var datePublished: Date { get }
-    var views: Int { get }
+    var speakerName: String { get }
 }

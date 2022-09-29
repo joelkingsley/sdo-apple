@@ -15,7 +15,7 @@ struct HomeScreenData {
             let channelId: String
             let channelName: String
             let datePublished: Date
-            let views: Int
+            let speakerName: String
         }
         
         struct HomeVideoThumbnailData {
@@ -47,8 +47,8 @@ extension HomeScreenData.HomeVideo: ThumbnailableVideo {
         infoData.datePublished
     }
     
-    var views: Int {
-        infoData.views
+    var speakerName: String {
+        infoData.speakerName
     }
     
     var thumbnailURL: URL {

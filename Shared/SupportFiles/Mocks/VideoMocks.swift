@@ -14,7 +14,7 @@ let exampleVideo1 = HomeScreenData.HomeVideo(
         channelId: "dummy1",
         channelName: "Verity Baptist Church",
         datePublished: Date(timeIntervalSinceNow: -60000),
-        views: 2_001
+        speakerName: "Pastor Roger Jiminez"
     ),
     thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
         thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!
@@ -28,7 +28,7 @@ let exampleVideo2 = HomeScreenData.HomeVideo(
         channelId: "dummy1",
         channelName: "Verity Baptist Church",
         datePublished: Date(timeIntervalSinceNow: -60000),
-        views: 10_012_321
+        speakerName: "Pastor Roger Jiminez"
     ),
     thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
         thumbnailURL: URL(string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!
@@ -36,44 +36,42 @@ let exampleVideo2 = HomeScreenData.HomeVideo(
 )
 
 let exampleVideoDetail1 = VideoDetailData(
-    infoData: VideoDetailInfoData(
-        videoId: "dummy1",
-        title: "Being Baptist",
-        videoType: .documentary,
-        datePublished: Date(timeIntervalSinceNow: -60000),
-        description: "Being Baptist traces the history from the historic anabaptists to the impact of the independent fundametal churches of today.",
-        speaker: VideoDetailInfoData.SpeakerData(speakerId: "dummy1", speakerName: "Pastor Roger Jimenez"),
-        channel: ChannelData(
-            channelId: "dummy1",
-            channelName: "Verity Baptist Church",
-            channelType: .church
+    videoId: "dummy1",
+    title: "Being Baptist",
+    videoType: .documentary,
+    datePublished: Date(timeIntervalSinceNow: -60000),
+    description: "Being Baptist traces the history from the historic anabaptists to the impact of the independent fundametal churches of today.",
+    speaker: VideoDetailData.SpeakerData(speakerId: "dummy1", speakerName: "Pastor Roger Jimenez"),
+    channel: ChannelData(
+        channelId: "dummy1",
+        channelName: "Verity Baptist Church",
+        channelType: .church
+    ),
+    relatedVideos: [
+        VideoDetailData.RelatedVideo(
+            videoId: "dummy1",
+            title: "Once Saved Always Saved",
+            channelName: "Faithful Word Baptist Church",
+            datePublished: Date(timeIntervalSinceNow: -60000),
+            speakerName: "Pastor Roger Jiminez",
+            thumbnailURL: URL(
+                string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
+            )!
         ),
-        relatedVideos: [
-            VideoDetailInfoData.RelatedVideo(
-                videoId: "dummy1",
-                title: "Once Saved Always Saved",
-                channelName: "Faithful Word Baptist Church",
-                thumbnailURL: URL(
-                    string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
-                )!,
-                datePublished: Date(timeIntervalSinceNow: -60000),
-                views: 9_000
-            ),
-            VideoDetailInfoData.RelatedVideo(
-                videoId: "dummy2",
-                title: "1, 2, 3, Repent After Me",
-                channelName: "Faithful Word Baptist Church",
-                thumbnailURL: URL(
-                    string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
-                )!,
-                datePublished: Date(timeIntervalSinceNow: -60000),
-                views: 9_000
-            )
-        ],
-        language: VideoDetailInfoData.LanguageData(
-            languageCode: "en",
-            sourceCountryFlag: "🇬🇧"
+        VideoDetailData.RelatedVideo(
+            videoId: "dummy2",
+            title: "1, 2, 3, Repent After Me",
+            channelName: "Faithful Word Baptist Church",
+            datePublished: Date(timeIntervalSinceNow: -60000),
+            speakerName: "Pastor Roger Jiminez",
+            thumbnailURL: URL(
+                string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
+            )!
         )
+    ],
+    language: VideoDetailData.LanguageData(
+        languageCode: "en",
+        sourceCountryFlag: "🇬🇧"
     ),
     subscriptionData: VideoDetailSubscriptionData(
         subscriptionVideoBelongsTo: SubscriptionData(

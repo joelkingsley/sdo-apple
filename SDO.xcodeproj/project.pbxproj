@@ -524,6 +524,7 @@
 				F18105C528BCF04D00580101 /* VideoDetailInfoData.swift */,
 				F18105C828BCF0B400580101 /* VideoDetailSubscriptionData.swift */,
 				F19512C828E60A8800DF4E2E /* VideoDetailErrors.swift */,
+				F18105FF28CCCC7600580101 /* VideoUrlData.swift */,
 			);
 			path = VideoDetail;
 			sourceTree = "<group>";
@@ -537,6 +538,15 @@
 				F19512C528E60A7B00DF4E2E /* HomeScreenErrors.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		F19512C128E57D9B00DF4E2E /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F18105DE28BF552900580101 /* ApiError.swift */,
+				F1EE14F7287210770020CD74 /* BusinessError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
@@ -648,13 +658,11 @@
 		F1E493D72866FAF1008611D7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F19512C128E57D9B00DF4E2E /* Errors */,
 				F181060B28CD1B8900580101 /* HomeScreen */,
 				F18105FE28CCCC2F00580101 /* VideoDetail */,
-				F18105DE28BF552900580101 /* ApiError.swift */,
-				F1EE14F7287210770020CD74 /* BusinessError.swift */,
 				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
 				F18105BF28BCE8C200580101 /* ChannelData.swift */,
-				F18105FF28CCCC7600580101 /* VideoUrlData.swift */,
 				F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */,
 			);
 			path = Entities;

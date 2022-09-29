@@ -482,7 +482,10 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
           date_published
           title
-          views
+          speaker {
+            __typename
+            speaker_name
+          }
         }
       }
       userList: user_list(where: {user_uuid: {_eq: $uuid}}) {
@@ -497,7 +500,10 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
           date_published
           title
-          views
+          speaker {
+            __typename
+            speaker_name
+          }
         }
       }
       newReleases: videos(order_by: {date_published: desc}) {
@@ -510,7 +516,10 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         }
         date_published
         title
-        views
+        speaker {
+          __typename
+          speaker_name
+        }
       }
     }
     """
@@ -637,7 +646,7 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
             GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
             GraphQLField("title", type: .nonNull(.scalar(String.self))),
-            GraphQLField("views", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
           ]
         }
 
@@ -647,8 +656,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(videoId: String, channel: Channel, datePublished: String, title: String, views: Int) {
-          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "views": views])
+        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
+          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
         }
 
         public var __typename: String {
@@ -697,12 +706,13 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
         }
 
-        public var views: Int {
+        /// An object relationship
+        public var speaker: Speaker {
           get {
-            return resultMap["views"]! as! Int
+            return Speaker(unsafeResultMap: resultMap["speaker"]! as! ResultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "views")
+            resultMap.updateValue(newValue.resultMap, forKey: "speaker")
           }
         }
 
@@ -751,6 +761,46 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "channel_name")
+            }
+          }
+        }
+
+        public struct Speaker: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["speakers"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("speaker_name", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(speakerName: String) {
+            self.init(unsafeResultMap: ["__typename": "speakers", "speaker_name": speakerName])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// If a single person, it should be in the following format: <title> <full name>. If multiple people, each person should be mentioned in the same format with an appropriate comma or ampersand between them. If it is a group, then just the group's name is enough.
+          public var speakerName: String {
+            get {
+              return resultMap["speaker_name"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "speaker_name")
             }
           }
         }
@@ -806,7 +856,7 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
             GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
             GraphQLField("title", type: .nonNull(.scalar(String.self))),
-            GraphQLField("views", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
           ]
         }
 
@@ -816,8 +866,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(videoId: String, channel: Channel, datePublished: String, title: String, views: Int) {
-          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "views": views])
+        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
+          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
         }
 
         public var __typename: String {
@@ -866,12 +916,13 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
         }
 
-        public var views: Int {
+        /// An object relationship
+        public var speaker: Speaker {
           get {
-            return resultMap["views"]! as! Int
+            return Speaker(unsafeResultMap: resultMap["speaker"]! as! ResultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "views")
+            resultMap.updateValue(newValue.resultMap, forKey: "speaker")
           }
         }
 
@@ -923,6 +974,46 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             }
           }
         }
+
+        public struct Speaker: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["speakers"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("speaker_name", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(speakerName: String) {
+            self.init(unsafeResultMap: ["__typename": "speakers", "speaker_name": speakerName])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// If a single person, it should be in the following format: <title> <full name>. If multiple people, each person should be mentioned in the same format with an appropriate comma or ampersand between them. If it is a group, then just the group's name is enough.
+          public var speakerName: String {
+            get {
+              return resultMap["speaker_name"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "speaker_name")
+            }
+          }
+        }
       }
     }
 
@@ -936,7 +1027,7 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
           GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
           GraphQLField("title", type: .nonNull(.scalar(String.self))),
-          GraphQLField("views", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
         ]
       }
 
@@ -946,8 +1037,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoId: String, channel: Channel, datePublished: String, title: String, views: Int) {
-        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "views": views])
+      public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
+        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
       }
 
       public var __typename: String {
@@ -996,12 +1087,13 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         }
       }
 
-      public var views: Int {
+      /// An object relationship
+      public var speaker: Speaker {
         get {
-          return resultMap["views"]! as! Int
+          return Speaker(unsafeResultMap: resultMap["speaker"]! as! ResultMap)
         }
         set {
-          resultMap.updateValue(newValue, forKey: "views")
+          resultMap.updateValue(newValue.resultMap, forKey: "speaker")
         }
       }
 
@@ -1053,6 +1145,46 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
         }
       }
+
+      public struct Speaker: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["speakers"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("speaker_name", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(speakerName: String) {
+          self.init(unsafeResultMap: ["__typename": "speakers", "speaker_name": speakerName])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// If a single person, it should be in the following format: <title> <full name>. If multiple people, each person should be mentioned in the same format with an appropriate comma or ampersand between them. If it is a group, then just the group's name is enough.
+        public var speakerName: String {
+          get {
+            return resultMap["speaker_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "speaker_name")
+          }
+        }
+      }
     }
   }
 }
@@ -1095,7 +1227,10 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           channel_name
         }
         date_published
-        views
+        speaker {
+          __typename
+          speaker_name
+        }
       }
     }
     """
@@ -1434,7 +1569,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           GraphQLField("title", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
           GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
-          GraphQLField("views", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
         ]
       }
 
@@ -1444,8 +1579,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoId: String, title: String, channel: Channel, datePublished: String, views: Int) {
-        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "channel": channel.resultMap, "date_published": datePublished, "views": views])
+      public init(videoId: String, title: String, channel: Channel, datePublished: String, speaker: Speaker) {
+        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "channel": channel.resultMap, "date_published": datePublished, "speaker": speaker.resultMap])
       }
 
       public var __typename: String {
@@ -1494,12 +1629,13 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         }
       }
 
-      public var views: Int {
+      /// An object relationship
+      public var speaker: Speaker {
         get {
-          return resultMap["views"]! as! Int
+          return Speaker(unsafeResultMap: resultMap["speaker"]! as! ResultMap)
         }
         set {
-          resultMap.updateValue(newValue, forKey: "views")
+          resultMap.updateValue(newValue.resultMap, forKey: "speaker")
         }
       }
 
@@ -1538,6 +1674,46 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "channel_name")
+          }
+        }
+      }
+
+      public struct Speaker: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["speakers"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("speaker_name", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(speakerName: String) {
+          self.init(unsafeResultMap: ["__typename": "speakers", "speaker_name": speakerName])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// If a single person, it should be in the following format: <title> <full name>. If multiple people, each person should be mentioned in the same format with an appropriate comma or ampersand between them. If it is a group, then just the group's name is enough.
+        public var speakerName: String {
+          get {
+            return resultMap["speaker_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "speaker_name")
           }
         }
       }
