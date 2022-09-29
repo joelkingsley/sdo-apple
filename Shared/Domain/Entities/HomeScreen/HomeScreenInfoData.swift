@@ -15,7 +15,7 @@ struct HomeScreenInfoData {
             let channelId: String
             let channelName: String
             let datePublished: Date
-            let views: Int
+            let speakerName: String
         }
         
         let infoData: HomeVideoInfoData

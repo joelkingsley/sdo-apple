@@ -14,13 +14,7 @@ struct VideoThumbnailsRowViewModel {
         description.append(" ")
         description.append("·")
         description.append(" ")
-        description.append(video.views.formatted(.number))
-        description.append(" ")
-        if video.views == 1 {
-            description.append(String(localized: "videoDetailViewLabel"))
-        } else {
-            description.append(String(localized: "videoDetailViewsLabel"))
-        }
+        description.append(video.speakerName)
         description.append(" ")
         description.append("·")
         description.append(" ")

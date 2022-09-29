@@ -27,7 +27,7 @@ struct VideoDetailView: View {
                         Divider()
                             .padding(.horizontal, 20)
 
-                        RelatedRow(videos: data.infoData.relatedVideos)
+                        RelatedRow(videos: data.relatedVideos)
 
                         Spacer()
                     }

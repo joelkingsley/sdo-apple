@@ -22,7 +22,7 @@ extension GetHomeScreenDataQuery.Data {
                     channelId: video.channel.channelId,
                     channelName: video.channel.channelName,
                     datePublished: datePublished,
-                    views: video.views
+                    speakerName: video.speaker.speakerName
                 )
             )
         }
@@ -37,7 +37,7 @@ extension GetHomeScreenDataQuery.Data {
                     channelId: video.channel.channelId,
                     channelName: video.channel.channelName,
                     datePublished: datePublished,
-                    views: video.views
+                    speakerName: video.speaker.speakerName
                 )
             )
         }
@@ -52,7 +52,7 @@ extension GetHomeScreenDataQuery.Data {
                     channelId: video.channel.channelId,
                     channelName: video.channel.channelName,
                     datePublished: datePublished,
-                    views: video.views
+                    speakerName: video.speaker.speakerName
                 )
             )
         }

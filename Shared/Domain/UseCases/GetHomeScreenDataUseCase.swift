@@ -45,7 +45,7 @@ class GetHomeScreenDataUseCase {
                                 channelId: video.infoData.channelId,
                                 channelName: video.infoData.channelName,
                                 datePublished: video.infoData.datePublished,
-                                views: video.infoData.views
+                                speakerName: video.infoData.speakerName
                             ),
                             thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
                                 thumbnailURL: thumbnailURL
@@ -65,7 +65,7 @@ class GetHomeScreenDataUseCase {
                                 channelId: video.infoData.channelId,
                                 channelName: video.infoData.channelName,
                                 datePublished: video.infoData.datePublished,
-                                views: video.infoData.views
+                                speakerName: video.infoData.speakerName
                             ),
                             thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
                                 thumbnailURL: thumbnailURL
@@ -85,7 +85,7 @@ class GetHomeScreenDataUseCase {
                                 channelId: video.infoData.channelId,
                                 channelName: video.infoData.channelName,
                                 datePublished: video.infoData.datePublished,
-                                views: video.infoData.views
+                                speakerName: video.infoData.speakerName
                             ),
                             thumbnailData: HomeScreenData.HomeVideo.HomeVideoThumbnailData(
                                 thumbnailURL: thumbnailURL

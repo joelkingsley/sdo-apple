@@ -17,7 +17,9 @@ query GetHomeScreenData($uuid: String!) {
       }
       date_published
       title
-      views
+      speaker {
+        speaker_name
+      }
     }
   }
   userList:user_list(where: {user_uuid: {_eq: $uuid}}) {
@@ -29,7 +31,9 @@ query GetHomeScreenData($uuid: String!) {
       }
       date_published
       title
-      views
+      speaker {
+        speaker_name
+      }
     }
   }
   newReleases:videos(order_by: {date_published: desc}) {
@@ -40,7 +44,9 @@ query GetHomeScreenData($uuid: String!) {
     }
     date_published
     title
-    views
+    speaker {
+      speaker_name
+    }
   }
 }
 
@@ -72,6 +78,8 @@ query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
       channel_name
     }
     date_published
-    views
+    speaker {
+      speaker_name
+    }
   }
 }

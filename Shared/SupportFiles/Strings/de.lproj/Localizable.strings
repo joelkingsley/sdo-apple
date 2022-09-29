@@ -39,8 +39,6 @@
 
 // Videos
 "videoDetailScheduledLabel" = "Geplant";
-"videoDetailViewsLabel" = "Aufrufe";
-"videoDetailViewLabel" = "Aufruf";
 "videoDetailPublishedDateLabel %@" = "Vor %@";
 "videoDetailVideoTypeSermon" = "Predigt";
 "videoDetailVideoTypeDocumentary" = "Dokumentarfilm";

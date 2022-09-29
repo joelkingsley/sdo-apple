@@ -71,15 +71,15 @@ extension GetVideoDetailDataQuery.Data.RelatedVideo {
         guard let datePublished = formatter.date(from: datePublished) else {
             throw BusinessErrors.parsingError()
         }
-        // TODO: Get thumbnailURL from GraphQL
+
         return VideoDetailInfoData.RelatedVideo(
-            videoId: videoId,
-            title: title,
-            channelName: channel.channelName,
-            thumbnailURL: URL(
-                string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1")!,
-            datePublished: datePublished,
-            views: views
+            infoData: VideoDetailInfoData.RelatedVideo.RelatedVideoInfoData(
+                videoId: videoId,
+                title: title,
+                channelName: channel.channelName,
+                datePublished: datePublished,
+                speakerName: speaker.speakerName
+            )
         )
     }
 }

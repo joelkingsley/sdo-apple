@@ -9,14 +9,10 @@ import Foundation
 
 struct VideoDetailInfoData {
     enum VideoType: String {
-        case sermon = "videoDetailVideoTypeSermon"
-        case documentary = "videoDetailVideoTypeDocumentary"
-        case short = "videoDetailVideoTypeShort"
-        case music = "videoDetailVideoTypeMusic"
-        
-        func localizedString() -> String {
-            return String(localized: String.LocalizationValue(self.rawValue))
-        }
+        case sermon
+        case documentary
+        case short
+        case music
     }
     
     struct SpeakerData {
@@ -24,25 +20,21 @@ struct VideoDetailInfoData {
         let speakerName: String
     }
     
-    struct RelatedVideo: ThumbnailableVideo, Identifiable {
-        var id: UUID {
-            return UUID(uuidString: videoId) ?? UUID()
+    struct RelatedVideo {
+        struct RelatedVideoInfoData {
+            let videoId: String
+            let title: String
+            let channelName: String
+            let datePublished: Date
+            let speakerName: String
         }
-        let videoId: String
-        let title: String
-        let channelName: String
-        let thumbnailURL: URL
-        let datePublished: Date
-        let views: Int
+        
+        let infoData: RelatedVideoInfoData
     }
     
     struct LanguageData {
         let languageCode: String
         let sourceCountryFlag: String
-        
-        var languageName: String {
-            return Locale.current.localizedString(forLanguageCode: languageCode) ?? "N/A"
-        }
     }
     
     let videoId: String
