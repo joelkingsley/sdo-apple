@@ -136,7 +136,6 @@ class AuthGraphQLInterceptor: ApolloInterceptor {
         let accessToken = UserSession.accessToken ?? ""
         request.addHeader(name: "Authorization", value: "Bearer \(accessToken)")
         AppLogger.debug("Request : \(request)")
-        AppLogger.debug("Response : \(String(describing: response?.parsedResponse))")
         chain.proceedAsync(request: request, response: response, completion: completion)
     }
 }
