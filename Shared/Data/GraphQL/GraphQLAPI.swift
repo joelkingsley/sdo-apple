@@ -102,8 +102,6 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
       getVideoUrlData(arg1: {videoId: $videoId}) {
         __typename
         videoUrl
-        thumbnailUrl
-        isVideoAccessibleToUser
       }
     }
     """
@@ -155,8 +153,6 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("videoUrl", type: .nonNull(.scalar(String.self))),
-          GraphQLField("thumbnailUrl", type: .nonNull(.scalar(String.self))),
-          GraphQLField("isVideoAccessibleToUser", type: .nonNull(.scalar(Bool.self))),
         ]
       }
 
@@ -166,8 +162,8 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoUrl: String, thumbnailUrl: String, isVideoAccessibleToUser: Bool) {
-        self.init(unsafeResultMap: ["__typename": "GetVideoUrlDataOutput", "videoUrl": videoUrl, "thumbnailUrl": thumbnailUrl, "isVideoAccessibleToUser": isVideoAccessibleToUser])
+      public init(videoUrl: String) {
+        self.init(unsafeResultMap: ["__typename": "GetVideoUrlDataOutput", "videoUrl": videoUrl])
       }
 
       public var __typename: String {
@@ -185,170 +181,6 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
         }
         set {
           resultMap.updateValue(newValue, forKey: "videoUrl")
-        }
-      }
-
-      public var thumbnailUrl: String {
-        get {
-          return resultMap["thumbnailUrl"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "thumbnailUrl")
-        }
-      }
-
-      public var isVideoAccessibleToUser: Bool {
-        get {
-          return resultMap["isVideoAccessibleToUser"]! as! Bool
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "isVideoAccessibleToUser")
-        }
-      }
-    }
-  }
-}
-
-public final class GetSignedThumbnailUrlOfVideosMutation: GraphQLMutation {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition: String =
-    """
-    mutation GetSignedThumbnailUrlOfVideos($videoIds: [String!]) {
-      getSignedThumbnailUrlOfVideos(arg1: {videoIds: $videoIds}) {
-        __typename
-        thumbnailDetails {
-          __typename
-          thumbnailUrl
-          videoId
-        }
-      }
-    }
-    """
-
-  public let operationName: String = "GetSignedThumbnailUrlOfVideos"
-
-  public var videoIds: [String]?
-
-  public init(videoIds: [String]?) {
-    self.videoIds = videoIds
-  }
-
-  public var variables: GraphQLMap? {
-    return ["videoIds": videoIds]
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes: [String] = ["mutation_root"]
-
-    public static var selections: [GraphQLSelection] {
-      return [
-        GraphQLField("getSignedThumbnailUrlOfVideos", arguments: ["arg1": ["videoIds": GraphQLVariable("videoIds")]], type: .object(GetSignedThumbnailUrlOfVideo.selections)),
-      ]
-    }
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(getSignedThumbnailUrlOfVideos: GetSignedThumbnailUrlOfVideo? = nil) {
-      self.init(unsafeResultMap: ["__typename": "mutation_root", "getSignedThumbnailUrlOfVideos": getSignedThumbnailUrlOfVideos.flatMap { (value: GetSignedThumbnailUrlOfVideo) -> ResultMap in value.resultMap }])
-    }
-
-    public var getSignedThumbnailUrlOfVideos: GetSignedThumbnailUrlOfVideo? {
-      get {
-        return (resultMap["getSignedThumbnailUrlOfVideos"] as? ResultMap).flatMap { GetSignedThumbnailUrlOfVideo(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "getSignedThumbnailUrlOfVideos")
-      }
-    }
-
-    public struct GetSignedThumbnailUrlOfVideo: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["GetSignedThumbnailUrlOfVideosOutput"]
-
-      public static var selections: [GraphQLSelection] {
-        return [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("thumbnailDetails", type: .list(.nonNull(.object(ThumbnailDetail.selections)))),
-        ]
-      }
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public init(thumbnailDetails: [ThumbnailDetail]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "GetSignedThumbnailUrlOfVideosOutput", "thumbnailDetails": thumbnailDetails.flatMap { (value: [ThumbnailDetail]) -> [ResultMap] in value.map { (value: ThumbnailDetail) -> ResultMap in value.resultMap } }])
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var thumbnailDetails: [ThumbnailDetail]? {
-        get {
-          return (resultMap["thumbnailDetails"] as? [ResultMap]).flatMap { (value: [ResultMap]) -> [ThumbnailDetail] in value.map { (value: ResultMap) -> ThumbnailDetail in ThumbnailDetail(unsafeResultMap: value) } }
-        }
-        set {
-          resultMap.updateValue(newValue.flatMap { (value: [ThumbnailDetail]) -> [ResultMap] in value.map { (value: ThumbnailDetail) -> ResultMap in value.resultMap } }, forKey: "thumbnailDetails")
-        }
-      }
-
-      public struct ThumbnailDetail: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["VideoThumbnailDetails"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("thumbnailUrl", type: .nonNull(.scalar(String.self))),
-            GraphQLField("videoId", type: .nonNull(.scalar(String.self))),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(thumbnailUrl: String, videoId: String) {
-          self.init(unsafeResultMap: ["__typename": "VideoThumbnailDetails", "thumbnailUrl": thumbnailUrl, "videoId": videoId])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var thumbnailUrl: String {
-          get {
-            return resultMap["thumbnailUrl"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "thumbnailUrl")
-          }
-        }
-
-        public var videoId: String {
-          get {
-            return resultMap["videoId"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "videoId")
-          }
         }
       }
     }
@@ -486,6 +318,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             __typename
             speaker_name
           }
+          gcp_thumbnail_bucket_name
+          gcp_thumbnail_file_name
         }
       }
       userList: user_list(where: {user_uuid: {_eq: $uuid}}) {
@@ -504,6 +338,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             __typename
             speaker_name
           }
+          gcp_thumbnail_bucket_name
+          gcp_thumbnail_file_name
         }
       }
       newReleases: videos(order_by: {date_published: desc}) {
@@ -520,6 +356,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           __typename
           speaker_name
         }
+        gcp_thumbnail_bucket_name
+        gcp_thumbnail_file_name
       }
     }
     """
@@ -647,6 +485,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
             GraphQLField("title", type: .nonNull(.scalar(String.self))),
             GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
+            GraphQLField("gcp_thumbnail_bucket_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("gcp_thumbnail_file_name", type: .nonNull(.scalar(String.self))),
           ]
         }
 
@@ -656,8 +496,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
-          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
+        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker, gcpThumbnailBucketName: String, gcpThumbnailFileName: String) {
+          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap, "gcp_thumbnail_bucket_name": gcpThumbnailBucketName, "gcp_thumbnail_file_name": gcpThumbnailFileName])
         }
 
         public var __typename: String {
@@ -713,6 +553,26 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.resultMap, forKey: "speaker")
+          }
+        }
+
+        /// Name of GCP bucket where video is stored
+        public var gcpThumbnailBucketName: String {
+          get {
+            return resultMap["gcp_thumbnail_bucket_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "gcp_thumbnail_bucket_name")
+          }
+        }
+
+        /// The relative file path including the file extension to the thumbnail (without bucket name)
+        public var gcpThumbnailFileName: String {
+          get {
+            return resultMap["gcp_thumbnail_file_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "gcp_thumbnail_file_name")
           }
         }
 
@@ -857,6 +717,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
             GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
             GraphQLField("title", type: .nonNull(.scalar(String.self))),
             GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
+            GraphQLField("gcp_thumbnail_bucket_name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("gcp_thumbnail_file_name", type: .nonNull(.scalar(String.self))),
           ]
         }
 
@@ -866,8 +728,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
-          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
+        public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker, gcpThumbnailBucketName: String, gcpThumbnailFileName: String) {
+          self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap, "gcp_thumbnail_bucket_name": gcpThumbnailBucketName, "gcp_thumbnail_file_name": gcpThumbnailFileName])
         }
 
         public var __typename: String {
@@ -923,6 +785,26 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.resultMap, forKey: "speaker")
+          }
+        }
+
+        /// Name of GCP bucket where video is stored
+        public var gcpThumbnailBucketName: String {
+          get {
+            return resultMap["gcp_thumbnail_bucket_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "gcp_thumbnail_bucket_name")
+          }
+        }
+
+        /// The relative file path including the file extension to the thumbnail (without bucket name)
+        public var gcpThumbnailFileName: String {
+          get {
+            return resultMap["gcp_thumbnail_file_name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "gcp_thumbnail_file_name")
           }
         }
 
@@ -1028,6 +910,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
           GraphQLField("title", type: .nonNull(.scalar(String.self))),
           GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
+          GraphQLField("gcp_thumbnail_bucket_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("gcp_thumbnail_file_name", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -1037,8 +921,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker) {
-        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap])
+      public init(videoId: String, channel: Channel, datePublished: String, title: String, speaker: Speaker, gcpThumbnailBucketName: String, gcpThumbnailFileName: String) {
+        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "channel": channel.resultMap, "date_published": datePublished, "title": title, "speaker": speaker.resultMap, "gcp_thumbnail_bucket_name": gcpThumbnailBucketName, "gcp_thumbnail_file_name": gcpThumbnailFileName])
       }
 
       public var __typename: String {
@@ -1094,6 +978,26 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.resultMap, forKey: "speaker")
+        }
+      }
+
+      /// Name of GCP bucket where video is stored
+      public var gcpThumbnailBucketName: String {
+        get {
+          return resultMap["gcp_thumbnail_bucket_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_bucket_name")
+        }
+      }
+
+      /// The relative file path including the file extension to the thumbnail (without bucket name)
+      public var gcpThumbnailFileName: String {
+        get {
+          return resultMap["gcp_thumbnail_file_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_file_name")
         }
       }
 
@@ -1217,6 +1121,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           language_code
           source_country_flag
         }
+        gcp_thumbnail_bucket_name
+        gcp_thumbnail_file_name
       }
       relatedVideos: videos(where: {channel_id: {_eq: $channelId}}) {
         __typename
@@ -1231,6 +1137,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           __typename
           speaker_name
         }
+        gcp_thumbnail_bucket_name
+        gcp_thumbnail_file_name
       }
     }
     """
@@ -1303,6 +1211,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
           GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
           GraphQLField("language", type: .nonNull(.object(Language.selections))),
+          GraphQLField("gcp_thumbnail_bucket_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("gcp_thumbnail_file_name", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -1312,8 +1222,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoId: String, title: String, videoType: video_types_enum, datePublished: String, description: String, speaker: Speaker, channel: Channel, language: Language) {
-        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "video_type": videoType, "date_published": datePublished, "description": description, "speaker": speaker.resultMap, "channel": channel.resultMap, "language": language.resultMap])
+      public init(videoId: String, title: String, videoType: video_types_enum, datePublished: String, description: String, speaker: Speaker, channel: Channel, language: Language, gcpThumbnailBucketName: String, gcpThumbnailFileName: String) {
+        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "video_type": videoType, "date_published": datePublished, "description": description, "speaker": speaker.resultMap, "channel": channel.resultMap, "language": language.resultMap, "gcp_thumbnail_bucket_name": gcpThumbnailBucketName, "gcp_thumbnail_file_name": gcpThumbnailFileName])
       }
 
       public var __typename: String {
@@ -1397,6 +1307,26 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.resultMap, forKey: "language")
+        }
+      }
+
+      /// Name of GCP bucket where video is stored
+      public var gcpThumbnailBucketName: String {
+        get {
+          return resultMap["gcp_thumbnail_bucket_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_bucket_name")
+        }
+      }
+
+      /// The relative file path including the file extension to the thumbnail (without bucket name)
+      public var gcpThumbnailFileName: String {
+        get {
+          return resultMap["gcp_thumbnail_file_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_file_name")
         }
       }
 
@@ -1570,6 +1500,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           GraphQLField("channel", type: .nonNull(.object(Channel.selections))),
           GraphQLField("date_published", type: .nonNull(.scalar(String.self))),
           GraphQLField("speaker", type: .nonNull(.object(Speaker.selections))),
+          GraphQLField("gcp_thumbnail_bucket_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("gcp_thumbnail_file_name", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -1579,8 +1511,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(videoId: String, title: String, channel: Channel, datePublished: String, speaker: Speaker) {
-        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "channel": channel.resultMap, "date_published": datePublished, "speaker": speaker.resultMap])
+      public init(videoId: String, title: String, channel: Channel, datePublished: String, speaker: Speaker, gcpThumbnailBucketName: String, gcpThumbnailFileName: String) {
+        self.init(unsafeResultMap: ["__typename": "videos", "video_id": videoId, "title": title, "channel": channel.resultMap, "date_published": datePublished, "speaker": speaker.resultMap, "gcp_thumbnail_bucket_name": gcpThumbnailBucketName, "gcp_thumbnail_file_name": gcpThumbnailFileName])
       }
 
       public var __typename: String {
@@ -1636,6 +1568,26 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.resultMap, forKey: "speaker")
+        }
+      }
+
+      /// Name of GCP bucket where video is stored
+      public var gcpThumbnailBucketName: String {
+        get {
+          return resultMap["gcp_thumbnail_bucket_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_bucket_name")
+        }
+      }
+
+      /// The relative file path including the file extension to the thumbnail (without bucket name)
+      public var gcpThumbnailFileName: String {
+        get {
+          return resultMap["gcp_thumbnail_file_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gcp_thumbnail_file_name")
         }
       }
 

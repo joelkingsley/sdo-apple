@@ -8,16 +8,17 @@
 import Foundation
 
 extension GetVideoDetailDataQuery.Data {
-    func toEntity() throws -> VideoDetailInfoData {
+    func toEntity() throws -> VideoDetailData.InfoData {
         let videoDetails = videoDetail
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let videoDetail = videoDetails.first,
-              let datePublished = formatter.date(from: videoDetail.datePublished)
+              let datePublished = formatter.date(from: videoDetail.datePublished),
+              let thumbnailUrl = videoDetail.thumbnailUrl
         else {
             throw BusinessErrors.parsingError()
         }
-        return VideoDetailInfoData(
+        return VideoDetailData.InfoData(
             videoId: videoDetail.videoId,
             title: videoDetail.title,
             videoType: try videoDetail.videoType.toEntity(),
@@ -26,14 +27,15 @@ extension GetVideoDetailDataQuery.Data {
             speaker: videoDetail.speaker.toEntity(),
             channel: try videoDetail.channel.toEntity(),
             relatedVideos: try relatedVideos.map { try $0.toEntity() },
-            language: videoDetail.language.toEntity()
+            language: videoDetail.language.toEntity(),
+            thumbnailURL: thumbnailUrl
         )
     }
 }
 
 extension GetVideoDetailDataQuery.Data.VideoDetail.Speaker {
-    func toEntity() -> VideoDetailInfoData.SpeakerData {
-        return VideoDetailInfoData.SpeakerData(
+    func toEntity() -> VideoDetailData.SpeakerData {
+        return VideoDetailData.SpeakerData(
             speakerId: speakerId,
             speakerName: speakerName
         )
@@ -65,28 +67,33 @@ extension channel_types_enum {
 }
 
 extension GetVideoDetailDataQuery.Data.RelatedVideo {
-    func toEntity() throws -> VideoDetailInfoData.RelatedVideo {
+    var thumbnailUrl: URL? {
+        URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+    }
+    
+    func toEntity() throws -> VideoDetailData.RelatedVideo {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
-        guard let datePublished = formatter.date(from: datePublished) else {
+        guard let datePublished = formatter.date(from: datePublished),
+              let thumbnailUrl = thumbnailUrl
+        else {
             throw BusinessErrors.parsingError()
         }
 
-        return VideoDetailInfoData.RelatedVideo(
-            infoData: VideoDetailInfoData.RelatedVideo.RelatedVideoInfoData(
-                videoId: videoId,
-                title: title,
-                channelName: channel.channelName,
-                datePublished: datePublished,
-                speakerName: speaker.speakerName
-            )
+        return VideoDetailData.RelatedVideo(
+            videoId: videoId,
+            title: title,
+            channelName: channel.channelName,
+            datePublished: datePublished,
+            speakerName: speaker.speakerName,
+            thumbnailURL: thumbnailUrl
         )
     }
 }
 
 extension GetVideoDetailDataQuery.Data.VideoDetail.Language {
-    func toEntity() -> VideoDetailInfoData.LanguageData {
-        return VideoDetailInfoData.LanguageData(
+    func toEntity() -> VideoDetailData.LanguageData {
+        return VideoDetailData.LanguageData(
             languageCode: languageCode,
             sourceCountryFlag: sourceCountryFlag
         )
@@ -94,7 +101,7 @@ extension GetVideoDetailDataQuery.Data.VideoDetail.Language {
 }
 
 extension video_types_enum {
-    func toEntity() throws -> VideoDetailInfoData.VideoType {
+    func toEntity() throws -> VideoDetailData.VideoType {
         switch self {
         case .documentary:
             return .documentary
@@ -108,5 +115,11 @@ extension video_types_enum {
             AppLogger.error("Unexpectedly got invalid option for video_types_enum: \(rawValue)")
             throw BusinessErrors.parsingError()
         }
+    }
+}
+
+extension GetVideoDetailDataQuery.Data.VideoDetail {
+    var thumbnailUrl: URL? {
+        return URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }

@@ -60,6 +60,6 @@ struct RelatedRow: View {
 
 struct RelatedRow_Previews: PreviewProvider {
     static var previews: some View {
-        RelatedRow(videos: exampleVideoDetail1.relatedVideos)
+        RelatedRow(videos: exampleVideoDetail1.infoData.relatedVideos)
     }
 }

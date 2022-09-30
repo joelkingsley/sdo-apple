@@ -34,8 +34,8 @@ struct ContinueWatchingRow: View {
                     HStack {
                         ForEach(videos) { video in
                             NavigationLink(destination: VideoDetailView(
-                                videoId: video.infoData.videoId,
-                                channelId: video.infoData.channelId
+                                videoId: video.videoId,
+                                channelId: video.channelId
                             )) {
                                 VStack {
                                     VideoThumbnail(video: video, style: .large, thumbnailWidth: $thumbnailWidth)

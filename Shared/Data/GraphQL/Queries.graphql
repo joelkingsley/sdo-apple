@@ -20,6 +20,8 @@ query GetHomeScreenData($uuid: String!) {
       speaker {
         speaker_name
       }
+      gcp_thumbnail_bucket_name
+      gcp_thumbnail_file_name
     }
   }
   userList:user_list(where: {user_uuid: {_eq: $uuid}}) {
@@ -34,6 +36,8 @@ query GetHomeScreenData($uuid: String!) {
       speaker {
         speaker_name
       }
+      gcp_thumbnail_bucket_name
+      gcp_thumbnail_file_name
     }
   }
   newReleases:videos(order_by: {date_published: desc}) {
@@ -47,6 +51,8 @@ query GetHomeScreenData($uuid: String!) {
     speaker {
       speaker_name
     }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
   }
 }
 
@@ -70,6 +76,8 @@ query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
       language_code
       source_country_flag
     }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
   }
   relatedVideos:videos(where: {channel_id: {_eq: $channelId}}) {
     video_id
@@ -81,5 +89,7 @@ query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
     speaker {
       speaker_name
     }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
   }
 }
