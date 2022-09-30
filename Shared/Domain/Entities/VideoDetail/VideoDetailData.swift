@@ -24,7 +24,7 @@ struct VideoDetailData {
         let speakerName: String
     }
     
-    struct RelatedVideo: Identifiable {
+    struct RelatedVideo: Identifiable, ThumbnailableVideo {
         var id: UUID {
             return UUID(uuidString: videoId) ?? UUID()
         }
@@ -46,87 +46,70 @@ struct VideoDetailData {
         }
     }
     
-    let videoId: String
-    let title: String
-    let videoType: VideoType
-    let datePublished: Date
-    let description: String
-    let speaker: SpeakerData
-    let channel: ChannelData
-    let relatedVideos: [RelatedVideo]
-    let language: LanguageData
+    struct InfoData {
+        let videoId: String
+        let title: String
+        let videoType: VideoType
+        let datePublished: Date
+        let description: String
+        let speaker: SpeakerData
+        let channel: ChannelData
+        let relatedVideos: [RelatedVideo]
+        let language: LanguageData
+        let thumbnailURL: URL
+    }
     
-    let subscriptionData: VideoDetailSubscriptionData
-    let urlData: VideoUrlData
+    let infoData: InfoData
+    
+    let videoUrl: URL?
+    
+    let subscriptionVideoBelongsTo: SubscriptionData?
+    let allAccessSubscription: SubscriptionData
+    
+    var isVideoAccessibleToUser: Bool {
+        // TODO: Check if user is subscribed to `subscriptionVideoBelongsTo` or `allAccessSubscription`
+        guard subscriptionVideoBelongsTo != nil else {
+            return true
+        }
+        return true
+    }
 }
 
 extension VideoDetailData: TopPreviewableVideo {
+    var title: String {
+        infoData.title
+    }
+    
     var thumbnailURL: URL {
-        return urlData.thumbnailUrl
+        infoData.thumbnailURL
+    }
+    
+    var datePublished: Date {
+        infoData.datePublished
+    }
+    
+    var description: String {
+        infoData.description
     }
     
     var canUserWatch: Bool {
-        return urlData.isVideoAccessibleToUser && urlData.videoUrl != nil
-    }
-    
-    var allAccessSubscription: SubscriptionData {
-        return subscriptionData.allAccessSubscription
+        return isVideoAccessibleToUser && videoUrl != nil
     }
     
     var subscriptionForWatching: SubscriptionData? {
-        return subscriptionData.subscriptionVideoBelongsTo
+        return subscriptionVideoBelongsTo
     }
 
     var speakerName: String {
-        return speaker.speakerName
+        return infoData.speaker.speakerName
     }
     
     var localizedType: String {
-        let type = videoType.localizedString()
+        let type = infoData.videoType.localizedString()
         return type
     }
     
     var signedUrl: URL? {
-        return urlData.videoUrl
-    }
-}
-
-extension VideoDetailData.VideoType {
-    init(infoVideoType: VideoDetailInfoData.VideoType) {
-        switch infoVideoType {
-        case .sermon:
-            self = .sermon
-        case .documentary:
-            self = .documentary
-        case .short:
-            self = .short
-        case .music:
-            self = .music
-        }
-    }
-}
-
-extension VideoDetailData.SpeakerData {
-    init(infoSpeakerData: VideoDetailInfoData.SpeakerData) {
-        self.init(speakerId: infoSpeakerData.speakerId, speakerName: infoSpeakerData.speakerName)
-    }
-}
-
-extension VideoDetailData.RelatedVideo: ThumbnailableVideo {
-    init(infoRelatedVideo: VideoDetailInfoData.RelatedVideo, thumbnailURL: URL) {
-        self.init(
-            videoId: infoRelatedVideo.infoData.videoId,
-            title: infoRelatedVideo.infoData.title,
-            channelName: infoRelatedVideo.infoData.channelName,
-            datePublished: infoRelatedVideo.infoData.datePublished,
-            speakerName: infoRelatedVideo.infoData.speakerName,
-            thumbnailURL: thumbnailURL
-        )
-    }
-}
-
-extension VideoDetailData.LanguageData {
-    init(infoLanguageData: VideoDetailInfoData.LanguageData) {
-        self.init(languageCode: infoLanguageData.languageCode, sourceCountryFlag: infoLanguageData.sourceCountryFlag)
+        return videoUrl
     }
 }
