@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct SearchTabView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @Binding var tabSelection: Tab
+    
     @State private var searchText = ""
     @StateObject var searchTabViewModel = SearchTabViewModel()
+    @State private var showAllResultView = false
+    @State private var showSermonsResultView = false
+    @State private var showDocumentariesResultView = false
+    @State private var showShortsResultView = false
+    @State private var showMusicResultView = false
     
     var body: some View {
         ScrollView {
+            NavigationLink(
+                destination: SearchResultView(ofItemType: .all, searchText: searchText),
+                isActive: $showAllResultView) {
+                    EmptyView()
+                }
             VStack {
                 HStack {
                     Text("searchBrowseLabel")
@@ -25,27 +38,35 @@ struct SearchTabView: View {
                 
                 VStack {
                     HStack {
-                        TileButton(text: "searchSermonsButtonLabel", imageName: "sermons") {
-
+                        NavigationLink(destination: SearchResultView(ofItemType: .sermons), isActive: $showSermonsResultView) {
+                            TileButton(text: "searchSermonsButtonLabel", imageName: "sermons") {
+                                showSermonsResultView = true
+                            }
                         }
                         Spacer()
-                        TileButton(text: "searchDocumentariesButtonLabel", imageName: "documentaries") {
-
+                        NavigationLink(destination: SearchResultView(ofItemType: .documentaries), isActive: $showDocumentariesResultView) {
+                            TileButton(text: "searchDocumentariesButtonLabel", imageName: "documentaries") {
+                                showDocumentariesResultView = true
+                            }
                         }
                     }
                     .padding(.horizontal, 10)
                     HStack {
-                        TileButton(text: "searchShortsButtonLabel", imageName: "shorts") {
-
+                        NavigationLink(destination: SearchResultView(ofItemType: .shorts), isActive: $showShortsResultView) {
+                            TileButton(text: "searchShortsButtonLabel", imageName: "shorts") {
+                                showShortsResultView = true
+                            }
                         }
                         Spacer()
-                        TileButton(text: "searchMusicButtonLabel", imageName: "music") {
-
+                        NavigationLink(destination: SearchResultView(ofItemType: .music), isActive: $showMusicResultView) {
+                            TileButton(text: "searchMusicButtonLabel", imageName: "music") {
+                                showMusicResultView = true
+                            }
                         }
                     }
                     .padding(.horizontal, 10)
                     TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
-                        
+                        tabSelection = .Channels
                     }
                     .padding(.horizontal, 10)
                     .padding(.bottom, 10)
@@ -89,12 +110,15 @@ struct SearchTabView: View {
                 placement: .navigationBarDrawer(displayMode: .always),
                 prompt: "searchBarPlaceholderLabel")
             .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
+            .onSubmit(of: .search) {
+                showAllResultView = true
+            }
         }
     }
 }
 
 struct SearchTabView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchTabView()
+        SearchTabView(tabSelection: Binding.constant(.Search))
     }
 }

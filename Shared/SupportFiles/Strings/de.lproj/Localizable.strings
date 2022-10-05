@@ -29,6 +29,15 @@
 "searchChannelsButtonLabel" = "Kanäle";
 "searchLanguagesLabel" = "Sprachen";
 
+// Search Results
+"searchResultsScreenNavigationTitle" = "Suchergebnisse";
+"searchResultsSearchLabel" = "Suche";
+"searchResultsItemTypeAll" = "Alle";
+"searchResultsItemTypeSermons" = "Predigten";
+"searchResultsItemTypeDocumentaries" = "Dokumentarfilme";
+"searchResultsItemTypeShorts" = "Kurze Videos";
+"searchResultsItemTypeMusic" = "Musik";
+
 // Subscriptions
 "subscriptionsTabLabel" = "Abonnements";
 "subscriptionsScreenTitle" = "Abonnements";

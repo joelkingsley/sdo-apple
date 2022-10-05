@@ -12,6 +12,7 @@ enum VideoThumbnailStyle {
     case large
     case medium
     case small
+    case xsmall
 }
 
 struct VideoThumbnail: View {
@@ -29,6 +30,8 @@ struct VideoThumbnail: View {
             return 250
         case .small:
             return 200
+        case .xsmall:
+            return 100
         }
     }
     
@@ -40,6 +43,8 @@ struct VideoThumbnail: View {
             return 150
         case .small:
             return 120
+        case .xsmall:
+            return 60
         }
     }
     

@@ -101,7 +101,7 @@ extension GetVideoDetailDataQuery.Data.VideoDetail.Language {
 }
 
 extension video_types_enum {
-    func toEntity() throws -> VideoDetailData.VideoType {
+    func toEntity() throws -> VideoType {
         switch self {
         case .documentary:
             return .documentary
