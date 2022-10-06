@@ -68,7 +68,8 @@ extension channel_types_enum {
 
 extension GetVideoDetailDataQuery.Data.RelatedVideo {
     var thumbnailUrl: URL? {
-        URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
+        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
     
     func toEntity() throws -> VideoDetailData.RelatedVideo {
@@ -120,6 +121,7 @@ extension video_types_enum {
 
 extension GetVideoDetailDataQuery.Data.VideoDetail {
     var thumbnailUrl: URL? {
-        return URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
+        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }

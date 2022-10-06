@@ -69,18 +69,21 @@ extension GetHomeScreenDataQuery.Data {
 
 extension GetHomeScreenDataQuery.Data.ContinueWatching.Video {
     var thumbnailUrl: URL? {
-        URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
+        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
 
 extension GetHomeScreenDataQuery.Data.UserList.Video {
     var thumbnailUrl: URL? {
-        URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
+        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
 
 extension GetHomeScreenDataQuery.Data.NewRelease {
     var thumbnailUrl: URL? {
-        URL(string: "https://storage.googleapis.com/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
+        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
+        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }

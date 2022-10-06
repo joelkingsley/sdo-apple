@@ -20,11 +20,17 @@ struct SearchResultView: View {
     }
     
     var body: some View {
-        switch searchResultViewModel.searchResultData {
-        case let .success(data):
+        if let error = searchResultViewModel.errorOccurred {
+            CustomErrorView(
+                error: error,
+                authViewModel: authViewModel
+            )
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("searchResultsScreenNavigationTitle")
+        } else if searchResultViewModel.isPageLoaded {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
-                    Picker("", selection: $searchResultViewModel.searchResultItemType) {
+                    Picker("Filters", selection: $searchResultViewModel.selectedSearchResultItemType) {
                         ForEach(SearchResultItemType.allCases, id: \.self) { option in
                             Text(option.rawValue)
                         }
@@ -32,7 +38,13 @@ struct SearchResultView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.bottom)
                     .padding(.horizontal)
-                    ForEach(data.videos) { video in
+                    
+                    InfiniteList(
+                        data: $searchResultViewModel.searchResultVideos,
+                        isLoading: Binding.constant(false)
+                    ) {
+                        
+                    } content: { video in
                         HStack {
                             VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
                                 .frame(width: thumbnailWidth)
@@ -56,28 +68,26 @@ struct SearchResultView: View {
                             }
                             Spacer()
                                 .frame(width: 20)
-
+                            
                         }
                     }
                     .padding(.leading, 20)
-                    Spacer()
-                        .frame(width: 20)
                 }
                 .searchable(
                     text: $searchResultViewModel.searchText,
                     placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "searchResultsSearchLabel")
+                .onSubmit(of: .search) {
+                    searchResultViewModel.onSearchTextSubmitted()
+                }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("searchResultsScreenNavigationTitle")
             }
-        case let .failure(error):
-            CustomErrorView(
-                error: error,
-                authViewModel: authViewModel
-            )
-        case .none:
+        } else {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("searchResultsScreenNavigationTitle")
                 .onAppear {
                     searchResultViewModel.onLoaded()
                 }

@@ -19,4 +19,8 @@ protocol VideoRepository {
     
     /// Gets signed url of given video
     func getSignedUrlOfVideo(ofVideoId videoId: String) async -> Result<URL?, BusinessError>
+    
+    /// Gets the videos based on the given search parameters
+    func getVideosOfSearchParameters(
+        ofSearchResultInputData inputData: SearchResultInputData) async -> Result<SearchResultData, BusinessError>
 }

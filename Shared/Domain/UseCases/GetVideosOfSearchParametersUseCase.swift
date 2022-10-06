@@ -19,27 +19,38 @@ class GetVideosOfSearchParametersUseCase {
     
     func execute(searchResultInputData: SearchResultInputData) async -> Result<SearchResultData, BusinessError> {
         // TODO: Integrate with API
-        return .success(SearchResultData(videos: [
-            SearchResultData.Video(
-                videoId: exampleVideo1.videoId,
-                title: exampleVideo1.title,
-                channelId: exampleVideo1.channelId,
-                channelName: exampleVideo1.channelName,
-                datePublished: exampleVideo1.datePublished,
-                speakerName: exampleVideo1.speakerName,
-                videoType: .sermon,
-                thumbnailURL: exampleVideo1.thumbnailURL
-            ),
-            SearchResultData.Video(
-                videoId: exampleVideo2.videoId,
-                title: exampleVideo2.title,
-                channelId: exampleVideo2.channelId,
-                channelName: exampleVideo2.channelName,
-                datePublished: exampleVideo2.datePublished,
-                speakerName: exampleVideo2.speakerName,
-                videoType: .sermon,
-                thumbnailURL: exampleVideo2.thumbnailURL
-            )
-        ]))
+        async let videosOfSearchParametersResult = videoRepository.getVideosOfSearchParameters(
+            ofSearchResultInputData: searchResultInputData
+        )
+        
+        do {
+            let searchResultData = try await videosOfSearchParametersResult.get()
+            return .success(searchResultData)
+        } catch {
+            return .failure(error)
+        }
+        
+//        return .success(SearchResultData(videos: [
+//            SearchResultData.Video(
+//                videoId: exampleVideo1.videoId,
+//                title: exampleVideo1.title,
+//                channelId: exampleVideo1.channelId,
+//                channelName: exampleVideo1.channelName,
+//                datePublished: exampleVideo1.datePublished,
+//                speakerName: exampleVideo1.speakerName,
+//                videoType: .sermon,
+//                thumbnailURL: exampleVideo1.thumbnailURL
+//            ),
+//            SearchResultData.Video(
+//                videoId: exampleVideo2.videoId,
+//                title: exampleVideo2.title,
+//                channelId: exampleVideo2.channelId,
+//                channelName: exampleVideo2.channelName,
+//                datePublished: exampleVideo2.datePublished,
+//                speakerName: exampleVideo2.speakerName,
+//                videoType: .sermon,
+//                thumbnailURL: exampleVideo2.thumbnailURL
+//            )
+//        ]))
     }
 }

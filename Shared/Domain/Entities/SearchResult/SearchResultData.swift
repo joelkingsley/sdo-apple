@@ -8,7 +8,7 @@
 import Foundation
 
 struct SearchResultData {
-    struct Video: Identifiable, ThumbnailableVideo {
+    struct Video: Identifiable, ThumbnailableVideo, Hashable {
         let videoId: String
         let title: String
         let channelId: String
@@ -24,4 +24,5 @@ struct SearchResultData {
     }
     
     let videos: [Video]
+    let totalNumberOfVideos: Int
 }

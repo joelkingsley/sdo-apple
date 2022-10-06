@@ -27,7 +27,7 @@ struct InfiniteList<Data, Content>: View where Data : RandomAccessCollection, Da
       }
     
     var body: some View {
-        List {
+        VStack {
             ForEach(data, id: \.self) { item in
                 content(item)
                     .onAppear {
@@ -40,7 +40,7 @@ struct InfiniteList<Data, Content>: View where Data : RandomAccessCollection, Da
                 ProgressView()
                     .frame(idealWidth: .infinity, maxWidth: .infinity, alignment: .center)
             }
-        }.onAppear(perform: loadMore)
+        }
     }
 }
 
