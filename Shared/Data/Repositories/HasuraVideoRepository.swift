@@ -52,4 +52,32 @@ class HasuraVideoRepository: VideoRepository {
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
+    
+    /// Gets the videos based on the given search parameters
+    func getVideosOfSearchParameters(
+        ofSearchResultInputData inputData: SearchResultInputData
+    ) async -> Result<SearchResultData, BusinessError> {
+        do {
+            if let videoType = inputData.videoType
+            {
+                let data = try await graphQLService.executeQuery(query: GetVideosForSearchTextAndVideoTypeQuery(
+                    searchText: "%\(inputData.searchText)%",
+                    videoType: video_types_enum(videoType: videoType),
+                    limit: inputData.limit,
+                    offset: inputData.offset
+                )).toEntity()
+                return .success(data)
+            } else {
+                let data = try await graphQLService.executeQuery(query: GetVideosForSearchTextQuery(
+                    searchText: "%\(inputData.searchText)%",
+                    limit: inputData.limit,
+                    offset: inputData.offset
+                )).toEntity()
+                return .success(data)
+            }
+        } catch {
+            AppLogger.error("Error in getVideosOfSearchParameters: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
 }

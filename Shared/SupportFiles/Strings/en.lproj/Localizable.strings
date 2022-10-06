@@ -29,6 +29,15 @@
 "searchChannelsButtonLabel" = "Channels";
 "searchLanguagesLabel" = "Languages";
 
+// Search Results
+"searchResultsScreenNavigationTitle" = "Search Results";
+"searchResultsSearchLabel" = "Search";
+"searchResultsItemTypeAll" = "All";
+"searchResultsItemTypeSermons" = "Sermons";
+"searchResultsItemTypeDocumentaries" = "Documentaries";
+"searchResultsItemTypeShorts" = "Shorts";
+"searchResultsItemTypeMusic" = "Music";
+
 // Subscriptions
 "subscriptionsTabLabel" = "Subscriptions";
 "subscriptionsScreenTitle" = "Subscriptions";

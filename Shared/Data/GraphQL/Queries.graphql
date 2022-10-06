@@ -93,3 +93,49 @@ query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
     gcp_thumbnail_file_name
   }
 }
+
+query GetVideosForSearchText($searchText: String!, $limit: Int!, $offset: Int!) {
+  videos(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}]}, limit: $limit, offset: $offset) {
+    video_id
+    video_type
+    title
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}]}, limit: $limit, offset: $offset) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetVideosForSearchTextAndVideoType($searchText: String!, $videoType: video_types_enum!, $limit: Int!, $offset: Int!) {
+  videos(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}}, limit: $limit, offset: $offset) {
+    video_id
+    video_type
+    title
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}}, limit: $limit, offset: $offset) {
+    aggregate {
+      count
+    }
+  }
+}

@@ -8,17 +8,6 @@
 import Foundation
 
 struct VideoDetailData {
-    enum VideoType: String {
-        case sermon = "videoDetailVideoTypeSermon"
-        case documentary = "videoDetailVideoTypeDocumentary"
-        case short = "videoDetailVideoTypeShort"
-        case music = "videoDetailVideoTypeMusic"
-        
-        func localizedString() -> String {
-            return String(localized: String.LocalizationValue(self.rawValue))
-        }
-    }
-    
     struct SpeakerData {
         let speakerId: String
         let speakerName: String

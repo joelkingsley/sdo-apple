@@ -7,14 +7,14 @@
 
 import SwiftUI
 
+enum Tab {
+    case Home
+    case Search
+    case Channels
+    case Library
+}
+
 struct AppTabNavigation: View {
-    enum Tab {
-        case Home
-        case Search
-        case Subscriptions
-        case Library
-    }
-    
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Binding var isNavigationBarHidden: Bool
     @State private var selection: Tab = .Home
@@ -37,7 +37,7 @@ struct AppTabNavigation: View {
             
             // Search Tab
             NavigationView {
-                SearchTabView()
+                SearchTabView(tabSelection: $selection)
             }
             .tabItem {
                 Label("searchTabLabel", systemImage: "magnifyingglass")
@@ -55,7 +55,7 @@ struct AppTabNavigation: View {
             }.tabItem {
                 Label("subscriptionsTabLabel", systemImage: "rectangle.stack.badge.play.fill")
                     .accessibilityLabel("subscriptionsTabLabel")
-            }.tag(Tab.Subscriptions)
+            }.tag(Tab.Channels)
             
             // Library Tab
             NavigationView {
