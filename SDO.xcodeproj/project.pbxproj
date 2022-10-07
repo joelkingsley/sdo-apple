@@ -83,6 +83,8 @@
 		F19512F028EF329E00DF4E2E /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512EE28EF329E00DF4E2E /* ApiConstants.swift */; };
 		F19512F228EF417300DF4E2E /* SearchResultItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F128EF417300DF4E2E /* SearchResultItemType.swift */; };
 		F19512F328EF417400DF4E2E /* SearchResultItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F128EF417300DF4E2E /* SearchResultItemType.swift */; };
+		F19512F528F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */; };
+		F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */; };
 		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
@@ -237,6 +239,7 @@
 		F19512E328EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosOfSearchParametersDTO.swift; sourceTree = "<group>"; };
 		F19512EE28EF329E00DF4E2E /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		F19512F128EF417300DF4E2E /* SearchResultItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemType.swift; sourceTree = "<group>"; };
+		F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultErrors.swift; sourceTree = "<group>"; };
 		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
@@ -581,6 +584,7 @@
 				F19512D828E7890500DF4E2E /* SearchResultInputData.swift */,
 				F19512DB28E7895900DF4E2E /* SearchResultData.swift */,
 				F19512F128EF417300DF4E2E /* SearchResultItemType.swift */,
+				F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -1171,6 +1175,7 @@
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E4941528699316008611D7 /* ContentView.swift in Sources */,
 				F1D6522D28BA34190084907A /* UIImageColors.swift in Sources */,
+				F19512F528F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */,
 				F19512D228E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift in Sources */,
 				F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
 				F18105D328BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
@@ -1236,6 +1241,7 @@
 				F1D6522228B950A60084907A /* VideoDetailData.swift in Sources */,
 				F1D6520B28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
 				F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
+				F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */,
 				F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
