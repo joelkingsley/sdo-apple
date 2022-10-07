@@ -66,6 +66,8 @@ enum GraphQLErrorTransformer {
         case is ApiErrors.customError:
             let customError = apiError as! ApiErrors.customError
             return BusinessErrors.customError(code: customError.code)
+        case is ApiErrors.unauthorized:
+            return BusinessErrors.unauthorized()
         case is ApiErrors.unknownError:
             fallthrough
         default:
