@@ -49,12 +49,12 @@ struct AppTabNavigation: View {
                 self.isNavigationBarHidden = true
             }
             
-            // Subscriptions Tab
+            // Channels Tab
             NavigationView {
-                SubscriptionsTabView()
+                ChannelsTabView()
             }.tabItem {
-                Label("subscriptionsTabLabel", systemImage: "rectangle.stack.badge.play.fill")
-                    .accessibilityLabel("subscriptionsTabLabel")
+                Label("channelsTabLabel", systemImage: "rectangle.stack.badge.play.fill")
+                    .accessibilityLabel("channelsTabLabel")
             }.tag(Tab.Channels)
             
             // Library Tab

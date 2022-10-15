@@ -3,6 +3,8 @@ query GetAllChannels {
     channel_id
     channel_name
     channel_type
+    location_lat
+    location_long
   }
 }
 

@@ -17,11 +17,11 @@ class HasuraChannelRepository: ChannelRepository {
         self.graphQLService = graphQLService
     }
     
-    /// Gets list of all the channels
-    func getAllChannels() async -> Result<[GetAllChannelsQuery.Data.Channel], BusinessError> {
+    /// Get channels data
+    func getChannelsData() async -> Result<GetChannelsData, BusinessError> {
         do {
             let data = try await graphQLService.executeQuery(query: GetAllChannelsQuery())
-            return .success(data.channels)
+            return .success(try data.toEntity())
         } catch {
             AppLogger.error("Error in getAllChannels: \(error)")
             return .failure(GraphQLErrorTransformer.transform(apiError: error))

@@ -30,7 +30,7 @@ struct SearchResultView: View {
         } else if searchResultViewModel.isPageLoaded {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
-                    Picker("Filters", selection: $searchResultViewModel.selectedSearchResultItemType) {
+                    Picker("SearchResultItemTypes", selection: $searchResultViewModel.selectedSearchResultItemType) {
                         ForEach(SearchResultItemType.allCases, id: \.self) { option in
                             Text(option.rawValue)
                         }
