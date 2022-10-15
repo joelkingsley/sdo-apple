@@ -29,7 +29,10 @@ class ChannelsTabViewModel: ObservableObject {
     @Published var channelsData: Result<GetChannelsData, BusinessError>?
     @Published var searchText: String = ""
     @Published var isShowingSearchSheet = false
-    @Published var selectedCountryFilter: String = "world"
+    @Published var selectedCountryFilter: String = {
+        guard let identifier = Locale.Region.isoRegions.first?.identifier else { return "" }
+        return Locale.current.localizedString(forRegionCode: identifier) ?? ""
+    }()
     
     @Published var listOfRegions: [String] = {
         Locale.Region.isoRegions.map { region -> String in
