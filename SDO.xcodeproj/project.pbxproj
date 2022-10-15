@@ -85,6 +85,12 @@
 		F19512F328EF417400DF4E2E /* SearchResultItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F128EF417300DF4E2E /* SearchResultItemType.swift */; };
 		F19512F528F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */; };
 		F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */; };
+		F19512F828F0543100DF4E2E /* ChannelsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512F728F0543100DF4E2E /* ChannelsTabView.swift */; };
+		F195130028F05E2F00DF4E2E /* ChannelsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19512FF28F05E2F00DF4E2E /* ChannelsTabViewModel.swift */; };
+		F195130328F09A6C00DF4E2E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195130228F09A6C00DF4E2E /* MapView.swift */; };
+		F195130428F09A6C00DF4E2E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195130228F09A6C00DF4E2E /* MapView.swift */; };
+		F195130628F09A8C00DF4E2E /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195130528F09A8C00DF4E2E /* MapViewCoordinator.swift */; };
+		F195130728F09A8C00DF4E2E /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195130528F09A8C00DF4E2E /* MapViewCoordinator.swift */; };
 		F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */; };
 		F1BC022328AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */; };
@@ -170,8 +176,14 @@
 		F1F010102800AF10005DC240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F00FE52800AF10005DC240 /* Assets.xcassets */; };
 		F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102028019353005DC240 /* AppTabNavigation.swift */; };
 		F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010232801A9E1005DC240 /* HomeTabView.swift */; };
-		F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */; };
 		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
+		F1FC6DAE28F69A78003317FC /* ChannelsSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */; };
+		F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
+		F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
+		F1FC6DB728FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */; };
+		F1FC6DB828FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */; };
+		F1FC6DBA28FAAFCE003317FC /* GetChannelErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */; };
+		F1FC6DBB28FAAFCE003317FC /* GetChannelErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +252,10 @@
 		F19512EE28EF329E00DF4E2E /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		F19512F128EF417300DF4E2E /* SearchResultItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemType.swift; sourceTree = "<group>"; };
 		F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultErrors.swift; sourceTree = "<group>"; };
+		F19512F728F0543100DF4E2E /* ChannelsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTabView.swift; sourceTree = "<group>"; };
+		F19512FF28F05E2F00DF4E2E /* ChannelsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTabViewModel.swift; sourceTree = "<group>"; };
+		F195130228F09A6C00DF4E2E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F195130528F09A8C00DF4E2E /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		F1BC021F28AA110F008C9361 /* GetAllChannelsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllChannelsDTO.swift; sourceTree = "<group>"; };
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
@@ -290,8 +306,11 @@
 		F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		F1F0102028019353005DC240 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		F1F010232801A9E1005DC240 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsTabView.swift; sourceTree = "<group>"; };
 		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
+		F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsSelectionSheet.swift; sourceTree = "<group>"; };
+		F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsData.swift; sourceTree = "<group>"; };
+		F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsDataUseCase.swift; sourceTree = "<group>"; };
+		F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,12 +407,14 @@
 			path = SearchTab;
 			sourceTree = "<group>";
 		};
-		F10497AF2859A7FB00E7EDB5 /* SubscriptionsTab */ = {
+		F10497AF2859A7FB00E7EDB5 /* ChannelsTab */ = {
 			isa = PBXGroup;
 			children = (
-				F1F0102B2801D84A005DC240 /* SubscriptionsTabView.swift */,
+				F19512F928F05C2F00DF4E2E /* Components */,
+				F19512F728F0543100DF4E2E /* ChannelsTabView.swift */,
+				F19512FF28F05E2F00DF4E2E /* ChannelsTabViewModel.swift */,
 			);
-			path = SubscriptionsTab;
+			path = ChannelsTab;
 			sourceTree = "<group>";
 		};
 		F10497B02859A80500E7EDB5 /* LibraryTab */ = {
@@ -512,6 +533,7 @@
 				F18105CF28BD408A00580101 /* GetHomeScreenDataUseCase.swift */,
 				F18105D228BD418400580101 /* GetVideoDetailDataUseCase.swift */,
 				F19512D128E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift */,
+				F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -564,6 +586,7 @@
 		F19512CB28E7727A00DF4E2E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F195130128F09A5600DF4E2E /* MapView */,
 				F19512DF28EDDBDB00DF4E2E /* InfiniteList.swift */,
 			);
 			path = Components;
@@ -587,6 +610,33 @@
 				F19512F428F01CAA00DF4E2E /* SearchResultErrors.swift */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		F19512F928F05C2F00DF4E2E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F195130128F09A5600DF4E2E /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				F195130228F09A6C00DF4E2E /* MapView.swift */,
+				F195130528F09A8C00DF4E2E /* MapViewCoordinator.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		F195130828F6992A00DF4E2E /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				F18105BF28BCE8C200580101 /* ChannelData.swift */,
+				F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */,
+				F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */,
+			);
+			path = Channels;
 			sourceTree = "<group>";
 		};
 		F1BC021E28AA10E9008C9361 /* DataMapping */ = {
@@ -701,9 +751,9 @@
 				F181060B28CD1B8900580101 /* HomeScreen */,
 				F18105FE28CCCC2F00580101 /* VideoDetail */,
 				F19512D728E788D300DF4E2E /* SearchResult */,
+				F195130828F6992A00DF4E2E /* Channels */,
 				F19512C128E57D9B00DF4E2E /* Errors */,
 				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
-				F18105BF28BCE8C200580101 /* ChannelData.swift */,
 				F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */,
 				F19512D428E7888E00DF4E2E /* VideoType.swift */,
 			);
@@ -898,7 +948,7 @@
 				F1F0102028019353005DC240 /* AppTabNavigation.swift */,
 				F10497AD2859A7E900E7EDB5 /* HomeTab */,
 				F10497AE2859A7EF00E7EDB5 /* SearchTab */,
-				F10497AF2859A7FB00E7EDB5 /* SubscriptionsTab */,
+				F10497AF2859A7FB00E7EDB5 /* ChannelsTab */,
 				F10497B02859A80500E7EDB5 /* LibraryTab */,
 			);
 			path = Tabs;
@@ -1118,6 +1168,7 @@
 				F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */,
 				F18105C028BCE8C200580101 /* ChannelData.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
+				F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F19512C628E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F18105CC28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,
 				F13983D82895A783004A2375 /* TileButton.swift in Sources */,
@@ -1138,17 +1189,19 @@
 				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
-				F1F0102C2801D84A005DC240 /* SubscriptionsTabView.swift in Sources */,
 				F18105E528BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
+				F195130628F09A8C00DF4E2E /* MapViewCoordinator.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
 				F19512CD28E772B700DF4E2E /* SearchResultView.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
+				F19512F828F0543100DF4E2E /* ChannelsTabView.swift in Sources */,
 				F1CA158C28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
 				F1D6522428B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
+				F1FC6DBA28FAAFCE003317FC /* GetChannelErrors.swift in Sources */,
 				F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1CA156C28AE097A005EDF85 /* SDOTheme.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
@@ -1168,8 +1221,10 @@
 				F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105D628BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
 				F10497A92855426100E7EDB5 /* KitchenSinkView.swift in Sources */,
+				F1FC6DAE28F69A78003317FC /* ChannelsSelectionSheet.swift in Sources */,
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
 				F19512D928E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
+				F1FC6DB728FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */,
 				F19512C928E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,
 				F1CA157D28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
@@ -1183,10 +1238,12 @@
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
+				F195130028F05E2F00DF4E2E /* ChannelsTabViewModel.swift in Sources */,
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
 				F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */,
 				F19512F228EF417300DF4E2E /* SearchResultItemType.swift in Sources */,
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
+				F195130328F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E228BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
@@ -1225,6 +1282,7 @@
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F18105DD28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
+				F1FC6DBB28FAAFCE003317FC /* GetChannelErrors.swift in Sources */,
 				F18105F128C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
 				F18105C128BCE8C200580101 /* ChannelData.swift in Sources */,
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
@@ -1233,17 +1291,21 @@
 				F19512E128EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
+				F195130728F09A8C00DF4E2E /* MapViewCoordinator.swift in Sources */,
 				F18105EB28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F19512D628E7888E00DF4E2E /* VideoType.swift in Sources */,
 				F19512CA28E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,
+				F1FC6DB828FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */,
 				F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
 				F1D6522228B950A60084907A /* VideoDetailData.swift in Sources */,
 				F1D6520B28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
 				F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */,
 				F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
+				F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
+				F195130428F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F19512C728E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
@@ -1443,7 +1505,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1475,7 +1537,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

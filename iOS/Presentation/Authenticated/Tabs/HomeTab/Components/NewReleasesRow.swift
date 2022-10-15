@@ -49,7 +49,7 @@ struct NewReleasesRow: View {
                                         }
                                         HStack {
                                             Text(videoThumbnailsRowViewModel.getThumbnailDescription(ofVideo: video))
-                                                .lineLimit(2)
+                                                .lineLimit(2, reservesSpace: true)
                                                 .multilineTextAlignment(.leading)
                                                 .font(.sdoFootnote)
                                                 .foregroundColor(Color(uiColor:UIColor.secondaryLabel))

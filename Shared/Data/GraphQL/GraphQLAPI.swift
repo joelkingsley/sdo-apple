@@ -197,6 +197,8 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         channel_id
         channel_name
         channel_type
+        location_lat
+        location_long
       }
     }
     """
@@ -244,6 +246,8 @@ public final class GetAllChannelsQuery: GraphQLQuery {
           GraphQLField("channel_id", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_name", type: .nonNull(.scalar(String.self))),
           GraphQLField("channel_type", type: .nonNull(.scalar(channel_types_enum.self))),
+          GraphQLField("location_lat", type: .nonNull(.scalar(String.self))),
+          GraphQLField("location_long", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -253,8 +257,8 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(channelId: String, channelName: String, channelType: channel_types_enum) {
-        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType])
+      public init(channelId: String, channelName: String, channelType: channel_types_enum, locationLat: String, locationLong: String) {
+        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType, "location_lat": locationLat, "location_long": locationLong])
       }
 
       public var __typename: String {
@@ -290,6 +294,24 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "channel_type")
+        }
+      }
+
+      public var locationLat: String {
+        get {
+          return resultMap["location_lat"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "location_lat")
+        }
+      }
+
+      public var locationLong: String {
+        get {
+          return resultMap["location_long"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "location_long")
         }
       }
     }

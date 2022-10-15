@@ -20,7 +20,7 @@
 // Search
 "searchTabLabel" = "Search";
 "searchScreenTitle" = "Search";
-"searchBarPlaceholderLabel" = "Videos, Channels and More";
+"searchBarPlaceholderLabel" = "Search Videos";
 "searchBrowseLabel" = "Browse";
 "searchSermonsButtonLabel" = "Sermons";
 "searchDocumentariesButtonLabel" = "Documentaries";
@@ -31,16 +31,21 @@
 
 // Search Results
 "searchResultsScreenNavigationTitle" = "Search Results";
-"searchResultsSearchLabel" = "Search";
+"searchResultsSearchLabel" = "Search Videos";
 "searchResultsItemTypeAll" = "All";
 "searchResultsItemTypeSermons" = "Sermons";
 "searchResultsItemTypeDocumentaries" = "Documentaries";
 "searchResultsItemTypeShorts" = "Shorts";
 "searchResultsItemTypeMusic" = "Music";
 
-// Subscriptions
-"subscriptionsTabLabel" = "Subscriptions";
-"subscriptionsScreenTitle" = "Subscriptions";
+// Channels
+"channelsTabLabel" = "Channels";
+"channelsScreenTitle" = "Channels";
+
+// Channels Selection Sheet
+"channelsSelectionSheetNavigationTitle" = "Search Channels";
+"channelsSelectionSheetSearchPlaceholderLabel" = "Search by Channel Name";
+"channelsSelectionSheetFilterByRegionLabel" = "Filter by Region:";
 
 // Library
 "libraryTabLabel" = "Library";

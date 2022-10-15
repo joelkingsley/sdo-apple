@@ -29,8 +29,6 @@ struct VideoThumbnailsRowViewModel {
             description.append(String(localized: "videoDetailScheduledLabel"))
         }
         
-        description.append("\n")
-        
         return description
     }
 }
