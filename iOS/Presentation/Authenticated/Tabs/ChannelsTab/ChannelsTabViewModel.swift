@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 @MainActor
 class ChannelsTabViewModel: ObservableObject {
@@ -15,6 +16,7 @@ class ChannelsTabViewModel: ObservableObject {
     private let getChannelsDataUseCase = GetChannelsDataUseCase(
         channelsRepository: HasuraChannelRepository(
             graphQLService: HasuraGraphQLService()))
+    private let filterChannelsUseCase = FilterChannelsUseCase()
     
     // MARK: - Properties
     
@@ -27,18 +29,21 @@ class ChannelsTabViewModel: ObservableObject {
             longitudinalMeters: 750
         )
     @Published var channelsData: Result<GetChannelsData, BusinessError>?
+    @Published var filteredChannels: [GetChannelsData.ChannelData] = []
     @Published var searchText: String = ""
     @Published var isShowingSearchSheet = false
-    @Published var selectedCountryFilter: String = {
-        guard let identifier = Locale.Region.isoRegions.first?.identifier else { return "" }
-        return Locale.current.localizedString(forRegionCode: identifier) ?? ""
+    
+    /// Selected region for filtering channels
+    @Published var selectedRegion: Locale.Region = {
+        Locale.Region.isoRegions.first ?? .world
     }()
     
-    @Published var listOfRegions: [String] = {
-        Locale.Region.isoRegions.map { region -> String in
-            return Locale.current.localizedString(forRegionCode: region.identifier) ?? "N/A"
-        }
+    /// List of all regions
+    @Published var listOfRegions: [Locale.Region] = {
+        Locale.Region.isoRegions
     }()
+    
+    var cancellables = Set<AnyCancellable>()
     
     // MARK: - Methods
     
@@ -46,6 +51,15 @@ class ChannelsTabViewModel: ObservableObject {
         Task {
             await getChannels()
         }
+        $selectedRegion.sink { [weak self] region in
+            guard let self = self,
+                  let channelsData = self.channelsData,
+                  case let .success(data) = channelsData
+            else {
+                return
+            }
+            self.filteredChannels = self.filterChannelsUseCase.execute(data.channels, withRegion: region)
+        }.store(in: &cancellables)
     }
     
     func setCenter(with coordinate: CLLocationCoordinate2D) {
@@ -61,6 +75,7 @@ class ChannelsTabViewModel: ObservableObject {
         switch await getChannelsDataUseCase.execute() {
         case let .success(data):
             channelsData = .success(data)
+            filteredChannels = data.channels
             if let firstChannel = data.channels.first {
                 region = MKCoordinateRegion(
                     center: firstChannel.coordinate,
