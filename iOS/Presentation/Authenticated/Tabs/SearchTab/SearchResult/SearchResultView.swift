@@ -76,7 +76,9 @@ struct SearchResultView: View {
                 .searchable(
                     text: $searchResultViewModel.searchText,
                     placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "searchResultsSearchLabel")
+                    prompt: "searchResultsSearchLabel"
+                )
+                .textInputAutocapitalization(.never)
                 .onSubmit(of: .search) {
                     searchResultViewModel.onSearchTextSubmitted()
                 }

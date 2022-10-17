@@ -57,7 +57,25 @@ class ChannelsTabViewModel: ObservableObject {
             else {
                 return
             }
-            self.filteredChannels = self.filterChannelsUseCase.execute(data.channels, withRegion: region)
+            self.filteredChannels = self.filterChannelsUseCase.execute(
+                data.channels,
+                withRegion: region,
+                withSearchText: self.searchText
+            )
+        }.store(in: &cancellables)
+        
+        $searchText.sink { [weak self] text in
+            guard let self = self,
+                  let channelsData = self.channelsData,
+                  case let .success(data) = channelsData
+            else {
+                return
+            }
+            self.filteredChannels = self.filterChannelsUseCase.execute(
+                data.channels,
+                withRegion: self.selectedRegion,
+                withSearchText: text
+            )
         }.store(in: &cancellables)
     }
     

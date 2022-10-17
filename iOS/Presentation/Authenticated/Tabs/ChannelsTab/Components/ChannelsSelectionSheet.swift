@@ -54,6 +54,7 @@ struct ChannelsSelectionSheet: View {
                 placement: .navigationBarDrawer(displayMode: .always),
                 prompt: "channelsSelectionSheetSearchPlaceholderLabel"
             )
+            .textInputAutocapitalization(.never)
             .navigationTitle("channelsSelectionSheetNavigationTitle")
             .navigationBarTitleDisplayMode(.inline)
         }
