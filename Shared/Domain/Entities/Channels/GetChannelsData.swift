@@ -19,6 +19,7 @@ struct GetChannelsData {
         let channelName: String
         let type: ChannelTypeData
         let location: Location
+        let regionCode: String
         
         var title: String? {
             return channelName
@@ -28,11 +29,18 @@ struct GetChannelsData {
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
         
-        init(channelId: String, channelName: String, type: ChannelTypeData, location: Location) {
+        init(
+            channelId: String,
+            channelName: String,
+            type: ChannelTypeData,
+            location: Location,
+            regionCode: String
+        ) {
             self.channelId = channelId
             self.channelName = channelName
             self.type = type
             self.location = location
+            self.regionCode = regionCode
         }
     }
     

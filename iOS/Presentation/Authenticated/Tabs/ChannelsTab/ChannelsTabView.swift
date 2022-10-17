@@ -11,6 +11,7 @@ import MapKit
 struct ChannelsTabView: View {
     @ObservedObject var channelsTabViewModel = ChannelsTabViewModel()
     @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @State var isShowingSearchSheet = false
     
     var body: some View {
         switch channelsTabViewModel.channelsData {
@@ -22,7 +23,7 @@ struct ChannelsTabView: View {
                     HStack {
                         Spacer()
                         Button {
-                            channelsTabViewModel.isShowingSearchSheet = true
+                            isShowingSearchSheet = true
                         } label: {
                             Image(systemName: "list.bullet.circle")
                                 .resizable()
@@ -38,7 +39,7 @@ struct ChannelsTabView: View {
                         .frame(height: 20)
                 }
             }
-            .sheet(isPresented: $channelsTabViewModel.isShowingSearchSheet) {
+            .sheet(isPresented: $isShowingSearchSheet) {
                 ChannelsSelectionSheet(channelsTabViewModel: channelsTabViewModel)
                     .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.visible)

@@ -29,7 +29,8 @@ extension GetAllChannelsQuery.Data.Channel {
             location: GetChannelsData.ChannelData.Location(
                 latitude: latitude,
                 longitude: longitude
-            )
+            ),
+            regionCode: regionCode
         )
     }
 }
