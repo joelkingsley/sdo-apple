@@ -31,7 +31,6 @@ class ChannelsTabViewModel: ObservableObject {
     @Published var channelsData: Result<GetChannelsData, BusinessError>?
     @Published var filteredChannels: [GetChannelsData.ChannelData] = []
     @Published var searchText: String = ""
-    @Published var isShowingSearchSheet = false
     
     /// Selected region for filtering channels
     @Published var selectedRegion: Locale.Region = {
@@ -68,7 +67,6 @@ class ChannelsTabViewModel: ObservableObject {
             latitudinalMeters: 750,
             longitudinalMeters: 750
         )
-        isShowingSearchSheet = false
     }
     
     private func getChannels() async {

@@ -10,6 +10,7 @@ import MapKit
 
 struct ChannelsSelectionSheet: View {
     @ObservedObject var channelsTabViewModel: ChannelsTabViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
@@ -33,6 +34,7 @@ struct ChannelsSelectionSheet: View {
                     ForEach($channelsTabViewModel.filteredChannels) { channel in
                         Button {
                             channelsTabViewModel.setCenter(with: channel.wrappedValue.coordinate)
+                            dismiss()
                         } label: {
                             VStack {
                                 HStack {
