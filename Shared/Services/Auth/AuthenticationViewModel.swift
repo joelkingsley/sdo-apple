@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import Combine
 
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
 @MainActor
@@ -15,6 +16,8 @@ final class AuthenticationViewModel: ObservableObject {
     /// - note: This will publish updates when its value changes.
     @Published var state: AuthState
     
+    var cancellables = Set<AnyCancellable>()
+    
     private var authService: SDOAuthService {
         return FirebaseAuthService()
     }
@@ -22,15 +25,20 @@ final class AuthenticationViewModel: ObservableObject {
     /// Creates an instance of this view model.
     init() {
         self.state = .signedOut
+        self.$state.sink { authState in
+            AppLogger.debug(authState)
+        }.store(in: &cancellables)
     }
     
     func restorePreviousSignIn() {
         Task { [weak self] in
-            let state = await authService.restorePreviousSignIn()
-            if case let .signedIn(user) = state {
-                try? await UserSession.setUserSession(user: user, forcingRefresh: true)
+            if state == .signedOut {
+                let state = await authService.restorePreviousSignIn()
+                if case let .signedIn(user) = state {
+                    try? await UserSession.setUserSession(user: user, forcingRefresh: true)
+                }
+                self?.state = state
             }
-            self?.state = state
         }
     }
 

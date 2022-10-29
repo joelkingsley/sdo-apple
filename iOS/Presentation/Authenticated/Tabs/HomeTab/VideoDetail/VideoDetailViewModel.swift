@@ -25,6 +25,13 @@ class VideoDetailViewModel: ObservableObject {
     }
     
     func getVideoDetailData() async {
-        self.videoDetailData = await getVideoDetailDataUseCase.execute(videoId: videoId, channelId: channelId)
+        switch await getVideoDetailDataUseCase.execute(videoId: videoId, channelId: channelId) {
+        case let .success(data):
+            AppLogger.debug(data)
+            videoDetailData = .success(data)
+        case let .failure(error):
+            AppLogger.error(error.localizedDescription)
+            videoDetailData = .failure(error)
+        }
     }
 }

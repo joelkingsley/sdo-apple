@@ -59,12 +59,17 @@
 "videoDetailVideoTypeShort" = "Kurze Video";
 "videoDetailVideoTypeMusic" = "Musik";
 "videoDetailPlayButtonLabel" = "Wiedergeben";
+"videoDetailStopButtonLabel" = "Halt";
 "videoDetailMoreTextLabel" = "mehr";
 "videoDetailRelatedLabel" = "Verwandte Videos";
 "videoDetailSubscribeToLabel %@" = "%@ abonnieren";
 "videoDetailTrySubscriptionLabel %@" = "%@ kostenlos testen";
 "videoDetailCostPerMonthText %@" = "%@ pro Monat";
 "videoDetailSubscriptionTrialCostLabel %@ %@" = "%@ kostenlos, danach %@";
+"videoPlayerViewILikeThisLabel" = "Ich mag das";
+"videoPlayerViewNotForMeLabel" = "Nicht für mich";
+"videoPlayerViewShareLabel" = "Teilen";
+"videoPlayerViewMyListLabel" = "Meine Liste";
 
 // Date Units
 "seconds" = "Sekunden";

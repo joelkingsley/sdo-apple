@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 
 /// An enumeration representing logged in status.
-enum AuthState {
+enum AuthState: Equatable {
 /// The user is logged in and is the associated value of this case.
 case signedIn(SDOUser)
 /// The user is logged out.

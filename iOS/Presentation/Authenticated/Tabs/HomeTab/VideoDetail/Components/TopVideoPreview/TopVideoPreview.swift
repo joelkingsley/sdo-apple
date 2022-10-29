@@ -8,8 +8,10 @@
 import SwiftUI
 import Kingfisher
 import AVKit
+import Combine
 
 protocol TopPreviewableVideo {
+    var videoId: String { get }
     var title: String { get }
     var localizedType: String { get }
     var thumbnailURL: URL { get }
@@ -23,22 +25,16 @@ protocol TopPreviewableVideo {
 }
 
 struct TopVideoPreview: View {
-    let video: TopPreviewableVideo
-    let topVideoPreviewViewModel: TopVideoPreviewViewModel
-    let videoPlayerViewModel: VideoPlayerViewModel
+    @ObservedObject var topVideoPreviewViewModel: TopVideoPreviewViewModel
     
-    @State var isShowingPlayer: Bool = false
-    
-    init(video: TopPreviewableVideo) {
-        self.video = video
+    init(video: TopPreviewableVideo & PlayableVideo) {
         self.topVideoPreviewViewModel = TopVideoPreviewViewModel(video: video)
-        self.videoPlayerViewModel = VideoPlayerViewModel(url: video.signedUrl)
     }
     
     var body: some View {
         ZStack {
             VStack {
-                KFImage(video.thumbnailURL)
+                KFImage(topVideoPreviewViewModel.video.thumbnailURL)
                     .resizable()
                     .aspectRatio(
                         CGSize(width: 1280, height: 720),
@@ -65,88 +61,30 @@ struct TopVideoPreview: View {
                 Spacer()
                 
                 Group {
-                    Text(video.title)
-                        .font(.sdoTitle2)
+                    Text(topVideoPreviewViewModel.video.title)
+                        .font(.sdoTitle)
                         .bold()
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                         .foregroundColor(Color(uiColor: .label))
                     
-                    Text(video.localizedType)
+                    Text(topVideoPreviewViewModel.video.localizedType)
                         .font(.sdoCallout)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                     
-                    Text(video.datePublished.formatted(date: .abbreviated, time: .omitted))
+                    Text(topVideoPreviewViewModel.video.datePublished.formatted(date: .abbreviated, time: .omitted))
                         .font(.sdoCaption)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                     
-                    Text(video.speakerName)
+                    Text(topVideoPreviewViewModel.video.speakerName)
                         .font(.sdoCaption)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                 }
                 
-                if video.canUserWatch {
-                    HStack {
-                        Spacer()
-
-                        NavigationLink(isActive: $isShowingPlayer) {
-                            if let player = videoPlayerViewModel.player {
-                                SDOVideoPlayer(
-                                    player: player,
-                                    willBeginFullScreenPresentationWithAnimationCoordinator: videoPlayerViewModel
-                                        .willBeginFullScreenPresentationHandler,
-                                    willEndFullScreenPresentationWithAnimationCoordinator: videoPlayerViewModel
-                                        .willEndFullScreenPresentationHandler
-                                )
-                                .aspectRatio(16/9, contentMode: .fit)
-                                .onDisappear {
-                                    videoPlayerViewModel.resetPlayer()
-                                }
-                            } else {
-                                Text("Error occurred")
-                            }
-                        } label: {
-                            EmptyView()
-                        }
-                        ActionButton(
-                            imageName: "play.fill",
-                            customFont: .sdoTitle2, text: "videoDetailPlayButtonLabel") {
-                            isShowingPlayer = true
-                        }
-                        .frame(width: 250)
-
-                        Spacer()
-                    }
-                } else {
-                    if let subscription = video.subscriptionForWatching {
-                        HStack {
-                            Spacer()
-                            VStack {
-                                ActionButton(customFont: .sdoCallout, text: subscription.localizedSubscribeButtonText) {
-                                    // TODO: Subscribe user to given subscription
-                                }
-                                .frame(width: 250)
-                                Text(subscription.localizedSubscriptionCostText)
-                                    .font(.sdoCaption2)
-                            }
-                            Spacer()
-                        }
-                    }
-                    
-                    HStack {
-                        Spacer()
-                        VStack {
-                            ActionButton(customFont: .sdoCallout, text: video.allAccessSubscription.localizedSubscribeButtonText) {
-                                // TODO: Subscribe user to all access subscription
-                            }
-                            .frame(width: 250)
-                            Text(video.allAccessSubscription.localizedSubscriptionCostText)
-                                .font(.sdoCaption2)
-                        }
-                        Spacer()
-                    }
-                }
+                TopVideoPreviewActionButtonList().environmentObject(topVideoPreviewViewModel)
                 
-                Text(video.description)
-                    .lineLimit(2)
+                Text(topVideoPreviewViewModel.video.description)
+                    .lineLimit(1...2)
                     .foregroundColor(Color(uiColor: .label))
                     .padding(.horizontal)
                     .padding(.top, 20)
