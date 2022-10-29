@@ -76,14 +76,6 @@ struct VideoPlayerView: View {
                     .padding(.top)
                     .padding(.bottom)
                     
-                    VStack {
-                        Image(systemName: "arrowshape.turn.up.right")
-                        Text("videoPlayerViewShareLabel")
-                    }
-                    .padding(.leading)
-                    .padding(.top)
-                    .padding(.bottom)
-                    
                     Spacer()
                 }
                 
