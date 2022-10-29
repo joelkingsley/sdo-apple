@@ -35,22 +35,6 @@ struct VideoDetailView: View {
                 .edgesIgnoringSafeArea(.horizontal)
                 .navigationTitle(data.infoData.title)
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack {
-                            Button {
-                                // Share video
-                                // TODO: To be integrated
-                            } label: {
-                                Image(systemName: "arrowshape.turn.up.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                            }
-                            .foregroundColor(.accentColor.opacity(0.8))
-                        }
-                    }
-                }
             case let .failure(error):
                 CustomErrorView(
                     error: error,
