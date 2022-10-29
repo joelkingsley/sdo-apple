@@ -23,6 +23,8 @@ struct KitchenSinkView: View {
 //                .frame(height: 300)
             VStack(alignment: .center) {
                 
+                let _ = Self._printChanges()
+                
                 ScrollView(.horizontal, showsIndicators: true) {
                     HStack {
                         let videos = [
