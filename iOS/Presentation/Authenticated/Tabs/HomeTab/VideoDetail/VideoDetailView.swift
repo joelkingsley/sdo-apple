@@ -38,17 +38,6 @@ struct VideoDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack {
-                            // TODO: Integrate add to my list functionality
-//                            Button {
-//                                // Add to User List
-//                            } label: {
-//                                Image(systemName: "plus.square.on.square")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 20, height: 20)
-//                            }
-//                            .foregroundColor(.accentColor.opacity(0.8))
-
                             Button {
                                 // Share video
                                 // TODO: To be integrated

@@ -85,15 +85,6 @@ struct VideoPlayerView: View {
                     .padding(.bottom)
                     
                     Spacer()
-                    
-                    // TODO: Integrate add to my list functionality
-//                    VStack {
-//                        Image(systemName: "plus.square.on.square")
-//                        Text("videoPlayerViewMyListLabel")
-//                    }
-//                    .padding(.leading)
-//                    .padding(.top)
-//                    .padding(.bottom)
                 }
                 
                 Spacer()
