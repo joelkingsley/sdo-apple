@@ -39,7 +39,7 @@ struct TopVideoPreview: View {
                     .resizable()
                     .aspectRatio(
                         CGSize(width: 1280, height: 720),
-                        contentMode: .fill
+                        contentMode: .fit
                     )
                     .clipped()
                     .overlay(content: {
@@ -128,6 +128,7 @@ struct TopVideoPreview: View {
                 
                 Text(topVideoPreviewViewModel.video.description)
                     .foregroundColor(Color(uiColor: .label))
+                    .padding(.horizontal)
                 
                 Spacer()
             }

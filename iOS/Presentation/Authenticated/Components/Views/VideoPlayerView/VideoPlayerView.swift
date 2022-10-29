@@ -57,40 +57,43 @@ struct VideoPlayerView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                ScrollView(.horizontal) {
-                    HStack(alignment: .center) {
-                        VStack {
-                            Image(systemName: "hand.thumbsup")
-                            Text("videoPlayerViewILikeThisLabel")
-                        }
-                        .padding(.leading)
-                        .padding(.top)
-                        .padding(.bottom)
-                        
-                        VStack {
-                            Image(systemName: "hand.thumbsdown")
-                            Text("videoPlayerViewNotForMeLabel")
-                        }
-                        .padding(.leading)
-                        .padding(.top)
-                        .padding(.bottom)
-                        
-                        VStack {
-                            Image(systemName: "arrowshape.turn.up.right")
-                            Text("videoPlayerViewShareLabel")
-                        }
-                        .padding(.leading)
-                        .padding(.top)
-                        .padding(.bottom)
-                        
-                        VStack {
-                            Image(systemName: "plus.square.on.square")
-                            Text("videoPlayerViewMyListLabel")
-                        }
-                        .padding(.leading)
-                        .padding(.top)
-                        .padding(.bottom)
+                HStack(alignment: .center) {
+                    Spacer()
+                    
+                    VStack {
+                        Image(systemName: "hand.thumbsup")
+                        Text("videoPlayerViewILikeThisLabel")
                     }
+                    .padding(.leading)
+                    .padding(.top)
+                    .padding(.bottom)
+                    
+                    VStack {
+                        Image(systemName: "hand.thumbsdown")
+                        Text("videoPlayerViewNotForMeLabel")
+                    }
+                    .padding(.leading)
+                    .padding(.top)
+                    .padding(.bottom)
+                    
+                    VStack {
+                        Image(systemName: "arrowshape.turn.up.right")
+                        Text("videoPlayerViewShareLabel")
+                    }
+                    .padding(.leading)
+                    .padding(.top)
+                    .padding(.bottom)
+                    
+                    Spacer()
+                    
+                    // TODO: Integrate add to my list functionality
+//                    VStack {
+//                        Image(systemName: "plus.square.on.square")
+//                        Text("videoPlayerViewMyListLabel")
+//                    }
+//                    .padding(.leading)
+//                    .padding(.top)
+//                    .padding(.bottom)
                 }
                 
                 Spacer()
