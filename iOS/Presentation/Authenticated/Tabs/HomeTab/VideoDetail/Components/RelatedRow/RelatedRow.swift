@@ -37,7 +37,7 @@ struct RelatedRow: View {
                                 }
                                 HStack {
                                     Text(videoThumbnailsRowViewModel.getThumbnailDescription(ofVideo: video))
-                                        .lineLimit(3)
+                                        .lineLimit(2)
                                         .multilineTextAlignment(.leading)
                                         .font(.sdoFootnote)
                                         .foregroundColor(Color(uiColor:UIColor.secondaryLabel))

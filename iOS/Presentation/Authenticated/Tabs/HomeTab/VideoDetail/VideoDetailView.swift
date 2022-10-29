@@ -33,7 +33,7 @@ struct VideoDetailView: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.horizontal)
-                .navigationTitle(exampleVideoDetail1.title)
+                .navigationTitle(data.infoData.title)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {

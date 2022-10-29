@@ -132,38 +132,6 @@
         "specifiedByUrl": null,
         "fields": [
           {
-            "name": "isVideoAccessibleToUser",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "thumbnailUrl",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "videoUrl",
             "description": null,
             "args": [],
@@ -2718,6 +2686,22 @@
             "deprecationReason": null
           },
           {
+            "name": "short_identifier",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos",
             "description": "An array relationship",
             "args": [
@@ -3290,6 +3274,18 @@
             "deprecationReason": null
           },
           {
+            "name": "short_identifier",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos",
             "description": null,
             "type": {
@@ -3330,6 +3326,12 @@
           {
             "name": "channels_pkey",
             "description": "unique or primary key constraint on columns \"channel_id\"",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "channels_short_identifier_key",
+            "description": "unique or primary key constraint on columns \"short_identifier\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -3428,6 +3430,18 @@
             "deprecationReason": null
           },
           {
+            "name": "short_identifier",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos",
             "description": null,
             "type": {
@@ -3500,6 +3514,18 @@
           },
           {
             "name": "region_code",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
             "description": null,
             "args": [],
             "type": {
@@ -3582,6 +3608,18 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -3644,6 +3682,18 @@
           },
           {
             "name": "region_code",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
             "description": null,
             "args": [],
             "type": {
@@ -3717,6 +3767,18 @@
           },
           {
             "name": "region_code",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3980,6 +4042,18 @@
             "deprecationReason": null
           },
           {
+            "name": "short_identifier",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "videos_aggregate",
             "description": null,
             "type": {
@@ -4068,6 +4142,12 @@
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -4141,6 +4221,18 @@
           },
           {
             "name": "region_code",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -4274,6 +4366,18 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -4321,6 +4425,12 @@
           },
           {
             "name": "region_code",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "short_identifier",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -22264,6 +22374,22 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user_lists",
             "description": "An array relationship",
             "args": [
@@ -23419,6 +23545,18 @@
           },
           {
             "name": "title",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_slug",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -24831,6 +24969,18 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user_lists",
             "description": null,
             "type": {
@@ -25046,6 +25196,18 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "video_id",
             "description": null,
             "args": [],
@@ -25192,6 +25354,18 @@
           },
           {
             "name": "title",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_slug",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -25358,6 +25532,18 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "video_id",
             "description": null,
             "args": [],
@@ -25504,6 +25690,18 @@
           },
           {
             "name": "title",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_slug",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -25875,6 +26073,18 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user_lists_aggregate",
             "description": null,
             "type": {
@@ -26061,6 +26271,12 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "video_id",
             "description": "column name",
             "isDeprecated": false,
@@ -26198,6 +26414,18 @@
           },
           {
             "name": "title",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_slug",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -26561,6 +26789,18 @@
             "deprecationReason": null
           },
           {
+            "name": "url_slug",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "video_id",
             "description": null,
             "type": {
@@ -26714,6 +26954,12 @@
           },
           {
             "name": "title",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_slug",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null

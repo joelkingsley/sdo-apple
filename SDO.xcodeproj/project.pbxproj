@@ -31,6 +31,10 @@
 		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
 		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
 		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
+		F1504CAC290848DB0059BE3E /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerSession.swift */; };
+		F1504CAD290848DB0059BE3E /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerSession.swift */; };
+		F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */; };
+		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105CC28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */; };
@@ -185,7 +189,7 @@
 		F1FC6DBA28FAAFCE003317FC /* GetChannelErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */; };
 		F1FC6DBB28FAAFCE003317FC /* GetChannelErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */; };
 		F1FC6DC328FB5502003317FC /* FilterChannelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */; };
-		F1FC6DC428FB5502003317FC /* FilterChannelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */; };
+		F1FC6DC728FD41D6003317FC /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DC628FD41D5003317FC /* VideoPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +229,9 @@
 		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
+		F1504CAB290848DB0059BE3E /* PlayerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSession.swift; sourceTree = "<group>"; };
+		F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewActionButtonList.swift; sourceTree = "<group>"; };
+		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
 		F18105CF28BD408A00580101 /* GetHomeScreenDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeScreenDataUseCase.swift; sourceTree = "<group>"; };
@@ -314,6 +321,7 @@
 		F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsDataUseCase.swift; sourceTree = "<group>"; };
 		F1FC6DB928FAAFCE003317FC /* GetChannelErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelErrors.swift; sourceTree = "<group>"; };
 		F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChannelsUseCase.swift; sourceTree = "<group>"; };
+		F1FC6DC628FD41D5003317FC /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +393,7 @@
 				F10497A82855426100E7EDB5 /* KitchenSinkView.swift */,
 				F10497B12859AB2A00E7EDB5 /* QueryTag.swift */,
 				F13983E02896D072004A2375 /* AppCustomToolbar.swift */,
+				F16A64E4290685BB00ECDCFD /* LegacySheet.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -530,6 +539,14 @@
 			path = VideoDetail;
 			sourceTree = "<group>";
 		};
+		F1504CAE29085BCC0059BE3E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F18105CE28BD407700580101 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,13 +559,14 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		F18105E828BFB78E00580101 /* SDOVideoPlayer */ = {
+		F18105E828BFB78E00580101 /* VideoPlayerView */ = {
 			isa = PBXGroup;
 			children = (
 				F18105E928BFB7AA00580101 /* SDOVideoPlayer.swift */,
+				F1FC6DC628FD41D5003317FC /* VideoPlayerView.swift */,
 				F18105EF28C3995900580101 /* VideoPlayerViewModel.swift */,
 			);
-			path = SDOVideoPlayer;
+			path = VideoPlayerView;
 			sourceTree = "<group>";
 		};
 		F18105F328C54A0500580101 /* CustomErrorView */ = {
@@ -705,6 +723,7 @@
 		F1D6522F28BA40CC0084907A /* TopVideoPreview */ = {
 			isa = PBXGroup;
 			children = (
+				F1504CAE29085BCC0059BE3E /* Components */,
 				F1157BA9286D6F8700309134 /* TopVideoPreview.swift */,
 				F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */,
 			);
@@ -733,7 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				F18105F328C54A0500580101 /* CustomErrorView */,
-				F18105E828BFB78E00580101 /* SDOVideoPlayer */,
+				F18105E828BFB78E00580101 /* VideoPlayerView */,
 				F1D6521828B7E3DC0084907A /* VideoThumbnail */,
 			);
 			path = Views;
@@ -838,6 +857,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E493FA2867A3B3008611D7 /* UserSession.swift */,
+				F1504CAB290848DB0059BE3E /* PlayerSession.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -1189,9 +1209,11 @@
 				F18105DF28BF552900580101 /* ApiError.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
+				F1504CAC290848DB0059BE3E /* PlayerSession.swift in Sources */,
 				F19512E428EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F18105ED28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
+				F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */,
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F18105E528BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
@@ -1226,6 +1248,7 @@
 				F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105D628BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
 				F10497A92855426100E7EDB5 /* KitchenSinkView.swift in Sources */,
+				F1FC6DC728FD41D6003317FC /* VideoPlayerView.swift in Sources */,
 				F1FC6DAE28F69A78003317FC /* ChannelsSelectionSheet.swift in Sources */,
 				F1E493DC2867571A008611D7 /* VideoMocks.swift in Sources */,
 				F19512D928E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
@@ -1241,6 +1264,7 @@
 				F18105D328BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
 				F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
+				F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */,
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F195130028F05E2F00DF4E2E /* ChannelsTabViewModel.swift in Sources */,
@@ -1264,6 +1288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */,
+				F1504CAD290848DB0059BE3E /* PlayerSession.swift in Sources */,
 				F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F19512F028EF329E00DF4E2E /* ApiConstants.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
@@ -1298,7 +1323,6 @@
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F195130728F09A8C00DF4E2E /* MapViewCoordinator.swift in Sources */,
 				F18105EB28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
-				F1FC6DC428FB5502003317FC /* FilterChannelsUseCase.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F19512D628E7888E00DF4E2E /* VideoType.swift in Sources */,
 				F19512CA28E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,

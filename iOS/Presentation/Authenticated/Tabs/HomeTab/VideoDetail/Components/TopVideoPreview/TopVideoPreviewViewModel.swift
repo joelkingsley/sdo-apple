@@ -7,12 +7,31 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
-struct TopVideoPreviewViewModel {
-    let video: TopPreviewableVideo
+class TopVideoPreviewViewModel: ObservableObject {
+    @Published var video: TopPreviewableVideo & PlayableVideo
     
-    init(video: TopPreviewableVideo) {
+    init(video: TopPreviewableVideo & PlayableVideo) {
         self.video = video
+    }
+    
+    var player: AVPlayer {
+        get {
+            PlayerSession.shared.player
+        }
+        set {
+            PlayerSession.shared.player = newValue
+        }
+    }
+    
+    var videoIdOfCurrentlyPlayingItem: String? {
+        get {
+            PlayerSession.shared.videoIdOfCurrentlyPlayingItem
+        }
+        set {
+            PlayerSession.shared.videoIdOfCurrentlyPlayingItem = newValue
+        }
     }
     
     var contentHeight: CGFloat {
@@ -25,5 +44,36 @@ struct TopVideoPreviewViewModel {
                 return 240
             }
         }
+    }
+    
+    func resetAndPlayVideo() {
+        setPlayer()
+        videoIdOfCurrentlyPlayingItem = video.videoId
+        player.seek(to: .zero)
+        player.play()
+    }
+    
+    func resetAndPauseVideo() {
+        setPlayer()
+        videoIdOfCurrentlyPlayingItem = video.videoId
+        player.seek(to: .zero)
+        player.pause()
+    }
+    
+    private func setPlayer() {
+        guard let signedUrl = video.signedUrl else { return }
+        let playerItem = AVPlayerItem(url: signedUrl)
+        
+        let titleItem = AVMutableMetadataItem()
+        titleItem.identifier = .commonIdentifierTitle
+        titleItem.value = NSString(string: video.title)
+        
+        let subtitleItem = AVMutableMetadataItem()
+        subtitleItem.identifier = .iTunesMetadataTrackSubTitle
+        subtitleItem.value = NSString(string: video.speakerName)
+        
+        playerItem.externalMetadata = [titleItem, subtitleItem]
+
+        player = AVPlayer(playerItem: playerItem)
     }
 }

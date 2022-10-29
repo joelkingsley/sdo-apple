@@ -59,12 +59,17 @@
 "videoDetailVideoTypeShort" = "Short";
 "videoDetailVideoTypeMusic" = "Music";
 "videoDetailPlayButtonLabel" = "Play";
+"videoDetailStopButtonLabel" = "Stop";
 "videoDetailMoreTextLabel" = "more";
 "videoDetailRelatedLabel" = "Related Videos";
 "videoDetailSubscribeToLabel %@" = "Subscribe to %@";
 "videoDetailTrySubscriptionLabel %@" = "Try %@";
 "videoDetailCostPerMonthText %@" = "%@/month";
 "videoDetailSubscriptionTrialCostLabel %@ %@" = "%@ free, then %@";
+"videoPlayerViewILikeThisLabel" = "I like this";
+"videoPlayerViewNotForMeLabel" = "Not for me";
+"videoPlayerViewShareLabel" = "Share";
+"videoPlayerViewMyListLabel" = "My List";
 
 // Date Units
 "seconds" = "seconds";

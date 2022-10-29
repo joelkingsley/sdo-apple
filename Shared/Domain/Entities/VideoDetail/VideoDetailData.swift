@@ -65,6 +65,10 @@ struct VideoDetailData {
 }
 
 extension VideoDetailData: TopPreviewableVideo {
+    var videoId: String {
+        infoData.videoId
+    }
+    
     var title: String {
         infoData.title
     }
@@ -100,5 +104,11 @@ extension VideoDetailData: TopPreviewableVideo {
     
     var signedUrl: URL? {
         return videoUrl
+    }
+}
+
+extension VideoDetailData: PlayableVideo {
+    var channelName: String {
+        return infoData.channel.channelName
     }
 }
