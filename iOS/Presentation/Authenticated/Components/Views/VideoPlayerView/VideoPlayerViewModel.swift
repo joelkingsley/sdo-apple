@@ -14,16 +14,10 @@ class VideoPlayerViewModel: ObservableObject {
     }
     
     var player: AVPlayer {
-        PlayerSession.shared.player
-    }
-    
-    var isPiP: Bool {
-        PlayerSession.shared.isPiP
+        PlayerState.shared.player
     }
     
     func onBackPressed() {
-        if !isPiP && !player.isExternalPlaybackActive {
-            player.pause()
-        }
+        PlayerState.shared.stopVideoIfPlayingAsEmbedded()
     }
 }

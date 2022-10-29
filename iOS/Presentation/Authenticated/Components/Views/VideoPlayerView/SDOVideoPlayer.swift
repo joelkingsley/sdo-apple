@@ -52,8 +52,8 @@ struct SDOVideoPlayer: UIViewControllerRepresentable {
     }
     
     private func replaceRunningPlayerViewController(with playerViewController: AVPlayerViewController) {
-        PlayerSession.shared.playerViewControllerReference?.player?.pause()
-        PlayerSession.shared.playerViewControllerReference = playerViewController
+        PlayerState.shared.playerViewControllerReference?.player?.pause()
+        PlayerState.shared.playerViewControllerReference = playerViewController
     }
 }
 
@@ -121,11 +121,11 @@ extension SDOVideoPlayerCoordinator: AVPlayerViewControllerDelegate {
     }
     
     public func playerViewControllerDidStartPictureInPicture(_ playerViewController: AVPlayerViewController) {
-        PlayerSession.shared.isPiP = true
+        PlayerState.shared.isPiP = true
     }
     
     public func playerViewControllerDidStopPictureInPicture(_ playerViewController: AVPlayerViewController) {
-        PlayerSession.shared.isPiP = false
+        PlayerState.shared.isPiP = false
     }
 }
 

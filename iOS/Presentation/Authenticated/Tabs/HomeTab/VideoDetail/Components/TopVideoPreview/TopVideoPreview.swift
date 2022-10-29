@@ -26,6 +26,7 @@ protocol TopPreviewableVideo {
 
 struct TopVideoPreview: View {
     @ObservedObject var topVideoPreviewViewModel: TopVideoPreviewViewModel
+    @State var showMoreSheet: Bool = false
     
     init(video: TopPreviewableVideo & PlayableVideo) {
         self.topVideoPreviewViewModel = TopVideoPreviewViewModel(video: video)
@@ -62,7 +63,7 @@ struct TopVideoPreview: View {
                 
                 Group {
                     Text(topVideoPreviewViewModel.video.title)
-                        .font(.sdoTitle)
+                        .font(.customTitle)
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
@@ -93,7 +94,7 @@ struct TopVideoPreview: View {
                 HStack {
                     Spacer()
                     Button {
-                        // TODO: Show dismissable sheet with full description
+                        showMoreSheet = true
                     } label: {
                         Text("videoDetailMoreTextLabel")
                     }
@@ -101,6 +102,37 @@ struct TopVideoPreview: View {
                 .padding(.horizontal)
             }
             .padding(.bottom, 20)
+        }
+        .sheet(isPresented: $showMoreSheet) {
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button("Done") {
+                        showMoreSheet = false
+                    }
+                }
+                .padding(.top)
+                .padding(.horizontal)
+                
+                HStack {
+                    Spacer()
+                    
+                    Text(topVideoPreviewViewModel.video.title)
+                        .font(.sdoTitle3)
+                        .bold()
+                    
+                    Spacer()
+                }
+                .padding()
+                
+                Text(topVideoPreviewViewModel.video.description)
+                    .foregroundColor(Color(uiColor: .label))
+                
+                Spacer()
+            }
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
         }
     }
 }
