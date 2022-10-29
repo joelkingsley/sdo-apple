@@ -25,9 +25,6 @@ final class AuthenticationViewModel: ObservableObject {
     /// Creates an instance of this view model.
     init() {
         self.state = .signedOut
-        self.$state.sink { authState in
-            AppLogger.debug(authState)
-        }.store(in: &cancellables)
     }
     
     func restorePreviousSignIn() {
