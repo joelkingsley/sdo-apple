@@ -31,8 +31,8 @@
 		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
 		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
 		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
-		F1504CAC290848DB0059BE3E /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerSession.swift */; };
-		F1504CAD290848DB0059BE3E /* PlayerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerSession.swift */; };
+		F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
+		F1504CAD290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
 		F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -229,7 +229,7 @@
 		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
-		F1504CAB290848DB0059BE3E /* PlayerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSession.swift; sourceTree = "<group>"; };
+		F1504CAB290848DB0059BE3E /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewActionButtonList.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
@@ -857,7 +857,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E493FA2867A3B3008611D7 /* UserSession.swift */,
-				F1504CAB290848DB0059BE3E /* PlayerSession.swift */,
+				F1504CAB290848DB0059BE3E /* PlayerState.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -1209,7 +1209,7 @@
 				F18105DF28BF552900580101 /* ApiError.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
-				F1504CAC290848DB0059BE3E /* PlayerSession.swift in Sources */,
+				F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */,
 				F19512E428EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F18105ED28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
@@ -1288,7 +1288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */,
-				F1504CAD290848DB0059BE3E /* PlayerSession.swift in Sources */,
+				F1504CAD290848DB0059BE3E /* PlayerState.swift in Sources */,
 				F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F19512F028EF329E00DF4E2E /* ApiConstants.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,

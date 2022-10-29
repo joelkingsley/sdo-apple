@@ -18,19 +18,19 @@ class TopVideoPreviewViewModel: ObservableObject {
     
     var player: AVPlayer {
         get {
-            PlayerSession.shared.player
+            PlayerState.shared.player
         }
         set {
-            PlayerSession.shared.player = newValue
+            PlayerState.shared.player = newValue
         }
     }
     
     var videoIdOfCurrentlyPlayingItem: String? {
         get {
-            PlayerSession.shared.videoIdOfCurrentlyPlayingItem
+            PlayerState.shared.videoIdOfCurrentlyPlayingItem
         }
         set {
-            PlayerSession.shared.videoIdOfCurrentlyPlayingItem = newValue
+            PlayerState.shared.videoIdOfCurrentlyPlayingItem = newValue
         }
     }
     

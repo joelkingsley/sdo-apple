@@ -63,4 +63,8 @@ extension Font {
     static var sdoCaption2: Font {
         Font.caption2
     }
+    
+    static var customTitle: Font {
+        Font.custom("Futura", size: 25, relativeTo: .title)
+    }
 }
