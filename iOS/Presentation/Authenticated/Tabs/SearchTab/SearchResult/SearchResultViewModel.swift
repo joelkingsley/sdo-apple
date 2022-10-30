@@ -18,24 +18,34 @@ class SearchResultViewModel: ObservableObject {
     
     // MARK: - Search parameters
     
+    /// The current search text
     @Published var searchText: String
+    
+    /// The current selected search result item type
     @Published var selectedSearchResultItemType: SearchResultItemType
+    
+    /// Constant to denote how many videos to fetch at a time
     private let pageLimit = 10
     
     // MARK: - Api data and view state
     
+    /// Whether page loaded with initial data
     @Published var isPageLoaded: Bool = false
+    
+    /// The fetched videos for the current search parameters
     @Published var searchResultVideos: [SearchResultData.Video] = []
+    
+    /// Total number of videos available in the backend for current search parameters
     @Published var totalAvailableVideosForSearchResult: Int = 0
+    
+    /// Whether error occurred while loading initial data
     @Published var errorOccurred: BusinessError? = nil
+    
+    /// The last page of videos loaded for the current search parameters
     @Published var highestLoadedPage: Int = -1
-    var totalPagesForSearchResult: Int {
-        if totalAvailableVideosForSearchResult%pageLimit != 0 {
-            return (totalAvailableVideosForSearchResult/pageLimit) + 1
-        } else {
-            return totalAvailableVideosForSearchResult/pageLimit
-        }
-    }
+    
+    /// Whether more videos are being loaded for the current search parameters
+    @Published var isLoadingMoreVideos: Bool = false
     
     // MARK: - Lifecycle
     
@@ -63,7 +73,22 @@ class SearchResultViewModel: ObservableObject {
         }
     }
     
-    func checkAndLoadMoreVideos() {
+    func onLastVideoReached() {
+        Task {
+            if totalAvailableVideosForSearchResult > searchResultVideos.count {
+                isLoadingMoreVideos = true
+                switch await getVideosForSearchParameters(itemType: selectedSearchResultItemType, searchText: searchText) {
+                case let .success(data):
+                    var updatedVideos = self.searchResultVideos
+                    updatedVideos.append(contentsOf: data.videos)
+                    self.searchResultVideos = updatedVideos
+                    self.highestLoadedPage = self.highestLoadedPage + 1
+                case let .failure(error):
+                    AppLogger.debug("Error occurred while loading more videos: \(error)")
+                }
+                isLoadingMoreVideos = false
+            }
+        }
     }
     
     private func resetSearchResults() {
