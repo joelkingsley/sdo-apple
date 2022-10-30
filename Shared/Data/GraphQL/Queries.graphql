@@ -113,7 +113,7 @@ query GetVideosForSearchText($searchText: String!, $limit: Int!, $offset: Int!) 
     gcp_thumbnail_bucket_name
     gcp_thumbnail_file_name
   }
-  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}]}, limit: $limit, offset: $offset) {
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}]}) {
     aggregate {
       count
     }
@@ -136,7 +136,7 @@ query GetVideosForSearchTextAndVideoType($searchText: String!, $videoType: video
     gcp_thumbnail_bucket_name
     gcp_thumbnail_file_name
   }
-  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}}, limit: $limit, offset: $offset) {
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}}) {
     aggregate {
       count
     }

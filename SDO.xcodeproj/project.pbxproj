@@ -31,6 +31,7 @@
 		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
 		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
 		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
+		F14B18CD290E464100DE8229 /* SearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B18CC290E464100DE8229 /* SearchResultRow.swift */; };
 		F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
 		F1504CAD290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
 		F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */; };
@@ -229,6 +230,7 @@
 		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
+		F14B18CC290E464100DE8229 /* SearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
 		F1504CAB290848DB0059BE3E /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewActionButtonList.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
@@ -539,6 +541,14 @@
 			path = VideoDetail;
 			sourceTree = "<group>";
 		};
+		F14B18CB290E463000DE8229 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F14B18CC290E464100DE8229 /* SearchResultRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F1504CAE29085BCC0059BE3E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +627,7 @@
 		F19512CE28E772D000DF4E2E /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				F14B18CB290E463000DE8229 /* Components */,
 				F19512CC28E772B700DF4E2E /* SearchResultView.swift */,
 				F19512CF28E772FA00DF4E2E /* SearchResultViewModel.swift */,
 			);
@@ -1277,6 +1288,7 @@
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F18105D028BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
+				F14B18CD290E464100DE8229 /* SearchResultRow.swift in Sources */,
 				F18105F028C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
 				F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,

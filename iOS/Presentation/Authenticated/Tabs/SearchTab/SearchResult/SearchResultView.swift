@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchResultView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var searchResultViewModel: SearchResultViewModel
-    @State var thumbnailWidth: CGFloat = 0
     
     init(
         ofItemType itemType: SearchResultItemType,
@@ -41,35 +40,11 @@ struct SearchResultView: View {
                     
                     InfiniteList(
                         data: $searchResultViewModel.searchResultVideos,
-                        isLoading: Binding.constant(false)
+                        isLoading: $searchResultViewModel.isLoadingMoreVideos
                     ) {
-                        
+                        searchResultViewModel.onLastVideoReached()
                     } content: { video in
-                        HStack {
-                            VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
-                                .frame(width: thumbnailWidth)
-                            VStack {
-                                HStack {
-                                    Text(video.title)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text(video.videoType.localizedString())
-                                        .font(.sdoCaption)
-                                        .foregroundColor(Color(uiColor: .secondaryLabel))
-                                    Spacer()
-                                }
-                            }
-                            Spacer()
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "ellipsis")
-                            }
-                            Spacer()
-                                .frame(width: 20)
-                            
-                        }
+                        SearchResultRow(video: video)
                     }
                     .padding(.leading, 20)
                 }
