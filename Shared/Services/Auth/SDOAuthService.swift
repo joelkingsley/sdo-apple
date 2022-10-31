@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import AuthenticationServices
 
 protocol SDOAuthService {
     /// Restores current user session from keychain if valid
     func restorePreviousSignIn() async -> AuthState
 
-    /// Signs in user with the google sign-in (pop-up) and then signs in on firebase
+    /// Signs in user with the Google sign-in
     func signInWithGoogle() async -> AuthState
+    
+    /// Configures the Apple sign-in authorization request
+    func configure(appleSignInAuthorizationRequest: ASAuthorizationAppleIDRequest)
+    
+    /// Signs in user with the Apple sign-in
+    func signInWithApple(requestAuthorizationResult: Result<ASAuthorization, Error>) async -> AuthState
 
     /// Signs in to firebase using the given auth credentials
     /// - note: To be invoked after authenticating with username-password or social sign-in

@@ -157,7 +157,6 @@
 		F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4940B2868E148008611D7 /* AuthenticationViewModel.swift */; };
 		F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4940B2868E148008611D7 /* AuthenticationViewModel.swift */; };
 		F1E494132869910B008611D7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E494122869910B008611D7 /* SignInView.swift */; };
-		F1E494142869910B008611D7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E494122869910B008611D7 /* SignInView.swift */; };
 		F1E4941528699316008611D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F00FE42800AF0E005DC240 /* ContentView.swift */; };
 		F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4941728699800008611D7 /* NotAvailableView.swift */; };
 		F1EA5AA128B607B700102469 /* HasuraVideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA5AA028B607B700102469 /* HasuraVideoRepository.swift */; };
@@ -231,6 +230,7 @@
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
 		F14B18CC290E464100DE8229 /* SearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
+		F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SDO (iOS).entitlements"; sourceTree = "<group>"; };
 		F1504CAB290848DB0059BE3E /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewActionButtonList.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
@@ -549,6 +549,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F14B18CF290F287300DE8229 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				F1E494122869910B008611D7 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		F1504CAE29085BCC0059BE3E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,7 +813,7 @@
 		F1E493DD286757A1008611D7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F1E494122869910B008611D7 /* SignInView.swift */,
+				F14B18CF290F287300DE8229 /* SignIn */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -904,6 +912,7 @@
 		F1F00FDD2800AF0E005DC240 = {
 			isa = PBXGroup;
 			children = (
+				F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */,
 				F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */,
 				F1F00FE22800AF0E005DC240 /* Shared */,
 				F1F0101F280192C3005DC240 /* iOS */,
@@ -1352,7 +1361,6 @@
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F19512C728E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F19512DA28E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
-				F1E494142869910B008611D7 /* SignInView.swift in Sources */,
 				F1D6522828B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F19512E528EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,
@@ -1535,6 +1543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5U7V8A368;
@@ -1567,6 +1576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5U7V8A368;

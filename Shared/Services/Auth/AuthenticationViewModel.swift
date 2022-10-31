@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import Combine
+import AuthenticationServices
 
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
 @MainActor
@@ -19,7 +20,7 @@ final class AuthenticationViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     private var authService: SDOAuthService {
-        return FirebaseAuthService()
+        return FirebaseAuthService.shared
     }
 
     /// Creates an instance of this view model.
@@ -43,6 +44,21 @@ final class AuthenticationViewModel: ObservableObject {
     func signInWithGoogle() {
         Task { [weak self] in
             let state = await authService.signInWithGoogle()
+            if case let .signedIn(user) = state {
+                try? await UserSession.setUserSession(user: user)
+            }
+            self?.state = state
+        }
+    }
+    /// Configures the Apple sign-in authorization request
+    func configure(appleSignInAuthorizationRequest request: ASAuthorizationAppleIDRequest) {
+        return authService.configure(appleSignInAuthorizationRequest: request)
+    }
+    
+    /// Signs the user in with Apple
+    func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
+        Task { [weak self] in
+            let state = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
             }
