@@ -10,6 +10,11 @@
 "appNamePart1" = "Gesunde Lehre";
 "appNamePart2" = "Online";
 
+// Sign In
+"signInSubtitleLabel" = "Unabhängige fundamentalistische Baptistenpredigten aus der ganzen Welt";
+"signInReasonLabel" = "Melden Sie sich an, um auf kostenlose Inhalte zuzugreifen und personalisierte Empfehlungen zu erhalten";
+"signInWithGoogleLabel" = "Anmeldung mit Google";
+
 // Home
 "homeTabLabel" = "Startseite";
 "homeScreenTitle" = "Startseite";
