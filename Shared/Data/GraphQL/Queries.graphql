@@ -142,3 +142,31 @@ query GetVideosForSearchTextAndVideoType($searchText: String!, $videoType: video
     }
   }
 }
+
+query GetChannelDetail($channelId: uuid!) {
+  channels(where: {channel_id: {_eq: $channelId}}) {
+    channel_id
+    channel_name
+    channel_type
+    location_lat
+    location_long
+    region_code
+    videosInChannel:videos {
+      video_id
+      title
+      video_type
+      speaker {
+        speaker_id
+        speaker_name
+      }
+      language {
+        language_code
+        source_country_flag
+      }
+      gcp_thumbnail_bucket_name
+      gcp_thumbnail_file_name
+      description
+      date_published
+    }
+  }
+}

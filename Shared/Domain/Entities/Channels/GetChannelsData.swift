@@ -25,6 +25,10 @@ struct GetChannelsData {
             return channelName
         }
         
+        var subtitle: String? {
+            return type.localizedString()
+        }
+        
         var coordinate: CLLocationCoordinate2D {
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }

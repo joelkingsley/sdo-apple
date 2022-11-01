@@ -7,9 +7,7 @@
 
 import Foundation
 
-/**
- Filters channels by region and search text
- */
+/// Filters channels by region and search text
 class FilterChannelsUseCase {
     func execute(
         _ channels: [GetChannelsData.ChannelData],

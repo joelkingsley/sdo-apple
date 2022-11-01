@@ -47,6 +47,8 @@
 // Channels
 "channelsTabLabel" = "Channels";
 "channelsScreenTitle" = "Channels";
+"channelsTypeChurchLabel" = "Church";
+"channelsTypeSoulWinningLabel" = "Soul Winning Club";
 
 // Channels Selection Sheet
 "channelsSelectionSheetNavigationTitle" = "Search Channels";

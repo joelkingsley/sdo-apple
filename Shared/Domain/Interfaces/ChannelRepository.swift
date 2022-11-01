@@ -13,4 +13,7 @@ import Foundation
 protocol ChannelRepository {
     /// Get channels data
     func getChannelsData() async -> Result<GetChannelsData, BusinessError>
+    
+    /// Gets the channel detail data
+    func getChannelDetailData(ofChannelId channelId: String) async -> Result<ChannelDetailData, BusinessError>
 }

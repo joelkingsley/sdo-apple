@@ -7,9 +7,7 @@
 
 import Foundation
 
-/**
- Sets up and returns the video detail data
- */
+/// Sets up and returns the video detail data
 class GetVideosOfSearchParametersUseCase {
     let videoRepository: VideoRepository
     

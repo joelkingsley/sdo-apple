@@ -13,7 +13,11 @@ struct ChannelData {
     let channelType: ChannelTypeData
 }
 
-enum ChannelTypeData {
-    case church
-    case soulWinningClub
+enum ChannelTypeData: String {
+    case church = "channelsTypeChurchLabel"
+    case soulWinningClub = "channelsTypeSoulWinningLabel"
+    
+    func localizedString() -> String {
+        return String(localized: String.LocalizationValue(self.rawValue))
+    }
 }
