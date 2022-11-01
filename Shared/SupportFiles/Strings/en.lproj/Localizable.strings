@@ -10,6 +10,12 @@
 "appNamePart1" = "Sound Doctrine";
 "appNamePart2" = "Online";
 
+// Sign In
+"signInSubtitleLabel" = "Independent Fundamental Baptist preaching from around the world";
+"signInReasonLabel" = "Sign in to get access to free content and get personalized recommendations";
+"signInWithGoogleLabel" = "Sign in with Google";
+
+
 // Home
 "homeTabLabel" = "Home";
 "homeScreenTitle" = "Home";

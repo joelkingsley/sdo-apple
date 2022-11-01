@@ -15,14 +15,14 @@ struct SignInView: View {
     
     var body: some View {
         Image("Text Logo")
-        Text("Independent Fundamental Baptist preaching from around the world")
+        Text("signInSubtitleLabel")
             .multilineTextAlignment(.center)
             .italic()
             .padding()
         
         Spacer()
         
-        Text("Sign in to get access to free content and get personalized recommendations")
+        Text("signInReasonLabel")
             .padding()
         
         VStack {
@@ -36,7 +36,7 @@ struct SignInView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                        Text("Sign in with Google")
+                        Text("signInWithGoogleLabel")
                             .font(.custom("Gill Sans", size: 20))
                             .foregroundColor(.blue)
                         Spacer()
@@ -71,7 +71,7 @@ struct SignInView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                        Text("Sign in with Google")
+                        Text("signInWithGoogleLabel")
                             .font(.custom("Gill Sans", size: 20))
                             .foregroundColor(.blue)
                         Spacer()
