@@ -40,10 +40,11 @@ let exampleVideoDetail1 = VideoDetailData(
             channelName: "Verity Baptist Church",
             channelType: .church
         ),
-        relatedVideos: [
+        moreVideosInChannel: [
             VideoDetailData.RelatedVideo(
                 videoId: "dummy1",
                 title: "Once Saved Always Saved",
+                channelId: "dummy12",
                 channelName: "Faithful Word Baptist Church",
                 datePublished: Date(timeIntervalSinceNow: -60000),
                 speakerName: "Pastor Roger Jiminez",
@@ -54,6 +55,7 @@ let exampleVideoDetail1 = VideoDetailData(
             VideoDetailData.RelatedVideo(
                 videoId: "dummy2",
                 title: "1, 2, 3, Repent After Me",
+                channelId: "dummy12",
                 channelName: "Faithful Word Baptist Church",
                 datePublished: Date(timeIntervalSinceNow: -60000),
                 speakerName: "Pastor Roger Jiminez",

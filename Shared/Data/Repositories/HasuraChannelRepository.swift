@@ -27,4 +27,15 @@ class HasuraChannelRepository: ChannelRepository {
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
+    
+    /// Gets the channel detail data
+    func getChannelDetailData(ofChannelId channelId: String) async -> Result<ChannelDetailData, BusinessError> {
+        do {
+            let data = try await graphQLService.executeQuery(query: GetChannelDetailQuery(channelId: channelId))
+            return .success(try data.toEntity())
+        } catch {
+            AppLogger.error("Error in getChannelDetailData: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
 }

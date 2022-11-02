@@ -46,11 +46,19 @@
 // Channels
 "channelsTabLabel" = "Kanäle";
 "channelsScreenTitle" = "Kanäle";
+"channelsTypeChurchLabel" = "Kirche";
+"channelsTypeSoulWinningLabel" = "Club der Seelengewinner";
 
 // Channels Selection Sheet
 "channelsSelectionSheetNavigationTitle" = "Suchkanäle";
 "channelsSelectionSheetSearchPlaceholderLabel" = "Suche nach Kanalnamen";
 "channelsSelectionSheetFilterByRegionLabel" = "Nach Region filtern:";
+
+// Channel Detail
+"channelDetailVideosLabel" = "Video(s)";
+"channelDetailOpenInMapLabel" = "In Karten öffnen";
+"channelDetailOpenWebsiteLabel" = "Webseite";
+"channelDetailNoVideosInChannelLabel" = "Keine Videos im Kanal";
 
 // Library
 "libraryTabLabel" = "Profil";
@@ -66,7 +74,7 @@
 "videoDetailPlayButtonLabel" = "Wiedergeben";
 "videoDetailStopButtonLabel" = "Halt";
 "videoDetailMoreTextLabel" = "mehr";
-"videoDetailRelatedLabel" = "Verwandte Videos";
+"videoDetailMoreVideosInChannelLabel" = "Mehr Videos in";
 "videoDetailSubscribeToLabel %@" = "%@ abonnieren";
 "videoDetailTrySubscriptionLabel %@" = "%@ kostenlos testen";
 "videoDetailCostPerMonthText %@" = "%@ pro Monat";

@@ -12,30 +12,32 @@ struct SearchResultRow: View {
     @State var thumbnailWidth: CGFloat = 0
     
     var body: some View {
-        HStack {
-            VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
-                .frame(width: thumbnailWidth)
-            VStack {
-                HStack {
-                    Text(video.title)
-                    Spacer()
+        NavigationLink {
+            VideoDetailView(videoId: video.videoId, channelId: video.channelId)
+        } label: {
+            HStack {
+                VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
+                    .frame(width: thumbnailWidth)
+                VStack {
+                    HStack {
+                        Text(video.title)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("\(video.videoType.localizedString()) · \(video.channelName)")
+                            .lineLimit(1)
+                            .font(.sdoCaption)
+                            .foregroundColor(Color(uiColor: .secondaryLabel))
+                        Spacer()
+                    }
                 }
-                HStack {
-                    Text(video.videoType.localizedString())
-                        .font(.sdoCaption)
-                        .foregroundColor(Color(uiColor: .secondaryLabel))
-                    Spacer()
-                }
-            }
-            Spacer()
-            Button {
+                Spacer()
+                Spacer()
+                    .frame(width: 20)
                 
-            } label: {
-                Image(systemName: "ellipsis")
             }
-            Spacer()
-                .frame(width: 20)
-            
         }
     }
 }

@@ -11,6 +11,8 @@ import MapKit
 struct MapView: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     var places: [GetChannelsData.ChannelData]
+    @Binding var showChannelDetail: Bool
+    @Binding var selectedChannelIdForShowDetail: String?
     
     // Create the MKMapView using UIKit
     func makeUIView(context: Context) -> MKMapView {
@@ -18,12 +20,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.region = region
         places.forEach { place in
-            let point = MKPointAnnotation()
-            point.coordinate = place.coordinate
-            if let title = place.title {
-                point.title = title
-            }
-            mapView.addAnnotation(point)
+            mapView.addAnnotation(place)
         }
         return mapView
     }
@@ -35,8 +32,8 @@ struct MapView: UIViewRepresentable {
     }
     
     // Link it to the coordinator which is defined below.
-    func makeCoordinator() -> MapViewCoordinator {
-        MapViewCoordinator(self)
+    func makeCoordinator() -> ChannelsMapViewCoordinator {
+        ChannelsMapViewCoordinator(self)
     }
 
 }

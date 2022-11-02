@@ -7,9 +7,7 @@
 
 import Foundation
 
-/**
- Gets list of all channels
- */
+/// Gets list of all channels
 class GetChannelsDataUseCase {
     let channelsRepository: ChannelRepository
     

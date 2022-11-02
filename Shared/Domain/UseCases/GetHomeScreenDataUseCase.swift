@@ -7,9 +7,7 @@
 
 import Foundation
 
-/**
- Retrieves the home screen data
- */
+/// Retrieves the home screen data
 class GetHomeScreenDataUseCase {
     let videoRepository: VideoRepository
     

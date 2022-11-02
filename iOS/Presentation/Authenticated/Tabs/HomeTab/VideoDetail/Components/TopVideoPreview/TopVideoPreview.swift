@@ -73,11 +73,13 @@ struct TopVideoPreview: View {
                         .font(.sdoCallout)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                     
-                    Text(topVideoPreviewViewModel.video.datePublished.formatted(date: .abbreviated, time: .omitted))
+                    Text(
+                        "\(topVideoPreviewViewModel.video.datePublished.formatted(date: .abbreviated, time: .omitted)) · \(topVideoPreviewViewModel.video.speakerName)"
+                    )
                         .font(.sdoCaption)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                     
-                    Text(topVideoPreviewViewModel.video.speakerName)
+                    Text(topVideoPreviewViewModel.video.channelName)
                         .font(.sdoCaption)
                         .foregroundColor(Color(uiColor: .secondaryLabel))
                 }

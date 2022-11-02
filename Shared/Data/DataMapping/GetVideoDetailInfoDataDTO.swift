@@ -26,7 +26,7 @@ extension GetVideoDetailDataQuery.Data {
             description: videoDetail.description,
             speaker: videoDetail.speaker.toEntity(),
             channel: try videoDetail.channel.toEntity(),
-            relatedVideos: try relatedVideos.map { try $0.toEntity() },
+            moreVideosInChannel: try moreVideosInChannel.map { try $0.toEntity() },
             language: videoDetail.language.toEntity(),
             thumbnailURL: thumbnailUrl
         )
@@ -66,7 +66,7 @@ extension channel_types_enum {
     }
 }
 
-extension GetVideoDetailDataQuery.Data.RelatedVideo {
+extension GetVideoDetailDataQuery.Data.MoreVideosInChannel {
     var thumbnailUrl: URL? {
         let baseUrl = ApiConstants.googleCloudStorageBaseUrl
         return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
@@ -84,6 +84,7 @@ extension GetVideoDetailDataQuery.Data.RelatedVideo {
         return VideoDetailData.RelatedVideo(
             videoId: videoId,
             title: title,
+            channelId: channel.channelId,
             channelName: channel.channelName,
             datePublished: datePublished,
             speakerName: speaker.speakerName,

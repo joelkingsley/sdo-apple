@@ -13,11 +13,25 @@ struct ChannelsTabView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @State var isShowingSearchSheet = false
     
+    @State var selectedChannelIdForShowDetail: String?
+    @State var showChannelDetail: Bool = false
+    
     var body: some View {
         switch channelsTabViewModel.channelsData {
         case .success(let data):
             ZStack {
-                MapView(region: $channelsTabViewModel.region, places: data.channels)
+                NavigationLink(isActive: $showChannelDetail) {
+                    ChannelDetailView(channelId: selectedChannelIdForShowDetail)
+                } label: {
+                    EmptyView()
+                }
+                
+                MapView(
+                    region: $channelsTabViewModel.region,
+                    places: data.channels,
+                    showChannelDetail: $showChannelDetail,
+                    selectedChannelIdForShowDetail: $selectedChannelIdForShowDetail
+                )
                 VStack {
                     Spacer()
                     HStack {
