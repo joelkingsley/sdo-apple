@@ -1157,12 +1157,15 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         gcp_thumbnail_bucket_name
         gcp_thumbnail_file_name
       }
-      relatedVideos: videos(where: {channel_id: {_eq: $channelId}}) {
+      moreVideosInChannel: videos(
+        where: {channel_id: {_eq: $channelId}, video_id: {_neq: $videoId}}
+      ) {
         __typename
         video_id
         title
         channel {
           __typename
+          channel_id
           channel_name
         }
         date_published
@@ -1196,7 +1199,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
     public static var selections: [GraphQLSelection] {
       return [
         GraphQLField("videos", alias: "videoDetail", arguments: ["where": ["video_id": ["_eq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(VideoDetail.selections))))),
-        GraphQLField("videos", alias: "relatedVideos", arguments: ["where": ["channel_id": ["_eq": GraphQLVariable("channelId")]]], type: .nonNull(.list(.nonNull(.object(RelatedVideo.selections))))),
+        GraphQLField("videos", alias: "moreVideosInChannel", arguments: ["where": ["channel_id": ["_eq": GraphQLVariable("channelId")], "video_id": ["_neq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(MoreVideosInChannel.selections))))),
       ]
     }
 
@@ -1206,8 +1209,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(videoDetail: [VideoDetail], relatedVideos: [RelatedVideo]) {
-      self.init(unsafeResultMap: ["__typename": "query_root", "videoDetail": videoDetail.map { (value: VideoDetail) -> ResultMap in value.resultMap }, "relatedVideos": relatedVideos.map { (value: RelatedVideo) -> ResultMap in value.resultMap }])
+    public init(videoDetail: [VideoDetail], moreVideosInChannel: [MoreVideosInChannel]) {
+      self.init(unsafeResultMap: ["__typename": "query_root", "videoDetail": videoDetail.map { (value: VideoDetail) -> ResultMap in value.resultMap }, "moreVideosInChannel": moreVideosInChannel.map { (value: MoreVideosInChannel) -> ResultMap in value.resultMap }])
     }
 
     /// An array relationship
@@ -1221,12 +1224,12 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
     }
 
     /// An array relationship
-    public var relatedVideos: [RelatedVideo] {
+    public var moreVideosInChannel: [MoreVideosInChannel] {
       get {
-        return (resultMap["relatedVideos"] as! [ResultMap]).map { (value: ResultMap) -> RelatedVideo in RelatedVideo(unsafeResultMap: value) }
+        return (resultMap["moreVideosInChannel"] as! [ResultMap]).map { (value: ResultMap) -> MoreVideosInChannel in MoreVideosInChannel(unsafeResultMap: value) }
       }
       set {
-        resultMap.updateValue(newValue.map { (value: RelatedVideo) -> ResultMap in value.resultMap }, forKey: "relatedVideos")
+        resultMap.updateValue(newValue.map { (value: MoreVideosInChannel) -> ResultMap in value.resultMap }, forKey: "moreVideosInChannel")
       }
     }
 
@@ -1522,7 +1525,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       }
     }
 
-    public struct RelatedVideo: GraphQLSelectionSet {
+    public struct MoreVideosInChannel: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["videos"]
 
       public static var selections: [GraphQLSelection] {
@@ -1630,6 +1633,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("channel_id", type: .nonNull(.scalar(String.self))),
             GraphQLField("channel_name", type: .nonNull(.scalar(String.self))),
           ]
         }
@@ -1640,8 +1644,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(channelName: String) {
-          self.init(unsafeResultMap: ["__typename": "channels", "channel_name": channelName])
+        public init(channelId: String, channelName: String) {
+          self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName])
         }
 
         public var __typename: String {
@@ -1650,6 +1654,15 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var channelId: String {
+          get {
+            return resultMap["channel_id"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "channel_id")
           }
         }
 
@@ -2495,6 +2508,7 @@ public final class GetChannelDetailQuery: GraphQLQuery {
           description
           date_published
         }
+        website_url
       }
     }
     """
@@ -2553,6 +2567,7 @@ public final class GetChannelDetailQuery: GraphQLQuery {
           GraphQLField("location_long", type: .nonNull(.scalar(String.self))),
           GraphQLField("region_code", type: .nonNull(.scalar(String.self))),
           GraphQLField("videos", alias: "videosInChannel", type: .nonNull(.list(.nonNull(.object(VideosInChannel.selections))))),
+          GraphQLField("website_url", type: .scalar(String.self)),
         ]
       }
 
@@ -2562,8 +2577,8 @@ public final class GetChannelDetailQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(channelId: String, channelName: String, channelType: channel_types_enum, locationLat: String, locationLong: String, regionCode: String, videosInChannel: [VideosInChannel]) {
-        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType, "location_lat": locationLat, "location_long": locationLong, "region_code": regionCode, "videosInChannel": videosInChannel.map { (value: VideosInChannel) -> ResultMap in value.resultMap }])
+      public init(channelId: String, channelName: String, channelType: channel_types_enum, locationLat: String, locationLong: String, regionCode: String, videosInChannel: [VideosInChannel], websiteUrl: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType, "location_lat": locationLat, "location_long": locationLong, "region_code": regionCode, "videosInChannel": videosInChannel.map { (value: VideosInChannel) -> ResultMap in value.resultMap }, "website_url": websiteUrl])
       }
 
       public var __typename: String {
@@ -2636,6 +2651,15 @@ public final class GetChannelDetailQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.map { (value: VideosInChannel) -> ResultMap in value.resultMap }, forKey: "videosInChannel")
+        }
+      }
+
+      public var websiteUrl: String? {
+        get {
+          return resultMap["website_url"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "website_url")
         }
       }
 

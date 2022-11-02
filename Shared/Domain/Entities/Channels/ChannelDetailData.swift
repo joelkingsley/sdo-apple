@@ -35,6 +35,7 @@ struct ChannelDetailData {
         let videoId: String
         let title: String
         let videoType: VideoType
+        let channelId: String
         let channelName: String
         let speaker: Speaker
         let language: Language
@@ -49,6 +50,7 @@ struct ChannelDetailData {
     let location: Location
     let regionCode: String
     let videosInChannel: [Video]
+    let websiteUrl: URL
 }
 
 extension ChannelDetailData.Video: ThumbnailableVideo {

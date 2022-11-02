@@ -20,6 +20,7 @@
 		F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */; };
 		F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
 		F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
+		F123E14A29125E1600E8574C /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E14929125E1600E8574C /* SafariView.swift */; };
 		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
@@ -140,7 +141,7 @@
 		F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */; };
 		F1D6522D28BA34190084907A /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522C28BA34190084907A /* UIImageColors.swift */; };
 		F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6522C28BA34190084907A /* UIImageColors.swift */; };
-		F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6523128BA40F80084907A /* RelatedRow.swift */; };
+		F1D6523228BA40F80084907A /* MoreVideosInChannelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D6523128BA40F80084907A /* MoreVideosInChannelRow.swift */; };
 		F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CC2866F541008611D7 /* TogglableButton.swift */; };
 		F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493CE2866F5CB008611D7 /* ActionButton.swift */; };
 		F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E493D12866FA01008611D7 /* VideoThumbnail.swift */; };
@@ -231,6 +232,7 @@
 		F11B805C28A41B8C00F3E5F5 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraGraphQLService.swift; sourceTree = "<group>"; };
 		F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOGraphQLService.swift; sourceTree = "<group>"; };
+		F123E14929125E1600E8574C /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
@@ -301,7 +303,7 @@
 		F1D6522628B9A9150084907A /* SubscriptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionData.swift; sourceTree = "<group>"; };
 		F1D6522928BA0A620084907A /* TopVideoPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewViewModel.swift; sourceTree = "<group>"; };
 		F1D6522C28BA34190084907A /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
-		F1D6523128BA40F80084907A /* RelatedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedRow.swift; sourceTree = "<group>"; };
+		F1D6523128BA40F80084907A /* MoreVideosInChannelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVideosInChannelRow.swift; sourceTree = "<group>"; };
 		F1E493CC2866F541008611D7 /* TogglableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglableButton.swift; sourceTree = "<group>"; };
 		F1E493CE2866F5CB008611D7 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F1E493D12866FA01008611D7 /* VideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnail.swift; sourceTree = "<group>"; };
@@ -475,6 +477,14 @@
 				F106769D2813FEB100B8B843 /* Localizable.strings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		F123E14829125E0C00E8574C /* SafariView */ = {
+			isa = PBXGroup;
+			children = (
+				F123E14929125E1600E8574C /* SafariView.swift */,
+			);
+			path = SafariView;
 			sourceTree = "<group>";
 		};
 		F13983742881E7C0004A2375 /* Models */ = {
@@ -807,7 +817,7 @@
 		F1D6523028BA40DB0084907A /* RelatedRow */ = {
 			isa = PBXGroup;
 			children = (
-				F1D6523128BA40F80084907A /* RelatedRow.swift */,
+				F1D6523128BA40F80084907A /* MoreVideosInChannelRow.swift */,
 			);
 			path = RelatedRow;
 			sourceTree = "<group>";
@@ -825,6 +835,7 @@
 		F1E493D02866F9C4008611D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F123E14829125E0C00E8574C /* SafariView */,
 				F18105F328C54A0500580101 /* CustomErrorView */,
 				F18105E828BFB78E00580101 /* VideoPlayerView */,
 				F1D6521828B7E3DC0084907A /* VideoThumbnail */,
@@ -1264,7 +1275,7 @@
 				F18105DC28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
-				F1D6523228BA40F80084907A /* RelatedRow.swift in Sources */,
+				F1D6523228BA40F80084907A /* MoreVideosInChannelRow.swift in Sources */,
 				F18105C028BCE8C200580101 /* ChannelData.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
 				F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */,
@@ -1307,6 +1318,7 @@
 				F1D6522428B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1FC6DBA28FAAFCE003317FC /* ChannelErrors.swift in Sources */,
+				F123E14A29125E1600E8574C /* SafariView.swift in Sources */,
 				F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1CA156C28AE097A005EDF85 /* SDOTheme.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,

@@ -27,7 +27,12 @@ struct VideoDetailView: View {
                         Divider()
                             .padding(.horizontal, 20)
 
-                        RelatedRow(videos: data.infoData.relatedVideos)
+                        if !data.infoData.moreVideosInChannel.isEmpty {
+                            MoreVideosInChannelRow(
+                                channelName: data.infoData.channel.channelName,
+                                videos: data.infoData.moreVideosInChannel
+                            )
+                        }
 
                         Spacer()
                     }

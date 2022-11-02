@@ -12,32 +12,39 @@ struct VideoInChannelRow: View {
     @State var thumbnailWidth: CGFloat = 0
     
     var body: some View {
-        HStack {
-            Spacer()
-                .frame(width: 20)
-            VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
-                .frame(width: thumbnailWidth)
-            VStack {
-                HStack {
-                    Text(video.title)
-                    Spacer()
-                }
-                HStack {
-                    Text(video.videoType.localizedString())
-                        .font(.sdoCaption)
-                        .foregroundColor(Color(uiColor: .secondaryLabel))
-                    Spacer()
-                }
-            }
-            Spacer()
-            Button {
-                
+        Group {
+            NavigationLink {
+                VideoDetailView(
+                    videoId: video.videoId,
+                    channelId: video.channelId
+                )
             } label: {
-                Image(systemName: "ellipsis")
+                HStack {
+                    Spacer()
+                        .frame(width: 20)
+                    VideoThumbnail(video: video, style: .xsmall, thumbnailWidth: $thumbnailWidth)
+                        .frame(width: thumbnailWidth)
+                    VStack {
+                        HStack {
+                            Text(video.title)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(2)
+                            Spacer()
+                        }
+                        HStack {
+                            Text("\(video.videoType.localizedString()) · \(video.channelName)")
+                                .lineLimit(1)
+                                .font(.sdoCaption)
+                                .foregroundColor(Color(uiColor: .secondaryLabel))
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                    Spacer()
+                        .frame(width: 20)
+                    
+                }
             }
-            Spacer()
-                .frame(width: 20)
-            
         }
     }
 }
@@ -49,6 +56,7 @@ struct VideoInChannelRow_Previews: PreviewProvider {
                 videoId: exampleVideoDetail1.videoId,
                 title: exampleVideoDetail1.title,
                 videoType: .documentary,
+                channelId: exampleVideo1.channelId,
                 channelName: exampleVideoDetail1.channelName,
                 speaker: ChannelDetailData.Video.Speaker(
                     speakerId: "",

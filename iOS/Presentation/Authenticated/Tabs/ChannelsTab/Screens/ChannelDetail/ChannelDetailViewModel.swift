@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import MapKit
+import SwiftUI
 
 @MainActor
 class ChannelDetailViewModel: ObservableObject {
@@ -32,5 +34,23 @@ class ChannelDetailViewModel: ObservableObject {
                 self.channelDetailData = .failure(error)
             }
         }
+    }
+    
+    func onOpenInMapPressed(channel: ChannelDetailData) {
+        let coordinate = CLLocationCoordinate2DMake(channel.location.latitude, channel.location.longitude)
+        let place = MKPlacemark(coordinate: coordinate)
+        let mapItem = MKMapItem(placemark: place)
+        mapItem.name = channel.channelName
+        mapItem.openInMaps(launchOptions: nil)
+    }
+    
+    func getChannelInfoString(channel: ChannelDetailData) -> String {
+        var text = channel.channelType.localizedString()
+        text.append(" · ")
+        text.append(String(channel.videosInChannel.count))
+        text.append(" ")
+        let videoLabel = String(localized: String.LocalizationValue("channelDetailVideosLabel"))
+        text.append(videoLabel)
+        return text
     }
 }

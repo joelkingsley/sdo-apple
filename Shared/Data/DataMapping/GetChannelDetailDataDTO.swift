@@ -11,7 +11,9 @@ extension GetChannelDetailQuery.Data {
     func toEntity() throws -> ChannelDetailData {
         guard let channel = channels.first,
               let latitude = Double(channel.locationLat),
-              let longitude = Double(channel.locationLong)
+              let longitude = Double(channel.locationLong),
+              let websiteUrlString = channel.websiteUrl,
+              let websiteUrl = URL(string: websiteUrlString)
         else {
             throw BusinessErrors.parsingError()
         }
@@ -24,13 +26,19 @@ extension GetChannelDetailQuery.Data {
                 longitude: longitude
             ),
             regionCode: channel.regionCode,
-            videosInChannel: try channel.videosInChannel.map { try $0.toEntity(channelName: channel.channelName) }
+            videosInChannel: try channel.videosInChannel.map {
+                try $0.toEntity(
+                    channelId: channel.channelId,
+                    channelName: channel.channelName
+                )
+            },
+            websiteUrl: websiteUrl
         )
     }
 }
 
 extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
-    func toEntity(channelName: String) throws -> ChannelDetailData.Video {
+    func toEntity(channelId: String, channelName: String) throws -> ChannelDetailData.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let thumbnailUrl,
@@ -42,6 +50,7 @@ extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
             videoId: videoId,
             title: title,
             videoType: try videoType.toEntity(),
+            channelId: channelId,
             channelName: channelName,
             speaker: ChannelDetailData.Video.Speaker(
                 speakerId: speaker.speakerId,

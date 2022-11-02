@@ -54,6 +54,12 @@
 "channelsSelectionSheetSearchPlaceholderLabel" = "Suche nach Kanalnamen";
 "channelsSelectionSheetFilterByRegionLabel" = "Nach Region filtern:";
 
+// Channel Detail
+"channelDetailVideosLabel" = "Video(s)";
+"channelDetailOpenInMapLabel" = "In Karten öffnen";
+"channelDetailOpenWebsiteLabel" = "Webseite";
+"channelDetailNoVideosInChannelLabel" = "Keine Videos im Kanal";
+
 // Library
 "libraryTabLabel" = "Profil";
 "libraryScreenTitle" = "Profil";
@@ -68,7 +74,7 @@
 "videoDetailPlayButtonLabel" = "Wiedergeben";
 "videoDetailStopButtonLabel" = "Halt";
 "videoDetailMoreTextLabel" = "mehr";
-"videoDetailRelatedLabel" = "Verwandte Videos";
+"videoDetailMoreVideosInChannelLabel" = "Mehr Videos in";
 "videoDetailSubscribeToLabel %@" = "%@ abonnieren";
 "videoDetailTrySubscriptionLabel %@" = "%@ kostenlos testen";
 "videoDetailCostPerMonthText %@" = "%@ pro Monat";

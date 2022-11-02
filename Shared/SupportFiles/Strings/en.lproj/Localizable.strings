@@ -55,6 +55,12 @@
 "channelsSelectionSheetSearchPlaceholderLabel" = "Search by Channel Name";
 "channelsSelectionSheetFilterByRegionLabel" = "Filter by Region:";
 
+// Channel Detail
+"channelDetailVideosLabel" = "video(s)";
+"channelDetailOpenInMapLabel" = "Open in Maps";
+"channelDetailOpenWebsiteLabel" = "Website";
+"channelDetailNoVideosInChannelLabel" = "No videos in channel";
+
 // Library
 "libraryTabLabel" = "Library";
 "libraryScreenTitle" = "Library";
@@ -69,7 +75,7 @@
 "videoDetailPlayButtonLabel" = "Play";
 "videoDetailStopButtonLabel" = "Stop";
 "videoDetailMoreTextLabel" = "more";
-"videoDetailRelatedLabel" = "Related Videos";
+"videoDetailMoreVideosInChannelLabel" = "More Videos in";
 "videoDetailSubscribeToLabel %@" = "Subscribe to %@";
 "videoDetailTrySubscriptionLabel %@" = "Try %@";
 "videoDetailCostPerMonthText %@" = "%@/month";

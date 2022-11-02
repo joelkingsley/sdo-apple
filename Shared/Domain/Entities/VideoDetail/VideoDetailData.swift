@@ -20,6 +20,7 @@ struct VideoDetailData {
         
         let videoId: String
         let title: String
+        let channelId: String
         let channelName: String
         let datePublished: Date
         let speakerName: String
@@ -43,7 +44,7 @@ struct VideoDetailData {
         let description: String
         let speaker: SpeakerData
         let channel: ChannelData
-        let relatedVideos: [RelatedVideo]
+        let moreVideosInChannel: [RelatedVideo]
         let language: LanguageData
         let thumbnailURL: URL
     }
