@@ -10,41 +10,53 @@ query GetAllChannels {
   }
 }
 
-query GetHomeScreenData($uuid: String!) {
-  continueWatching:continue_watching(where: {user_uuid: {_eq: $uuid}}) {
-    resume_time
-    video {
-      video_id
-      channel {
-        channel_id
-        channel_name
-      }
-      date_published
-      title
-      speaker {
-        speaker_name
-      }
-      gcp_thumbnail_bucket_name
-      gcp_thumbnail_file_name
+query GetHomeScreenData {
+  documentaries: videos(where: {video_type: {_eq: documentary}}, order_by: {date_published: desc}, limit: 15) {
+    video_id
+    channel {
+      channel_id
+      channel_name
     }
-  }
-  userList:user_list(where: {user_uuid: {_eq: $uuid}}) {
-    video {
-      video_id
-      channel {
-        channel_id
-        channel_name
-      }
-      date_published
-      title
-      speaker {
-        speaker_name
-      }
-      gcp_thumbnail_bucket_name
-      gcp_thumbnail_file_name
+    date_published
+    title
+    speaker {
+      speaker_name
     }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
   }
-  newReleases:videos(order_by: {date_published: desc}) {
+  
+  sermons: videos(where: {video_type: {_eq: sermon}}, order_by: {date_published: desc}, limit: 15) {
+    video_id
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    title
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  
+  shorts: videos(where: {video_type: {_eq: short}}, order_by: {date_published: desc}, limit: 15) {
+    video_id
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    title
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  
+  musicVideos: videos(where: {video_type: {_eq: music}}, order_by: {date_published: desc}, limit: 15) {
     video_id
     channel {
       channel_id

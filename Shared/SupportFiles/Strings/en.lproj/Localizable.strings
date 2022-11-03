@@ -19,14 +19,15 @@
 // Home
 "homeTabLabel" = "Home";
 "homeScreenTitle" = "Home";
-"homeContinueWatchingLabel" = "Continue Watching";
-"homeNewReleasesLabel" = "New Releases";
-"homeYourListLabel" = "Your List";
+"homeDocumentariesLabel" = "Documentaries";
+"homeSermonsLabel" = "Sermons";
+"homeShortsLabel" = "Shorts";
+"homeMusicLabel" = "Music";
 
 // Search
 "searchTabLabel" = "Search";
 "searchScreenTitle" = "Search";
-"searchBarPlaceholderLabel" = "Search Videos";
+"searchBarPlaceholderLabel" = "Search Videos by Title and Channel";
 "searchBrowseLabel" = "Browse";
 "searchSermonsButtonLabel" = "Sermons";
 "searchDocumentariesButtonLabel" = "Documentaries";
@@ -37,7 +38,7 @@
 
 // Search Results
 "searchResultsScreenNavigationTitle" = "Search Results";
-"searchResultsSearchLabel" = "Search Videos";
+"searchResultsSearchLabel" = "Search Videos by Title and Channel";
 "searchResultsItemTypeAll" = "All";
 "searchResultsItemTypeSermons" = "Sermons";
 "searchResultsItemTypeDocumentaries" = "Documentaries";

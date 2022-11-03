@@ -116,12 +116,8 @@
 		F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BC022628AA16FC008C9361 /* ChannelRepository.swift */; };
 		F1CA156C28AE097A005EDF85 /* SDOTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA156B28AE097A005EDF85 /* SDOTheme.swift */; };
 		F1CA156D28AE097A005EDF85 /* SDOTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA156B28AE097A005EDF85 /* SDOTheme.swift */; };
-		F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157928AEDA4E005EDF85 /* ContinueWatchingRow.swift */; };
-		F1CA157B28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157928AEDA4E005EDF85 /* ContinueWatchingRow.swift */; };
-		F1CA157D28AEDAF9005EDF85 /* YourListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157C28AEDAF9005EDF85 /* YourListRow.swift */; };
-		F1CA157E28AEDAF9005EDF85 /* YourListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157C28AEDAF9005EDF85 /* YourListRow.swift */; };
-		F1CA158028AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157F28AEDBF2005EDF85 /* NewReleasesRow.swift */; };
-		F1CA158128AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157F28AEDBF2005EDF85 /* NewReleasesRow.swift */; };
+		F1CA157A28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157928AEDA4E005EDF85 /* HomeVideosRow.swift */; };
+		F1CA157B28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA157928AEDA4E005EDF85 /* HomeVideosRow.swift */; };
 		F1CA158628AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA158528AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift */; };
 		F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA158528AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift */; };
 		F1CA158C28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA158B28AF62EB005EDF85 /* Extensions+TimeInterval.swift */; };
@@ -290,9 +286,7 @@
 		F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraChannelRepository.swift; sourceTree = "<group>"; };
 		F1BC022628AA16FC008C9361 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
 		F1CA156B28AE097A005EDF85 /* SDOTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOTheme.swift; sourceTree = "<group>"; };
-		F1CA157928AEDA4E005EDF85 /* ContinueWatchingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueWatchingRow.swift; sourceTree = "<group>"; };
-		F1CA157C28AEDAF9005EDF85 /* YourListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourListRow.swift; sourceTree = "<group>"; };
-		F1CA157F28AEDBF2005EDF85 /* NewReleasesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesRow.swift; sourceTree = "<group>"; };
+		F1CA157928AEDA4E005EDF85 /* HomeVideosRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVideosRow.swift; sourceTree = "<group>"; };
 		F1CA158528AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailsRowViewModel.swift; sourceTree = "<group>"; };
 		F1CA158B28AF62EB005EDF85 /* Extensions+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+TimeInterval.swift"; sourceTree = "<group>"; };
 		F1D6520928B7D3D40084907A /* GetHomeScreenDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeScreenDataDTO.swift; sourceTree = "<group>"; };
@@ -778,9 +772,7 @@
 		F1CA157828AEDA30005EDF85 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F1CA157928AEDA4E005EDF85 /* ContinueWatchingRow.swift */,
-				F1CA157C28AEDAF9005EDF85 /* YourListRow.swift */,
-				F1CA157F28AEDBF2005EDF85 /* NewReleasesRow.swift */,
+				F1CA157928AEDA4E005EDF85 /* HomeVideosRow.swift */,
 				F1CA158528AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift */,
 			);
 			path = Components;
@@ -1300,7 +1292,7 @@
 				F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */,
 				F19512E428EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F18105ED28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
-				F1CA157A28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
+				F1CA157A28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
 				F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */,
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
@@ -1330,7 +1322,6 @@
 				F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */,
 				F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
-				F1CA158028AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
 				F1EA5AA128B607B700102469 /* HasuraVideoRepository.swift in Sources */,
@@ -1345,7 +1336,6 @@
 				F19512D928E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
 				F1FC6DB728FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */,
 				F19512C928E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,
-				F1CA157D28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
 				F1E4941528699316008611D7 /* ContentView.swift in Sources */,
 				F1D6522D28BA34190084907A /* UIImageColors.swift in Sources */,
@@ -1404,7 +1394,6 @@
 				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
-				F1CA157E28AEDAF9005EDF85 /* YourListRow.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
@@ -1442,11 +1431,10 @@
 				F19512E528EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,
 				F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
-				F1CA157B28AEDA4E005EDF85 /* ContinueWatchingRow.swift in Sources */,
+				F1CA157B28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
 				F14B18E12911A6C200DE8229 /* ChannelDetailData.swift in Sources */,
 				F1EA5AA528B607D700102469 /* VideoRepository.swift in Sources */,
 				F1E493F52867A21C008611D7 /* VideoMocks.swift in Sources */,
-				F1CA158128AEDBF2005EDF85 /* NewReleasesRow.swift in Sources */,
 				F19512F328EF417400DF4E2E /* SearchResultItemType.swift in Sources */,
 				F18105CD28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,
 				F18105E328BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,

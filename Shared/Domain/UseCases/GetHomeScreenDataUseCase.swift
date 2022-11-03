@@ -17,7 +17,7 @@ class GetHomeScreenDataUseCase {
     
     func execute(userUuid: String) async -> Result<HomeScreenData, BusinessError> {
         do {
-            let homeScreenData = try await videoRepository.getHomeScreenData(userUuid: userUuid).get()
+            let homeScreenData = try await videoRepository.getHomeScreenData().get()
             return .success(homeScreenData)
         } catch {
             if let customError = error as? BusinessErrors.customError {

@@ -18,14 +18,15 @@
 // Home
 "homeTabLabel" = "Startseite";
 "homeScreenTitle" = "Startseite";
-"homeContinueWatchingLabel" = "Weiter beobachten";
-"homeNewReleasesLabel" = "Neue Veröffentlichungen";
-"homeYourListLabel" = "Ihre Liste";
+"homeDocumentariesLabel" = "Dokumentarfilme";
+"homeSermonsLabel" = "Predigten";
+"homeShortsLabel" = "Kurze Videos";
+"homeMusicLabel" = "Musik";
 
 // Search
 "searchTabLabel" = "Suche";
 "searchScreenTitle" = "Suche";
-"searchBarPlaceholderLabel" = "Videos suchen";
+"searchBarPlaceholderLabel" = "Suchen Sie Videos nach Titel und Kanal";
 "searchBrowseLabel" = "Durchsuche";
 "searchSermonsButtonLabel" = "Predigten";
 "searchDocumentariesButtonLabel" = "Dokumentarfilme";
@@ -36,7 +37,7 @@
 
 // Search Results
 "searchResultsScreenNavigationTitle" = "Suchergebnisse";
-"searchResultsSearchLabel" = "Videos suchen";
+"searchResultsSearchLabel" = "Suchen Sie Videos nach Titel und Kanal";
 "searchResultsItemTypeAll" = "Alle";
 "searchResultsItemTypeSermons" = "Predigten";
 "searchResultsItemTypeDocumentaries" = "Dokumentarfilme";
