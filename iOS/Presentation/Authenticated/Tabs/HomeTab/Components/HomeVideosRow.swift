@@ -1,5 +1,5 @@
 //
-//  ContinueWatchingRow.swift
+//  HomeVideosRow.swift
 //  SDO
 //
 //  Created by Joel Kingsley on 19/08/2022.
@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct ContinueWatchingRow: View {
+struct HomeVideosRow: View {
+    let title: LocalizedStringKey
+    let videoThumbnailStyle: VideoThumbnailStyle
     let videos: [HomeScreenData.HomeVideo]
+    let showAllItemType: SearchResultItemType
     let videoThumbnailsRowViewModel = VideoThumbnailsRowViewModel()
     
     @State var thumbnailWidth: CGFloat = 0
+    @State var showResultView: Bool = false
     
     var body: some View {
         ZStack {
@@ -23,10 +27,14 @@ struct ContinueWatchingRow: View {
             
             VStack {
                 HStack {
-                    Text("homeContinueWatchingLabel")
+                    Text(title)
                         .font(.sdoTitle2)
                         .bold()
                     Spacer()
+                    NavigationLink(destination: SearchResultView(ofItemType: showAllItemType), isActive: $showResultView) {
+                        Text("Show All")
+                            .padding(.trailing, 20)
+                    }
                 }
                 .padding(.leading, 20)
 
@@ -38,7 +46,7 @@ struct ContinueWatchingRow: View {
                                 channelId: video.channelId
                             )) {
                                 VStack {
-                                    VideoThumbnail(video: video, style: .large, thumbnailWidth: $thumbnailWidth)
+                                    VideoThumbnail(video: video, style: videoThumbnailStyle, thumbnailWidth: $thumbnailWidth)
                                     Group {
                                         HStack {
                                             Text(video.title)
@@ -72,10 +80,13 @@ struct ContinueWatchingRow: View {
     }
 }
 
-struct ContinueWatchingRow_Previews: PreviewProvider {
+struct HomeVideosRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContinueWatchingRow(videos: [
-            exampleVideo1, exampleVideo2
-        ])
+        HomeVideosRow(
+            title: "",
+            videoThumbnailStyle: .small,
+            videos: [exampleVideo1, exampleVideo2],
+            showAllItemType: .documentaries
+        )
     }
 }

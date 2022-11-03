@@ -18,14 +18,37 @@ struct HomeTabView: View {
                 VStack {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack {
-                            if !data.continueWatchingVideos.isEmpty {
-                                ContinueWatchingRow(videos: data.continueWatchingVideos)
+                            if !data.documentaries.isEmpty {
+                                HomeVideosRow(
+                                    title: "homeDocumentariesLabel",
+                                    videoThumbnailStyle: .small,
+                                    videos: data.documentaries,
+                                    showAllItemType: .documentaries
+                                )
                             }
-                            if !data.userListVideos.isEmpty {
-                                YourListRow(videos: data.userListVideos)
+                            if !data.sermons.isEmpty {
+                                HomeVideosRow(
+                                    title: "homeSermonsLabel",
+                                    videoThumbnailStyle: .small,
+                                    videos: data.sermons,
+                                    showAllItemType: .sermons
+                                )
                             }
-                            if !data.newReleasesVideos.isEmpty {
-                                NewReleasesRow(videos: data.newReleasesVideos)
+                            if !data.shorts.isEmpty {
+                                HomeVideosRow(
+                                    title: "homeShortsLabel",
+                                    videoThumbnailStyle: .small,
+                                    videos: data.shorts,
+                                    showAllItemType: .shorts
+                                )
+                            }
+                            if !data.musicVideos.isEmpty {
+                                HomeVideosRow(
+                                    title: "homeMusicLabel",
+                                    videoThumbnailStyle: .small,
+                                    videos: data.musicVideos,
+                                    showAllItemType: .music
+                                )
                             }
                         }
                     }

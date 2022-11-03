@@ -12,7 +12,7 @@ import Foundation
  */
 protocol VideoRepository {
     /// Gets the data needed for the home screen
-    func getHomeScreenData(userUuid: String) async -> Result<HomeScreenData, BusinessError>
+    func getHomeScreenData() async -> Result<HomeScreenData, BusinessError>
     
     /// Gets detailed informational video data
     func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailData.InfoData, BusinessError>

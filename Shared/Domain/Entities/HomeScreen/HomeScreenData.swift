@@ -22,7 +22,8 @@ struct HomeScreenData {
         }
     }
     
-    let continueWatchingVideos: [HomeVideo]
-    let userListVideos: [HomeVideo]
-    let newReleasesVideos: [HomeVideo]
+    let documentaries: [HomeVideo]
+    let sermons: [HomeVideo]
+    let shorts: [HomeVideo]
+    let musicVideos: [HomeVideo]
 }
