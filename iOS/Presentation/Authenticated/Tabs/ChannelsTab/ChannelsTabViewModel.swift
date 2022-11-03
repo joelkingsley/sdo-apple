@@ -20,6 +20,7 @@ class ChannelsTabViewModel: ObservableObject {
     
     // MARK: - Properties
     
+    /// Region of the map to show
     @Published var region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(
                 latitude: 0,
@@ -28,6 +29,7 @@ class ChannelsTabViewModel: ObservableObject {
             latitudinalMeters: 750,
             longitudinalMeters: 750
         )
+    
     @Published var channelsData: Result<GetChannelsData, BusinessError>?
     @Published var filteredChannels: [GetChannelsData.ChannelData] = []
     @Published var searchText: String = ""
@@ -47,6 +49,7 @@ class ChannelsTabViewModel: ObservableObject {
     // MARK: - Methods
     
     func onLoaded() {
+        cancellables.removeAll(keepingCapacity: true)
         Task {
             await getChannels()
         }
@@ -79,6 +82,22 @@ class ChannelsTabViewModel: ObservableObject {
         }.store(in: &cancellables)
     }
     
+    func updateAnnotationsListener(mapView: MKMapView) {
+        self.$region.sink { region in
+            mapView.setRegion(region, animated: true)
+        }
+        .store(in: &cancellables)
+        
+        self.$filteredChannels.sink { places in
+            mapView.removeAnnotations(mapView.annotations)
+            places.forEach { place in
+                mapView.addAnnotation(place)
+            }
+            mapView.showAnnotations(places, animated: true)
+        }
+        .store(in: &cancellables)
+    }
+    
     func setCenter(with coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(
             center: coordinate,
@@ -92,13 +111,6 @@ class ChannelsTabViewModel: ObservableObject {
         case let .success(data):
             channelsData = .success(data)
             filteredChannels = data.channels
-            if let firstChannel = data.channels.first {
-                region = MKCoordinateRegion(
-                    center: firstChannel.coordinate,
-                    latitudinalMeters: 750,
-                    longitudinalMeters: 750
-                )
-            }
         case let .failure(error):
             channelsData = .failure(error)
         }

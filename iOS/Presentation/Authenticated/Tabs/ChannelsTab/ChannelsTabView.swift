@@ -18,7 +18,7 @@ struct ChannelsTabView: View {
     
     var body: some View {
         switch channelsTabViewModel.channelsData {
-        case .success(let data):
+        case .success:
             ZStack {
                 NavigationLink(isActive: $showChannelDetail) {
                     ChannelDetailView(channelId: selectedChannelIdForShowDetail)
@@ -27,11 +27,11 @@ struct ChannelsTabView: View {
                 }
                 
                 MapView(
-                    region: $channelsTabViewModel.region,
-                    places: data.channels,
+                    channelsTabViewModel: channelsTabViewModel,
                     showChannelDetail: $showChannelDetail,
                     selectedChannelIdForShowDetail: $selectedChannelIdForShowDetail
                 )
+                
                 VStack {
                     Spacer()
                     HStack {
@@ -52,11 +52,37 @@ struct ChannelsTabView: View {
                     Spacer()
                         .frame(height: 20)
                 }
+                
+                VStack {
+                    Spacer()
+                        .frame(height: 20)
+                    HStack {
+                        Spacer()
+                        Button {
+                            channelsTabViewModel.channelsData = nil
+                            channelsTabViewModel.onLoaded()
+                        } label: {
+                            Image(systemName: "arrow.clockwise.circle.fill")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.accentColor)
+                                .background(Color(uiColor: .systemBackground))
+                                .clipShape(Circle())
+                                .shadow(radius: 25)
+                        }
+                        Spacer()
+                            .frame(width: 20)
+
+                    }
+                    Spacer()
+                }
             }
             .sheet(isPresented: $isShowingSearchSheet) {
-                ChannelsSelectionSheet(channelsTabViewModel: channelsTabViewModel)
-                    .presentationDetents([.medium, .large])
-                    .presentationDragIndicator(.visible)
+                ChannelsSelectionSheet(
+                    channelsTabViewModel: channelsTabViewModel
+                )
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle(

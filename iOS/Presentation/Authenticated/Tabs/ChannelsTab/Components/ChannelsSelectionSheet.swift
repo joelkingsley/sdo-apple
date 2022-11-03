@@ -63,6 +63,8 @@ struct ChannelsSelectionSheet: View {
 
 struct ChannelsSelectionSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ChannelsSelectionSheet(channelsTabViewModel: ChannelsTabViewModel())
+        ChannelsSelectionSheet(
+            channelsTabViewModel: ChannelsTabViewModel()
+        )
     }
 }

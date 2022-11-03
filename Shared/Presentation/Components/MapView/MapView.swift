@@ -7,10 +7,10 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 struct MapView: UIViewRepresentable {
-    @Binding var region: MKCoordinateRegion
-    var places: [GetChannelsData.ChannelData]
+    @ObservedObject var channelsTabViewModel: ChannelsTabViewModel
     @Binding var showChannelDetail: Bool
     @Binding var selectedChannelIdForShowDetail: String?
     
@@ -18,18 +18,18 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
-        mapView.region = region
-        places.forEach { place in
+        mapView.region = channelsTabViewModel.region
+        channelsTabViewModel.filteredChannels.forEach { place in
             mapView.addAnnotation(place)
         }
+        mapView.showAnnotations(channelsTabViewModel.filteredChannels, animated: true)
+        
+        channelsTabViewModel.updateAnnotationsListener(mapView: mapView)
         return mapView
     }
     
     // Updates map when binding variable changes
-    func updateUIView(_ view: MKMapView, context: Context) {
-        view.delegate = context.coordinator
-        view.setRegion(region, animated: true)
-    }
+    func updateUIView(_ view: MKMapView, context: Context) {}
     
     // Link it to the coordinator which is defined below.
     func makeCoordinator() -> ChannelsMapViewCoordinator {
