@@ -200,6 +200,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         location_lat
         location_long
         region_code
+        address_text
       }
     }
     """
@@ -250,6 +251,7 @@ public final class GetAllChannelsQuery: GraphQLQuery {
           GraphQLField("location_lat", type: .nonNull(.scalar(String.self))),
           GraphQLField("location_long", type: .nonNull(.scalar(String.self))),
           GraphQLField("region_code", type: .nonNull(.scalar(String.self))),
+          GraphQLField("address_text", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -259,8 +261,8 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(channelId: String, channelName: String, channelType: channel_types_enum, locationLat: String, locationLong: String, regionCode: String) {
-        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType, "location_lat": locationLat, "location_long": locationLong, "region_code": regionCode])
+      public init(channelId: String, channelName: String, channelType: channel_types_enum, locationLat: String, locationLong: String, regionCode: String, addressText: String) {
+        self.init(unsafeResultMap: ["__typename": "channels", "channel_id": channelId, "channel_name": channelName, "channel_type": channelType, "location_lat": locationLat, "location_long": locationLong, "region_code": regionCode, "address_text": addressText])
       }
 
       public var __typename: String {
@@ -323,6 +325,15 @@ public final class GetAllChannelsQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "region_code")
+        }
+      }
+
+      public var addressText: String {
+        get {
+          return resultMap["address_text"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "address_text")
         }
       }
     }

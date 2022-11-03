@@ -20,13 +20,14 @@ struct GetChannelsData {
         let type: ChannelTypeData
         let location: Location
         let regionCode: String
+        let addressText: String
         
         var title: String? {
             return channelName
         }
         
         var subtitle: String? {
-            return type.localizedString()
+            return addressText
         }
         
         var coordinate: CLLocationCoordinate2D {
@@ -38,13 +39,15 @@ struct GetChannelsData {
             channelName: String,
             type: ChannelTypeData,
             location: Location,
-            regionCode: String
+            regionCode: String,
+            addressText: String
         ) {
             self.channelId = channelId
             self.channelName = channelName
             self.type = type
             self.location = location
             self.regionCode = regionCode
+            self.addressText = addressText
         }
     }
     

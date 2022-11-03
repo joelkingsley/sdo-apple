@@ -30,7 +30,8 @@ extension GetAllChannelsQuery.Data.Channel {
                 latitude: latitude,
                 longitude: longitude
             ),
-            regionCode: regionCode
+            regionCode: regionCode,
+            addressText: addressText
         )
     }
 }

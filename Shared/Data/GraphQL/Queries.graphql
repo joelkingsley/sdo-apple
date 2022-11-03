@@ -6,6 +6,7 @@ query GetAllChannels {
     location_lat
     location_long
     region_code
+    address_text
   }
 }
 
