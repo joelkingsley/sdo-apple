@@ -9,9 +9,13 @@ import Foundation
 import AVFoundation
 import AVKit
 
+@MainActor
 class VideoPlayerViewModel: ObservableObject {
-    init() {
-    }
+    let updateVideoLikeDislikeStatusUseCase = UpdateVideoLikeDislikeStatusUseCase(
+        videoRepository: HasuraVideoRepository(
+            graphQLService: HasuraGraphQLService()))
+    
+    var task: Task<Result<UpdateVideoLikeDislikeResponseData, BusinessError>, Never>?
     
     var player: AVPlayer {
         PlayerState.shared.player
@@ -19,5 +23,20 @@ class VideoPlayerViewModel: ObservableObject {
     
     func onBackPressed() {
         PlayerState.shared.stopVideoIfPlayingAsEmbedded()
+    }
+    
+    func updateLikeDislikeStatus(with isLikedByUser: Bool?, forUser user: SDOUser?, forVideoId videoId: String) {
+        guard let user else {
+            return
+        }
+        task?.cancel()
+        task = Task {
+            await updateVideoLikeDislikeStatusUseCase.execute(
+                payload: VideoLikeDislikeInputData(
+                    likedByUser: isLikedByUser,
+                    videoId: videoId,
+                    userId: user.uid
+                ))
+        }
     }
 }

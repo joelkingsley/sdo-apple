@@ -50,7 +50,7 @@ struct VideoDetailView: View {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)
                 .onAppear {
-                    videoDetailViewModel.onLoaded()
+                    videoDetailViewModel.onLoaded(user: authViewModel.getUser())
                 }
         }
     }

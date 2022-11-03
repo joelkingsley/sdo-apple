@@ -8,7 +8,7 @@
 import Foundation
 
 struct HomeScreenData {
-    struct HomeVideo: Identifiable, ThumbnailableVideo, PlayableVideo {
+    struct HomeVideo: Identifiable, ThumbnailableVideo {
         let videoId: String
         let title: String
         let channelId: String

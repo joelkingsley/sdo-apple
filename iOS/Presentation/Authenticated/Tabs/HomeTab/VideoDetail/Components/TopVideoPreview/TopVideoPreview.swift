@@ -22,6 +22,7 @@ protocol TopPreviewableVideo {
     var subscriptionForWatching: SubscriptionData? { get }
     var allAccessSubscription: SubscriptionData { get }
     var signedUrl: URL? { get }
+    var likedByUser: Bool? { get set }
 }
 
 struct TopVideoPreview: View {

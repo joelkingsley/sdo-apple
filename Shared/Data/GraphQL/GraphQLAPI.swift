@@ -187,6 +187,107 @@ public final class GetVideoUrlDataMutation: GraphQLMutation {
   }
 }
 
+public final class UpdateVideoLikeDislikeStatusMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation UpdateVideoLikeDislikeStatus($userUuid: String!, $videoId: uuid!, $liked: Boolean) {
+      insert_videos_likes_dislikes_one(
+        object: {liked: $liked, user_uuid: $userUuid, video_id: $videoId}
+        on_conflict: {constraint: videos_likes_dislikes_pkey, update_columns: liked}
+      ) {
+        __typename
+        liked
+      }
+    }
+    """
+
+  public let operationName: String = "UpdateVideoLikeDislikeStatus"
+
+  public var userUuid: String
+  public var videoId: String
+  public var liked: Bool?
+
+  public init(userUuid: String, videoId: String, liked: Bool? = nil) {
+    self.userUuid = userUuid
+    self.videoId = videoId
+    self.liked = liked
+  }
+
+  public var variables: GraphQLMap? {
+    return ["userUuid": userUuid, "videoId": videoId, "liked": liked]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("insert_videos_likes_dislikes_one", arguments: ["object": ["liked": GraphQLVariable("liked"), "user_uuid": GraphQLVariable("userUuid"), "video_id": GraphQLVariable("videoId")], "on_conflict": ["constraint": "videos_likes_dislikes_pkey", "update_columns": "liked"]], type: .object(InsertVideosLikesDislikesOne.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(insertVideosLikesDislikesOne: InsertVideosLikesDislikesOne? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "insert_videos_likes_dislikes_one": insertVideosLikesDislikesOne.flatMap { (value: InsertVideosLikesDislikesOne) -> ResultMap in value.resultMap }])
+    }
+
+    /// insert a single row into the table: "videos_likes_dislikes"
+    public var insertVideosLikesDislikesOne: InsertVideosLikesDislikesOne? {
+      get {
+        return (resultMap["insert_videos_likes_dislikes_one"] as? ResultMap).flatMap { InsertVideosLikesDislikesOne(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "insert_videos_likes_dislikes_one")
+      }
+    }
+
+    public struct InsertVideosLikesDislikesOne: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["videos_likes_dislikes"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("liked", type: .scalar(Bool.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(liked: Bool? = nil) {
+        self.init(unsafeResultMap: ["__typename": "videos_likes_dislikes", "liked": liked])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var liked: Bool? {
+        get {
+          return resultMap["liked"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "liked")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1273,7 +1374,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
+    query GetVideoDetailData($videoId: uuid!, $channelId: uuid!, $userUuid: String!) {
       videoDetail: videos(where: {video_id: {_eq: $videoId}}) {
         __typename
         video_id
@@ -1319,6 +1420,12 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
         gcp_thumbnail_bucket_name
         gcp_thumbnail_file_name
       }
+      videos_likes_dislikes(
+        where: {user_uuid: {_eq: $userUuid}, video_id: {_eq: $videoId}}
+      ) {
+        __typename
+        liked
+      }
     }
     """
 
@@ -1326,14 +1433,16 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
 
   public var videoId: String
   public var channelId: String
+  public var userUuid: String
 
-  public init(videoId: String, channelId: String) {
+  public init(videoId: String, channelId: String, userUuid: String) {
     self.videoId = videoId
     self.channelId = channelId
+    self.userUuid = userUuid
   }
 
   public var variables: GraphQLMap? {
-    return ["videoId": videoId, "channelId": channelId]
+    return ["videoId": videoId, "channelId": channelId, "userUuid": userUuid]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -1343,6 +1452,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       return [
         GraphQLField("videos", alias: "videoDetail", arguments: ["where": ["video_id": ["_eq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(VideoDetail.selections))))),
         GraphQLField("videos", alias: "moreVideosInChannel", arguments: ["where": ["channel_id": ["_eq": GraphQLVariable("channelId")], "video_id": ["_neq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(MoreVideosInChannel.selections))))),
+        GraphQLField("videos_likes_dislikes", arguments: ["where": ["user_uuid": ["_eq": GraphQLVariable("userUuid")], "video_id": ["_eq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(VideosLikesDislike.selections))))),
       ]
     }
 
@@ -1352,8 +1462,8 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(videoDetail: [VideoDetail], moreVideosInChannel: [MoreVideosInChannel]) {
-      self.init(unsafeResultMap: ["__typename": "query_root", "videoDetail": videoDetail.map { (value: VideoDetail) -> ResultMap in value.resultMap }, "moreVideosInChannel": moreVideosInChannel.map { (value: MoreVideosInChannel) -> ResultMap in value.resultMap }])
+    public init(videoDetail: [VideoDetail], moreVideosInChannel: [MoreVideosInChannel], videosLikesDislikes: [VideosLikesDislike]) {
+      self.init(unsafeResultMap: ["__typename": "query_root", "videoDetail": videoDetail.map { (value: VideoDetail) -> ResultMap in value.resultMap }, "moreVideosInChannel": moreVideosInChannel.map { (value: MoreVideosInChannel) -> ResultMap in value.resultMap }, "videos_likes_dislikes": videosLikesDislikes.map { (value: VideosLikesDislike) -> ResultMap in value.resultMap }])
     }
 
     /// An array relationship
@@ -1373,6 +1483,16 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       }
       set {
         resultMap.updateValue(newValue.map { (value: MoreVideosInChannel) -> ResultMap in value.resultMap }, forKey: "moreVideosInChannel")
+      }
+    }
+
+    /// An array relationship
+    public var videosLikesDislikes: [VideosLikesDislike] {
+      get {
+        return (resultMap["videos_likes_dislikes"] as! [ResultMap]).map { (value: ResultMap) -> VideosLikesDislike in VideosLikesDislike(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: VideosLikesDislike) -> ResultMap in value.resultMap }, forKey: "videos_likes_dislikes")
       }
     }
 
@@ -1856,6 +1976,45 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
           set {
             resultMap.updateValue(newValue, forKey: "speaker_name")
           }
+        }
+      }
+    }
+
+    public struct VideosLikesDislike: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["videos_likes_dislikes"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("liked", type: .scalar(Bool.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(liked: Bool? = nil) {
+        self.init(unsafeResultMap: ["__typename": "videos_likes_dislikes", "liked": liked])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var liked: Bool? {
+        get {
+          return resultMap["liked"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "liked")
         }
       }
     }

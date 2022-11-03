@@ -10,21 +10,20 @@ import AVFoundation
 import AVKit
 
 protocol PlayableVideo {
+    var videoId: String { get }
     var title: String { get }
     var speakerName: String { get }
     var channelName: String { get }
     var datePublished: Date { get }
+    var likedByUser: Bool? { get set }
 }
 
 struct VideoPlayerView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @ObservedObject var videoPlayerViewModel = VideoPlayerViewModel()
-    let video: PlayableVideo
-    
-    init(video: PlayableVideo) {
-        self.video = video
-    }
+    @State var video: PlayableVideo
     
     var body: some View {
         VStack {
@@ -60,21 +59,65 @@ struct VideoPlayerView: View {
                 HStack(alignment: .center) {
                     Spacer()
                     
-                    VStack {
-                        Image(systemName: "hand.thumbsup")
-                        Text("videoPlayerViewILikeThisLabel")
+                    Button {
+                        if video.likedByUser != true {
+                            video.likedByUser = true
+                            videoPlayerViewModel.updateLikeDislikeStatus(
+                                with: true,
+                                forUser: authViewModel.getUser(),
+                                forVideoId: video.videoId
+                            )
+                        } else {
+                            video.likedByUser = nil
+                            videoPlayerViewModel.updateLikeDislikeStatus(
+                                with: nil,
+                                forUser: authViewModel.getUser(),
+                                forVideoId: video.videoId
+                            )
+                        }
+                    } label: {
+                        VStack {
+                            if video.likedByUser == true {
+                                Image(systemName: "hand.thumbsup.fill")
+                            } else {
+                                Image(systemName: "hand.thumbsup")
+                            }
+                            Text("videoPlayerViewILikeThisLabel")
+                        }
+                        .padding(.leading)
+                        .padding(.top)
+                        .padding(.bottom)
                     }
-                    .padding(.leading)
-                    .padding(.top)
-                    .padding(.bottom)
                     
-                    VStack {
-                        Image(systemName: "hand.thumbsdown")
-                        Text("videoPlayerViewNotForMeLabel")
+                    Button {
+                        if video.likedByUser != false {
+                            video.likedByUser = false
+                            videoPlayerViewModel.updateLikeDislikeStatus(
+                                with: false,
+                                forUser: authViewModel.getUser(),
+                                forVideoId: video.videoId
+                            )
+                        } else {
+                            video.likedByUser = nil
+                            videoPlayerViewModel.updateLikeDislikeStatus(
+                                with: nil,
+                                forUser: authViewModel.getUser(),
+                                forVideoId: video.videoId
+                            )
+                        }
+                    } label: {
+                        VStack {
+                            if video.likedByUser == false {
+                                Image(systemName: "hand.thumbsdown.fill")
+                            } else {
+                                Image(systemName: "hand.thumbsdown")
+                            }
+                            Text("videoPlayerViewNotForMeLabel")
+                        }
+                        .padding(.leading)
+                        .padding(.top)
+                        .padding(.bottom)
                     }
-                    .padding(.leading)
-                    .padding(.top)
-                    .padding(.bottom)
                     
                     Spacer()
                 }
@@ -95,7 +138,7 @@ struct VideoPlayerView: View {
 struct VideoPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         VideoPlayerView(
-            video: exampleVideo1
+            video: exampleVideoDetail1
         )
     }
 }

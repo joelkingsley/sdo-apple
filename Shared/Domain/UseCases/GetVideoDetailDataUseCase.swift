@@ -17,8 +17,10 @@ class GetVideoDetailDataUseCase {
         self.videoRepository = videoRepository
     }
     
-    func execute(videoId: String, channelId: String) async -> Result<VideoDetailData, BusinessError> {
-        async let infoDataResult = videoRepository.getVideoDetailInfoData(videoId: videoId, channelId: channelId)
+    func execute(videoId: String, channelId: String, userUuid: String) async -> Result<VideoDetailData, BusinessError> {
+        async let infoDataResult = videoRepository.getVideoDetailData(
+            videoId: videoId, channelId: channelId, userUuid: userUuid
+        )
         async let signedUrlResult = videoRepository.getSignedUrlOfVideo(ofVideoId: videoId)
         
         do {
