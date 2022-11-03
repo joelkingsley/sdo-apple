@@ -27,11 +27,11 @@ struct ChannelsTabView: View {
                 }
                 
                 MapView(
-                    region: $channelsTabViewModel.region,
-                    places: data.channels,
+                    channelsTabViewModel: channelsTabViewModel,
                     showChannelDetail: $showChannelDetail,
                     selectedChannelIdForShowDetail: $selectedChannelIdForShowDetail
                 )
+                
                 VStack {
                     Spacer()
                     HStack {
@@ -54,9 +54,11 @@ struct ChannelsTabView: View {
                 }
             }
             .sheet(isPresented: $isShowingSearchSheet) {
-                ChannelsSelectionSheet(channelsTabViewModel: channelsTabViewModel)
-                    .presentationDetents([.medium, .large])
-                    .presentationDragIndicator(.visible)
+                ChannelsSelectionSheet(
+                    channelsTabViewModel: channelsTabViewModel
+                )
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle(
