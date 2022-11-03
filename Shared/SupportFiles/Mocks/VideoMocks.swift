@@ -70,7 +70,8 @@ let exampleVideoDetail1 = VideoDetailData(
         ),
         thumbnailURL: URL(
             string: "https://i0.wp.com/seelen-gewinnen.de/wp-content/uploads/2022/03/Gruppenfoto-ohne-Hintergrund.jpg?fit=768%2C576&ssl=1"
-        )!
+        )!,
+        likedByUser: true
     ),
     videoUrl: nil,
     subscriptionVideoBelongsTo: SubscriptionData(

@@ -55,7 +55,7 @@ struct ChannelsTabView: View {
                 
                 VStack {
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 50)
                     HStack {
                         Spacer()
                         Button {

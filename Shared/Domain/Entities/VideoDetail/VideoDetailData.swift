@@ -47,10 +47,12 @@ struct VideoDetailData {
         let moreVideosInChannel: [RelatedVideo]
         let language: LanguageData
         let thumbnailURL: URL
+        
+        /// Whether video is liked or dislike by user (`nil` if neither)
+        var likedByUser: Bool?
     }
     
-    let infoData: InfoData
-    
+    var infoData: InfoData
     let videoUrl: URL?
     
     let subscriptionVideoBelongsTo: SubscriptionData?
@@ -66,6 +68,15 @@ struct VideoDetailData {
 }
 
 extension VideoDetailData: TopPreviewableVideo {
+    var likedByUser: Bool? {
+        get {
+            infoData.likedByUser
+        }
+        set {
+            infoData.likedByUser = newValue
+        }
+    }
+    
     var videoId: String {
         infoData.videoId
     }

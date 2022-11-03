@@ -3,3 +3,9 @@ mutation GetVideoUrlData($videoId: String!) {
     videoUrl
   }
 }
+
+mutation UpdateVideoLikeDislikeStatus($userUuid: String!, $videoId: uuid!, $liked: Boolean) {
+  insert_videos_likes_dislikes_one(object: {liked: $liked, user_uuid: $userUuid, video_id: $videoId}, on_conflict: {constraint: videos_likes_dislikes_pkey, update_columns: liked}) {
+    liked
+  }
+}

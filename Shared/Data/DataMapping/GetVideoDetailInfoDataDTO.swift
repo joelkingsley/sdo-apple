@@ -28,7 +28,8 @@ extension GetVideoDetailDataQuery.Data {
             channel: try videoDetail.channel.toEntity(),
             moreVideosInChannel: try moreVideosInChannel.map { try $0.toEntity() },
             language: videoDetail.language.toEntity(),
-            thumbnailURL: thumbnailUrl
+            thumbnailURL: thumbnailUrl,
+            likedByUser: videosLikesDislikes.first?.liked
         )
     }
 }

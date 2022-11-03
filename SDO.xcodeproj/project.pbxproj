@@ -21,6 +21,14 @@
 		F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
 		F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */; };
 		F123E14A29125E1600E8574C /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E14929125E1600E8574C /* SafariView.swift */; };
+		F123E14F29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */; };
+		F123E15029144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */; };
+		F123E152291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */; };
+		F123E153291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */; };
+		F123E155291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */; };
+		F123E156291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */; };
+		F123E158291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */; };
+		F123E159291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */; };
 		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
@@ -229,6 +237,10 @@
 		F11B805F28A42D0600F3E5F5 /* HasuraGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraGraphQLService.swift; sourceTree = "<group>"; };
 		F11B806528A4403900F3E5F5 /* SDOGraphQLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOGraphQLService.swift; sourceTree = "<group>"; };
 		F123E14929125E1600E8574C /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVideoLikeDislikeStatusUseCase.swift; sourceTree = "<group>"; };
+		F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLikeDislikeInputData.swift; sourceTree = "<group>"; };
+		F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVideoLikeDislikeResponseData.swift; sourceTree = "<group>"; };
+		F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVideoLikeDislikeStatusDTO.swift; sourceTree = "<group>"; };
 		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
@@ -630,6 +642,7 @@
 				F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */,
 				F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */,
 				F14B18E62911B57A00DE8229 /* GetChannelDetailDataUseCase.swift */,
+				F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -658,6 +671,8 @@
 			children = (
 				F1D6522028B950A60084907A /* VideoDetailData.swift */,
 				F19512C828E60A8800DF4E2E /* VideoDetailErrors.swift */,
+				F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */,
+				F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */,
 			);
 			path = VideoDetail;
 			sourceTree = "<group>";
@@ -748,6 +763,7 @@
 				F18105E128BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift */,
 				F19512E328EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift */,
 				F14B18E92911B62C00DE8229 /* GetChannelDetailDataDTO.swift */,
+				F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -1282,6 +1298,7 @@
 				F14B18E42911B0A000DE8229 /* VideoInChannelRow.swift in Sources */,
 				F14B18DD2911283F00DE8229 /* ChannelDetailViewModel.swift in Sources */,
 				F1FC6DC328FB5502003317FC /* FilterChannelsUseCase.swift in Sources */,
+				F123E155291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */,
 				F19512DC28E7895900DF4E2E /* SearchResultData.swift in Sources */,
 				F139837A2881FAED004A2375 /* AppDelegate.swift in Sources */,
 				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
@@ -1297,6 +1314,7 @@
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
 				F18105E528BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
+				F123E152291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */,
 				F14B18E72911B57A00DE8229 /* GetChannelDetailDataUseCase.swift in Sources */,
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F195130628F09A8C00DF4E2E /* ChannelsMapViewCoordinator.swift in Sources */,
@@ -1325,6 +1343,7 @@
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
 				F1EA5AA128B607B700102469 /* HasuraVideoRepository.swift in Sources */,
+				F123E158291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */,
 				F19512EF28EF329E00DF4E2E /* ApiConstants.swift in Sources */,
 				F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105D628BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
@@ -1361,6 +1380,7 @@
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F18105D028BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
 				F14B18CD290E464100DE8229 /* SearchResultRow.swift in Sources */,
+				F123E14F29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */,
 				F18105F028C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
 				F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
@@ -1400,6 +1420,7 @@
 				F18105DD28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
 				F1FC6DBB28FAAFCE003317FC /* ChannelErrors.swift in Sources */,
 				F18105F128C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
+				F123E159291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */,
 				F14B18E82911B57A00DE8229 /* GetChannelDetailDataUseCase.swift in Sources */,
 				F18105C128BCE8C200580101 /* ChannelData.swift in Sources */,
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
@@ -1408,6 +1429,7 @@
 				F19512E128EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F1EE14FD2872118A0020CD74 /* AppLogger.swift in Sources */,
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
+				F123E15029144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */,
 				F195130728F09A8C00DF4E2E /* ChannelsMapViewCoordinator.swift in Sources */,
 				F18105EB28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
@@ -1421,6 +1443,7 @@
 				F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */,
 				F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
 				F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */,
+				F123E156291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */,
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F195130428F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
@@ -1433,6 +1456,7 @@
 				F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
 				F1CA157B28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
 				F14B18E12911A6C200DE8229 /* ChannelDetailData.swift in Sources */,
+				F123E153291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */,
 				F1EA5AA528B607D700102469 /* VideoRepository.swift in Sources */,
 				F1E493F52867A21C008611D7 /* VideoMocks.swift in Sources */,
 				F19512F328EF417400DF4E2E /* SearchResultItemType.swift in Sources */,

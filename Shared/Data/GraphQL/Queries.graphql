@@ -72,8 +72,8 @@ query GetHomeScreenData {
   }
 }
 
-query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
-  videoDetail:videos(where: {video_id: {_eq: $videoId}}) {
+query GetVideoDetailData($videoId: uuid!, $channelId: uuid!, $userUuid: String!) {
+  videoDetail: videos(where: {video_id: {_eq: $videoId}}) {
     video_id
     title
     video_type
@@ -108,6 +108,9 @@ query GetVideoDetailData($videoId: uuid!, $channelId: uuid!) {
     }
     gcp_thumbnail_bucket_name
     gcp_thumbnail_file_name
+  }
+  videos_likes_dislikes(where: {user_uuid: {_eq: $userUuid}, video_id: {_eq: $videoId}}) {
+    liked
   }
 }
 

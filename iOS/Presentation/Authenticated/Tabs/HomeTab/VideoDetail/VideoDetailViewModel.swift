@@ -18,14 +18,21 @@ class VideoDetailViewModel: ObservableObject {
     
     @Published var videoDetailData: Result<VideoDetailData, BusinessError>?
     
-    func onLoaded() {
+    func onLoaded(user: SDOUser?) {
         Task {
-            await getVideoDetailData()
+            await getVideoDetailData(user: user)
         }
     }
     
-    func getVideoDetailData() async {
-        switch await getVideoDetailDataUseCase.execute(videoId: videoId, channelId: channelId) {
+    func getVideoDetailData(user: SDOUser?) async {
+        guard let user = user else {
+            return
+        }
+        switch await getVideoDetailDataUseCase.execute(
+            videoId: videoId,
+            channelId: channelId,
+            userUuid: user.uid
+        ) {
         case let .success(data):
             AppLogger.debug(data)
             videoDetailData = .success(data)

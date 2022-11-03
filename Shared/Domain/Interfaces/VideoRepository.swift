@@ -15,7 +15,8 @@ protocol VideoRepository {
     func getHomeScreenData() async -> Result<HomeScreenData, BusinessError>
     
     /// Gets detailed informational video data
-    func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailData.InfoData, BusinessError>
+    func getVideoDetailData(
+        videoId: String, channelId: String, userUuid: String) async -> Result<VideoDetailData.InfoData, BusinessError>
     
     /// Gets signed url of given video
     func getSignedUrlOfVideo(ofVideoId videoId: String) async -> Result<URL?, BusinessError>
@@ -23,4 +24,8 @@ protocol VideoRepository {
     /// Gets the videos based on the given search parameters
     func getVideosOfSearchParameters(
         ofSearchResultInputData inputData: SearchResultInputData) async -> Result<SearchResultData, BusinessError>
+    
+    /// Updates the video's like/dislike status for given user
+    func updateVideoLikeDislikeStatus(
+        withPayload payload: VideoLikeDislikeInputData) async -> Result<UpdateVideoLikeDislikeResponseData, BusinessError>
 }

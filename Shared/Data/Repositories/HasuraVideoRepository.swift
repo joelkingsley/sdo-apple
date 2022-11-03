@@ -30,10 +30,10 @@ class HasuraVideoRepository: VideoRepository {
     }
     
     /// Gets detailed informational video data
-    func getVideoDetailInfoData(videoId: String, channelId: String) async -> Result<VideoDetailData.InfoData, BusinessError> {
+    func getVideoDetailData(videoId: String, channelId: String, userUuid: String) async -> Result<VideoDetailData.InfoData, BusinessError> {
         do {
             let data = try await graphQLService.executeQuery(
-                query: GetVideoDetailDataQuery(videoId: videoId, channelId: channelId)).toEntity()
+                query: GetVideoDetailDataQuery(videoId: videoId, channelId: channelId, userUuid: userUuid)).toEntity()
             return .success(data)
         } catch {
             AppLogger.error("Error in getVideoDetailInfoData: \(error)")
@@ -77,6 +77,23 @@ class HasuraVideoRepository: VideoRepository {
             }
         } catch {
             AppLogger.error("Error in getVideosOfSearchParameters: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
+    
+    func updateVideoLikeDislikeStatus(
+        withPayload payload: VideoLikeDislikeInputData) async -> Result<UpdateVideoLikeDislikeResponseData, BusinessError>
+    {
+        do {
+            let data = try await graphQLService.executeMutation(
+                mutation: UpdateVideoLikeDislikeStatusMutation(
+                    userUuid: payload.userId,
+                    videoId: payload.videoId,
+                    liked: payload.likedByUser
+                )).toEntity()
+            return .success(data)
+        } catch {
+            AppLogger.error("Error in updateVideoLikeDislikeStatus: \(error)")
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
