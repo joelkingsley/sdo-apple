@@ -49,6 +49,7 @@ class ChannelsTabViewModel: ObservableObject {
     // MARK: - Methods
     
     func onLoaded() {
+        cancellables.removeAll(keepingCapacity: true)
         Task {
             await getChannels()
         }

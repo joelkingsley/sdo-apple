@@ -2722,6 +2722,22 @@
         "specifiedByUrl": null,
         "fields": [
           {
+            "name": "address_text",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channelTypeByChannelType",
             "description": "An object relationship",
             "args": [],
@@ -3446,6 +3462,18 @@
             "deprecationReason": null
           },
           {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channelTypeByChannelType",
             "description": null,
             "type": {
@@ -3626,6 +3654,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channelTypeByChannelType",
             "description": null,
             "type": {
@@ -3757,6 +3797,18 @@
         "specifiedByUrl": null,
         "fields": [
           {
+            "name": "address_text",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channel_id",
             "description": null,
             "args": [],
@@ -3854,6 +3906,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channel_id",
             "description": null,
             "type": {
@@ -3948,6 +4012,18 @@
         "description": "aggregate min on columns",
         "specifiedByUrl": null,
         "fields": [
+          {
+            "name": "address_text",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "channel_id",
             "description": null,
@@ -4045,6 +4121,18 @@
         "specifiedByUrl": null,
         "fields": null,
         "inputFields": [
+          {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "channel_id",
             "description": null,
@@ -4298,6 +4386,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channelTypeByChannelType",
             "description": null,
             "type": {
@@ -4460,6 +4560,12 @@
         "interfaces": null,
         "enumValues": [
           {
+            "name": "address_text",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channel_id",
             "description": "column name",
             "isDeprecated": false,
@@ -4517,6 +4623,18 @@
         "specifiedByUrl": null,
         "fields": null,
         "inputFields": [
+          {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "channel_id",
             "description": null,
@@ -4666,6 +4784,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "address_text",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "channel_id",
             "description": null,
             "type": {
@@ -4775,6 +4905,12 @@
         "inputFields": null,
         "interfaces": null,
         "enumValues": [
+          {
+            "name": "address_text",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "channel_id",
             "description": "column name",
