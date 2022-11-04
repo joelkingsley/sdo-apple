@@ -68,8 +68,12 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user out.
     func signOut() {
-        if authService.signOut() {
-            self.state = .signedOut
+        Task {
+            await MainActor.run {
+                if authService.signOut() {
+                    self.state = .signedOut
+                }
+            }
         }
     }
     

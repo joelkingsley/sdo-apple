@@ -4047,3 +4047,119 @@ public final class GetAllLanguagesQuery: GraphQLQuery {
     }
   }
 }
+
+public final class GetUserDataQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetUserData($userUuid: String!) {
+      users_by_pk(user_uuid: $userUuid) {
+        __typename
+        user_name
+        user_uuid
+        user_email
+      }
+    }
+    """
+
+  public let operationName: String = "GetUserData"
+
+  public var userUuid: String
+
+  public init(userUuid: String) {
+    self.userUuid = userUuid
+  }
+
+  public var variables: GraphQLMap? {
+    return ["userUuid": userUuid]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["query_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("users_by_pk", arguments: ["user_uuid": GraphQLVariable("userUuid")], type: .object(UsersByPk.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(usersByPk: UsersByPk? = nil) {
+      self.init(unsafeResultMap: ["__typename": "query_root", "users_by_pk": usersByPk.flatMap { (value: UsersByPk) -> ResultMap in value.resultMap }])
+    }
+
+    /// fetch data from the table: "users" using primary key columns
+    public var usersByPk: UsersByPk? {
+      get {
+        return (resultMap["users_by_pk"] as? ResultMap).flatMap { UsersByPk(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "users_by_pk")
+      }
+    }
+
+    public struct UsersByPk: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["users"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("user_name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("user_uuid", type: .nonNull(.scalar(String.self))),
+          GraphQLField("user_email", type: .nonNull(.scalar(String.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(userName: String, userUuid: String, userEmail: String) {
+        self.init(unsafeResultMap: ["__typename": "users", "user_name": userName, "user_uuid": userUuid, "user_email": userEmail])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var userName: String {
+        get {
+          return resultMap["user_name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "user_name")
+        }
+      }
+
+      public var userUuid: String {
+        get {
+          return resultMap["user_uuid"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "user_uuid")
+        }
+      }
+
+      public var userEmail: String {
+        get {
+          return resultMap["user_email"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "user_email")
+        }
+      }
+    }
+  }
+}

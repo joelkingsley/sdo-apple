@@ -12,10 +12,10 @@ struct ChannelsTabView: View {
     @ObservedObject var channelsTabViewModel = ChannelsTabViewModel()
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @State var isShowingSearchSheet = false
-    
+
     @State var selectedChannelIdForShowDetail: String?
     @State var showChannelDetail: Bool = false
-    
+
     var body: some View {
         switch channelsTabViewModel.channelsData {
         case .success:
@@ -25,7 +25,7 @@ struct ChannelsTabView: View {
                 } label: {
                     EmptyView()
                 }
-                
+
                 MapView(
                     channelsTabViewModel: channelsTabViewModel,
                     showChannelDetail: $showChannelDetail,

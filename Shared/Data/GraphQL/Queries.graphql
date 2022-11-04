@@ -241,3 +241,11 @@ query GetAllLanguages {
     source_country_flag
   }
 }
+
+query GetUserData($userUuid: String!) {
+  users_by_pk(user_uuid: $userUuid) {
+    user_name
+    user_uuid
+    user_email
+  }
+}
