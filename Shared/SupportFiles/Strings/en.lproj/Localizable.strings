@@ -68,6 +68,9 @@
 // Library
 "libraryTabLabel" = "Library";
 "libraryScreenTitle" = "Library";
+"libraryLoggedInAsLabel" = "Logged in as";
+"libraryLoggedInLabel" = "Logged in";
+"librarySignOutLabel" = "Sign Out";
 
 // Videos
 "videoDetailScheduledLabel" = "Scheduled";
