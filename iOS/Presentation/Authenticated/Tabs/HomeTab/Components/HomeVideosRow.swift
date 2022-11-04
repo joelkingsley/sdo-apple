@@ -31,8 +31,8 @@ struct HomeVideosRow: View {
                         .font(.sdoTitle2)
                         .bold()
                     Spacer()
-                    NavigationLink(destination: SearchResultView(ofItemType: showAllItemType), isActive: $showResultView) {
-                        Text("Show All")
+                    NavigationLink(destination: SearchResultView(ofItemType: showAllItemType, language: LanguageData()), isActive: $showResultView) {
+                        Text("homeShowAllLabel")
                             .padding(.trailing, 20)
                     }
                 }

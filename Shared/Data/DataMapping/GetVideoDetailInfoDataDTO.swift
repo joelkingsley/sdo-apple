@@ -95,8 +95,8 @@ extension GetVideoDetailDataQuery.Data.MoreVideosInChannel {
 }
 
 extension GetVideoDetailDataQuery.Data.VideoDetail.Language {
-    func toEntity() -> VideoDetailData.LanguageData {
-        return VideoDetailData.LanguageData(
+    func toEntity() -> LanguageData {
+        return LanguageData(
             languageCode: languageCode,
             sourceCountryFlag: sourceCountryFlag
         )

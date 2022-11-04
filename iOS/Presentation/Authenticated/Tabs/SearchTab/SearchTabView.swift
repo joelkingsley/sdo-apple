@@ -20,98 +20,123 @@ struct SearchTabView: View {
     @State private var showMusicResultView = false
     
     var body: some View {
-        ScrollView {
-            NavigationLink(
-                destination: SearchResultView(ofItemType: .all, searchText: searchText),
-                isActive: $showAllResultView) {
-                    EmptyView()
-                }
-            VStack {
-                HStack {
-                    Text("searchBrowseLabel")
-                        .font(.sdoTitle2)
-                        .bold()
-                    Spacer()
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                
-                VStack {
-                    HStack {
-                        NavigationLink(destination: SearchResultView(ofItemType: .sermons), isActive: $showSermonsResultView) {
-                            TileButton(text: "searchSermonsButtonLabel", imageName: "sermons") {
-                                showSermonsResultView = true
-                            }
+        Group {
+            if searchTabViewModel.onPageLoaded {
+                ScrollView {
+                    NavigationLink(
+                        destination: SearchResultView(ofItemType: .all, searchText: searchText, language: LanguageData()),
+                        isActive: $showAllResultView) {
+                            EmptyView()
                         }
-                        Spacer()
-                        NavigationLink(destination: SearchResultView(ofItemType: .documentaries), isActive: $showDocumentariesResultView) {
-                            TileButton(text: "searchDocumentariesButtonLabel", imageName: "documentaries") {
-                                showDocumentariesResultView = true
-                            }
+                    VStack {
+                        HStack {
+                            Text("searchBrowseLabel")
+                                .font(.sdoTitle2)
+                                .bold()
+                            Spacer()
                         }
-                    }
-                    .padding(.horizontal, 10)
-                    HStack {
-                        NavigationLink(destination: SearchResultView(ofItemType: .shorts), isActive: $showShortsResultView) {
-                            TileButton(text: "searchShortsButtonLabel", imageName: "shorts") {
-                                showShortsResultView = true
-                            }
-                        }
-                        Spacer()
-                        NavigationLink(destination: SearchResultView(ofItemType: .music), isActive: $showMusicResultView) {
-                            TileButton(text: "searchMusicButtonLabel", imageName: "music") {
-                                showMusicResultView = true
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 10)
-                    TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
-                        tabSelection = .Channels
-                    }
-                    .padding(.horizontal, 10)
-                    .padding(.bottom, 10)
-                }
-                .frame(maxWidth: 600)
-                
-                HStack {
-                    Text("searchLanguagesLabel")
-                        .font(.sdoTitle2)
-                        .bold()
-                    Spacer()
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                
-                VStack {
-                    ForEach(searchTabViewModel.languages, id: \.1) { language in
-                        Button {
-                            
-                        } label: {
-                            VStack {
-                                HStack {
-                                    Text(language.0)
-                                        .padding(.horizontal, 5)
-                                        .font(.sdoBody)
-                                    Text(language.1)
-                                        .font(.sdoBody)
-                                    Spacer()
+                        .padding(.horizontal, 10)
+                        .padding(.bottom, 10)
+                        
+                        VStack {
+                            HStack {
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .sermons, language: LanguageData()),
+                                    isActive: $showSermonsResultView) {
+                                    TileButton(text: "searchSermonsButtonLabel", imageName: "sermons") {
+                                        showSermonsResultView = true
+                                    }
                                 }
-                                Divider()
+                                Spacer()
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .documentaries, language: LanguageData()),
+                                    isActive: $showDocumentariesResultView) {
+                                    TileButton(text: "searchDocumentariesButtonLabel", imageName: "documentaries") {
+                                        showDocumentariesResultView = true
+                                    }
+                                }
                             }
+                            .padding(.horizontal, 10)
+                            HStack {
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .shorts, language: LanguageData()),
+                                    isActive: $showShortsResultView) {
+                                    TileButton(text: "searchShortsButtonLabel", imageName: "shorts") {
+                                        showShortsResultView = true
+                                    }
+                                }
+                                Spacer()
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .music, language: LanguageData()),
+                                    isActive: $showMusicResultView) {
+                                    TileButton(text: "searchMusicButtonLabel", imageName: "music") {
+                                        showMusicResultView = true
+                                    }
+                                }
+                            }
+                            .padding(.horizontal, 10)
+                            TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
+                                tabSelection = .Channels
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.bottom, 10)
                         }
+                        .frame(maxWidth: 600)
+                        
+                        if !searchTabViewModel.languages.isEmpty {
+                            HStack {
+                                Text("searchLanguagesLabel")
+                                    .font(.sdoTitle2)
+                                    .bold()
+                                Spacer()
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.bottom, 10)
+                            
+                            VStack {
+                                ForEach(searchTabViewModel.languages, id: \.self) { language in
+                                    NavigationLink {
+                                        SearchResultView(ofItemType: .all, language: language)
+                                    } label: {
+                                        VStack {
+                                            HStack {
+                                                Text(language.sourceCountryFlag)
+                                                    .padding(.horizontal, 5)
+                                                    .font(.sdoBody)
+                                                Text(language.languageName)
+                                                    .font(.sdoBody)
+                                                Spacer()
+                                            }
+                                            Divider()
+                                        }
+                                    }
+                                }
+                            }
+                            .padding(.horizontal, 10)
+                        }
+                        
+                        Spacer()
+                    }
+                    .onAppear(perform: {
+                        searchTabViewModel.onLoaded()
+                    })
+                    .searchable(
+                        text: $searchText,
+                        placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "searchBarPlaceholderLabel")
+                    .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
+                    .onSubmit(of: .search) {
+                        showAllResultView = true
                     }
                 }
-                .padding(.horizontal, 10)
-                
-                Spacer()
-            }
-            .searchable(
-                text: $searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: "searchBarPlaceholderLabel")
-            .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
-            .onSubmit(of: .search) {
-                showAllResultView = true
+            } else {
+                ProgressView("progressViewLoadingLabel")
+                    .progressViewStyle(.circular)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
+                    .onAppear {
+                        searchTabViewModel.onLoaded()
+                    }
             }
         }
     }
