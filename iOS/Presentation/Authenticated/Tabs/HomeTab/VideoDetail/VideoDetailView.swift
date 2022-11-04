@@ -43,8 +43,9 @@ struct VideoDetailView: View {
             case let .failure(error):
                 CustomErrorView(
                     error: error,
-                    authViewModel: authViewModel
-                )
+                    authViewModel: authViewModel) {
+                        videoDetailViewModel.onLoaded(user: authViewModel.getUser())
+                    }
             }
         } else {
             ProgressView("progressViewLoadingLabel")

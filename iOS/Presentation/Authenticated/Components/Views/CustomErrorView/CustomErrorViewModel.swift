@@ -36,13 +36,13 @@ class CustomErrorViewModel: ObservableObject {
                 title: "errorViewNoContentTitle",
                 description: "errorViewNoContentDescription",
                 primaryActionType: .tryAgain,
-                secondaryActionType: .reportIssue
+                secondaryActionType: .none
             )
         case is BusinessErrors.parsingError:
             return CustomErrorViewBody(
                 title: "errorViewParsingErrorTitle",
                 description: "errorViewParsingErrorDescription",
-                primaryActionType: .reportIssue,
+                primaryActionType: .tryAgain,
                 secondaryActionType: .none
             )
         case is BusinessErrors.unauthorized:
@@ -63,7 +63,7 @@ class CustomErrorViewModel: ObservableObject {
             return CustomErrorViewBody(
                 title: "errorViewUnknownErrorTitle",
                 description: "errorViewUnknownErrorDescription",
-                primaryActionType: .reportIssue,
+                primaryActionType: .tryAgain,
                 secondaryActionType: .none
             )
         }

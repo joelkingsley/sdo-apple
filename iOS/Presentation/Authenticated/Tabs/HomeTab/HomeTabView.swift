@@ -58,8 +58,9 @@ struct HomeTabView: View {
             case let .failure(error):
                 CustomErrorView(
                     error: error,
-                    authViewModel: authViewModel
-                )
+                    authViewModel: authViewModel) {
+                        homeTabViewModel.onLoaded(user: authViewModel.getUser())
+                    }
             }
         } else {
             ProgressView("progressViewLoadingLabel")

@@ -21,8 +21,9 @@ struct ChannelDetailView: View {
         if channelDetailViewModel.channelId == nil {
             CustomErrorView(
                 error: BusinessErrors.clientError(),
-                authViewModel: authViewModel
-            )
+                authViewModel: authViewModel) {
+                    channelDetailViewModel.onLoaded()
+                }
         } else if let channelDetailData = channelDetailViewModel.channelDetailData {
             switch channelDetailData {
             case let .success(data):
