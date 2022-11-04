@@ -7,14 +7,26 @@
 
 import Foundation
 
+@MainActor
 class SearchTabViewModel: ObservableObject {
-    @Published var languages: [(String, String)]
+    private let getAllLanguagesUseCase = GetAllLanguagesUseCase(
+        languageRepository: HasuraLanguageRepository(
+            graphQLService: HasuraGraphQLService()))
     
-    init() {
-        self.languages = [
-            ("🇬🇧", Locale.current.localizedString(forLanguageCode: "en")!),
-            ("🇩🇪", Locale.current.localizedString(forLanguageCode: "de")!),
-            ("🇮🇳", Locale.current.localizedString(forLanguageCode: "ta")!)
-        ]
+    @Published var languages: [LanguageData] = []
+    
+    @Published var onPageLoaded = false
+    
+    func onLoaded() {
+        Task { [weak self] in
+            guard let self = self else { return }
+            switch await getAllLanguagesUseCase.execute() {
+            case let .success(data):
+                self.languages = data
+            default:
+                break
+            }
+            onPageLoaded = true
+        }
     }
 }

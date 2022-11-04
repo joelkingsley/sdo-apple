@@ -22,6 +22,7 @@
 "homeSermonsLabel" = "Predigten";
 "homeShortsLabel" = "Kurze Videos";
 "homeMusicLabel" = "Musik";
+"homeShowAllLabel" = "Zeige alles";
 
 // Search
 "searchTabLabel" = "Suche";
@@ -43,6 +44,8 @@
 "searchResultsItemTypeDocumentaries" = "Dokumentarfilme";
 "searchResultsItemTypeShorts" = "Kurze Videos";
 "searchResultsItemTypeMusic" = "Musik";
+"searchResultsFilterByLanguageLabel" = "Nach Sprache filtern:";
+"searchResultsLanguageNoneLabel" = "Keiner";
 
 // Channels
 "channelsTabLabel" = "Kanäle";

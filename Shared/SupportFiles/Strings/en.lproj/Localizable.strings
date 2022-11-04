@@ -23,6 +23,7 @@
 "homeSermonsLabel" = "Sermons";
 "homeShortsLabel" = "Shorts";
 "homeMusicLabel" = "Music";
+"homeShowAllLabel" = "Show All";
 
 // Search
 "searchTabLabel" = "Search";
@@ -44,6 +45,8 @@
 "searchResultsItemTypeDocumentaries" = "Documentaries";
 "searchResultsItemTypeShorts" = "Shorts";
 "searchResultsItemTypeMusic" = "Music";
+"searchResultsFilterByLanguageLabel" = "Filter by Language:";
+"searchResultsLanguageNoneLabel" = "None";
 
 // Channels
 "channelsTabLabel" = "Channels";

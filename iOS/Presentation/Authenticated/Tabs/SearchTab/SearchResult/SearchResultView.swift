@@ -13,9 +13,14 @@ struct SearchResultView: View {
     
     init(
         ofItemType itemType: SearchResultItemType,
-        searchText: String? = nil
+        searchText: String? = nil,
+        language: LanguageData
     ) {
-        self.searchResultViewModel = SearchResultViewModel(searchResultItemType: itemType, searchText: searchText)
+        self.searchResultViewModel = SearchResultViewModel(
+            searchResultItemType: itemType,
+            searchText: searchText,
+            language: language
+        )
     }
     
     var body: some View {
@@ -37,6 +42,19 @@ struct SearchResultView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.bottom)
                     .padding(.horizontal)
+                    
+                    HStack {
+                        Spacer()
+                            .frame(width: 20)
+                        Text("Filter by Language Code:")
+                        Picker("Languages", selection: $searchResultViewModel.selectedSearchResultLanguage) {
+                            ForEach(searchResultViewModel.allLanguages, id: \.self) { option in
+                                Text("\(option.sourceCountryFlag) \(option.languageName)")
+                            }
+                        }
+                        .pickerStyle(.automatic)
+                        Spacer()
+                    }
                     
                     InfiniteList(
                         data: $searchResultViewModel.searchResultVideos,
@@ -74,6 +92,6 @@ struct SearchResultView: View {
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultView(ofItemType: .all)
+        SearchResultView(ofItemType: .all, language: LanguageData())
     }
 }

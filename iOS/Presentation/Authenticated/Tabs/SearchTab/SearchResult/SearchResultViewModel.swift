@@ -14,6 +14,10 @@ class SearchResultViewModel: ObservableObject {
         videoRepository: HasuraVideoRepository(
             graphQLService: HasuraGraphQLService()))
     
+    private let getAllLanguagesUseCase = GetAllLanguagesUseCase(
+        languageRepository: HasuraLanguageRepository(
+            graphQLService: HasuraGraphQLService()))
+    
     var cancellables = Set<AnyCancellable>()
     
     // MARK: - Search parameters
@@ -23,6 +27,9 @@ class SearchResultViewModel: ObservableObject {
     
     /// The current selected search result item type
     @Published var selectedSearchResultItemType: SearchResultItemType
+    
+    /// The current selected search result language code
+    @Published var selectedSearchResultLanguage: LanguageData
     
     /// Constant to denote how many videos to fetch at a time
     private let pageLimit = 10
@@ -47,29 +54,68 @@ class SearchResultViewModel: ObservableObject {
     /// Whether more videos are being loaded for the current search parameters
     @Published var isLoadingMoreVideos: Bool = false
     
+    /// All language codes
+    @Published var allLanguages: [LanguageData] = []
+    
     // MARK: - Lifecycle
     
-    init(searchResultItemType: SearchResultItemType, searchText: String?) {
+    init(
+        searchResultItemType: SearchResultItemType,
+        searchText: String?,
+        language: LanguageData
+    ) {
         self.selectedSearchResultItemType = searchResultItemType
         self.searchText = searchText ?? ""
+        self.selectedSearchResultLanguage = language
     }
     
     // MARK: - Methods
     
     func onLoaded() {
-        self.$selectedSearchResultItemType.sink { [weak self] searchResultItemType in
+        Task { [weak self] in
             guard let self = self else { return }
-            self.isPageLoaded = false
-            Task {
-                await self.loadInitialVideos(ofItemType: searchResultItemType)
+            switch await getAllLanguagesUseCase.execute() {
+            case let .success(data):
+                self.allLanguages = [
+                    LanguageData()
+                ]
+                self.allLanguages.append(contentsOf: data)
+            default:
+                break
             }
-        }.store(in: &cancellables)
+            
+            self.$selectedSearchResultItemType.sink { [weak self] searchResultItemType in
+                guard let self = self else { return }
+                self.isPageLoaded = false
+                Task {
+                    await self.loadInitialVideos(
+                        ofItemType: searchResultItemType,
+                        ofLanguage: self.selectedSearchResultLanguage
+                    )
+                }
+            }.store(in: &cancellables)
+            
+            self.$selectedSearchResultLanguage.sink { [weak self] searchResultLanguage in
+                guard let self = self else { return }
+                self.isPageLoaded = false
+                Task {
+                    await self.loadInitialVideos(
+                        ofItemType: self.selectedSearchResultItemType,
+                        ofLanguage: searchResultLanguage
+                    )
+                }
+            }
+            .store(in: &cancellables)
+        }
     }
     
     func onSearchTextSubmitted() {
         isPageLoaded = false
         Task {
-            await self.loadInitialVideos(ofItemType: selectedSearchResultItemType)
+            await self.loadInitialVideos(
+                ofItemType: selectedSearchResultItemType,
+                ofLanguage: selectedSearchResultLanguage
+            )
         }
     }
     
@@ -77,7 +123,11 @@ class SearchResultViewModel: ObservableObject {
         Task {
             if totalAvailableVideosForSearchResult > searchResultVideos.count {
                 isLoadingMoreVideos = true
-                switch await getVideosForSearchParameters(itemType: selectedSearchResultItemType, searchText: searchText) {
+                switch await getVideosForSearchParameters(
+                    itemType: selectedSearchResultItemType,
+                    language: selectedSearchResultLanguage,
+                    searchText: searchText
+                ) {
                 case let .success(data):
                     var updatedVideos = self.searchResultVideos
                     updatedVideos.append(contentsOf: data.videos)
@@ -98,10 +148,14 @@ class SearchResultViewModel: ObservableObject {
         self.highestLoadedPage = -1
     }
     
-    private func loadInitialVideos(ofItemType itemType: SearchResultItemType) async {
+    private func loadInitialVideos(
+        ofItemType itemType: SearchResultItemType,
+        ofLanguage language: LanguageData
+    ) async {
         self.resetSearchResults()
         switch await self.getVideosForSearchParameters(
             itemType: itemType,
+            language: language,
             searchText: self.searchText
         ) {
         case let .success(data):
@@ -122,13 +176,16 @@ class SearchResultViewModel: ObservableObject {
     
     private func getVideosForSearchParameters(
         itemType: SearchResultItemType,
+        language: LanguageData,
         searchText: String
     ) async -> Result<SearchResultData, BusinessError> {
         let videoType = VideoType(searchResultItemType: selectedSearchResultItemType)
+        let languageCode = (language.languageCode.isEmpty) ? nil : language.languageCode
         return await getVideosOfSearchParametersUseCase.execute(
             searchResultInputData: SearchResultInputData(
                 videoType: videoType,
                 searchText: searchText,
+                languageCode: languageCode,
                 limit: pageLimit,
                 page: highestLoadedPage + 1
             )

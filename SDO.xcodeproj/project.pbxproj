@@ -29,6 +29,20 @@
 		F123E156291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */; };
 		F123E158291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */; };
 		F123E159291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */; };
+		F123E15B2914E45E00E8574C /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E15A2914E45E00E8574C /* LanguageData.swift */; };
+		F123E15C2914E45E00E8574C /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E15A2914E45E00E8574C /* LanguageData.swift */; };
+		F123E15E2914E77600E8574C /* GetAllLanguagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */; };
+		F123E15F2914E77600E8574C /* GetAllLanguagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */; };
+		F123E1612914E79300E8574C /* HasuraLanguageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1602914E79300E8574C /* HasuraLanguageRepository.swift */; };
+		F123E1622914E79300E8574C /* HasuraLanguageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1602914E79300E8574C /* HasuraLanguageRepository.swift */; };
+		F123E1642914E80300E8574C /* LanguageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1632914E80300E8574C /* LanguageRepository.swift */; };
+		F123E1652914E80300E8574C /* LanguageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1632914E80300E8574C /* LanguageRepository.swift */; };
+		F123E1672914E8D900E8574C /* GetAllLanguagesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */; };
+		F123E1682914E8D900E8574C /* GetAllLanguagesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */; };
+		F123E16B2914E9DD00E8574C /* VideoLikeDislikeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */; };
+		F123E16C2914E9DE00E8574C /* VideoLikeDislikeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */; };
+		F123E16F2914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */; };
+		F123E1702914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */; };
 		F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */; };
 		F13983762881E7D0004A2375 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983752881E7D0004A2375 /* AuthState.swift */; };
 		F13983782881EC19004A2375 /* SDOUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983772881EC19004A2375 /* SDOUser.swift */; };
@@ -241,6 +255,13 @@
 		F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLikeDislikeInputData.swift; sourceTree = "<group>"; };
 		F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVideoLikeDislikeResponseData.swift; sourceTree = "<group>"; };
 		F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVideoLikeDislikeStatusDTO.swift; sourceTree = "<group>"; };
+		F123E15A2914E45E00E8574C /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
+		F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLanguagesUseCase.swift; sourceTree = "<group>"; };
+		F123E1602914E79300E8574C /* HasuraLanguageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraLanguageRepository.swift; sourceTree = "<group>"; };
+		F123E1632914E80300E8574C /* LanguageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRepository.swift; sourceTree = "<group>"; };
+		F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLanguagesDTO.swift; sourceTree = "<group>"; };
+		F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLikeDislikeErrors.swift; sourceTree = "<group>"; };
+		F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLanguagesErrors.swift; sourceTree = "<group>"; };
 		F1245DB428A23054008E7EB9 /* SearchTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewModel.swift; sourceTree = "<group>"; };
 		F13983752881E7D0004A2375 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		F13983772881EC19004A2375 /* SDOUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUser.swift; sourceTree = "<group>"; };
@@ -493,6 +514,24 @@
 			path = SafariView;
 			sourceTree = "<group>";
 		};
+		F123E1692914E9C900E8574C /* VideoLikeDislike */ = {
+			isa = PBXGroup;
+			children = (
+				F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */,
+				F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */,
+				F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */,
+			);
+			path = VideoLikeDislike;
+			sourceTree = "<group>";
+		};
+		F123E16D2914ED0100E8574C /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
 		F13983742881E7C0004A2375 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +563,7 @@
 			children = (
 				F1BC022228AA16A0008C9361 /* HasuraChannelRepository.swift */,
 				F1EA5AA028B607B700102469 /* HasuraVideoRepository.swift */,
+				F123E1602914E79300E8574C /* HasuraLanguageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -643,6 +683,7 @@
 				F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */,
 				F14B18E62911B57A00DE8229 /* GetChannelDetailDataUseCase.swift */,
 				F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */,
+				F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -671,8 +712,6 @@
 			children = (
 				F1D6522028B950A60084907A /* VideoDetailData.swift */,
 				F19512C828E60A8800DF4E2E /* VideoDetailErrors.swift */,
-				F123E151291451C400E8574C /* VideoLikeDislikeInputData.swift */,
-				F123E154291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift */,
 			);
 			path = VideoDetail;
 			sourceTree = "<group>";
@@ -764,6 +803,7 @@
 				F19512E328EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift */,
 				F14B18E92911B62C00DE8229 /* GetChannelDetailDataDTO.swift */,
 				F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */,
+				F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -773,6 +813,7 @@
 			children = (
 				F1BC022628AA16FC008C9361 /* ChannelRepository.swift */,
 				F1EA5AA328B607D700102469 /* VideoRepository.swift */,
+				F123E1632914E80300E8574C /* LanguageRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -864,6 +905,8 @@
 		F1E493D72866FAF1008611D7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F123E16D2914ED0100E8574C /* Languages */,
+				F123E1692914E9C900E8574C /* VideoLikeDislike */,
 				F181060B28CD1B8900580101 /* HomeScreen */,
 				F18105FE28CCCC2F00580101 /* VideoDetail */,
 				F19512D728E788D300DF4E2E /* SearchResult */,
@@ -872,6 +915,7 @@
 				F1D6522628B9A9150084907A /* SubscriptionData.swift */,
 				F181060828CD14DD00580101 /* VideoThumbnailDetails.swift */,
 				F19512D428E7888E00DF4E2E /* VideoType.swift */,
+				F123E15A2914E45E00E8574C /* LanguageData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1283,9 +1327,11 @@
 				F18105DC28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
 				F1F0100B2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F1E493CD2866F541008611D7 /* TogglableButton.swift in Sources */,
+				F123E1672914E8D900E8574C /* GetAllLanguagesDTO.swift in Sources */,
 				F1D6523228BA40F80084907A /* MoreVideosInChannelRow.swift in Sources */,
 				F18105C028BCE8C200580101 /* ChannelData.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
+				F123E16B2914E9DD00E8574C /* VideoLikeDislikeErrors.swift in Sources */,
 				F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F19512C628E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F18105CC28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,
@@ -1304,6 +1350,7 @@
 				F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */,
 				F181060928CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
 				F18105DF28BF552900580101 /* ApiError.swift in Sources */,
+				F123E16F2914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */,
 				F1E494062868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F1E493F22867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */,
@@ -1343,7 +1390,9 @@
 				F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */,
 				F1EE14F8287210770020CD74 /* BusinessError.swift in Sources */,
 				F1EA5AA128B607B700102469 /* HasuraVideoRepository.swift in Sources */,
+				F123E1642914E80300E8574C /* LanguageRepository.swift in Sources */,
 				F123E158291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */,
+				F123E15E2914E77600E8574C /* GetAllLanguagesUseCase.swift in Sources */,
 				F19512EF28EF329E00DF4E2E /* ApiConstants.swift in Sources */,
 				F1BC022728AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F18105D628BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
@@ -1372,10 +1421,12 @@
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
 				F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */,
 				F19512F228EF417300DF4E2E /* SearchResultItemType.swift in Sources */,
+				F123E1612914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
 				F195130328F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E228BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
+				F123E15B2914E45E00E8574C /* LanguageData.swift in Sources */,
 				F14B18D9291127CC00DE8229 /* ChannelDetailView.swift in Sources */,
 				F11B806028A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F18105D028BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
@@ -1394,6 +1445,7 @@
 				F1EE14F9287210770020CD74 /* BusinessError.swift in Sources */,
 				F1504CAD290848DB0059BE3E /* PlayerState.swift in Sources */,
 				F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */,
+				F123E15C2914E45E00E8574C /* LanguageData.swift in Sources */,
 				F19512F028EF329E00DF4E2E /* ApiConstants.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F18105D728BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
@@ -1407,6 +1459,7 @@
 				F1D6521E28B812C50084907A /* HomeScreenData.swift in Sources */,
 				F14B18EB2911B62C00DE8229 /* GetChannelDetailDataDTO.swift in Sources */,
 				F1CA156D28AE097A005EDF85 /* SDOTheme.swift in Sources */,
+				F123E1702914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */,
 				F1EA5AA228B607B700102469 /* HasuraVideoRepository.swift in Sources */,
 				F18105D428BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
 				F14B18DE2911283F00DE8229 /* ChannelDetailViewModel.swift in Sources */,
@@ -1414,6 +1467,7 @@
 				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
+				F123E1652914E80300E8574C /* LanguageRepository.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
@@ -1433,7 +1487,9 @@
 				F195130728F09A8C00DF4E2E /* ChannelsMapViewCoordinator.swift in Sources */,
 				F18105EB28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
+				F123E15F2914E77600E8574C /* GetAllLanguagesUseCase.swift in Sources */,
 				F19512D628E7888E00DF4E2E /* VideoType.swift in Sources */,
+				F123E1682914E8D900E8574C /* GetAllLanguagesDTO.swift in Sources */,
 				F19512CA28E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,
 				F1FC6DB828FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */,
 				F1E4940D2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
@@ -1448,6 +1504,8 @@
 				F195130428F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
+				F123E1622914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
+				F123E16C2914E9DE00E8574C /* VideoLikeDislikeErrors.swift in Sources */,
 				F19512C728E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F19512DA28E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
 				F1D6522828B9A9150084907A /* SubscriptionData.swift in Sources */,

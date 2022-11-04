@@ -27,15 +27,6 @@ struct VideoDetailData {
         let thumbnailURL: URL
     }
     
-    struct LanguageData {
-        let languageCode: String
-        let sourceCountryFlag: String
-        
-        var languageName: String {
-            return Locale.current.localizedString(forLanguageCode: languageCode) ?? "N/A"
-        }
-    }
-    
     struct InfoData {
         let videoId: String
         let title: String

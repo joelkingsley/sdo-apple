@@ -160,6 +160,52 @@ query GetVideosForSearchTextAndVideoType($searchText: String!, $videoType: video
   }
 }
 
+query GetVideosForSearchTextAndLanguageCode($searchText: String!, $languageCode: String!, $limit: Int!, $offset: Int!) {
+  videos(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], language_code: {_eq: $languageCode}}, limit: $limit, offset: $offset) {
+    video_id
+    video_type
+    title
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], language_code: {_eq: $languageCode}}) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetVideosForSearchTextVideoTypeAndLanguageCode($searchText: String!, $videoType: video_types_enum!, $languageCode: String!, $limit: Int!, $offset: Int!) {
+  videos(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}, language_code: {_eq: $languageCode}}, limit: $limit, offset: $offset) {
+    video_id
+    video_type
+    title
+    channel {
+      channel_id
+      channel_name
+    }
+    date_published
+    speaker {
+      speaker_name
+    }
+    gcp_thumbnail_bucket_name
+    gcp_thumbnail_file_name
+  }
+  videos_aggregate(where: {_or: [{channel: {channel_name: {_ilike: $searchText}}}, {title: {_ilike: $searchText}}], video_type: {_eq: $videoType}, language_code: {_eq: $languageCode}}) {
+    aggregate {
+      count
+    }
+  }
+}
+
 query GetChannelDetail($channelId: uuid!) {
   channels(where: {channel_id: {_eq: $channelId}}) {
     channel_id
@@ -186,5 +232,12 @@ query GetChannelDetail($channelId: uuid!) {
       date_published
     }
     website_url
+  }
+}
+
+query GetAllLanguages {
+  languages {
+    language_code
+    source_country_flag
   }
 }

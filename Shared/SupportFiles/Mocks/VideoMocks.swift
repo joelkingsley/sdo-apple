@@ -64,7 +64,7 @@ let exampleVideoDetail1 = VideoDetailData(
                 )!
             )
         ],
-        language: VideoDetailData.LanguageData(
+        language: LanguageData(
             languageCode: "en",
             sourceCountryFlag: "🇬🇧"
         ),
