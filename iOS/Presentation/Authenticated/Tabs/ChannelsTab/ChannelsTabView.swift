@@ -91,8 +91,9 @@ struct ChannelsTabView: View {
         case .failure(let error):
             CustomErrorView(
                 error: error,
-                authViewModel: authViewModel
-            )
+                authViewModel: authViewModel) {
+                    channelsTabViewModel.onLoaded()
+                }
         case .none:
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)

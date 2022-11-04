@@ -16,13 +16,12 @@ struct CustomErrorView: View {
     init(
         error: BusinessError,
         authViewModel: AuthenticationViewModel,
-        tryAgainHandler: @escaping (() -> ()) = {},
-        reportIssueHandler: @escaping (() -> ()) = {}
+        tryAgainHandler: @escaping (() -> ()) = {}
     ) {
         self.customErrorViewModel = CustomErrorViewModel(error: error)
         self.authViewModel = authViewModel
         self.tryAgainHandler = tryAgainHandler
-        self.reportIssueHandler = reportIssueHandler
+        self.reportIssueHandler = {}
     }
     
     var body: some View {

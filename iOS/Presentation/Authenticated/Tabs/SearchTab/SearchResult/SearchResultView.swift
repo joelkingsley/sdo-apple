@@ -27,7 +27,10 @@ struct SearchResultView: View {
         if let error = searchResultViewModel.errorOccurred {
             CustomErrorView(
                 error: error,
-                authViewModel: authViewModel
+                authViewModel: authViewModel,
+                tryAgainHandler: {
+                    searchResultViewModel.onLoaded()
+                }
             )
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("searchResultsScreenNavigationTitle")
