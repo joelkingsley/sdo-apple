@@ -52,6 +52,9 @@ struct HomeTabView: View {
                             }
                         }
                     }
+                    .refreshable {
+                        await homeTabViewModel.onRefresh(user: authViewModel.getUser())
+                    }
                 }
                 .edgesIgnoringSafeArea(.horizontal)
                 .navigationBarTitle(Text("homeScreenTitle", comment: "Label: Navigation bar title of Home Screen"))

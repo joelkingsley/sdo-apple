@@ -22,6 +22,10 @@ class HomeTabViewModel: ObservableObject {
         }
     }
     
+    func onRefresh(user: SDOUser?) async {
+        await getHomeScreenData(user: user)
+    }
+    
     private func getHomeScreenData(user: SDOUser?) async {
         guard let user = user else {
             return
