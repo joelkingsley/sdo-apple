@@ -13,8 +13,13 @@ class VideoDetailViewModel: ObservableObject {
         videoRepository: HasuraVideoRepository(
             graphQLService: HasuraGraphQLService()))
     
-    var videoId: String!
-    var channelId: String!
+    let videoId: String
+    let channelId: String
+    
+    init(videoId: String, channelId: String) {
+        self.videoId = videoId
+        self.channelId = channelId
+    }
     
     @Published var videoDetailData: Result<VideoDetailData, BusinessError>?
     

@@ -111,7 +111,7 @@ struct TopVideoPreview: View {
                 HStack {
                     Spacer()
                     
-                    Button("Done") {
+                    Button("topVideoPreviewDoneLabel") {
                         showMoreSheet = false
                     }
                 }

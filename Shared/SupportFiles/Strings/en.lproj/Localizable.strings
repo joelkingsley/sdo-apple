@@ -91,6 +91,7 @@
 "videoPlayerViewNotForMeLabel" = "Not for me";
 "videoPlayerViewShareLabel" = "Share";
 "videoPlayerViewMyListLabel" = "My List";
+"topVideoPreviewDoneLabel" = "Done";
 
 // Date Units
 "seconds" = "seconds";

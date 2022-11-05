@@ -26,7 +26,6 @@ class LibraryTabViewModel: ObservableObject {
             case let .success(data):
                 AppLogger.debug(data)
                 userData = .success(data)
-                userData = .failure(BusinessErrors.unknownError())
             case let .failure(error):
                 AppLogger.error(error.localizedDescription)
                 userData = .failure(error)

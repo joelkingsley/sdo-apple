@@ -9,11 +9,10 @@ import SwiftUI
 
 struct VideoDetailView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var videoDetailViewModel = VideoDetailViewModel()
+    @ObservedObject var videoDetailViewModel: VideoDetailViewModel
     
     init(videoId: String, channelId: String) {
-        self.videoDetailViewModel.videoId = videoId
-        self.videoDetailViewModel.channelId = channelId
+        self.videoDetailViewModel = VideoDetailViewModel(videoId: videoId, channelId: channelId)
     }
 
     var body: some View {
