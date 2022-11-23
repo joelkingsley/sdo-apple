@@ -24,7 +24,6 @@ class LibraryTabViewModel: ObservableObject {
         Task {
             switch await getUserDataUseCase.execute(userUuid: user.uid) {
             case let .success(data):
-                AppLogger.debug(data)
                 userData = .success(data)
             case let .failure(error):
                 AppLogger.error(error.localizedDescription)

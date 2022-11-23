@@ -68,7 +68,7 @@ class FirebaseAuthService: SDOAuthService {
     }
     
     /// Uses authorization credentials for from Apple sign-in to sign in on Firebase
-    func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) async -> AuthState {
+    func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) async -> (AuthState, String?) {
         switch result {
         case let .success(authorization):
             switch authorization.credential {
@@ -81,17 +81,17 @@ class FirebaseAuthService: SDOAuthService {
                 
                 guard let nonce = currentNonce else {
                     AppLogger.error("Invalid state: A login callback was received, but no login request was sent.")
-                    return .signedOut
+                    return (.signedOut, nil)
                 }
                 
                 guard let idToken = appleIDCredential.identityToken else {
                     AppLogger.error("Unable to fetch identity token")
-                    return .signedOut
+                    return (.signedOut, nil)
                 }
                 
                 guard let idTokenString = String(data: idToken, encoding: .utf8) else {
                     AppLogger.error("Unable to serialize token string from data: \(idToken.debugDescription)")
-                    return .signedOut
+                    return (.signedOut, nil)
                 }
                 
                 // Initialize a Firebase credential.
@@ -100,14 +100,22 @@ class FirebaseAuthService: SDOAuthService {
                     idToken: idTokenString,
                     rawNonce: nonce
                 )
-                return await signInOnFirebase(with: credential)
+                
+                // Check and return Apple authorization code
+                if let authorizationCode = appleIDCredential.authorizationCode,
+                   let codeString = String(data: authorizationCode, encoding: .utf8)
+                {
+                    return (await signInOnFirebase(with: credential), codeString)
+                } else {
+                    return (await signInOnFirebase(with: credential), nil)
+                }
             default:
                 AppLogger.error("Unexpected credential error while signing in with Apple")
-                return .signedOut
+                return (.signedOut, nil)
             }
         case let .failure(error):
             AppLogger.error("Unexpectedly got error while signing in with Apple: \(error)")
-            return .signedOut
+            return (.signedOut, nil)
         }
     }
     

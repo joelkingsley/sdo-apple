@@ -19,7 +19,7 @@ protocol SDOAuthService {
     func configure(appleSignInAuthorizationRequest: ASAuthorizationAppleIDRequest)
     
     /// Signs in user with the Apple sign-in
-    func signInWithApple(requestAuthorizationResult: Result<ASAuthorization, Error>) async -> AuthState
+    func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) async -> (AuthState, String?)
 
     /// Signs in to firebase using the given auth credentials
     /// - note: To be invoked after authenticating with username-password or social sign-in

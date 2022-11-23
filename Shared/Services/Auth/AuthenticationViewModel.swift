@@ -13,15 +13,21 @@ import AuthenticationServices
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
+    // MARK: - Use Cases and Services
+    
+    private let getAppleIdRefreshTokenUseCase = GetAppleIdRefreshTokenUseCase(
+        tokenRepository: HasuraTokenRepository(
+            graphQLService: HasuraGraphQLService()))
+    
+    private let authService: SDOAuthService = FirebaseAuthService.shared
+    
+    // MARK: - Properties
+    
     /// The user's log in status.
     /// - note: This will publish updates when its value changes.
     @Published var state: AuthState
     
     var cancellables = Set<AnyCancellable>()
-    
-    private var authService: SDOAuthService {
-        return FirebaseAuthService.shared
-    }
 
     /// Creates an instance of this view model.
     init() {
@@ -58,9 +64,15 @@ final class AuthenticationViewModel: ObservableObject {
     /// Signs the user in with Apple
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
         Task { [weak self] in
-            let state = await authService.signInWithApple(requestAuthorizationResult: result)
+            let (state, authorizationCode) = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
+            }
+            if let authorizationCode,
+               let refreshToken = try? await getAppleIdRefreshTokenUseCase.execute(
+                authorizationCode: authorizationCode).get().refreshToken
+            {
+                UserSession.setAppleTokens(refreshToken: refreshToken)
             }
             self?.state = state
         }

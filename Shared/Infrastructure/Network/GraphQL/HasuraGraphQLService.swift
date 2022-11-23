@@ -62,6 +62,7 @@ extension HasuraGraphQLService: SDOGraphQLService {
                         }
                         continuation.resume(throwing: GraphQLErrorTransformer.transform(graphQLError: graphQLError))
                     } else if let data = graphQLResult.data {
+                        AppLogger.debug("Response : \(data)")
                         continuation.resume(returning: data)
                     } else {
                         continuation.resume(throwing: ApiErrors.noContent())
@@ -95,6 +96,7 @@ extension HasuraGraphQLService: SDOGraphQLService {
                         }
                         continuation.resume(throwing: GraphQLErrorTransformer.transform(graphQLError: graphQLError))
                     } else if let data = graphQLResult.data {
+                        AppLogger.debug("Response : \(data)")
                         continuation.resume(returning: data)
                     } else {
                         continuation.resume(throwing: ApiErrors.noContent())

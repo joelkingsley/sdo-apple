@@ -39,7 +39,6 @@ class VideoDetailViewModel: ObservableObject {
             userUuid: user.uid
         ) {
         case let .success(data):
-            AppLogger.debug(data)
             videoDetailData = .success(data)
         case let .failure(error):
             AppLogger.error(error.localizedDescription)

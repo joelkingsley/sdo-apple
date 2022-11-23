@@ -288,6 +288,99 @@ public final class UpdateVideoLikeDislikeStatusMutation: GraphQLMutation {
   }
 }
 
+public final class GetAppleIdRefreshTokenMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation GetAppleIdRefreshToken($code: String!) {
+      getAppleIdRefreshToken(arg1: {code: $code}) {
+        __typename
+        refreshToken
+      }
+    }
+    """
+
+  public let operationName: String = "GetAppleIdRefreshToken"
+
+  public var code: String
+
+  public init(code: String) {
+    self.code = code
+  }
+
+  public var variables: GraphQLMap? {
+    return ["code": code]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("getAppleIdRefreshToken", arguments: ["arg1": ["code": GraphQLVariable("code")]], type: .object(GetAppleIdRefreshToken.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getAppleIdRefreshToken: GetAppleIdRefreshToken? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "getAppleIdRefreshToken": getAppleIdRefreshToken.flatMap { (value: GetAppleIdRefreshToken) -> ResultMap in value.resultMap }])
+    }
+
+    public var getAppleIdRefreshToken: GetAppleIdRefreshToken? {
+      get {
+        return (resultMap["getAppleIdRefreshToken"] as? ResultMap).flatMap { GetAppleIdRefreshToken(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "getAppleIdRefreshToken")
+      }
+    }
+
+    public struct GetAppleIdRefreshToken: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["GetAppleIdRefreshTokenOutput"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("refreshToken", type: .nonNull(.scalar(String.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(refreshToken: String) {
+        self.init(unsafeResultMap: ["__typename": "GetAppleIdRefreshTokenOutput", "refreshToken": refreshToken])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var refreshToken: String {
+        get {
+          return resultMap["refreshToken"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "refreshToken")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

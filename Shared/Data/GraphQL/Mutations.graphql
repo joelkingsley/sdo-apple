@@ -9,3 +9,9 @@ mutation UpdateVideoLikeDislikeStatus($userUuid: String!, $videoId: uuid!, $like
     liked
   }
 }
+
+mutation GetAppleIdRefreshToken($code: String!) {
+  getAppleIdRefreshToken(arg1: {code: $code}) {
+    refreshToken
+  }
+}

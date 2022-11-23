@@ -27,7 +27,6 @@ class ChannelDetailViewModel: ObservableObject {
         Task {
             switch await getChannelDetailDataUseCase.execute(channelId: channelId) {
             case let .success(data):
-                AppLogger.debug(data)
                 self.channelDetailData = .success(data)
             case let .failure(error):
                 AppLogger.error(error.localizedDescription)
