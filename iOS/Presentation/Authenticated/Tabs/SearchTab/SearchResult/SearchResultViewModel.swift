@@ -159,7 +159,6 @@ class SearchResultViewModel: ObservableObject {
             searchText: self.searchText
         ) {
         case let .success(data):
-            AppLogger.debug(data)
             self.searchResultVideos = data.videos
             self.totalAvailableVideosForSearchResult = data.totalNumberOfVideos
             self.errorOccurred = nil

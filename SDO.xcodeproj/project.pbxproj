@@ -82,6 +82,18 @@
 		F1504CAC290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
 		F1504CAD290848DB0059BE3E /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CAB290848DB0059BE3E /* PlayerState.swift */; };
 		F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */; };
+		F15DD6A4292CBAE5004F1A57 /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6A3292CBAE4004F1A57 /* TokenRepository.swift */; };
+		F15DD6A5292CBAE5004F1A57 /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6A3292CBAE4004F1A57 /* TokenRepository.swift */; };
+		F15DD6A8292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6A7292CBB2F004F1A57 /* AppleTokenResponse.swift */; };
+		F15DD6A9292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6A7292CBB2F004F1A57 /* AppleTokenResponse.swift */; };
+		F15DD6AB292CBB9B004F1A57 /* HasuraTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6AA292CBB9B004F1A57 /* HasuraTokenRepository.swift */; };
+		F15DD6AC292CBB9B004F1A57 /* HasuraTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6AA292CBB9B004F1A57 /* HasuraTokenRepository.swift */; };
+		F15DD6AE292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */; };
+		F15DD6AF292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */; };
+		F15DD6B1292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */; };
+		F15DD6B2292E9246004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */; };
+		F15DD6B4292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
+		F15DD6B5292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -301,6 +313,12 @@
 		F14B18E92911B62C00DE8229 /* GetChannelDetailDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelDetailDataDTO.swift; sourceTree = "<group>"; };
 		F1504CAB290848DB0059BE3E /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		F1504CB329086A810059BE3E /* TopVideoPreviewActionButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreviewActionButtonList.swift; sourceTree = "<group>"; };
+		F15DD6A3292CBAE4004F1A57 /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
+		F15DD6A7292CBB2F004F1A57 /* AppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenResponse.swift; sourceTree = "<group>"; };
+		F15DD6AA292CBB9B004F1A57 /* HasuraTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasuraTokenRepository.swift; sourceTree = "<group>"; };
+		F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppleIdRefreshTokenDTO.swift; sourceTree = "<group>"; };
+		F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
+		F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenErrors.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
@@ -595,6 +613,7 @@
 				F1EA5AA028B607B700102469 /* HasuraVideoRepository.swift */,
 				F123E1602914E79300E8574C /* HasuraLanguageRepository.swift */,
 				F123E17D2915686700E8574C /* HasuraUserRepository.swift */,
+				F15DD6AA292CBB9B004F1A57 /* HasuraTokenRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -704,6 +723,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F15DD6A6292CBB22004F1A57 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				F15DD6A7292CBB2F004F1A57 /* AppleTokenResponse.swift */,
+				F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 		F18105CE28BD407700580101 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,6 +744,7 @@
 				F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */,
 				F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */,
 				F123E177291567F400E8574C /* GetUserDataUseCase.swift */,
+				F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -837,6 +866,7 @@
 				F123E157291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift */,
 				F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */,
 				F123E18029156AC900E8574C /* GetUserDataDTO.swift */,
+				F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -848,6 +878,7 @@
 				F1EA5AA328B607D700102469 /* VideoRepository.swift */,
 				F123E1632914E80300E8574C /* LanguageRepository.swift */,
 				F123E17A2915682000E8574C /* UserRepository.swift */,
+				F15DD6A3292CBAE4004F1A57 /* TokenRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -939,6 +970,7 @@
 		F1E493D72866FAF1008611D7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F15DD6A6292CBB22004F1A57 /* Token */,
 				F123E1732915671100E8574C /* User */,
 				F123E16D2914ED0100E8574C /* Languages */,
 				F123E1692914E9C900E8574C /* VideoLikeDislike */,
@@ -1393,6 +1425,7 @@
 				F19512E428EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F18105ED28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F1CA157A28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
+				F15DD6AE292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift in Sources */,
 				F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */,
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F123E17E2915686700E8574C /* HasuraUserRepository.swift in Sources */,
@@ -1404,6 +1437,7 @@
 				F11B806628A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F195130628F09A8C00DF4E2E /* ChannelsMapViewCoordinator.swift in Sources */,
 				F13983782881EC19004A2375 /* SDOUser.swift in Sources */,
+				F15DD6A4292CBAE5004F1A57 /* TokenRepository.swift in Sources */,
 				F19512CD28E772B700DF4E2E /* SearchResultView.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */,
@@ -1411,6 +1445,7 @@
 				F19512F828F0543100DF4E2E /* ChannelsTabView.swift in Sources */,
 				F1CA158C28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
 				F1D6522428B9645F0084907A /* VideoDetailView.swift in Sources */,
+				F15DD6AB292CBB9B004F1A57 /* HasuraTokenRepository.swift in Sources */,
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1FC6DBA28FAAFCE003317FC /* ChannelErrors.swift in Sources */,
 				F123E14A29125E1600E8574C /* SafariView.swift in Sources */,
@@ -1419,9 +1454,11 @@
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1CA158628AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
+				F15DD6A8292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F18105EA28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F15DD6B1292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */,
 				F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */,
 				F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */,
 				F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */,
@@ -1455,6 +1492,7 @@
 				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
 				F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */,
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
+				F15DD6B4292E933C004F1A57 /* AppleTokenErrors.swift in Sources */,
 				F123E1722915660D00E8574C /* LibraryTabViewModel.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F123E178291567F400E8574C /* GetUserDataUseCase.swift in Sources */,
@@ -1489,6 +1527,7 @@
 				F1D6522528B9645F0084907A /* VideoDetailView.swift in Sources */,
 				F123E15C2914E45E00E8574C /* LanguageData.swift in Sources */,
 				F19512F028EF329E00DF4E2E /* ApiConstants.swift in Sources */,
+				F15DD6B5292E933C004F1A57 /* AppleTokenErrors.swift in Sources */,
 				F1E494012867A58E008611D7 /* UserDefault.swift in Sources */,
 				F18105D728BD45D800580101 /* VideoDetailViewModel.swift in Sources */,
 				F19512DD28E7895900DF4E2E /* SearchResultData.swift in Sources */,
@@ -1524,6 +1563,7 @@
 				F18105C128BCE8C200580101 /* ChannelData.swift in Sources */,
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F123E179291567F400E8574C /* GetUserDataUseCase.swift in Sources */,
+				F15DD6AF292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift in Sources */,
 				F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F19512E128EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
@@ -1545,6 +1585,7 @@
 				F1BC022128AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F19512F628F01CAA00DF4E2E /* SearchResultErrors.swift in Sources */,
 				F1CA158D28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
+				F15DD6A9292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */,
 				F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F123E156291452DD00E8574C /* UpdateVideoLikeDislikeResponseData.swift in Sources */,
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
@@ -1553,6 +1594,7 @@
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F123E1622914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
 				F123E17C2915682000E8574C /* UserRepository.swift in Sources */,
+				F15DD6B2292E9246004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */,
 				F123E16C2914E9DE00E8574C /* VideoLikeDislikeErrors.swift in Sources */,
 				F19512C728E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F19512DA28E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
@@ -1560,9 +1602,11 @@
 				F19512E528EEF9CC00DF4E2E /* GetVideosOfSearchParametersDTO.swift in Sources */,
 				F1E4941928699800008611D7 /* NotAvailableView.swift in Sources */,
 				F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
+				F15DD6AC292CBB9B004F1A57 /* HasuraTokenRepository.swift in Sources */,
 				F1CA157B28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
 				F14B18E12911A6C200DE8229 /* ChannelDetailData.swift in Sources */,
 				F123E153291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */,
+				F15DD6A5292CBAE5004F1A57 /* TokenRepository.swift in Sources */,
 				F1EA5AA528B607D700102469 /* VideoRepository.swift in Sources */,
 				F1E493F52867A21C008611D7 /* VideoMocks.swift in Sources */,
 				F19512F328EF417400DF4E2E /* SearchResultItemType.swift in Sources */,

@@ -32,7 +32,6 @@ class HomeTabViewModel: ObservableObject {
         }
         switch await getHomeScreenDataUseCase.execute(userUuid: user.uid) {
         case let .success(data):
-            AppLogger.debug(data)
             homeScreenData = .success(data)
         case let .failure(error):
             AppLogger.error(error.localizedDescription)
