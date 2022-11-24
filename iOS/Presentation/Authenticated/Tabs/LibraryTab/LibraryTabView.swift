@@ -20,12 +20,10 @@ struct LibraryTabView: View {
                     case let .success(data):
                         VStack {
                             Text("libraryLoggedInAsLabel")
-                                .font(.sdoCallout)
-                            Text(data.userName)
-                                .font(.sdoTitle2)
-                                .bold()
-                            Text(data.userEmail)
                                 .font(.sdoCaption)
+                            Text(data.userEmail)
+                                .font(.sdoCallout)
+                                .bold()
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
@@ -38,13 +36,13 @@ struct LibraryTabView: View {
                     
                     VStack {
                         NavigationLink {
-                            Text("My Account")
+                            MyAccountView()
                         } label: {
                             VStack {
                                 HStack {
                                     Image(systemName: "person.crop.circle.fill")
                                         .padding(.horizontal, 5)
-                                    Text("My Account")
+                                    Text("libraryMyAccountOptionLabel")
                                         .font(.sdoBody)
                                     Spacer()
                                 }
@@ -59,7 +57,7 @@ struct LibraryTabView: View {
                                 HStack {
                                     Image(systemName: "info.circle.fill")
                                         .padding(.horizontal, 5)
-                                    Text("About")
+                                    Text("libraryAboutOptionLabel")
                                         .font(.sdoBody)
                                     Spacer()
                                 }
@@ -67,7 +65,6 @@ struct LibraryTabView: View {
                             }
                         }
                     }
-                    .listRowSeparator(.hidden)
                     .padding(.horizontal, 20)
                     .padding(.top, 30)
                     
@@ -86,7 +83,6 @@ struct LibraryTabView: View {
                         .cornerRadius(7)
                         .buttonBorderShape(.roundedRectangle(radius: 7))
                         .padding()
-                        .listRowSeparator(.hidden)
                     }
                 }
                 .navigationBarTitle(Text("libraryScreenTitle", comment: "Label: Navigation bar title of Library Screen"))

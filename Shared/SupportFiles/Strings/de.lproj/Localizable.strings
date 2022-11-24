@@ -70,6 +70,17 @@
 "libraryLoggedInAsLabel" = "Eingeloggt als";
 "libraryLoggedInLabel" = "Eingeloggt";
 "librarySignOutLabel" = "Ausloggen";
+"libraryAnonymousLabel" = "Anonym";
+"libraryMyAccountOptionLabel" = "Mein Konto";
+"libraryAboutOptionLabel" = "Über die App";
+
+// My Account
+"myAccountLabel" = "Mein Konto";
+"myAccountConnectedAccountsLabel" = "Verbundene Konten";
+"myAccountDeleteAccountLabel" = "Konto löschen";
+"myAccountConfirmDeleteText" = "Möchten Sie Ihr Benutzerkonto wirklich löschen?";
+"myAccountYesOptionLabel" = "Ja";
+"myAccountNoOptionLabel" = "Nein";
 
 // Videos
 "videoDetailScheduledLabel" = "Geplant";

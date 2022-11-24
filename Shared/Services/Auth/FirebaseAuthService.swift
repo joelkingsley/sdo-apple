@@ -73,11 +73,26 @@ class FirebaseAuthService: SDOAuthService {
         case let .success(authorization):
             switch authorization.credential {
             case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                // Create an account in your system.
+                // Get name, email, and token from apple ID credentials
                 let userIdentifier = appleIDCredential.user
-                let fullName = String(describing: appleIDCredential.fullName)
+                let displayName: String? = {
+                    if let fullName = appleIDCredential.fullName {
+                        var name = ""
+                        if let givenName = fullName.givenName {
+                            name.append(givenName)
+                            if let familyName = fullName.familyName {
+                                name.append(" " + familyName)
+                            }
+                        } else if let familyName = fullName.familyName {
+                            name.append(familyName)
+                        }
+                        return name
+                    }
+                    return nil
+                }()
                 let email = String(describing: appleIDCredential.email)
-                AppLogger.debug("Signed in with Apple: \(userIdentifier), \(fullName), \(email)")
+                AppLogger.debug(
+                    "Signed in with Apple: \(userIdentifier), \(String(describing: displayName)), \(email)")
                 
                 guard let nonce = currentNonce else {
                     AppLogger.error("Invalid state: A login callback was received, but no login request was sent.")
@@ -102,13 +117,19 @@ class FirebaseAuthService: SDOAuthService {
                 )
                 
                 // Check and return Apple authorization code
-                if let authorizationCode = appleIDCredential.authorizationCode,
-                   let codeString = String(data: authorizationCode, encoding: .utf8)
-                {
-                    return (await signInOnFirebase(with: credential), codeString)
-                } else {
-                    return (await signInOnFirebase(with: credential), nil)
+                var codeString: String?
+                if let authorizationCode = appleIDCredential.authorizationCode {
+                    codeString = String(data: authorizationCode, encoding: .utf8)
                 }
+                let authState = await signInOnFirebase(with: credential)
+                if case let .signedIn(user) = authState,
+                   let displayName
+                {
+                    let changeRequest = user.createProfileChangeRequest()
+                    changeRequest.displayName = displayName
+                    try? await changeRequest.commitChanges()
+                }
+                return (authState, codeString)
             default:
                 AppLogger.error("Unexpected credential error while signing in with Apple")
                 return (.signedOut, nil)
@@ -142,6 +163,29 @@ class FirebaseAuthService: SDOAuthService {
             AppLogger.error("Encountered error signing out: \(error).")
             return false
         }
+    }
+    
+    /// Deletes the user account from the authentication provider
+    func deleteAccount() async -> Bool {
+        do {
+            guard let currentUser = Auth.auth().currentUser else {
+                AppLogger.error("Unsuccessful in deleting user account since 'currentUser' is nil")
+                return false
+            }
+            try await currentUser.delete()
+            AppLogger.debug("Successfully deleted user in Firebase")
+            return true
+        } catch {
+            AppLogger.error("Unsuccessful in deleting user account: \(error)")
+            return false
+        }
+    }
+    
+    /// Gets a list of all social accounts connected to the user
+    func getConnectedSocialAccounts() -> [SDOUserInfo] {
+        return Auth.auth().currentUser?.providerData.map({ userInfo in
+            SDOUserInfo(providerId: userInfo.providerID)
+        }) ?? []
     }
 }
 

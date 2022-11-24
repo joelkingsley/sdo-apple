@@ -34,6 +34,8 @@ final class AuthenticationViewModel: ObservableObject {
         self.state = .signedOut
     }
     
+    // MARK: - Methods
+    
     func restorePreviousSignIn() {
         Task { [weak self] in
             if state == .signedOut {
@@ -103,5 +105,23 @@ final class AuthenticationViewModel: ObservableObject {
             return nil
         }
         return user
+    }
+    
+    /// Deletes the user from all auth providers
+    func deleteUser() {
+        AppLogger.debug(UserSession.appleRefreshToken ?? "N/A")
+        Task { [weak self] in
+            if await authService.deleteAccount() {
+                AppLogger.debug("Successfully deleted user account")
+                self?.state = .signedOut
+            } else {
+                AppLogger.error("Failed to delete user account")
+            }
+        }
+    }
+    
+    /// Gets a list of all social accounts connected to the user
+    func getConnectedSocialAccounts() -> [SDOUserInfo] {
+        return authService.getConnectedSocialAccounts()
     }
 }
