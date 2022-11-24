@@ -94,6 +94,10 @@
 		F15DD6B2292E9246004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */; };
 		F15DD6B4292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
 		F15DD6B5292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
+		F15DD6B8292EBEE9004F1A57 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */; };
+		F15DD6BA29300944004F1A57 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */; };
+		F15DD6BC29300AD0004F1A57 /* SDOUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */; };
+		F15DD6BD29300AD0004F1A57 /* SDOUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -319,6 +323,9 @@
 		F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppleIdRefreshTokenDTO.swift; sourceTree = "<group>"; };
 		F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenErrors.swift; sourceTree = "<group>"; };
+		F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
+		F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUserInfo.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
@@ -519,6 +526,7 @@
 		F10497B02859A80500E7EDB5 /* LibraryTab */ = {
 			isa = PBXGroup;
 			children = (
+				F15DD6B6292EBE47004F1A57 /* MyAccount */,
 				F1F0102D2801E016005DC240 /* LibraryTabView.swift */,
 				F123E1712915660C00E8574C /* LibraryTabViewModel.swift */,
 			);
@@ -585,6 +593,7 @@
 			children = (
 				F13983752881E7D0004A2375 /* AuthState.swift */,
 				F13983772881EC19004A2375 /* SDOUser.swift */,
+				F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -730,6 +739,15 @@
 				F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */,
 			);
 			path = Token;
+			sourceTree = "<group>";
+		};
+		F15DD6B6292EBE47004F1A57 /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */,
+				F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */,
+			);
+			path = MyAccount;
 			sourceTree = "<group>";
 		};
 		F18105CE28BD407700580101 /* UseCases */ = {
@@ -1399,6 +1417,7 @@
 				F18105C028BCE8C200580101 /* ChannelData.swift in Sources */,
 				F1D6520A28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
 				F123E16B2914E9DD00E8574C /* VideoLikeDislikeErrors.swift in Sources */,
+				F15DD6BC29300AD0004F1A57 /* SDOUserInfo.swift in Sources */,
 				F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F19512C628E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F18105CC28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,
@@ -1455,6 +1474,7 @@
 				F1CA158628AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F15DD6A8292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */,
+				F15DD6BA29300944004F1A57 /* MyAccountViewModel.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F18105EA28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
@@ -1478,6 +1498,7 @@
 				F123E1752915672200E8574C /* UserData.swift in Sources */,
 				F14B18E02911A6C200DE8229 /* ChannelDetailData.swift in Sources */,
 				F19512D928E7890500DF4E2E /* SearchResultInputData.swift in Sources */,
+				F15DD6B8292EBEE9004F1A57 /* MyAccountView.swift in Sources */,
 				F1FC6DB728FAAF2E003317FC /* GetChannelsDataUseCase.swift in Sources */,
 				F19512C928E60A8800DF4E2E /* VideoDetailErrors.swift in Sources */,
 				F1E494002867A58E008611D7 /* UserDefault.swift in Sources */,
@@ -1536,6 +1557,7 @@
 				F123E1762915672200E8574C /* UserData.swift in Sources */,
 				F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */,
 				F19512D328E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift in Sources */,
+				F15DD6BD29300AD0004F1A57 /* SDOUserInfo.swift in Sources */,
 				F14B18DA291127CC00DE8229 /* ChannelDetailView.swift in Sources */,
 				F18105D128BD408A00580101 /* GetHomeScreenDataUseCase.swift in Sources */,
 				F139837B2881FAED004A2375 /* AppDelegate.swift in Sources */,

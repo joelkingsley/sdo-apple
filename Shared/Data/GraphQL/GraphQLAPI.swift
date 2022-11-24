@@ -4148,7 +4148,6 @@ public final class GetUserDataQuery: GraphQLQuery {
     query GetUserData($userUuid: String!) {
       users_by_pk(user_uuid: $userUuid) {
         __typename
-        user_name
         user_uuid
         user_email
       }
@@ -4202,7 +4201,6 @@ public final class GetUserDataQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("user_name", type: .nonNull(.scalar(String.self))),
           GraphQLField("user_uuid", type: .nonNull(.scalar(String.self))),
           GraphQLField("user_email", type: .nonNull(.scalar(String.self))),
         ]
@@ -4214,8 +4212,8 @@ public final class GetUserDataQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(userName: String, userUuid: String, userEmail: String) {
-        self.init(unsafeResultMap: ["__typename": "users", "user_name": userName, "user_uuid": userUuid, "user_email": userEmail])
+      public init(userUuid: String, userEmail: String) {
+        self.init(unsafeResultMap: ["__typename": "users", "user_uuid": userUuid, "user_email": userEmail])
       }
 
       public var __typename: String {
@@ -4224,15 +4222,6 @@ public final class GetUserDataQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var userName: String {
-        get {
-          return resultMap["user_name"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "user_name")
         }
       }
 

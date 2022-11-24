@@ -24,4 +24,10 @@ protocol SDOAuthService {
     /// Signs in to firebase using the given auth credentials
     /// - note: To be invoked after authenticating with username-password or social sign-in
     func signOut() -> Bool
+    
+    /// Deletes the user account from the authentication provider
+    func deleteAccount() async -> Bool
+    
+    /// Gets a list of all social accounts connected to the user
+    func getConnectedSocialAccounts() -> [SDOUserInfo]
 }

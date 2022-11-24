@@ -27,7 +27,7 @@ class HasuraTokenRepository: TokenRepository {
             )
             return .success(try data.toEntity())
         } catch {
-            AppLogger.error("Error in getUserData: \(error)")
+            AppLogger.error("Error in getAppleIdRefreshToken: \(error)")
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }

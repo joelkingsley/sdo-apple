@@ -14,7 +14,6 @@ extension GetUserDataQuery.Data {
         }
         return UserData(
             userUuid: usersByPk.userUuid,
-            userName: usersByPk.userName,
             userEmail: usersByPk.userEmail
         )
     }

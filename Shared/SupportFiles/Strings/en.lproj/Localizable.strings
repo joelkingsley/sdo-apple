@@ -71,6 +71,17 @@
 "libraryLoggedInAsLabel" = "Logged in as";
 "libraryLoggedInLabel" = "Logged in";
 "librarySignOutLabel" = "Sign Out";
+"libraryAnonymousLabel" = "Anonymous";
+"libraryMyAccountOptionLabel" = "My Account";
+"libraryAboutOptionLabel" = "About the App";
+
+// My Account
+"myAccountLabel" = "My Account";
+"myAccountConnectedAccountsLabel" = "Connected Accounts";
+"myAccountDeleteAccountLabel" = "Delete Account";
+"myAccountConfirmDeleteText" = "Do you really want to delete your user account?";
+"myAccountYesOptionLabel" = "Yes";
+"myAccountNoOptionLabel" = "No";
 
 // Videos
 "videoDetailScheduledLabel" = "Scheduled";
