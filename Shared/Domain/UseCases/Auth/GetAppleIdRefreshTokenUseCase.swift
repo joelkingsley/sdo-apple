@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Generates and retrieves an Apple ID refresh token assigned to a user
 class GetAppleIdRefreshTokenUseCase {
     let tokenRepository: TokenRepository
     

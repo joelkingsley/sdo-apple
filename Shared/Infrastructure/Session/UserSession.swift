@@ -23,11 +23,11 @@ enum UserSession {
     
     @UserDefault(key: .appleRefreshToken)
     public static var appleRefreshToken: String?
-    
+
     static func setUserSession(user: SDOUser, forcingRefresh: Bool = false) async throws {
         accessToken = try await user.idTokenForcingRefresh(forcingRefresh)
     }
-    
+
     static func setAppleTokens(refreshToken: String) {
         appleRefreshToken = refreshToken
     }

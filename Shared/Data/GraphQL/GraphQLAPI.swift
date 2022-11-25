@@ -381,6 +381,99 @@ public final class GetAppleIdRefreshTokenMutation: GraphQLMutation {
   }
 }
 
+public final class RevokeAppleIdRefreshTokenMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation RevokeAppleIdRefreshToken($refreshToken: String!) {
+      revokeAppleIdRefreshToken(arg1: {refreshToken: $refreshToken}) {
+        __typename
+        isRevoked
+      }
+    }
+    """
+
+  public let operationName: String = "RevokeAppleIdRefreshToken"
+
+  public var refreshToken: String
+
+  public init(refreshToken: String) {
+    self.refreshToken = refreshToken
+  }
+
+  public var variables: GraphQLMap? {
+    return ["refreshToken": refreshToken]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("revokeAppleIdRefreshToken", arguments: ["arg1": ["refreshToken": GraphQLVariable("refreshToken")]], type: .object(RevokeAppleIdRefreshToken.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(revokeAppleIdRefreshToken: RevokeAppleIdRefreshToken? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "revokeAppleIdRefreshToken": revokeAppleIdRefreshToken.flatMap { (value: RevokeAppleIdRefreshToken) -> ResultMap in value.resultMap }])
+    }
+
+    public var revokeAppleIdRefreshToken: RevokeAppleIdRefreshToken? {
+      get {
+        return (resultMap["revokeAppleIdRefreshToken"] as? ResultMap).flatMap { RevokeAppleIdRefreshToken(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "revokeAppleIdRefreshToken")
+      }
+    }
+
+    public struct RevokeAppleIdRefreshToken: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["RevokeAppleIdRefreshTokenOutput"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("isRevoked", type: .nonNull(.scalar(Bool.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(isRevoked: Bool) {
+        self.init(unsafeResultMap: ["__typename": "RevokeAppleIdRefreshTokenOutput", "isRevoked": isRevoked])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var isRevoked: Bool {
+        get {
+          return resultMap["isRevoked"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "isRevoked")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

@@ -31,4 +31,19 @@ class HasuraTokenRepository: TokenRepository {
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
+    
+    /// Revokes the Apple ID refresh token
+    func revokeAppleIdRefreshToken(refreshToken: String) async -> Result<RevokeAppleTokenResponse, BusinessError> {
+        do {
+            let data = try await graphQLService.executeMutation(
+                mutation: RevokeAppleIdRefreshTokenMutation(
+                    refreshToken: refreshToken
+                )
+            )
+            return .success(try data.toEntity())
+        } catch {
+            AppLogger.error("Error in revokeAppleIdRefreshToken: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
 }

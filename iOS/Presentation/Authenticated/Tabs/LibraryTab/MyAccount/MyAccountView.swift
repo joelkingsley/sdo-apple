@@ -9,8 +9,11 @@ import SwiftUI
 
 struct MyAccountView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @ObservedObject var myAccountViewModel = MyAccountViewModel()
     
-    @State private var showingAlert = false
+    @State private var showingConfirmationAlert = false
+    @State private var showingSuccessfulDeletionAlert = false
+    @State private var showingUnsuccessfulDeletionAlert = false
     
     var body: some View {
         ScrollView {
@@ -38,7 +41,7 @@ struct MyAccountView: View {
                 .padding(.top, 30)
                 
                 Button {
-                    showingAlert = true
+                    showingConfirmationAlert = true
                 } label: {
                     HStack {
                         Spacer()
@@ -53,12 +56,28 @@ struct MyAccountView: View {
                     .buttonBorderShape(.roundedRectangle(radius: 7))
                     .padding()
                 }
-                .alert("myAccountConfirmDeleteText", isPresented: $showingAlert) {
+                .alert("myAccountConfirmDeleteText", isPresented: $showingConfirmationAlert) {
                     Button("myAccountYesOptionLabel", role: .destructive) {
-                        authViewModel.deleteUser()
+                        Task {
+                            if await authViewModel.deleteUser() {
+                                showingSuccessfulDeletionAlert = true
+                            } else {
+                                showingUnsuccessfulDeletionAlert = true
+                            }
+                        }
                     }
                     Button("myAccountNoOptionLabel", role: .cancel) {}
                 }
+                .alert("Your user account has been successfully removed from our systems. Please sign up again to create a new account.", isPresented: $showingSuccessfulDeletionAlert, actions: {
+                    Button("OK", role: .cancel) {
+                        authViewModel.signOut()
+                    }
+                })
+                .alert("This operation is sensitive and requires recent authentication. Log in again before retrying this request.", isPresented: $showingUnsuccessfulDeletionAlert, actions: {
+                    Button("OK", role: .cancel) {
+                        authViewModel.signOut()
+                    }
+                })
                 .padding(.vertical, 20)
                 
                 Spacer()
