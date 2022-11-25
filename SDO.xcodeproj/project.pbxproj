@@ -95,9 +95,16 @@
 		F15DD6B4292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
 		F15DD6B5292E933C004F1A57 /* AppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */; };
 		F15DD6B8292EBEE9004F1A57 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */; };
-		F15DD6BA29300944004F1A57 /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */; };
 		F15DD6BC29300AD0004F1A57 /* SDOUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */; };
 		F15DD6BD29300AD0004F1A57 /* SDOUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */; };
+		F15DD6BF2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */; };
+		F15DD6C02930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */; };
+		F15DD6C22930A9E2004F1A57 /* RevokeAppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6C12930A9E2004F1A57 /* RevokeAppleTokenResponse.swift */; };
+		F15DD6C32930A9E2004F1A57 /* RevokeAppleTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6C12930A9E2004F1A57 /* RevokeAppleTokenResponse.swift */; };
+		F15DD6CB2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */; };
+		F15DD6CC2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */; };
+		F15DD6CE2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
+		F15DD6CF2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -324,8 +331,11 @@
 		F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTokenErrors.swift; sourceTree = "<group>"; };
 		F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
-		F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
 		F15DD6BB29300AD0004F1A57 /* SDOUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOUserInfo.swift; sourceTree = "<group>"; };
+		F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleIdRefreshTokenDTO.swift; sourceTree = "<group>"; };
+		F15DD6C12930A9E2004F1A57 /* RevokeAppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleTokenResponse.swift; sourceTree = "<group>"; };
+		F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
+		F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleTokenErrors.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
@@ -737,6 +747,8 @@
 			children = (
 				F15DD6A7292CBB2F004F1A57 /* AppleTokenResponse.swift */,
 				F15DD6B3292E933C004F1A57 /* AppleTokenErrors.swift */,
+				F15DD6C12930A9E2004F1A57 /* RevokeAppleTokenResponse.swift */,
+				F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */,
 			);
 			path = Token;
 			sourceTree = "<group>";
@@ -745,24 +757,72 @@
 			isa = PBXGroup;
 			children = (
 				F15DD6B7292EBEE9004F1A57 /* MyAccountView.swift */,
-				F15DD6B929300944004F1A57 /* MyAccountViewModel.swift */,
 			);
 			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		F15DD6C42930AB20004F1A57 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F18105CF28BD408A00580101 /* GetHomeScreenDataUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F15DD6C52930AB29004F1A57 /* VideoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */,
+				F18105D228BD418400580101 /* GetVideoDetailDataUseCase.swift */,
+			);
+			path = VideoDetail;
+			sourceTree = "<group>";
+		};
+		F15DD6C62930AB36004F1A57 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F19512D128E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift */,
+				F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F15DD6C72930AB3F004F1A57 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */,
+				F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */,
+				F14B18E62911B57A00DE8229 /* GetChannelDetailDataUseCase.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		F15DD6C82930AB5B004F1A57 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F123E177291567F400E8574C /* GetUserDataUseCase.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F15DD6C92930AD58004F1A57 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */,
+				F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		F18105CE28BD407700580101 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F18105CF28BD408A00580101 /* GetHomeScreenDataUseCase.swift */,
-				F18105D228BD418400580101 /* GetVideoDetailDataUseCase.swift */,
-				F19512D128E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift */,
-				F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */,
-				F1FC6DC228FB5502003317FC /* FilterChannelsUseCase.swift */,
-				F14B18E62911B57A00DE8229 /* GetChannelDetailDataUseCase.swift */,
-				F123E14E29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift */,
-				F123E15D2914E77600E8574C /* GetAllLanguagesUseCase.swift */,
-				F123E177291567F400E8574C /* GetUserDataUseCase.swift */,
-				F15DD6B0292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift */,
+				F15DD6C92930AD58004F1A57 /* Auth */,
+				F15DD6C82930AB5B004F1A57 /* Library */,
+				F15DD6C72930AB3F004F1A57 /* Channel */,
+				F15DD6C62930AB36004F1A57 /* Search */,
+				F15DD6C52930AB29004F1A57 /* VideoDetail */,
+				F15DD6C42930AB20004F1A57 /* Home */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -885,6 +945,7 @@
 				F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */,
 				F123E18029156AC900E8574C /* GetUserDataDTO.swift */,
 				F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */,
+				F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -1468,16 +1529,18 @@
 				F13983762881E7D0004A2375 /* AuthState.swift in Sources */,
 				F1FC6DBA28FAAFCE003317FC /* ChannelErrors.swift in Sources */,
 				F123E14A29125E1600E8574C /* SafariView.swift in Sources */,
+				F15DD6BF2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift in Sources */,
 				F1BC022028AA110F008C9361 /* GetAllChannelsDTO.swift in Sources */,
 				F1CA156C28AE097A005EDF85 /* SDOTheme.swift in Sources */,
 				F1E493FB2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F1CA158628AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
 				F1E493F72867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F15DD6A8292CBB2F004F1A57 /* AppleTokenResponse.swift in Sources */,
-				F15DD6BA29300944004F1A57 /* MyAccountViewModel.swift in Sources */,
+				F15DD6CE2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */,
 				F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */,
 				F18105EA28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F11B805D28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
+				F15DD6C22930A9E2004F1A57 /* RevokeAppleTokenResponse.swift in Sources */,
 				F15DD6B1292E9245004F1A57 /* GetAppleIdRefreshTokenUseCase.swift in Sources */,
 				F18105FD28C5DA2000580101 /* CustomErrorView.swift in Sources */,
 				F1D6522728B9A9150084907A /* SubscriptionData.swift in Sources */,
@@ -1534,6 +1597,7 @@
 				F14B18CD290E464100DE8229 /* SearchResultRow.swift in Sources */,
 				F123E14F29144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */,
 				F18105F028C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
+				F15DD6CB2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift in Sources */,
 				F1D6521A28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1E493DF2867593F008611D7 /* HomeTabViewModel.swift in Sources */,
 			);
@@ -1568,6 +1632,7 @@
 				F1EA5AA228B607B700102469 /* HasuraVideoRepository.swift in Sources */,
 				F18105D428BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
 				F14B18DE2911283F00DE8229 /* ChannelDetailViewModel.swift in Sources */,
+				F15DD6C32930A9E2004F1A57 /* RevokeAppleTokenResponse.swift in Sources */,
 				F18105E628BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
 				F11B805E28A41B8C00F3E5F5 /* GraphQLAPI.swift in Sources */,
 				F1CA158728AEE4D8005EDF85 /* VideoThumbnailsRowViewModel.swift in Sources */,
@@ -1578,6 +1643,7 @@
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F18105DD28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
 				F123E18229156AC900E8574C /* GetUserDataDTO.swift in Sources */,
+				F15DD6C02930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift in Sources */,
 				F1FC6DBB28FAAFCE003317FC /* ChannelErrors.swift in Sources */,
 				F18105F128C3995900580101 /* VideoPlayerViewModel.swift in Sources */,
 				F123E159291467DE00E8574C /* UpdateVideoLikeDislikeStatusDTO.swift in Sources */,
@@ -1593,6 +1659,7 @@
 				F1F0100C2800AF10005DC240 /* SDOApp.swift in Sources */,
 				F123E15029144F2200E8574C /* UpdateVideoLikeDislikeStatusUseCase.swift in Sources */,
 				F195130728F09A8C00DF4E2E /* ChannelsMapViewCoordinator.swift in Sources */,
+				F15DD6CF2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */,
 				F18105EB28BFB7AB00580101 /* SDOVideoPlayer.swift in Sources */,
 				F1E493FC2867A3B3008611D7 /* UserSession.swift in Sources */,
 				F123E18529156BF800E8574C /* UserDataErrors.swift in Sources */,
@@ -1626,6 +1693,7 @@
 				F181060A28CD14DD00580101 /* VideoThumbnailDetails.swift in Sources */,
 				F15DD6AC292CBB9B004F1A57 /* HasuraTokenRepository.swift in Sources */,
 				F1CA157B28AEDA4E005EDF85 /* HomeVideosRow.swift in Sources */,
+				F15DD6CC2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift in Sources */,
 				F14B18E12911A6C200DE8229 /* ChannelDetailData.swift in Sources */,
 				F123E153291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */,
 				F15DD6A5292CBAE5004F1A57 /* TokenRepository.swift in Sources */,
@@ -1807,7 +1875,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1845,7 +1913,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -15,3 +15,9 @@ mutation GetAppleIdRefreshToken($code: String!) {
     refreshToken
   }
 }
+
+mutation RevokeAppleIdRefreshToken($refreshToken: String!) {
+  revokeAppleIdRefreshToken(arg1: {refreshToken: $refreshToken}) {
+    isRevoked
+  }
+}

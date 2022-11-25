@@ -14,5 +14,6 @@ protocol TokenRepository {
     /// Get the Apple ID refresh token
     func getAppleIdRefreshToken(authorizationCode: String) async -> Result<AppleTokenResponse, BusinessError>
     
-//    func revokeAppleIdRefreshToken(refreshToken: String) async -> Result<Void, BusinessError>
+    /// Revokes the Apple ID refresh token
+    func revokeAppleIdRefreshToken(refreshToken: String) async -> Result<RevokeAppleTokenResponse, BusinessError>
 }

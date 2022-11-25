@@ -14,28 +14,32 @@ import AuthenticationServices
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
     // MARK: - Use Cases and Services
-    
+
     private let getAppleIdRefreshTokenUseCase = GetAppleIdRefreshTokenUseCase(
         tokenRepository: HasuraTokenRepository(
             graphQLService: HasuraGraphQLService()))
-    
+
+    private let revokeAppleIdRefreshTokenUseCase = RevokeAppleIdRefreshTokenUseCase(
+        tokenRepository: HasuraTokenRepository(
+            graphQLService: HasuraGraphQLService()))
+
     private let authService: SDOAuthService = FirebaseAuthService.shared
-    
+
     // MARK: - Properties
-    
+
     /// The user's log in status.
     /// - note: This will publish updates when its value changes.
     @Published var state: AuthState
-    
+
     var cancellables = Set<AnyCancellable>()
 
     /// Creates an instance of this view model.
     init() {
         self.state = .signedOut
     }
-    
+
     // MARK: - Methods
-    
+
     func restorePreviousSignIn() {
         Task { [weak self] in
             if state == .signedOut {
@@ -58,11 +62,12 @@ final class AuthenticationViewModel: ObservableObject {
             self?.state = state
         }
     }
+
     /// Configures the Apple sign-in authorization request
     func configure(appleSignInAuthorizationRequest request: ASAuthorizationAppleIDRequest) {
         return authService.configure(appleSignInAuthorizationRequest: request)
     }
-    
+
     /// Signs the user in with Apple
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
         Task { [weak self] in
@@ -108,15 +113,31 @@ final class AuthenticationViewModel: ObservableObject {
     }
     
     /// Deletes the user from all auth providers
-    func deleteUser() {
-        AppLogger.debug(UserSession.appleRefreshToken ?? "N/A")
-        Task { [weak self] in
-            if await authService.deleteAccount() {
-                AppLogger.debug("Successfully deleted user account")
-                self?.state = .signedOut
-            } else {
-                AppLogger.error("Failed to delete user account")
+    func deleteUser() async -> Bool {
+        let identityProviders = getConnectedSocialAccounts()
+        if await authService.deleteAccount() {
+            AppLogger.debug("Successfully deleted user account from Firebase")
+            guard let refreshToken = UserSession.appleRefreshToken
+            else {
+                return true
             }
+            
+            guard identityProviders.first(where: { $0.identityProvider == .apple}) != nil else {
+                return true
+            }
+            
+            // Revoke Apple ID refresh token
+            switch await revokeAppleIdRefreshTokenUseCase.execute(refreshToken: refreshToken) {
+            case let .success(response):
+                AppLogger.debug("Revoked Apple ID refresh token: \(response.isRevoked)")
+            case let .failure(error):
+                AppLogger.error("Failed to revoke Apple ID refresh token: \(error.localizedDescription)")
+            }
+
+            return true
+        } else {
+            AppLogger.error("Failed to delete user account")
+            return false
         }
     }
     
@@ -124,4 +145,6 @@ final class AuthenticationViewModel: ObservableObject {
     func getConnectedSocialAccounts() -> [SDOUserInfo] {
         return authService.getConnectedSocialAccounts()
     }
+
+    
 }
