@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MyAccountView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var myAccountViewModel = MyAccountViewModel()
     
     @State private var showingConfirmationAlert = false
     @State private var showingSuccessfulDeletionAlert = false
@@ -68,12 +67,12 @@ struct MyAccountView: View {
                     }
                     Button("myAccountNoOptionLabel", role: .cancel) {}
                 }
-                .alert("Your user account has been successfully removed from our systems. Please sign up again to create a new account.", isPresented: $showingSuccessfulDeletionAlert, actions: {
+                .alert("myAccountSuccessfulDeletionAlertLabel", isPresented: $showingSuccessfulDeletionAlert, actions: {
                     Button("OK", role: .cancel) {
                         authViewModel.signOut()
                     }
                 })
-                .alert("This operation is sensitive and requires recent authentication. Log in again before retrying this request.", isPresented: $showingUnsuccessfulDeletionAlert, actions: {
+                .alert("myAccountUnsuccessfulDeletionAlertLabel", isPresented: $showingUnsuccessfulDeletionAlert, actions: {
                     Button("OK", role: .cancel) {
                         authViewModel.signOut()
                     }
