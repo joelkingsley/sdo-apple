@@ -81,6 +81,16 @@
 "myAccountConfirmDeleteText" = "Möchten Sie Ihr Benutzerkonto wirklich löschen?";
 "myAccountYesOptionLabel" = "Ja";
 "myAccountNoOptionLabel" = "Nein";
+"myAccountSuccessfulDeletionAlertLabel" = "Ihr Benutzerkonto wurde erfolgreich aus unseren Systemen entfernt. Bitte melden Sie sich erneut an, um ein neues Konto zu erstellen.";
+"myAccountUnsuccessfulDeletionAlertLabel" = "Dieser Vorgang ist vertraulich und erfordert eine kürzlich erfolgte Authentifizierung. Melden Sie sich erneut an, bevor Sie diese Anfrage wiederholen.";
+
+// About the App
+"aboutTheAppLabel" = "Über die App";
+"aboutTheAppDescription1Text" = "Sound Doctrine Online ist eine App (derzeit nur für iOS), die Independent Fundamental Baptist Preaching und Congregational Singing aus der ganzen Welt streamt.";
+"aboutTheAppDescription2Text" = "Der Zweck von Sound Doctrine Online ist es, eine Predigt zu ermöglichen, die keine Kompromisse eingeht, die nicht ökumenisch ist und die Gottes Wort treu ist, und die jedem auf der Welt ohne Zensur zugänglich ist.";
+"aboutTheAppDescription3Text" = "Zusätzlich zu Streaming-Inhalten können Sie mithilfe der integrierten Kanalkarte überall auf der Welt Kirchen und Seelenclubs suchen und finden.";
+"aboutTheAppDescription4Text" = "Wir unterstützen und streamen nur Inhalte von Kanälen, die mit den folgenden Grundüberzeugungen übereinstimmen:\n 1. Wir glauben, dass die Errettung durch Gnade durch Glauben erfolgt. Durch den Glauben an den Herrn Jesus Christus wiedergeboren zu werden, ist die einzige Voraussetzung für die Errettung.\n 2. Wir glauben an die ewige Sicherheit des Gläubigen (einmal gerettet, immer gerettet).\n 3. Wir glauben an die Taufe durch Untertauchen in die Namen des Vaters, des Sohnes und des Heiligen Geistes.\n 4. Wir glauben, dass die Unerretteten die Ewigkeit in Qualen in einer buchstäblichen Hölle verbringen werden.\n 5. Wir glauben, dass Jesus Gott ist und dass Jesus Christus empfangen wurde dem Heiligen Geist und geboren von der Jungfrau Maria. Wir glauben auch an die Lehre von der Dreieinigkeit, wo der Vater, der Sohn und der Heilige Geist drei verschiedene Personen sind.\n 6. Wir glauben, dass Bibelübersetzungen den griechischen Textus Receptus als einzige Quelle anstelle der Schriftrollen vom Toten Meer verwenden sollten. Auf Englisch unterstützen und verwenden wir die King-James-Version der Bibel.";
+"aboutTheAppDescription5Text" = "Wir hoffen wirklich, dass diese App Ihrem Leben einen Mehrwert bringt und Ihnen hilft, online eine solide Lehre zu erhalten, wo immer Sie sind. Wenn Sie uns Feedback senden oder Teil unserer Mission werden möchten, senden Sie uns bitte eine E-Mail an die folgende Adresse:";
 
 // Videos
 "videoDetailScheduledLabel" = "Geplant";

@@ -51,7 +51,7 @@ struct LibraryTabView: View {
                         }
                         
                         NavigationLink {
-                            Text("About")
+                            AboutTheAppView()
                         } label: {
                             VStack {
                                 HStack {

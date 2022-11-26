@@ -105,6 +105,7 @@
 		F15DD6CC2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */; };
 		F15DD6CE2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
 		F15DD6CF2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
+		F15DD6D229324664004F1A57 /* AboutTheAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D129324664004F1A57 /* AboutTheAppView.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -336,6 +337,7 @@
 		F15DD6C12930A9E2004F1A57 /* RevokeAppleTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleTokenResponse.swift; sourceTree = "<group>"; };
 		F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleTokenErrors.swift; sourceTree = "<group>"; };
+		F15DD6D129324664004F1A57 /* AboutTheAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTheAppView.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 		F10497B02859A80500E7EDB5 /* LibraryTab */ = {
 			isa = PBXGroup;
 			children = (
+				F15DD6D02932463E004F1A57 /* AboutTheApp */,
 				F15DD6B6292EBE47004F1A57 /* MyAccount */,
 				F1F0102D2801E016005DC240 /* LibraryTabView.swift */,
 				F123E1712915660C00E8574C /* LibraryTabViewModel.swift */,
@@ -812,6 +815,14 @@
 				F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F15DD6D02932463E004F1A57 /* AboutTheApp */ = {
+			isa = PBXGroup;
+			children = (
+				F15DD6D129324664004F1A57 /* AboutTheAppView.swift */,
+			);
+			path = AboutTheApp;
 			sourceTree = "<group>";
 		};
 		F18105CE28BD407700580101 /* UseCases */ = {
@@ -1521,6 +1532,7 @@
 				F19512CD28E772B700DF4E2E /* SearchResultView.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */,
+				F15DD6D229324664004F1A57 /* AboutTheAppView.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
 				F19512F828F0543100DF4E2E /* ChannelsTabView.swift in Sources */,
 				F1CA158C28AF62EB005EDF85 /* Extensions+TimeInterval.swift in Sources */,
@@ -1875,7 +1887,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1913,7 +1925,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
