@@ -27,7 +27,7 @@ struct AboutTheAppView: View {
                 Text("aboutTheAppDescription5Text")
                     .padding(.horizontal)
                     .padding(.vertical, 5)
-                Link("joelkingsley.r@gmail.com", destination: URL(string: "mailto:joelkingsley.r@gmail.com")!)
+                Link("contact@sounddoctrine.online", destination: URL(string: "mailto:contact@sounddoctrine.online")!)
                     .padding(.bottom, 30)
             }
             .navigationBarTitleDisplayMode(.inline)
