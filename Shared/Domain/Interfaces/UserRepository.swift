@@ -13,4 +13,7 @@ import Foundation
 protocol UserRepository {
     /// Get the user data
     func getUserData(userUuid: String) async -> Result<UserData, BusinessError>
+    
+    /// Delete all the user data
+    func deleteAllUserData(userUuid: String) async -> Result<DeleteAllUserData, BusinessError>
 }

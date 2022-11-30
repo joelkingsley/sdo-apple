@@ -14,4 +14,6 @@ enum AuthState: Equatable {
 case signedIn(SDOUser)
 /// The user is logged out.
 case signedOut
+/// The user status is being loaded
+case loading
 }
