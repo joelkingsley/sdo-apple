@@ -106,6 +106,10 @@
 		F15DD6CE2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
 		F15DD6CF2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */; };
 		F15DD6D229324664004F1A57 /* AboutTheAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D129324664004F1A57 /* AboutTheAppView.swift */; };
+		F15DD6D52934A730004F1A57 /* DeleteAllUserDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D42934A72F004F1A57 /* DeleteAllUserDataDTO.swift */; };
+		F15DD6D62934A730004F1A57 /* DeleteAllUserDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D42934A72F004F1A57 /* DeleteAllUserDataDTO.swift */; };
+		F15DD6D829368799004F1A57 /* DeleteAllUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D729368799004F1A57 /* DeleteAllUserDataUseCase.swift */; };
+		F15DD6D929368799004F1A57 /* DeleteAllUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DD6D729368799004F1A57 /* DeleteAllUserDataUseCase.swift */; };
 		F16A64E5290685BB00ECDCFD /* LegacySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A64E4290685BB00ECDCFD /* LegacySheet.swift */; };
 		F18105C028BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
 		F18105C128BCE8C200580101 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18105BF28BCE8C200580101 /* ChannelData.swift */; };
@@ -338,6 +342,8 @@
 		F15DD6CA2930AD76004F1A57 /* RevokeAppleIdRefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleIdRefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		F15DD6CD2930ADBC004F1A57 /* RevokeAppleTokenErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevokeAppleTokenErrors.swift; sourceTree = "<group>"; };
 		F15DD6D129324664004F1A57 /* AboutTheAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTheAppView.swift; sourceTree = "<group>"; };
+		F15DD6D42934A72F004F1A57 /* DeleteAllUserDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllUserDataDTO.swift; sourceTree = "<group>"; };
+		F15DD6D729368799004F1A57 /* DeleteAllUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllUserDataUseCase.swift; sourceTree = "<group>"; };
 		F16A64E4290685BB00ECDCFD /* LegacySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySheet.swift; sourceTree = "<group>"; };
 		F18105BF28BCE8C200580101 /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
 		F18105CB28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideoDetailInfoDataDTO.swift; sourceTree = "<group>"; };
@@ -800,12 +806,13 @@
 			path = Channel;
 			sourceTree = "<group>";
 		};
-		F15DD6C82930AB5B004F1A57 /* Library */ = {
+		F15DD6C82930AB5B004F1A57 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				F123E177291567F400E8574C /* GetUserDataUseCase.swift */,
+				F15DD6D729368799004F1A57 /* DeleteAllUserDataUseCase.swift */,
 			);
-			path = Library;
+			path = User;
 			sourceTree = "<group>";
 		};
 		F15DD6C92930AD58004F1A57 /* Auth */ = {
@@ -829,7 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				F15DD6C92930AD58004F1A57 /* Auth */,
-				F15DD6C82930AB5B004F1A57 /* Library */,
+				F15DD6C82930AB5B004F1A57 /* User */,
 				F15DD6C72930AB3F004F1A57 /* Channel */,
 				F15DD6C62930AB36004F1A57 /* Search */,
 				F15DD6C52930AB29004F1A57 /* VideoDetail */,
@@ -957,6 +964,7 @@
 				F123E18029156AC900E8574C /* GetUserDataDTO.swift */,
 				F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */,
 				F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */,
+				F15DD6D42934A72F004F1A57 /* DeleteAllUserDataDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -1490,6 +1498,7 @@
 				F1D6520A28B7D3D40084907A /* GetHomeScreenDataDTO.swift in Sources */,
 				F123E16B2914E9DD00E8574C /* VideoLikeDislikeErrors.swift in Sources */,
 				F15DD6BC29300AD0004F1A57 /* SDOUserInfo.swift in Sources */,
+				F15DD6D52934A730004F1A57 /* DeleteAllUserDataDTO.swift in Sources */,
 				F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */,
 				F19512C628E60A7B00DF4E2E /* HomeScreenErrors.swift in Sources */,
 				F18105CC28BCF11800580101 /* GetVideoDetailInfoDataDTO.swift in Sources */,
@@ -1532,6 +1541,7 @@
 				F19512CD28E772B700DF4E2E /* SearchResultView.swift in Sources */,
 				F1245DB528A23054008E7EB9 /* SearchTabViewModel.swift in Sources */,
 				F1D6522A28BA0A620084907A /* TopVideoPreviewViewModel.swift in Sources */,
+				F15DD6D829368799004F1A57 /* DeleteAllUserDataUseCase.swift in Sources */,
 				F15DD6D229324664004F1A57 /* AboutTheAppView.swift in Sources */,
 				F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */,
 				F19512F828F0543100DF4E2E /* ChannelsTabView.swift in Sources */,
@@ -1632,6 +1642,7 @@
 				F1E494072868E004008611D7 /* GoogleSignInAuthenticator.swift in Sources */,
 				F123E1762915672200E8574C /* UserData.swift in Sources */,
 				F1D6522E28BA34190084907A /* UIImageColors.swift in Sources */,
+				F15DD6D929368799004F1A57 /* DeleteAllUserDataUseCase.swift in Sources */,
 				F19512D328E7875500DF4E2E /* GetVideosOfSearchParametersUseCase.swift in Sources */,
 				F15DD6BD29300AD0004F1A57 /* SDOUserInfo.swift in Sources */,
 				F14B18DA291127CC00DE8229 /* ChannelDetailView.swift in Sources */,
@@ -1652,6 +1663,7 @@
 				F123E1652914E80300E8574C /* LanguageRepository.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
+				F15DD6D62934A730004F1A57 /* DeleteAllUserDataDTO.swift in Sources */,
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F18105DD28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
 				F123E18229156AC900E8574C /* GetUserDataDTO.swift in Sources */,
@@ -1887,7 +1899,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1925,7 +1937,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SDO (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = A5U7V8A368;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

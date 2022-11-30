@@ -13,78 +13,89 @@ struct MyAccountView: View {
     @State private var showingConfirmationAlert = false
     @State private var showingSuccessfulDeletionAlert = false
     @State private var showingUnsuccessfulDeletionAlert = false
+    @State private var isLoading = false
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Text("myAccountConnectedAccountsLabel")
-                    .font(.sdoTitle3)
-                    .bold()
-                    .padding()
-                
-                VStack {
-                    ForEach(authViewModel.getConnectedSocialAccounts()) { userInfo in
+        Group {
+            if isLoading {
+                ProgressView("progressViewLoadingLabel")
+                    .progressViewStyle(.circular)
+                    .navigationBarTitle(Text("myAccountLabel", comment: "Label: Navigation bar title of My Account Screen"))
+                .navigationBarTitleDisplayMode(.inline)
+            } else {
+                ScrollView {
+                    VStack {
+                        Text("myAccountConnectedAccountsLabel")
+                            .font(.sdoTitle3)
+                            .bold()
+                            .padding()
+                        
                         VStack {
+                            ForEach(authViewModel.getConnectedSocialAccounts()) { userInfo in
+                                VStack {
+                                    HStack {
+                                        Image(systemName: userInfo.providerImageSystemName)
+                                            .padding(.horizontal, 5)
+                                        Text(userInfo.providerName)
+                                            .font(.sdoBody)
+                                        Spacer()
+                                    }
+                                    Divider()
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.top, 30)
+                        
+                        Button {
+                            showingConfirmationAlert = true
+                        } label: {
                             HStack {
-                                Image(systemName: userInfo.providerImageSystemName)
-                                    .padding(.horizontal, 5)
-                                Text(userInfo.providerName)
-                                    .font(.sdoBody)
+                                Spacer()
+                                Text("myAccountDeleteAccountLabel")
+                                    .font(.custom("Gill Sans", size: 20))
+                                    .foregroundColor(Color(uiColor: .systemBackground))
                                 Spacer()
                             }
-                            Divider()
+                            .frame(height: 60)
+                            .background(Color(uiColor: .systemRed))
+                            .cornerRadius(7)
+                            .buttonBorderShape(.roundedRectangle(radius: 7))
+                            .padding()
                         }
-                    }
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 30)
-                
-                Button {
-                    showingConfirmationAlert = true
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("myAccountDeleteAccountLabel")
-                            .font(.custom("Gill Sans", size: 20))
-                            .foregroundColor(Color(uiColor: .systemBackground))
-                        Spacer()
-                    }
-                    .frame(height: 60)
-                    .background(Color(uiColor: .systemRed))
-                    .cornerRadius(7)
-                    .buttonBorderShape(.roundedRectangle(radius: 7))
-                    .padding()
-                }
-                .alert("myAccountConfirmDeleteText", isPresented: $showingConfirmationAlert) {
-                    Button("myAccountYesOptionLabel", role: .destructive) {
-                        Task {
-                            if await authViewModel.deleteUser() {
-                                showingSuccessfulDeletionAlert = true
-                            } else {
-                                showingUnsuccessfulDeletionAlert = true
+                        .alert("myAccountConfirmDeleteText", isPresented: $showingConfirmationAlert) {
+                            Button("myAccountYesOptionLabel", role: .destructive) {
+                                Task {
+                                    isLoading = true
+                                    if await authViewModel.deleteUser() {
+                                        showingSuccessfulDeletionAlert = true
+                                    } else {
+                                        showingUnsuccessfulDeletionAlert = true
+                                    }
+                                    isLoading = false
+                                }
                             }
+                            Button("myAccountNoOptionLabel", role: .cancel) {}
                         }
+                        .alert("myAccountSuccessfulDeletionAlertLabel", isPresented: $showingSuccessfulDeletionAlert, actions: {
+                            Button("OK", role: .cancel) {
+                                authViewModel.signOut()
+                            }
+                        })
+                        .alert("myAccountUnsuccessfulDeletionAlertLabel", isPresented: $showingUnsuccessfulDeletionAlert, actions: {
+                            Button("OK", role: .cancel) {
+                                authViewModel.signOut()
+                            }
+                        })
+                        .padding(.vertical, 20)
+                        
+                        Spacer()
                     }
-                    Button("myAccountNoOptionLabel", role: .cancel) {}
+                    .navigationBarTitle(Text("myAccountLabel", comment: "Label: Navigation bar title of My Account Screen"))
+                .navigationBarTitleDisplayMode(.inline)
                 }
-                .alert("myAccountSuccessfulDeletionAlertLabel", isPresented: $showingSuccessfulDeletionAlert, actions: {
-                    Button("OK", role: .cancel) {
-                        authViewModel.signOut()
-                    }
-                })
-                .alert("myAccountUnsuccessfulDeletionAlertLabel", isPresented: $showingUnsuccessfulDeletionAlert, actions: {
-                    Button("OK", role: .cancel) {
-                        authViewModel.signOut()
-                    }
-                })
-                .padding(.vertical, 20)
-                
-                Spacer()
             }
-            .navigationBarTitle(Text("myAccountLabel", comment: "Label: Navigation bar title of My Account Screen"))
-        .navigationBarTitleDisplayMode(.inline)
         }
-
     }
 }
 

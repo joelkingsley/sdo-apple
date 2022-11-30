@@ -22,6 +22,10 @@ final class AuthenticationViewModel: ObservableObject {
     private let revokeAppleIdRefreshTokenUseCase = RevokeAppleIdRefreshTokenUseCase(
         tokenRepository: HasuraTokenRepository(
             graphQLService: HasuraGraphQLService()))
+    
+    private let deleteAllUserDataUseCase = DeleteAllUserDataUseCase(
+        userRepository: HasuraUserRepository(
+            graphQLService: HasuraGraphQLService()))
 
     private let authService: SDOAuthService = FirebaseAuthService.shared
 
@@ -35,14 +39,14 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Creates an instance of this view model.
     init() {
-        self.state = .signedOut
+        self.state = .loading
     }
 
     // MARK: - Methods
 
     func restorePreviousSignIn() {
         Task { [weak self] in
-            if state == .signedOut {
+            if state == .signedOut || state == .loading {
                 let state = await authService.restorePreviousSignIn()
                 if case let .signedIn(user) = state {
                     try? await UserSession.setUserSession(user: user, forcingRefresh: true)
@@ -54,6 +58,7 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Google
     func signInWithGoogle() {
+        state = .loading
         Task { [weak self] in
             let state = await authService.signInWithGoogle()
             if case let .signedIn(user) = state {
@@ -70,6 +75,7 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Apple
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
+        state = .loading
         Task { [weak self] in
             let (state, authorizationCode) = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
@@ -117,21 +123,29 @@ final class AuthenticationViewModel: ObservableObject {
         let identityProviders = getConnectedSocialAccounts()
         if await authService.deleteAccount() {
             AppLogger.debug("Successfully deleted user account from Firebase")
-            guard let refreshToken = UserSession.appleRefreshToken
-            else {
-                return true
-            }
             
-            guard identityProviders.first(where: { $0.identityProvider == .apple}) != nil else {
-                return true
+            // Delete user data from SDO database
+            if case let .signedIn(user) = state {
+                async let deleteAllUserDataRequest = deleteAllUserDataUseCase.execute(userUuid: user.uid)
+                switch await deleteAllUserDataRequest {
+                case let .success(response):
+                    AppLogger.debug("Deleted user data for \(response.userUuid)")
+                case let .failure(error):
+                    AppLogger.error("Failed to delete user data: \(error.localizedDescription)")
+                }
             }
-            
-            // Revoke Apple ID refresh token
-            switch await revokeAppleIdRefreshTokenUseCase.execute(refreshToken: refreshToken) {
-            case let .success(response):
-                AppLogger.debug("Revoked Apple ID refresh token: \(response.isRevoked)")
-            case let .failure(error):
-                AppLogger.error("Failed to revoke Apple ID refresh token: \(error.localizedDescription)")
+
+            if let refreshToken = UserSession.appleRefreshToken,
+               identityProviders.first(where: { $0.identityProvider == .apple}) != nil
+            {
+                // Revoke Apple ID refresh token
+                async let revokeAppleIdRefreshTokenRequest = revokeAppleIdRefreshTokenUseCase.execute(refreshToken: refreshToken)
+                switch await revokeAppleIdRefreshTokenRequest {
+                case let .success(response):
+                    AppLogger.debug("Revoked Apple ID refresh token: \(response.isRevoked)")
+                case let .failure(error):
+                    AppLogger.error("Failed to revoke Apple ID refresh token: \(error.localizedDescription)")
+                }
             }
 
             return true

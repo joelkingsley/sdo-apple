@@ -12,3 +12,9 @@ extension BusinessErrors.customError {
         BusinessErrors.serverError()
     }
 }
+
+extension BusinessErrors.customError {
+    func asErrorForDeleteAllUserDataUseCase() -> BusinessError {
+        BusinessErrors.serverError()
+    }
+}
