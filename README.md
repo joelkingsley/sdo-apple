@@ -8,7 +8,7 @@
   </a>
 </p>
 
-SDO Apple is the Apple ecosystem client for Sound Doctrine Online (sounddoctrine.online) currently supporting iPhones with iOS 16 and above.
+SDO Apple is the Apple ecosystem client for Sound Doctrine Online ([sounddoctrine.online](https://sounddoctrine.online)) currently supporting iPhones with iOS 16 and above.
 
 #### What is Sound Doctrine Online?
 Looking for non-charismatic, non-ecumenical, Independent Fundamental Baptist (IFB) preaching and congregational singing from around the world? They're all on Sound Doctrine Online.
