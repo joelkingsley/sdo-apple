@@ -8,6 +8,8 @@
 import Foundation
 
 struct AppLogger {
+    private init() {}
+    
     static func debug(_ items: Any...) {
         log(level: "DEBUG", message: items)
     }
@@ -16,7 +18,19 @@ struct AppLogger {
         log(level: "ERROR", message: items)
     }
     
-    static func log(level: String, message: Any...) {
+    static func info(_ items: String...) {
+        log(level: "INFO", message: items)
+    }
+    
+    private static func log(level: String, message: Any...) {
         print("\(level): ", message)
+    }
+    
+    static func initLog(_ file: String = #fileID) {
+        info(".... Initializing \(file)")
+    }
+    
+    static func deinitLog(_ file: String = #fileID) {
+        info(".... Deinitializing \(file)")
     }
 }

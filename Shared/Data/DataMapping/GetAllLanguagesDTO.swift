@@ -9,7 +9,7 @@ import Foundation
 
 extension GetAllLanguagesQuery.Data {
     func toEntity() -> [LanguageData] {
-        languages.map { language in
+        language.map { language in
             LanguageData(
                 languageCode: language.languageCode,
                 sourceCountryFlag: language.sourceCountryFlag

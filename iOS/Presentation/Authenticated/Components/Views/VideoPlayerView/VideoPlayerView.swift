@@ -19,7 +19,6 @@ protocol PlayableVideo {
 }
 
 struct VideoPlayerView: View {
-    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @ObservedObject var videoPlayerViewModel = VideoPlayerViewModel()
@@ -64,14 +63,12 @@ struct VideoPlayerView: View {
                             video.likedByUser = true
                             videoPlayerViewModel.updateLikeDislikeStatus(
                                 with: true,
-                                forUser: authViewModel.getUser(),
                                 forVideoId: video.videoId
                             )
                         } else {
                             video.likedByUser = nil
                             videoPlayerViewModel.updateLikeDislikeStatus(
                                 with: nil,
-                                forUser: authViewModel.getUser(),
                                 forVideoId: video.videoId
                             )
                         }
@@ -94,14 +91,12 @@ struct VideoPlayerView: View {
                             video.likedByUser = false
                             videoPlayerViewModel.updateLikeDislikeStatus(
                                 with: false,
-                                forUser: authViewModel.getUser(),
                                 forVideoId: video.videoId
                             )
                         } else {
                             video.likedByUser = nil
                             videoPlayerViewModel.updateLikeDislikeStatus(
                                 with: nil,
-                                forUser: authViewModel.getUser(),
                                 forVideoId: video.videoId
                             )
                         }

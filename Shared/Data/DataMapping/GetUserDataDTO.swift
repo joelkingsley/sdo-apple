@@ -9,12 +9,13 @@ import Foundation
 
 extension GetUserDataQuery.Data {
     func toEntity() throws -> UserData {
-        guard let usersByPk else {
+        guard let user = user.first else {
             throw BusinessErrors.parsingError()
         }
         return UserData(
-            userUuid: usersByPk.userUuid,
-            userEmail: usersByPk.userEmail
+            id: user.id,
+            userUuid: user.userUuid,
+            userEmail: user.userEmail
         )
     }
 }

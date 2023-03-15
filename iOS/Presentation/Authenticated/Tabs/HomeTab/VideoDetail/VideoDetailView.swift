@@ -13,6 +13,7 @@ struct VideoDetailView: View {
     
     init(videoId: String, channelId: String) {
         self.videoDetailViewModel = VideoDetailViewModel(videoId: videoId, channelId: channelId)
+        AppLogger.initLog()
     }
 
     var body: some View {

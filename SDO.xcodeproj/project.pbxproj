@@ -67,6 +67,10 @@
 		F13983D82895A783004A2375 /* TileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983D72895A782004A2375 /* TileButton.swift */; };
 		F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E02896D072004A2375 /* AppCustomToolbar.swift */; };
 		F13983E32896D09D004A2375 /* Extensions+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */; };
+		F14ADCBB29A28C5A009F6A67 /* VideoTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ADCBA29A28C5A009F6A67 /* VideoTypeDTO.swift */; };
+		F14ADCBC29A28C5A009F6A67 /* VideoTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ADCBA29A28C5A009F6A67 /* VideoTypeDTO.swift */; };
+		F14ADCBE29A2A57E009F6A67 /* ChannelTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ADCBD29A2A57E009F6A67 /* ChannelTypeDTO.swift */; };
+		F14ADCBF29A2A57E009F6A67 /* ChannelTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ADCBD29A2A57E009F6A67 /* ChannelTypeDTO.swift */; };
 		F14B18CD290E464100DE8229 /* SearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B18CC290E464100DE8229 /* SearchResultRow.swift */; };
 		F14B18D9291127CC00DE8229 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B18D8291127CC00DE8229 /* ChannelDetailView.swift */; };
 		F14B18DA291127CC00DE8229 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B18D8291127CC00DE8229 /* ChannelDetailView.swift */; };
@@ -315,6 +319,8 @@
 		F13983D72895A782004A2375 /* TileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileButton.swift; sourceTree = "<group>"; };
 		F13983E02896D072004A2375 /* AppCustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomToolbar.swift; sourceTree = "<group>"; };
 		F13983E22896D09D004A2375 /* Extensions+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIApplication.swift"; sourceTree = "<group>"; };
+		F14ADCBA29A28C5A009F6A67 /* VideoTypeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTypeDTO.swift; sourceTree = "<group>"; };
+		F14ADCBD29A2A57E009F6A67 /* ChannelTypeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTypeDTO.swift; sourceTree = "<group>"; };
 		F14B18CC290E464100DE8229 /* SearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
 		F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SDO (iOS).entitlements"; sourceTree = "<group>"; };
 		F14B18D8291127CC00DE8229 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
@@ -957,6 +963,8 @@
 				F123E18029156AC900E8574C /* GetUserDataDTO.swift */,
 				F15DD6AD292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift */,
 				F15DD6BE2930A97C004F1A57 /* RevokeAppleIdRefreshTokenDTO.swift */,
+				F14ADCBA29A28C5A009F6A67 /* VideoTypeDTO.swift */,
+				F14ADCBD29A2A57E009F6A67 /* ChannelTypeDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -1472,7 +1480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\nuser_input_plist_url=\"SDO.xcodeproj/xcuserdata/$USER.xcuserdatad/UserEnvironmentVariables.plist\"\nuser_input_hasura_access_key=$(/usr/libexec/PlistBuddy -c 'print:HASURA_ACCESS_KEY' ${user_input_plist_url})\nif [ -n \"$user_input_hasura_access_key\" ]; then\n    # Download schema from Hasura\n    cd \"${SRCROOT}/Shared/SupportFiles\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://sdo-hasura.hasura.app/v1/graphql\" --header=\"X-Hasura-Access-Key: $user_input_hasura_access_key\"\n\n    # Generate Swift types from GraphQL schema\n    cd \"${SRCROOT}/Shared/Data/GraphQL\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"../../SupportFiles/schema.json\" GraphQLAPI.swift\nelse\n    echo \"Skipping downloading GraphQL schema and generating Swift types\"\nfi\n";
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\nuser_input_plist_url=\"SDO.xcodeproj/xcuserdata/$USER.xcuserdatad/UserEnvironmentVariables.plist\"\nuser_input_hasura_endpoint=$(/usr/libexec/PlistBuddy -c 'print:HASURA_ENDPOINT' ${user_input_plist_url})\nuser_input_hasura_access_key=$(/usr/libexec/PlistBuddy -c 'print:HASURA_ACCESS_KEY' ${user_input_plist_url})\nif [ -n \"$user_input_hasura_access_key\" ]; then\n    # Download schema from Hasura\n    cd \"${SRCROOT}/Shared/SupportFiles\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"$user_input_hasura_endpoint\" --header=\"X-Hasura-Access-Key: $user_input_hasura_access_key\"\n\n    # Generate Swift types from GraphQL schema\n    cd \"${SRCROOT}/Shared/Data/GraphQL\"\n    \"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"../../SupportFiles/schema.json\" GraphQLAPI.swift\nelse\n    echo \"Skipping downloading GraphQL schema and generating Swift types\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1521,6 +1529,7 @@
 				F19512E028EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
 				F123E17E2915686700E8574C /* HasuraUserRepository.swift in Sources */,
 				F1E493D22866FA01008611D7 /* VideoThumbnail.swift in Sources */,
+				F14ADCBE29A2A57E009F6A67 /* ChannelTypeDTO.swift in Sources */,
 				F18105E528BF619B00580101 /* GraphQLErrorTransformer.swift in Sources */,
 				F123E18429156BF800E8574C /* UserDataErrors.swift in Sources */,
 				F123E152291451C400E8574C /* VideoLikeDislikeInputData.swift in Sources */,
@@ -1598,6 +1607,7 @@
 				F123E18129156AC900E8574C /* GetUserDataDTO.swift in Sources */,
 				F19512F228EF417300DF4E2E /* SearchResultItemType.swift in Sources */,
 				F123E1612914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
+				F14ADCBB29A28C5A009F6A67 /* VideoTypeDTO.swift in Sources */,
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
 				F195130328F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E228BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,
@@ -1664,6 +1674,7 @@
 				F11B806728A4403900F3E5F5 /* SDOGraphQLService.swift in Sources */,
 				F123E179291567F400E8574C /* GetUserDataUseCase.swift in Sources */,
 				F15DD6AF292E6C76004F1A57 /* GetAppleIdRefreshTokenDTO.swift in Sources */,
+				F14ADCBC29A28C5A009F6A67 /* VideoTypeDTO.swift in Sources */,
 				F1D6521B28B7E3F40084907A /* ThumbnailableVideo.swift in Sources */,
 				F1BC022428AA16A0008C9361 /* HasuraChannelRepository.swift in Sources */,
 				F19512E128EDDBDB00DF4E2E /* InfiniteList.swift in Sources */,
@@ -1692,6 +1703,7 @@
 				F1BC022828AA16FC008C9361 /* ChannelRepository.swift in Sources */,
 				F195130428F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E028BF552900580101 /* ApiError.swift in Sources */,
+				F14ADCBF29A2A57E009F6A67 /* ChannelTypeDTO.swift in Sources */,
 				F1E493F82867A248008611D7 /* FirebaseAuthService.swift in Sources */,
 				F123E1622914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
 				F123E17C2915682000E8574C /* UserRepository.swift in Sources */,

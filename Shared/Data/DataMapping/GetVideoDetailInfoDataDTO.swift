@@ -14,54 +14,66 @@ extension GetVideoDetailDataQuery.Data {
         formatter.dateFormat = "YYYY-MM-dd"
         guard let videoDetail = videoDetails.first,
               let datePublished = formatter.date(from: videoDetail.datePublished),
-              let thumbnailUrl = videoDetail.thumbnailUrl
+              let thumbnailUrl = videoDetail.thumbnailUrl,
+              let speaker = videoDetail._videoSpeakers.first,
+              let userLikedVideosAggregateCount = _userLikedVideosAggregate.aggregate?.count,
+              let userDislikedVideosAggregateCount = _userDislikedVideosAggregate.aggregate?.count,
+              let videoType = videoDetail.videoType,
+              let channel = videoDetail.channel,
+              let language = videoDetail.language
         else {
             throw BusinessErrors.parsingError()
         }
+        let isLiked = userLikedVideosAggregateCount > 0
+        let isDisliked = userDislikedVideosAggregateCount > 0
+        
         return VideoDetailData.InfoData(
-            videoId: videoDetail.videoId,
+            videoId: videoDetail.id,
             title: videoDetail.title,
-            videoType: try videoDetail.videoType.toEntity(),
+            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
             datePublished: datePublished,
             description: videoDetail.description,
-            speaker: videoDetail.speaker.toEntity(),
-            channel: try videoDetail.channel.toEntity(),
+            speaker: speaker.toEntity(),
+            channel: try channel.toEntity(),
             moreVideosInChannel: try moreVideosInChannel.map { try $0.toEntity() },
-            language: videoDetail.language.toEntity(),
+            language: language.toEntity(),
             thumbnailURL: thumbnailUrl,
-            likedByUser: videosLikesDislikes.first?.liked
+            likedByUser: isLiked ? true : (isDisliked ? false : nil)
         )
     }
 }
 
-extension GetVideoDetailDataQuery.Data.VideoDetail.Speaker {
+extension GetVideoDetailDataQuery.Data.VideoDetail._VideoSpeaker {
     func toEntity() -> VideoDetailData.SpeakerData {
         return VideoDetailData.SpeakerData(
-            speakerId: speakerId,
-            speakerName: speakerName
+            speakerId: speaker.id,
+            speakerName: speaker.speakerName
         )
     }
 }
 
 extension GetVideoDetailDataQuery.Data.VideoDetail.Channel {
     func toEntity() throws -> ChannelData {
+        guard let channelType else {
+            throw BusinessErrors.parsingError()
+        }
         return ChannelData(
-            channelId: channelId,
+            channelId: id,
             channelName: channelName,
             channelType: try channelType.toEntity()
         )
     }
 }
 
-extension channel_types_enum {
+extension GetVideoDetailDataQuery.Data.VideoDetail.Channel.ChannelType {
     func toEntity() throws -> ChannelTypeData {
-        switch self {
-        case .church:
+        switch channelTypeCode {
+        case "church":
             return .church
-        case .soulWinningClub:
+        case "soulWinningClub":
             return .soulWinningClub
-        case .__unknown(let rawValue):
-            AppLogger.error("Unexpectedly got invalid option for channel_types_enum: \(rawValue)")
+        default:
+            AppLogger.error("Unexpectedly got invalid channelTypeCode: \(channelTypeCode)")
             throw BusinessErrors.parsingError()
         }
     }
@@ -77,15 +89,17 @@ extension GetVideoDetailDataQuery.Data.MoreVideosInChannel {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let datePublished = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl
+              let thumbnailUrl = thumbnailUrl,
+              let speaker = _videoSpeakers.first?.speaker,
+              let channel
         else {
             throw BusinessErrors.parsingError()
         }
 
         return VideoDetailData.RelatedVideo(
-            videoId: videoId,
+            videoId: id,
             title: title,
-            channelId: channel.channelId,
+            channelId: channel.id,
             channelName: channel.channelName,
             datePublished: datePublished,
             speakerName: speaker.speakerName,
@@ -103,8 +117,8 @@ extension GetVideoDetailDataQuery.Data.VideoDetail.Language {
     }
 }
 
-extension video_types_enum {
-    func toEntity() throws -> VideoType {
+extension VideoTypeDTO {
+    func toEntity() -> VideoType {
         switch self {
         case .documentary:
             return .documentary
@@ -114,9 +128,6 @@ extension video_types_enum {
             return .sermon
         case .short:
             return .short
-        case .__unknown(let rawValue):
-            AppLogger.error("Unexpectedly got invalid option for video_types_enum: \(rawValue)")
-            throw BusinessErrors.parsingError()
         }
     }
 }

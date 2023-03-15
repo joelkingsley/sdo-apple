@@ -22,6 +22,10 @@ final class AuthenticationViewModel: ObservableObject {
     private let revokeAppleIdRefreshTokenUseCase = RevokeAppleIdRefreshTokenUseCase(
         tokenRepository: HasuraTokenRepository(
             graphQLService: HasuraGraphQLService()))
+    
+    private let getUserDataUseCase = GetUserDataUseCase(
+        userRepository: HasuraUserRepository(
+            graphQLService: HasuraGraphQLService()))
 
     private let authService: SDOAuthService = FirebaseAuthService.shared
 
@@ -58,6 +62,11 @@ final class AuthenticationViewModel: ObservableObject {
             let state = await authService.signInWithGoogle()
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
+
+                // Fetch and set user data in user session
+                if let userData = try? await getUserDataUseCase.execute(userUuid: user.uid).get() {
+                    UserSession.setUserData(userData: userData)
+                }
             }
             self?.state = state
         }
@@ -74,6 +83,11 @@ final class AuthenticationViewModel: ObservableObject {
             let (state, authorizationCode) = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
                 try? await UserSession.setUserSession(user: user)
+
+                // Fetch and set user data in user session
+                if let userData = try? await getUserDataUseCase.execute(userUuid: user.uid).get() {
+                    UserSession.setUserData(userData: userData)
+                }
             }
             if let authorizationCode,
                let refreshToken = try? await getAppleIdRefreshTokenUseCase.execute(
@@ -91,6 +105,7 @@ final class AuthenticationViewModel: ObservableObject {
             await MainActor.run {
                 if authService.signOut() {
                     self.state = .signedOut
+                    UserSession.clearSession()
                 }
             }
         }
@@ -146,5 +161,8 @@ final class AuthenticationViewModel: ObservableObject {
         return authService.getConnectedSocialAccounts()
     }
 
-    
+    /// Gets the user data from the backend database
+    private func getUserData(userUuid: String) async -> Result<UserData, BusinessError> {
+        return await getUserDataUseCase.execute(userUuid: userUuid)
+    }
 }

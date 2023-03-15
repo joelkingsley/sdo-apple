@@ -9,18 +9,18 @@ import Foundation
 
 extension GetChannelDetailQuery.Data {
     func toEntity() throws -> ChannelDetailData {
-        guard let channel = channels.first,
+        guard let channel = channel.first,
               let latitude = Double(channel.locationLat),
               let longitude = Double(channel.locationLong),
-              let websiteUrlString = channel.websiteUrl,
-              let websiteUrl = URL(string: websiteUrlString)
+              let websiteUrl = URL(string: channel.websiteUrl),
+              let channelType = channel.channelType
         else {
             throw BusinessErrors.parsingError()
         }
         return ChannelDetailData(
-            channelId: channel.channelId,
+            channelId: channel.id,
             channelName: channel.channelName,
-            channelType: try channel.channelType.toEntity(),
+            channelType: try ChannelTypeDTO(rawValue: channelType.channelTypeCode).toEntity(),
             location: ChannelDetailData.Location(
                 latitude: latitude,
                 longitude: longitude
@@ -28,7 +28,7 @@ extension GetChannelDetailQuery.Data {
             regionCode: channel.regionCode,
             videosInChannel: try channel.videosInChannel.map {
                 try $0.toEntity(
-                    channelId: channel.channelId,
+                    channelId: channel.id,
                     channelName: channel.channelName
                 )
             },
@@ -42,18 +42,21 @@ extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let thumbnailUrl,
-              let datePublished = formatter.date(from: datePublished)
+              let datePublished = formatter.date(from: datePublished),
+              let speaker = _videoSpeakers.first?.speaker,
+              let videoType,
+              let language
         else {
             throw BusinessErrors.parsingError()
         }
         return ChannelDetailData.Video(
-            videoId: videoId,
+            videoId: id,
             title: title,
-            videoType: try videoType.toEntity(),
+            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
             channelId: channelId,
             channelName: channelName,
             speaker: ChannelDetailData.Video.Speaker(
-                speakerId: speaker.speakerId,
+                speakerId: speaker.id,
                 speakerName: speaker.speakerName
             ),
             language: ChannelDetailData.Video.Language(

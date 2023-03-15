@@ -21,6 +21,7 @@ struct SearchResultView: View {
             searchText: searchText,
             language: language
         )
+        AppLogger.initLog()
     }
     
     var body: some View {
