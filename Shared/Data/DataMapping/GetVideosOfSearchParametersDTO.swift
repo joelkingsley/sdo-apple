@@ -41,7 +41,7 @@ extension GetVideosForSearchTextQuery.Data.Video {
             channelName: channel.channelName,
             datePublished: date,
             speakerName: speaker.speakerName,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
     }
@@ -86,7 +86,7 @@ extension GetVideosForSearchTextAndVideoTypeQuery.Data.Video {
             channelName: channel.channelName,
             datePublished: date,
             speakerName: speaker.speakerName,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
     }
@@ -145,7 +145,7 @@ extension GetVideosForSearchTextAndLanguageCodeQuery.Data.Video {
             channelName: channel.channelName,
             datePublished: date,
             speakerName: speaker.speakerName,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
     }
@@ -176,7 +176,7 @@ extension GetVideosForSearchTextVideoTypeAndLanguageCodeQuery.Data.Video {
             channelName: channel.channelName,
             datePublished: date,
             speakerName: speaker.speakerName,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
     }

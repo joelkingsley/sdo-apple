@@ -47,7 +47,7 @@ struct VideoDetailData {
     let videoUrl: URL?
     
     let subscriptionVideoBelongsTo: SubscriptionData?
-    let allAccessSubscription: SubscriptionData
+    let allAccessSubscription: SubscriptionData?
     
     var isVideoAccessibleToUser: Bool {
         // TODO: Check if user is subscribed to `subscriptionVideoBelongsTo` or `allAccessSubscription`

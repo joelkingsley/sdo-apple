@@ -20,7 +20,7 @@ protocol TopPreviewableVideo {
     var speakerName: String { get }
     var canUserWatch: Bool { get }
     var subscriptionForWatching: SubscriptionData? { get }
-    var allAccessSubscription: SubscriptionData { get }
+    var allAccessSubscription: SubscriptionData? { get }
     var signedUrl: URL? { get }
     var likedByUser: Bool? { get set }
 }

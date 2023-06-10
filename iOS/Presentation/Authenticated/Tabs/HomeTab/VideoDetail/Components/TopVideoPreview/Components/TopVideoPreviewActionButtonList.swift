@@ -49,17 +49,19 @@ struct TopVideoPreviewActionButtonList: View {
                     }
                 }
                 
-                HStack {
-                    Spacer()
-                    VStack {
-                        ActionButton(customFont: .sdoCallout, text: topVideoPreviewViewModel.video.allAccessSubscription.localizedSubscribeButtonText) {
-                            // TODO: Subscribe user to all access subscription
+                if let allAccessSubscription = topVideoPreviewViewModel.video.allAccessSubscription {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            ActionButton(customFont: .sdoCallout, text: allAccessSubscription.localizedSubscribeButtonText) {
+                                // TODO: Subscribe user to all access subscription
+                            }
+                            .frame(width: 250)
+                            Text(allAccessSubscription.localizedSubscriptionCostText)
+                                .font(.sdoCaption2)
                         }
-                        .frame(width: 250)
-                        Text(topVideoPreviewViewModel.video.allAccessSubscription.localizedSubscriptionCostText)
-                            .font(.sdoCaption2)
+                        Spacer()
                     }
-                    Spacer()
                 }
             }
         }
