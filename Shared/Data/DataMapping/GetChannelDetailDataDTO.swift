@@ -52,7 +52,7 @@ extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
         return ChannelDetailData.Video(
             videoId: id,
             title: title,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             channelId: channelId,
             channelName: channelName,
             speaker: ChannelDetailData.Video.Speaker(

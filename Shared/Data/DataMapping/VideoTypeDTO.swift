@@ -13,8 +13,8 @@ enum VideoTypeDTO: String {
     case short
     case music
     
-    init(rawValue: String) throws {
-        switch rawValue {
+    init(_ value: String) throws {
+        switch value {
         case "sermon":
             self = .sermon
         case "documentary":
@@ -24,7 +24,7 @@ enum VideoTypeDTO: String {
         case "music":
             self = .music
         default:
-            AppLogger.error("Unexpectedly got invalid option for VideoTypeDTO: \(rawValue)")
+            AppLogger.error("Unexpectedly got invalid option for VideoTypeDTO: \(value)")
             throw BusinessErrors.parsingError()
         }
     }

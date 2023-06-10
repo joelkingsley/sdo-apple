@@ -30,7 +30,7 @@ extension GetVideoDetailDataQuery.Data {
         return VideoDetailData.InfoData(
             videoId: videoDetail.id,
             title: videoDetail.title,
-            videoType: try VideoTypeDTO(rawValue: videoType.videoTypeName).toEntity(),
+            videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             datePublished: datePublished,
             description: videoDetail.description,
             speaker: speaker.toEntity(),
