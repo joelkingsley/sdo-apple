@@ -25,7 +25,8 @@ class GetVideoDetailDataUseCase {
         
         do {
             let infoData = try await infoDataResult.get()
-            let signedUrl = try await signedUrlResult.get()
+            // If signed url result errors, then just return nil
+            let signedUrl = try? await signedUrlResult.get()
             
             // TODO: Retrieve and set subscription data
             return .success(
@@ -33,14 +34,7 @@ class GetVideoDetailDataUseCase {
                     infoData: infoData,
                     videoUrl: signedUrl,
                     subscriptionVideoBelongsTo: nil,
-                    allAccessSubscription: SubscriptionData(
-                        subscriptionId: "",
-                        subscriptionName: "",
-                        subscriptionCost: 0,
-                        currencyCode: "",
-                        eligibleForTrial: false,
-                        timeIntervalOfTrial: 0
-                    )
+                    allAccessSubscription: nil
                 )
             )
         } catch {
