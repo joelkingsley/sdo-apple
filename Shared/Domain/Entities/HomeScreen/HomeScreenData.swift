@@ -26,4 +26,5 @@ struct HomeScreenData {
     let sermons: [HomeVideo]
     let shorts: [HomeVideo]
     let musicVideos: [HomeVideo]
+    let interviews: [HomeVideo]
 }

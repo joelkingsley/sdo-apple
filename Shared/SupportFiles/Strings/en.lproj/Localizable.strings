@@ -23,6 +23,7 @@
 "homeSermonsLabel" = "Sermons";
 "homeShortsLabel" = "Shorts";
 "homeMusicLabel" = "Music";
+"homeInterviewsLabel" = "Interviews";
 "homeShowAllLabel" = "Show All";
 
 // Search
@@ -34,6 +35,7 @@
 "searchDocumentariesButtonLabel" = "Documentaries";
 "searchShortsButtonLabel" = "Shorts";
 "searchMusicButtonLabel" = "Music";
+"searchInterviewsButtonLabel" = "Interviews";
 "searchChannelsButtonLabel" = "Channels";
 "searchLanguagesLabel" = "Languages";
 
@@ -45,6 +47,7 @@
 "searchResultsItemTypeDocumentaries" = "Documentaries";
 "searchResultsItemTypeShorts" = "Shorts";
 "searchResultsItemTypeMusic" = "Music";
+"searchResultsItemTypeInterviews" = "Interviews";
 "searchResultsFilterByLanguageLabel" = "Filter by Language:";
 "searchResultsLanguageNoneLabel" = "None";
 
@@ -100,6 +103,7 @@
 "videoDetailVideoTypeDocumentary" = "Documentary";
 "videoDetailVideoTypeShort" = "Short";
 "videoDetailVideoTypeMusic" = "Music";
+"videoDetailVideoTypeInterview" = "Interview";
 "videoDetailPlayButtonLabel" = "Play";
 "videoDetailStopButtonLabel" = "Stop";
 "videoDetailMoreTextLabel" = "more";

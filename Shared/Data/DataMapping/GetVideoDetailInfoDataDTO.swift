@@ -123,6 +123,8 @@ extension VideoTypeDTO {
             return .sermon
         case .short:
             return .short
+        case .interview:
+            return .interview
         }
     }
 }

@@ -85,6 +85,24 @@ query GetHomeScreenData {
       videoTypeName
     }
   }
+  interviews: Video(where: {VideoType: {videoTypeName: {_eq: "interview"}}}, order_by: {datePublished: desc}, limit: 15) {
+    id
+    Channel {
+      id
+      channelName
+    }
+    datePublished
+    title
+    _Video_speakers {
+      Speaker {
+        speakerName
+      }
+    }
+    thumbnailUrl
+    VideoType {
+      videoTypeName
+    }
+  }
 }
 
 query GetVideoDetailData($videoId: String!, $channelId: String!, $userUuid: String!) {

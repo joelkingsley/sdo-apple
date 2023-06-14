@@ -13,4 +13,5 @@ enum SearchResultItemType: LocalizedStringKey, CaseIterable {
     case documentaries = "searchResultsItemTypeDocumentaries"
     case shorts = "searchResultsItemTypeShorts"
     case music = "searchResultsItemTypeMusic"
+    case interviews = "searchResultsItemTypeInterviews"
 }

@@ -1346,6 +1346,33 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
           videoTypeName
         }
       }
+      interviews: Video(
+        where: {VideoType: {videoTypeName: {_eq: "interview"}}}
+        order_by: {datePublished: desc}
+        limit: 15
+      ) {
+        __typename
+        id
+        Channel {
+          __typename
+          id
+          channelName
+        }
+        datePublished
+        title
+        _Video_speakers {
+          __typename
+          Speaker {
+            __typename
+            speakerName
+          }
+        }
+        thumbnailUrl
+        VideoType {
+          __typename
+          videoTypeName
+        }
+      }
     }
     """
 
@@ -1363,6 +1390,7 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
         GraphQLField("Video", alias: "sermons", arguments: ["where": ["VideoType": ["videoTypeName": ["_eq": "sermon"]]], "order_by": ["datePublished": "desc"], "limit": 15], type: .nonNull(.list(.nonNull(.object(Sermon.selections))))),
         GraphQLField("Video", alias: "shorts", arguments: ["where": ["VideoType": ["videoTypeName": ["_eq": "short"]]], "order_by": ["datePublished": "desc"], "limit": 15], type: .nonNull(.list(.nonNull(.object(Short.selections))))),
         GraphQLField("Video", alias: "musicVideos", arguments: ["where": ["VideoType": ["videoTypeName": ["_eq": "music"]]], "order_by": ["datePublished": "desc"], "limit": 15], type: .nonNull(.list(.nonNull(.object(MusicVideo.selections))))),
+        GraphQLField("Video", alias: "interviews", arguments: ["where": ["VideoType": ["videoTypeName": ["_eq": "interview"]]], "order_by": ["datePublished": "desc"], "limit": 15], type: .nonNull(.list(.nonNull(.object(Interview.selections))))),
       ]
     }
 
@@ -1372,8 +1400,8 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(documentaries: [Documentary], sermons: [Sermon], shorts: [Short], musicVideos: [MusicVideo]) {
-      self.init(unsafeResultMap: ["__typename": "query_root", "documentaries": documentaries.map { (value: Documentary) -> ResultMap in value.resultMap }, "sermons": sermons.map { (value: Sermon) -> ResultMap in value.resultMap }, "shorts": shorts.map { (value: Short) -> ResultMap in value.resultMap }, "musicVideos": musicVideos.map { (value: MusicVideo) -> ResultMap in value.resultMap }])
+    public init(documentaries: [Documentary], sermons: [Sermon], shorts: [Short], musicVideos: [MusicVideo], interviews: [Interview]) {
+      self.init(unsafeResultMap: ["__typename": "query_root", "documentaries": documentaries.map { (value: Documentary) -> ResultMap in value.resultMap }, "sermons": sermons.map { (value: Sermon) -> ResultMap in value.resultMap }, "shorts": shorts.map { (value: Short) -> ResultMap in value.resultMap }, "musicVideos": musicVideos.map { (value: MusicVideo) -> ResultMap in value.resultMap }, "interviews": interviews.map { (value: Interview) -> ResultMap in value.resultMap }])
     }
 
     /// fetch data from the table: "Video"
@@ -1413,6 +1441,16 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
       }
       set {
         resultMap.updateValue(newValue.map { (value: MusicVideo) -> ResultMap in value.resultMap }, forKey: "musicVideos")
+      }
+    }
+
+    /// fetch data from the table: "Video"
+    public var interviews: [Interview] {
+      get {
+        return (resultMap["interviews"] as! [ResultMap]).map { (value: ResultMap) -> Interview in Interview(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: Interview) -> ResultMap in value.resultMap }, forKey: "interviews")
       }
     }
 
@@ -2224,6 +2262,275 @@ public final class GetHomeScreenDataQuery: GraphQLQuery {
     }
 
     public struct MusicVideo: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Video"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(String.self))),
+          GraphQLField("Channel", type: .object(Channel.selections)),
+          GraphQLField("datePublished", type: .nonNull(.scalar(String.self))),
+          GraphQLField("title", type: .nonNull(.scalar(String.self))),
+          GraphQLField("_Video_speakers", type: .nonNull(.list(.nonNull(.object(_VideoSpeaker.selections))))),
+          GraphQLField("thumbnailUrl", type: .nonNull(.scalar(String.self))),
+          GraphQLField("VideoType", type: .object(VideoType.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: String, channel: Channel? = nil, datePublished: String, title: String, _videoSpeakers: [_VideoSpeaker], thumbnailUrl: String, videoType: VideoType? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Video", "id": id, "Channel": channel.flatMap { (value: Channel) -> ResultMap in value.resultMap }, "datePublished": datePublished, "title": title, "_Video_speakers": _videoSpeakers.map { (value: _VideoSpeaker) -> ResultMap in value.resultMap }, "thumbnailUrl": thumbnailUrl, "VideoType": videoType.flatMap { (value: VideoType) -> ResultMap in value.resultMap }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: String {
+        get {
+          return resultMap["id"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      /// An object relationship
+      public var channel: Channel? {
+        get {
+          return (resultMap["Channel"] as? ResultMap).flatMap { Channel(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "Channel")
+        }
+      }
+
+      public var datePublished: String {
+        get {
+          return resultMap["datePublished"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "datePublished")
+        }
+      }
+
+      public var title: String {
+        get {
+          return resultMap["title"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "title")
+        }
+      }
+
+      /// An array relationship
+      public var _videoSpeakers: [_VideoSpeaker] {
+        get {
+          return (resultMap["_Video_speakers"] as! [ResultMap]).map { (value: ResultMap) -> _VideoSpeaker in _VideoSpeaker(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: _VideoSpeaker) -> ResultMap in value.resultMap }, forKey: "_Video_speakers")
+        }
+      }
+
+      public var thumbnailUrl: String {
+        get {
+          return resultMap["thumbnailUrl"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "thumbnailUrl")
+        }
+      }
+
+      /// An object relationship
+      public var videoType: VideoType? {
+        get {
+          return (resultMap["VideoType"] as? ResultMap).flatMap { VideoType(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "VideoType")
+        }
+      }
+
+      public struct Channel: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Channel"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(String.self))),
+            GraphQLField("channelName", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: String, channelName: String) {
+          self.init(unsafeResultMap: ["__typename": "Channel", "id": id, "channelName": channelName])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String {
+          get {
+            return resultMap["id"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var channelName: String {
+          get {
+            return resultMap["channelName"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "channelName")
+          }
+        }
+      }
+
+      public struct _VideoSpeaker: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["_Video_speaker"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("Speaker", type: .nonNull(.object(Speaker.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(speaker: Speaker) {
+          self.init(unsafeResultMap: ["__typename": "_Video_speaker", "Speaker": speaker.resultMap])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// An object relationship
+        public var speaker: Speaker {
+          get {
+            return Speaker(unsafeResultMap: resultMap["Speaker"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "Speaker")
+          }
+        }
+
+        public struct Speaker: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Speaker"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("speakerName", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(speakerName: String) {
+            self.init(unsafeResultMap: ["__typename": "Speaker", "speakerName": speakerName])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var speakerName: String {
+            get {
+              return resultMap["speakerName"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "speakerName")
+            }
+          }
+        }
+      }
+
+      public struct VideoType: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["VideoType"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("videoTypeName", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(videoTypeName: String) {
+          self.init(unsafeResultMap: ["__typename": "VideoType", "videoTypeName": videoTypeName])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var videoTypeName: String {
+          get {
+            return resultMap["videoTypeName"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "videoTypeName")
+          }
+        }
+      }
+    }
+
+    public struct Interview: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["Video"]
 
       public static var selections: [GraphQLSelection] {
