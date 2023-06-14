@@ -43,14 +43,17 @@ struct VideoPlayerView: View {
             ScrollView {
                 Text(video.title)
                     .font(.sdoTitle3)
+                    .multilineTextAlignment(.center)
                 
                 Text("\(video.speakerName) · \(video.channelName)")
                     .font(.sdoCaption)
                     .foregroundColor(Color(uiColor: .secondaryLabel))
+                    .multilineTextAlignment(.center)
                 
                 Text(video.datePublished.formatted(date: .abbreviated, time: .omitted))
                     .font(.sdoCaption)
                     .foregroundColor(Color(uiColor: .secondaryLabel))
+                    .multilineTextAlignment(.center)
                 
                 Spacer()
                     .frame(height: 20)
