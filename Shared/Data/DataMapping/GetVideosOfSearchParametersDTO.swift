@@ -26,7 +26,7 @@ extension GetVideosForSearchTextQuery.Data.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let date = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl,
+              let thumbnailUrl = URL(string: thumbnailUrl),
               let speaker = _videoSpeakers.first?.speaker,
               let channel,
               let videoType
@@ -44,11 +44,6 @@ extension GetVideosForSearchTextQuery.Data.Video {
             videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
-    }
-    
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
 
@@ -71,7 +66,7 @@ extension GetVideosForSearchTextAndVideoTypeQuery.Data.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let date = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl,
+              let thumbnailUrl = URL(string: thumbnailUrl),
               let channel,
               let speaker = _videoSpeakers.first?.speaker,
               let videoType
@@ -89,11 +84,6 @@ extension GetVideosForSearchTextAndVideoTypeQuery.Data.Video {
             videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
-    }
-    
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
 
@@ -130,7 +120,7 @@ extension GetVideosForSearchTextAndLanguageCodeQuery.Data.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let date = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl,
+              let thumbnailUrl = URL(string: thumbnailUrl),
               let channel,
               let speaker = _videoSpeakers.first?.speaker,
               let videoType
@@ -148,11 +138,6 @@ extension GetVideosForSearchTextAndLanguageCodeQuery.Data.Video {
             videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
-    }
-    
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
 
@@ -161,7 +146,7 @@ extension GetVideosForSearchTextVideoTypeAndLanguageCodeQuery.Data.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let date = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl,
+              let thumbnailUrl = URL(string: thumbnailUrl),
               let channel,
               let speaker = _videoSpeakers.first?.speaker,
               let videoType
@@ -179,10 +164,5 @@ extension GetVideosForSearchTextVideoTypeAndLanguageCodeQuery.Data.Video {
             videoType: try VideoTypeDTO(videoType.videoTypeName).toEntity(),
             thumbnailURL: thumbnailUrl
         )
-    }
-    
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
