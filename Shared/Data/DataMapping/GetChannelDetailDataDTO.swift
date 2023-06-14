@@ -41,7 +41,7 @@ extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
     func toEntity(channelId: String, channelName: String) throws -> ChannelDetailData.Video {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
-        guard let thumbnailUrl,
+        guard let thumbnailUrl = URL(string: thumbnailUrl),
               let datePublished = formatter.date(from: datePublished),
               let speaker = _videoSpeakers.first?.speaker,
               let videoType,
@@ -67,12 +67,5 @@ extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
             description: description,
             datePublished: datePublished
         )
-    }
-}
-
-extension GetChannelDetailQuery.Data.Channel.VideosInChannel {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }

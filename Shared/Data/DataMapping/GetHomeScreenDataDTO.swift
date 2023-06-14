@@ -14,7 +14,7 @@ extension GetHomeScreenDataQuery.Data {
         
         let documentaryVideos = try documentaries.map { video -> HomeScreenData.HomeVideo in
             guard let datePublished = formatter.date(from: video.datePublished),
-                  let thumbnailUrl = video.thumbnailUrl,
+                  let thumbnailUrl = URL(string: video.thumbnailUrl),
                   let speaker = video._videoSpeakers.first?.speaker,
                   let channel = video.channel
             else {
@@ -33,7 +33,7 @@ extension GetHomeScreenDataQuery.Data {
         
         let sermonVideos = try sermons.map { video -> HomeScreenData.HomeVideo in
             guard let datePublished = formatter.date(from: video.datePublished),
-                  let thumbnailUrl = video.thumbnailUrl,
+                  let thumbnailUrl = URL(string: video.thumbnailUrl),
                   let speaker = video._videoSpeakers.first?.speaker,
                   let channel = video.channel
             else {
@@ -52,7 +52,7 @@ extension GetHomeScreenDataQuery.Data {
         
         let shortVideos = try shorts.map { video -> HomeScreenData.HomeVideo in
             guard let datePublished = formatter.date(from: video.datePublished),
-                  let thumbnailUrl = video.thumbnailUrl,
+                  let thumbnailUrl = URL(string: video.thumbnailUrl),
                   let speaker = video._videoSpeakers.first?.speaker,
                   let channel = video.channel
             else {
@@ -71,7 +71,7 @@ extension GetHomeScreenDataQuery.Data {
 
         let music = try musicVideos.map { video -> HomeScreenData.HomeVideo in
             guard let datePublished = formatter.date(from: video.datePublished),
-                  let thumbnailUrl = video.thumbnailUrl,
+                  let thumbnailUrl = URL(string: video.thumbnailUrl),
                   let channel = video.channel,
                   let speaker = video._videoSpeakers.first?.speaker
             else {
@@ -94,33 +94,5 @@ extension GetHomeScreenDataQuery.Data {
             shorts: shortVideos,
             musicVideos: music
         )
-    }
-}
-
-extension GetHomeScreenDataQuery.Data.Documentary {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
-    }
-}
-
-extension GetHomeScreenDataQuery.Data.Sermon {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
-    }
-}
-
-extension GetHomeScreenDataQuery.Data.Short {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
-    }
-}
-
-extension GetHomeScreenDataQuery.Data.MusicVideo {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }

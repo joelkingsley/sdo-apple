@@ -14,7 +14,7 @@ extension GetVideoDetailDataQuery.Data {
         formatter.dateFormat = "YYYY-MM-dd"
         guard let videoDetail = videoDetails.first,
               let datePublished = formatter.date(from: videoDetail.datePublished),
-              let thumbnailUrl = videoDetail.thumbnailUrl,
+              let thumbnailUrl = URL(string: videoDetail.thumbnailUrl),
               let speaker = videoDetail._videoSpeakers.first,
               let userLikedVideosAggregateCount = _userLikedVideosAggregate.aggregate?.count,
               let userDislikedVideosAggregateCount = _userDislikedVideosAggregate.aggregate?.count,
@@ -80,16 +80,11 @@ extension GetVideoDetailDataQuery.Data.VideoDetail.Channel.ChannelType {
 }
 
 extension GetVideoDetailDataQuery.Data.MoreVideosInChannel {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
-    }
-    
     func toEntity() throws -> VideoDetailData.RelatedVideo {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         guard let datePublished = formatter.date(from: datePublished),
-              let thumbnailUrl = thumbnailUrl,
+              let thumbnailUrl = URL(string: thumbnailUrl),
               let speaker = _videoSpeakers.first?.speaker,
               let channel
         else {
@@ -129,12 +124,5 @@ extension VideoTypeDTO {
         case .short:
             return .short
         }
-    }
-}
-
-extension GetVideoDetailDataQuery.Data.VideoDetail {
-    var thumbnailUrl: URL? {
-        let baseUrl = ApiConstants.googleCloudStorageBaseUrl
-        return URL(string: "\(baseUrl)/\(gcpThumbnailBucketName)/\(gcpThumbnailFileName)")
     }
 }
