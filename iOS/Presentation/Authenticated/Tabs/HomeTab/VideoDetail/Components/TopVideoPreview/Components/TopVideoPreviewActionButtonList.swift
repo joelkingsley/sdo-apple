@@ -27,6 +27,9 @@ struct TopVideoPreviewActionButtonList: View {
 
                     NavigationLink(isActive: $showVideoPlayerView) {
                         VideoPlayerView(video: topVideoPreviewViewModel.video)
+                            .onAppear {
+                                topVideoPreviewViewModel.trackPlayPressed()
+                            }
                     } label: {
                         EmptyView()
                     }

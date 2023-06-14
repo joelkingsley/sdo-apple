@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import AVFoundation
+import FirebaseAnalytics
 
 class TopVideoPreviewViewModel: ObservableObject {
     @Published var video: TopPreviewableVideo & PlayableVideo
@@ -58,6 +59,15 @@ class TopVideoPreviewViewModel: ObservableObject {
         videoIdOfCurrentlyPlayingItem = video.videoId
         player.seek(to: .zero)
         player.pause()
+    }
+    
+    func trackPlayPressed() {
+        Analytics.logEvent(
+            AnalyticsConstants.videoPlayedEvent,
+            parameters: [
+                AnalyticsConstants.videoID: video.videoId
+            ]
+        )
     }
     
     private func setPlayer() {

@@ -252,6 +252,9 @@
 		F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102028019353005DC240 /* AppTabNavigation.swift */; };
 		F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010232801A9E1005DC240 /* HomeTabView.swift */; };
 		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
+		F1F4B4372A39BD2E0004113B /* AnalyticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4B4362A39BD2E0004113B /* AnalyticsConstants.swift */; };
+		F1F4B4382A39BD2E0004113B /* AnalyticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4B4362A39BD2E0004113B /* AnalyticsConstants.swift */; };
+		F1F4B43A2A39BE600004113B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1F4B4392A39BE600004113B /* FirebaseAnalyticsSwift */; };
 		F1FC6DAE28F69A78003317FC /* ChannelsSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */; };
 		F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
 		F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
@@ -427,6 +430,7 @@
 		F1F0102028019353005DC240 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		F1F010232801A9E1005DC240 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
+		F1F4B4362A39BD2E0004113B /* AnalyticsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsConstants.swift; sourceTree = "<group>"; };
 		F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsSelectionSheet.swift; sourceTree = "<group>"; };
 		F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsData.swift; sourceTree = "<group>"; };
 		F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsDataUseCase.swift; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 				F1E493D52866FAB0008611D7 /* Kingfisher in Frameworks */,
 				F1EE14EE286EFB320020CD74 /* Apollo in Frameworks */,
 				F139837E28821964004A2375 /* FirebaseDatabaseSwift in Frameworks */,
+				F1F4B43A2A39BE600004113B /* FirebaseAnalyticsSwift in Frameworks */,
 				F1E493E228679EB3008611D7 /* FirebaseAuth in Frameworks */,
 				F1E493EA28679EB3008611D7 /* FirebaseRemoteConfigSwift in Frameworks */,
 				F1EE14F0286EFB320020CD74 /* ApolloWebSocket in Frameworks */,
@@ -555,6 +560,7 @@
 		F10676952813FD3400B8B843 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F1F4B4362A39BD2E0004113B /* AnalyticsConstants.swift */,
 				F19512EE28EF329E00DF4E2E /* ApiConstants.swift */,
 				F13983CD28906ED9004A2375 /* schema.json */,
 				F1E494082868E0FE008611D7 /* GoogleService-Info.plist */,
@@ -1308,6 +1314,7 @@
 				F1EE14ED286EFB320020CD74 /* Apollo */,
 				F1EE14EF286EFB320020CD74 /* ApolloWebSocket */,
 				F139837D28821964004A2375 /* FirebaseDatabaseSwift */,
+				F1F4B4392A39BE600004113B /* FirebaseAnalyticsSwift */,
 			);
 			productName = "SDO (iOS)";
 			productReference = F1F00FEA2800AF10005DC240 /* SDO.app */;
@@ -1609,6 +1616,7 @@
 				F123E1612914E79300E8574C /* HasuraLanguageRepository.swift in Sources */,
 				F14ADCBB29A28C5A009F6A67 /* VideoTypeDTO.swift in Sources */,
 				F1EA5AA428B607D700102469 /* VideoRepository.swift in Sources */,
+				F1F4B4372A39BD2E0004113B /* AnalyticsConstants.swift in Sources */,
 				F195130328F09A6C00DF4E2E /* MapView.swift in Sources */,
 				F18105E228BF5EB800580101 /* HasuraGraphQLErrorResponseDTO.swift in Sources */,
 				F1E494132869910B008611D7 /* SignInView.swift in Sources */,
@@ -1661,6 +1669,7 @@
 				F11B806128A42D0600F3E5F5 /* HasuraGraphQLService.swift in Sources */,
 				F123E1652914E80300E8574C /* LanguageRepository.swift in Sources */,
 				F1E493F32867A202008611D7 /* SDOAuthService.swift in Sources */,
+				F1F4B4382A39BD2E0004113B /* AnalyticsConstants.swift in Sources */,
 				F1F0100E2800AF10005DC240 /* ContentView.swift in Sources */,
 				F18105EE28BFD7AB00580101 /* Extensions+AVPlayer.swift in Sources */,
 				F18105DD28BE78CC00580101 /* GetSignedUrlOfVideoDTO.swift in Sources */,
@@ -2256,6 +2265,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1EE14EC286EFB320020CD74 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		F1F4B4392A39BE600004113B /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1E493E028679EB3008611D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

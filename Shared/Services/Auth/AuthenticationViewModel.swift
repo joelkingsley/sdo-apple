@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import Combine
 import AuthenticationServices
+import FirebaseAnalytics
 
 /// A class conforming to `ObservableObject` used to represent a user's authentication status.
 @MainActor
@@ -148,10 +149,21 @@ final class AuthenticationViewModel: ObservableObject {
             case let .failure(error):
                 AppLogger.error("Failed to revoke Apple ID refresh token: \(error.localizedDescription)")
             }
-
+            Analytics.logEvent(
+                AnalyticsConstants.deleteUserEvent,
+                parameters: [
+                    AnalyticsConstants.isSuccessfulProperty: true
+                ]
+            )
             return true
         } else {
             AppLogger.error("Failed to delete user account")
+            Analytics.logEvent(
+                AnalyticsConstants.deleteUserEvent,
+                parameters: [
+                    AnalyticsConstants.isSuccessfulProperty: false
+                ]
+            )
             return false
         }
     }
