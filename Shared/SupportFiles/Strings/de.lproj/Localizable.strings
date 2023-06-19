@@ -22,6 +22,7 @@
 "homeSermonsLabel" = "Predigten";
 "homeShortsLabel" = "Kurze Videos";
 "homeMusicLabel" = "Musik";
+"homeInterviewsLabel" = "Interviews";
 "homeShowAllLabel" = "Zeige alles";
 
 // Search
@@ -33,6 +34,7 @@
 "searchDocumentariesButtonLabel" = "Dokumentarfilme";
 "searchShortsButtonLabel" = "Kurze Videos";
 "searchMusicButtonLabel" = "Musik";
+"searchInterviewsButtonLabel" = "Interviews";
 "searchChannelsButtonLabel" = "Kanäle";
 "searchLanguagesLabel" = "Sprachen";
 
@@ -44,6 +46,7 @@
 "searchResultsItemTypeDocumentaries" = "Dokumentarfilme";
 "searchResultsItemTypeShorts" = "Kurze Videos";
 "searchResultsItemTypeMusic" = "Musik";
+"searchResultsItemTypeInterviews" = "Interviews";
 "searchResultsFilterByLanguageLabel" = "Nach Sprache filtern:";
 "searchResultsLanguageNoneLabel" = "Keiner";
 
@@ -99,6 +102,7 @@
 "videoDetailVideoTypeDocumentary" = "Dokumentarfilm";
 "videoDetailVideoTypeShort" = "Kurze Video";
 "videoDetailVideoTypeMusic" = "Musik";
+"videoDetailVideoTypeInterview" = "Interview";
 "videoDetailPlayButtonLabel" = "Wiedergeben";
 "videoDetailStopButtonLabel" = "Halt";
 "videoDetailMoreTextLabel" = "mehr";

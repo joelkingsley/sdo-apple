@@ -12,6 +12,7 @@ enum VideoType: String, Equatable {
     case documentary = "videoDetailVideoTypeDocumentary"
     case short = "videoDetailVideoTypeShort"
     case music = "videoDetailVideoTypeMusic"
+    case interview = "videoDetailVideoTypeInterview"
     
     func localizedString() -> String {
         return String(localized: String.LocalizationValue(self.rawValue))

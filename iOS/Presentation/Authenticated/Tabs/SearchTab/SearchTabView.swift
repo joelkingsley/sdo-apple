@@ -18,6 +18,7 @@ struct SearchTabView: View {
     @State private var showDocumentariesResultView = false
     @State private var showShortsResultView = false
     @State private var showMusicResultView = false
+    @State private var showInterviewsResultView = false
     
     var body: some View {
         Group {
@@ -75,8 +76,18 @@ struct SearchTabView: View {
                                 }
                             }
                             .padding(.horizontal, 10)
-                            TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
-                                tabSelection = .Channels
+                            HStack {
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .interviews, language: LanguageData()),
+                                    isActive: $showInterviewsResultView) {
+                                    TileButton(text: "searchInterviewsButtonLabel", imageName: "interviews") {
+                                        showInterviewsResultView = true
+                                    }
+                                }
+                                Spacer()
+                                TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
+                                    tabSelection = .Channels
+                                }
                             }
                             .padding(.horizontal, 10)
                             .padding(.bottom, 10)

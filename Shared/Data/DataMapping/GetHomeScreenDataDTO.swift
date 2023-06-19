@@ -87,12 +87,33 @@ extension GetHomeScreenDataQuery.Data {
                 thumbnailURL: thumbnailUrl
             )
         }
+        
+        let interviewVideos = try interviews.map { video -> HomeScreenData.HomeVideo in
+            guard let datePublished = formatter.date(from: video.datePublished),
+                  let thumbnailUrl = URL(string: video.thumbnailUrl),
+                  let channel = video.channel,
+                  let speaker = video._videoSpeakers.first?.speaker
+            else {
+                throw BusinessErrors.parsingError()
+            }
+            return HomeScreenData.HomeVideo(
+                videoId: video.id,
+                title: video.title,
+                channelId: channel.id,
+                channelName: channel.channelName,
+                datePublished: datePublished,
+                speakerName: speaker.speakerName,
+                thumbnailURL: thumbnailUrl
+            )
+        }
+
 
         return HomeScreenData(
             documentaries: documentaryVideos,
             sermons: sermonVideos,
             shorts: shortVideos,
-            musicVideos: music
+            musicVideos: music,
+            interviews: interviewVideos
         )
     }
 }

@@ -205,6 +205,8 @@ extension VideoType {
             self = .short
         case .music:
             self = .music
+        case .interviews:
+            self = .interview
         }
     }
 }
