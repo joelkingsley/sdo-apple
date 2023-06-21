@@ -527,12 +527,6 @@
             "description": "unique or primary key constraint on columns \"id\"",
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "Admin_type_key",
-            "description": "unique or primary key constraint on columns \"type\"",
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -9732,38 +9726,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
@@ -11481,30 +11443,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "String_comparison_exp",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "String_comparison_exp",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "type": {
@@ -11757,30 +11695,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "type": {
@@ -11925,30 +11839,6 @@
           },
           {
             "name": "gcpStorageFileName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
             "description": null,
             "args": [],
             "type": {
@@ -12117,30 +12007,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "type": {
@@ -12285,30 +12151,6 @@
           },
           {
             "name": "gcpStorageFileName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
             "description": null,
             "args": [],
             "type": {
@@ -12466,30 +12308,6 @@
           },
           {
             "name": "gcpStorageFileName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12885,30 +12703,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "order_by",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "type": {
@@ -13059,18 +12853,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": "column name",
             "isDeprecated": false,
@@ -13178,30 +12960,6 @@
           },
           {
             "name": "gcpStorageFileName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13409,30 +13167,6 @@
             "deprecationReason": null
           },
           {
-            "name": "gcpThumbnailBucketName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "type": {
@@ -13550,18 +13284,6 @@
           },
           {
             "name": "gcpStorageFileName",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailBucketName",
-            "description": "column name",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gcpThumbnailFileName",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -14169,7 +13891,7 @@
         "enumValues": [
           {
             "name": "_User_dislikedVideos_AB_unique",
-            "description": "unique or primary key constraint on columns \"A\", \"B\"",
+            "description": "unique or primary key constraint on columns \"B\", \"A\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -15280,7 +15002,7 @@
         "enumValues": [
           {
             "name": "_User_likedVideos_AB_unique",
-            "description": "unique or primary key constraint on columns \"A\", \"B\"",
+            "description": "unique or primary key constraint on columns \"B\", \"A\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -16391,7 +16113,7 @@
         "enumValues": [
           {
             "name": "_Video_speaker_AB_unique",
-            "description": "unique or primary key constraint on columns \"A\", \"B\"",
+            "description": "unique or primary key constraint on columns \"B\", \"A\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
