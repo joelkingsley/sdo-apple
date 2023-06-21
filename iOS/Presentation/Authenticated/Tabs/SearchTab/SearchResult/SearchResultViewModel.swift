@@ -32,7 +32,7 @@ class SearchResultViewModel: ObservableObject {
     @Published var selectedSearchResultLanguage: LanguageData
     
     /// Constant to denote how many videos to fetch at a time
-    private let pageLimit = 10
+    private let pageLimit = 1000
     
     // MARK: - Api data and view state
     
@@ -118,8 +118,10 @@ class SearchResultViewModel: ObservableObject {
             )
         }
     }
-    
+
+    /// Invoked when last video scrolled to in search results
     func onLastVideoReached() {
+        // TODO: Removed from usage. Infinite list implementation to be fixed.
         Task {
             if totalAvailableVideosForSearchResult > searchResultVideos.count {
                 isLoadingMoreVideos = true

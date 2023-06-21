@@ -25,71 +25,68 @@ struct SearchResultView: View {
     }
     
     var body: some View {
-        if let error = searchResultViewModel.errorOccurred {
-            CustomErrorView(
-                error: error,
-                authViewModel: authViewModel,
-                tryAgainHandler: {
-                    searchResultViewModel.onLoaded()
-                }
-            )
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("searchResultsScreenNavigationTitle")
-        } else if searchResultViewModel.isPageLoaded {
-            ScrollView(.vertical, showsIndicators: true) {
-                VStack {
-                    Picker("SearchResultItemTypes", selection: $searchResultViewModel.selectedSearchResultItemType) {
-                        ForEach(SearchResultItemType.allCases, id: \.self) { option in
-                            Text(option.rawValue)
-                        }
+        Group {
+            if let error = searchResultViewModel.errorOccurred {
+                CustomErrorView(
+                    error: error,
+                    authViewModel: authViewModel,
+                    tryAgainHandler: {
+                        searchResultViewModel.onLoaded()
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                    
-                    HStack {
-                        Spacer()
-                            .frame(width: 20)
-                        Text("Filter by Language Code:")
-                        Picker("Languages", selection: $searchResultViewModel.selectedSearchResultLanguage) {
-                            ForEach(searchResultViewModel.allLanguages, id: \.self) { option in
-                                Text("\(option.sourceCountryFlag) \(option.languageName)")
+                )
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("searchResultsScreenNavigationTitle")
+            } else if searchResultViewModel.isPageLoaded {
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack {
+                        Picker("SearchResultItemTypes", selection: $searchResultViewModel.selectedSearchResultItemType) {
+                            ForEach(SearchResultItemType.allCases, id: \.self) { option in
+                                Text(option.rawValue)
                             }
                         }
-                        .pickerStyle(.automatic)
-                        Spacer()
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.bottom)
+                        .padding(.horizontal)
+                        
+                        HStack {
+                            Spacer()
+                                .frame(width: 20)
+                            Text("Filter by Language Code:")
+                            Picker("Languages", selection: $searchResultViewModel.selectedSearchResultLanguage) {
+                                ForEach(searchResultViewModel.allLanguages, id: \.self) { option in
+                                    Text("\(option.sourceCountryFlag) \(option.languageName)")
+                                }
+                            }
+                            .pickerStyle(.automatic)
+                            Spacer()
+                        }
+                        
+                        ForEach(searchResultViewModel.searchResultVideos) { video in
+                            SearchResultRow(video: video)
+                        }
+                        .padding(.leading, 20)
                     }
-                    
-                    InfiniteList(
-                        data: $searchResultViewModel.searchResultVideos,
-                        isLoading: $searchResultViewModel.isLoadingMoreVideos
-                    ) {
-                        searchResultViewModel.onLastVideoReached()
-                    } content: { video in
-                        SearchResultRow(video: video)
+                    .searchable(
+                        text: $searchResultViewModel.searchText,
+                        placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "searchResultsSearchLabel"
+                    )
+                    .textInputAutocapitalization(.never)
+                    .onSubmit(of: .search) {
+                        searchResultViewModel.onSearchTextSubmitted()
                     }
-                    .padding(.leading, 20)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("searchResultsScreenNavigationTitle")
                 }
-                .searchable(
-                    text: $searchResultViewModel.searchText,
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "searchResultsSearchLabel"
-                )
-                .textInputAutocapitalization(.never)
-                .onSubmit(of: .search) {
-                    searchResultViewModel.onSearchTextSubmitted()
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("searchResultsScreenNavigationTitle")
+            } else {
+                ProgressView("progressViewLoadingLabel")
+                    .progressViewStyle(.circular)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("searchResultsScreenNavigationTitle")
             }
-        } else {
-            ProgressView("progressViewLoadingLabel")
-                .progressViewStyle(.circular)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("searchResultsScreenNavigationTitle")
-                .onAppear {
-                    searchResultViewModel.onLoaded()
-                }
+        }
+        .onAppear {
+            searchResultViewModel.onLoaded()
         }
     }
 }

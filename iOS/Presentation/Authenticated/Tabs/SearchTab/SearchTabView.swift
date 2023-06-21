@@ -20,6 +20,8 @@ struct SearchTabView: View {
     @State private var showMusicResultView = false
     @State private var showInterviewsResultView = false
     
+    @State private var isOnLoadedInvoked = false
+    
     var body: some View {
         Group {
             if searchTabViewModel.onPageLoaded {
@@ -145,11 +147,14 @@ struct SearchTabView: View {
                     .progressViewStyle(.circular)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
-                    .onAppear {
-                        searchTabViewModel.onLoaded()
-                    }
             }
         }
+        .onAppear(perform: {
+            if !isOnLoadedInvoked {
+                searchTabViewModel.onLoaded()
+                isOnLoadedInvoked = true
+            }
+        })
     }
 }
 
