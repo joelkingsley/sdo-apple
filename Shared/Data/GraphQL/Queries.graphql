@@ -133,7 +133,7 @@ query GetVideoDetailData($videoId: String!, $channelId: String!, $userUuid: Stri
       videoTypeName
     }
   }
-  moreVideosInChannel: Video(where: {channel: {_eq: $channelId}, id: {_neq: $videoId}}) {
+  moreVideosInChannel: Video(where: {channel: {_eq: $channelId}, id: {_neq: $videoId}}, limit: 10) {
     id
     title
     Channel {

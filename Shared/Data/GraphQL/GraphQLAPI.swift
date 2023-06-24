@@ -2947,6 +2947,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
       }
       moreVideosInChannel: Video(
         where: {channel: {_eq: $channelId}, id: {_neq: $videoId}}
+        limit: 10
       ) {
         __typename
         id
@@ -3009,7 +3010,7 @@ public final class GetVideoDetailDataQuery: GraphQLQuery {
     public static var selections: [GraphQLSelection] {
       return [
         GraphQLField("Video", alias: "videoDetail", arguments: ["where": ["id": ["_eq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(VideoDetail.selections))))),
-        GraphQLField("Video", alias: "moreVideosInChannel", arguments: ["where": ["channel": ["_eq": GraphQLVariable("channelId")], "id": ["_neq": GraphQLVariable("videoId")]]], type: .nonNull(.list(.nonNull(.object(MoreVideosInChannel.selections))))),
+        GraphQLField("Video", alias: "moreVideosInChannel", arguments: ["where": ["channel": ["_eq": GraphQLVariable("channelId")], "id": ["_neq": GraphQLVariable("videoId")]], "limit": 10], type: .nonNull(.list(.nonNull(.object(MoreVideosInChannel.selections))))),
         GraphQLField("_User_likedVideos_aggregate", arguments: ["where": ["B": ["_eq": GraphQLVariable("videoId")], "User": ["userUuid": ["_eq": GraphQLVariable("userUuid")]]]], type: .nonNull(.object(_UserLikedVideosAggregate.selections))),
         GraphQLField("_User_dislikedVideos_aggregate", arguments: ["where": ["B": ["_eq": GraphQLVariable("videoId")], "User": ["userUuid": ["_eq": GraphQLVariable("userUuid")]]]], type: .nonNull(.object(_UserDislikedVideosAggregate.selections))),
       ]
