@@ -26,6 +26,13 @@ struct ContentView: View {
               #else
                 NotAvailableView()
               #endif
+            case .loading:
+              #if os(iOS)
+                ProgressView("progressViewLoadingLabel")
+                    .progressViewStyle(.circular)
+              #else
+                NotAvailableView()
+              #endif
             }
         }
         .navigationBarTitle("")

@@ -1037,6 +1037,111 @@ public final class RevokeAppleIdRefreshTokenMutation: GraphQLMutation {
   }
 }
 
+public final class DeleteAllUserDataMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation DeleteAllUserData($userUuid: String!) {
+      delete_User_by_pk(user_uuid: $userUuid) {
+        __typename
+        userEmail
+        userUuid
+      }
+    }
+    """
+
+  public let operationName: String = "DeleteAllUserData"
+
+  public var userUuid: String
+
+  public init(userUuid: String) {
+    self.userUuid = userUuid
+  }
+
+  public var variables: GraphQLMap? {
+    return ["userUuid": userUuid]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["mutation_root"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("delete_User_by_pk", arguments: ["user_uuid": GraphQLVariable("userUuid")], type: .object(DeleteUserByPk.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(deleteUserByPk: DeleteUserByPk? = nil) {
+      self.init(unsafeResultMap: ["__typename": "mutation_root", "delete_User_by_pk": deleteUserByPk.flatMap { (value: DeleteUserByPk) -> ResultMap in value.resultMap }])
+    }
+
+    /// delete single row from the table: "User"
+    public var deleteUserByPk: DeleteUserByPk? {
+      get {
+        return (resultMap["delete_User_by_pk"] as? ResultMap).flatMap { DeleteUserByPk(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "delete_User_by_pk")
+      }
+    }
+
+    public struct DeleteUserByPk: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["User"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("userEmail", type: .nonNull(.scalar(String.self))),
+          GraphQLField("userUuid", type: .nonNull(.scalar(String.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(userEmail: String, userUuid: String) {
+        self.init(unsafeResultMap: ["__typename": "User", "userEmail": userEmail, "userUuid": userUuid])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var userEmail: String {
+        get {
+          return resultMap["userEmail"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userEmail")
+        }
+      }
+
+      public var userUuid: String {
+        get {
+          return resultMap["userUuid"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "userUuid")
+        }
+      }
+    }
+  }
+}
+
 public final class GetAllChannelsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

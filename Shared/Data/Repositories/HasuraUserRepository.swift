@@ -27,4 +27,15 @@ class HasuraUserRepository: UserRepository {
             return .failure(GraphQLErrorTransformer.transform(apiError: error))
         }
     }
+    
+    /// Delete all the user data
+    func deleteAllUserData(userUuid: String) async -> Result<DeleteAllUserData, BusinessError> {
+        do {
+            let data = try await graphQLService.executeMutation(mutation: DeleteAllUserDataMutation(userUuid: userUuid))
+            return .success(try data.toEntity())
+        } catch {
+            AppLogger.error("Error in deleteAllUserData: \(error)")
+            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        }
+    }
 }

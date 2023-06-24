@@ -12,3 +12,8 @@ struct UserData {
     let userUuid: String
     let userEmail: String
 }
+
+struct DeleteAllUserData {
+    let userEmail: String
+    let userUuid: String
+}
