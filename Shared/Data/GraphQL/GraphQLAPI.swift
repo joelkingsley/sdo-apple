@@ -1041,7 +1041,7 @@ public final class DeleteAllUserDataMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    mutation DeleteAllUserData($id: String!) {
+    mutation DeleteAllUserData($id: uuid!) {
       delete_User_by_pk(id: $id) {
         __typename
         userEmail

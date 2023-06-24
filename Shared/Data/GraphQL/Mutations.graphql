@@ -59,7 +59,7 @@ mutation RevokeAppleIdRefreshToken($refreshToken: String!) {
   }
 }
 
-mutation DeleteAllUserData($id: String!) {
+mutation DeleteAllUserData($id: uuid!) {
   delete_User_by_pk(id: $id) {
     userEmail
     userUuid
