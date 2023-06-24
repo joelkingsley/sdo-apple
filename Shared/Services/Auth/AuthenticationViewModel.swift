@@ -140,8 +140,10 @@ final class AuthenticationViewModel: ObservableObject {
             AppLogger.debug("Successfully deleted user account from Firebase")
             
             // Delete user data from SDO database
-            if case let .signedIn(user) = state {
-                async let deleteAllUserDataRequest = deleteAllUserDataUseCase.execute(userUuid: user.uid)
+            if case let .signedIn(user) = state,
+               let userPrimaryKey = UserSession.userPrimaryKey
+            {
+                async let deleteAllUserDataRequest = deleteAllUserDataUseCase.execute(userPrimaryKey: userPrimaryKey)
                 switch await deleteAllUserDataRequest {
                 case let .success(response):
                     AppLogger.debug("Deleted user data for \(response.userUuid)")

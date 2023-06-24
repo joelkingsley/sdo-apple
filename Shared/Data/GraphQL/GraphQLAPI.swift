@@ -1041,8 +1041,8 @@ public final class DeleteAllUserDataMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    mutation DeleteAllUserData($userUuid: String!) {
-      delete_User_by_pk(user_uuid: $userUuid) {
+    mutation DeleteAllUserData($id: String!) {
+      delete_User_by_pk(id: $id) {
         __typename
         userEmail
         userUuid
@@ -1052,14 +1052,14 @@ public final class DeleteAllUserDataMutation: GraphQLMutation {
 
   public let operationName: String = "DeleteAllUserData"
 
-  public var userUuid: String
+  public var id: String
 
-  public init(userUuid: String) {
-    self.userUuid = userUuid
+  public init(id: String) {
+    self.id = id
   }
 
   public var variables: GraphQLMap? {
-    return ["userUuid": userUuid]
+    return ["id": id]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -1067,7 +1067,7 @@ public final class DeleteAllUserDataMutation: GraphQLMutation {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("delete_User_by_pk", arguments: ["user_uuid": GraphQLVariable("userUuid")], type: .object(DeleteUserByPk.selections)),
+        GraphQLField("delete_User_by_pk", arguments: ["id": GraphQLVariable("id")], type: .object(DeleteUserByPk.selections)),
       ]
     }
 
