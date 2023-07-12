@@ -13,7 +13,7 @@ import Apollo
  */
 class HasuraGraphQLService {
     private let apolloClient: ApolloClient?
-    private let graphQLUrl: URL! = URL(string: "https://sdo-hasura-prod.hasura.app/v1/graphql")
+    private let graphQLUrl: URL! = URL(string: "https://sdo-prod.hasura.app/v1/graphql")
     
     init() {
         let cache = InMemoryNormalizedCache()
