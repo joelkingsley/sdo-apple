@@ -11,6 +11,7 @@
 		F10497B22859AB2A00E7EDB5 /* QueryTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10497B12859AB2A00E7EDB5 /* QueryTag.swift */; };
 		F106769A2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
 		F106769B2813FEB100B8B843 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F106769D2813FEB100B8B843 /* Localizable.strings */; };
+		F10D5FCB2A671B3D004387DC /* SignInSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D5FCA2A671B3D004387DC /* SignInSheetView.swift */; };
 		F1157BAA286D6F8700309134 /* TopVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1157BA9286D6F8700309134 /* TopVideoPreview.swift */; };
 		F11B805928A3D3CF00F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
 		F11B805B28A4197900F3E5F5 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F11B805828A3D3CF00F3E5F5 /* Queries.graphql */; };
@@ -43,7 +44,7 @@
 		F123E16C2914E9DE00E8574C /* VideoLikeDislikeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */; };
 		F123E16F2914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */; };
 		F123E1702914ED1200E8574C /* GetAllLanguagesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */; };
-		F123E1722915660D00E8574C /* LibraryTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1712915660C00E8574C /* LibraryTabViewModel.swift */; };
+		F123E1722915660D00E8574C /* ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1712915660C00E8574C /* ProfileTabViewModel.swift */; };
 		F123E1752915672200E8574C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1742915672100E8574C /* UserData.swift */; };
 		F123E1762915672200E8574C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E1742915672100E8574C /* UserData.swift */; };
 		F123E178291567F400E8574C /* GetUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123E177291567F400E8574C /* GetUserDataUseCase.swift */; };
@@ -255,7 +256,7 @@
 		F1F010102800AF10005DC240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F00FE52800AF10005DC240 /* Assets.xcassets */; };
 		F1F0102128019353005DC240 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102028019353005DC240 /* AppTabNavigation.swift */; };
 		F1F010242801A9E1005DC240 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F010232801A9E1005DC240 /* HomeTabView.swift */; };
-		F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* LibraryTabView.swift */; };
+		F1F0102E2801E016005DC240 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0102D2801E016005DC240 /* ProfileTabView.swift */; };
 		F1FC6DAE28F69A78003317FC /* ChannelsSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */; };
 		F1FC6DB428FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
 		F1FC6DB528FAAC49003317FC /* GetChannelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */; };
@@ -289,6 +290,7 @@
 		F10497B12859AB2A00E7EDB5 /* QueryTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTag.swift; sourceTree = "<group>"; };
 		F106769C2813FEB100B8B843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F106769E2813FECB00B8B843 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F10D5FCA2A671B3D004387DC /* SignInSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSheetView.swift; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F1157BA9286D6F8700309134 /* TopVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVideoPreview.swift; sourceTree = "<group>"; };
 		F11B805828A3D3CF00F3E5F5 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
@@ -307,7 +309,7 @@
 		F123E1662914E8D900E8574C /* GetAllLanguagesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLanguagesDTO.swift; sourceTree = "<group>"; };
 		F123E16A2914E9DD00E8574C /* VideoLikeDislikeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLikeDislikeErrors.swift; sourceTree = "<group>"; };
 		F123E16E2914ED1200E8574C /* GetAllLanguagesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLanguagesErrors.swift; sourceTree = "<group>"; };
-		F123E1712915660C00E8574C /* LibraryTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabViewModel.swift; sourceTree = "<group>"; };
+		F123E1712915660C00E8574C /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
 		F123E1742915672100E8574C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F123E177291567F400E8574C /* GetUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataUseCase.swift; sourceTree = "<group>"; };
 		F123E17A2915682000E8574C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -432,7 +434,7 @@
 		F1F010092800AF10005DC240 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		F1F0102028019353005DC240 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		F1F010232801A9E1005DC240 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		F1F0102D2801E016005DC240 /* LibraryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabView.swift; sourceTree = "<group>"; };
+		F1F0102D2801E016005DC240 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		F1FC6DAD28F69A78003317FC /* ChannelsSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsSelectionSheet.swift; sourceTree = "<group>"; };
 		F1FC6DB328FAAC49003317FC /* GetChannelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsData.swift; sourceTree = "<group>"; };
 		F1FC6DB628FAAF2E003317FC /* GetChannelsDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChannelsDataUseCase.swift; sourceTree = "<group>"; };
@@ -552,8 +554,8 @@
 			children = (
 				F15DD6D02932463E004F1A57 /* AboutTheApp */,
 				F15DD6B6292EBE47004F1A57 /* MyAccount */,
-				F1F0102D2801E016005DC240 /* LibraryTabView.swift */,
-				F123E1712915660C00E8574C /* LibraryTabViewModel.swift */,
+				F1F0102D2801E016005DC240 /* ProfileTabView.swift */,
+				F123E1712915660C00E8574C /* ProfileTabViewModel.swift */,
 			);
 			path = LibraryTab;
 			sourceTree = "<group>";
@@ -576,6 +578,14 @@
 				F106769D2813FEB100B8B843 /* Localizable.strings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		F10D5FC82A671B0D004387DC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F10D5FCA2A671B3D004387DC /* SignInSheetView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F123E14829125E0C00E8574C /* SafariView */ = {
@@ -675,6 +685,7 @@
 		F13983DD2896CFB5004A2375 /* Unauthenticated */ = {
 			isa = PBXGroup;
 			children = (
+				F10D5FC82A671B0D004387DC /* Components */,
 				F1E493DD286757A1008611D7 /* Screens */,
 			);
 			path = Unauthenticated;
@@ -1604,15 +1615,16 @@
 				F1E4940C2868E148008611D7 /* AuthenticationViewModel.swift in Sources */,
 				F18105D328BD418400580101 /* GetVideoDetailDataUseCase.swift in Sources */,
 				F1D6521D28B812C50084907A /* HomeScreenData.swift in Sources */,
-				F1F0102E2801E016005DC240 /* LibraryTabView.swift in Sources */,
+				F1F0102E2801E016005DC240 /* ProfileTabView.swift in Sources */,
 				F1504CB429086A810059BE3E /* TopVideoPreviewActionButtonList.swift in Sources */,
 				F13983E12896D072004A2375 /* AppCustomToolbar.swift in Sources */,
 				F15DD6B4292E933C004F1A57 /* AppleTokenErrors.swift in Sources */,
-				F123E1722915660D00E8574C /* LibraryTabViewModel.swift in Sources */,
+				F123E1722915660D00E8574C /* ProfileTabViewModel.swift in Sources */,
 				F13983D62891D841004A2375 /* SearchTabView.swift in Sources */,
 				F123E178291567F400E8574C /* GetUserDataUseCase.swift in Sources */,
 				F195130028F05E2F00DF4E2E /* ChannelsTabViewModel.swift in Sources */,
 				F1E493CF2866F5CB008611D7 /* ActionButton.swift in Sources */,
+				F10D5FCB2A671B3D004387DC /* SignInSheetView.swift in Sources */,
 				F18105FB28C5D9FF00580101 /* CustomErrorViewModel.swift in Sources */,
 				F123E18129156AC900E8574C /* GetUserDataDTO.swift in Sources */,
 				F19512F228EF417300DF4E2E /* SearchResultItemType.swift in Sources */,

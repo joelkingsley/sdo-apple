@@ -1,5 +1,5 @@
 //
-//  LibraryTabView.swift
+//  ProfileTabView.swift
 //  SDO (iOS)
 //
 //  Created by Joel Kingsley on 09/04/2022.
@@ -8,18 +8,18 @@
 import SwiftUI
 import Kingfisher
 
-struct LibraryTabView: View {
+struct ProfileTabView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var libraryTabViewModel = LibraryTabViewModel()
+    @ObservedObject var profileTabViewModel = ProfileTabViewModel()
     
     var body: some View {
-        if let userData = libraryTabViewModel.userData {
+        if let userData = profileTabViewModel.userData {
             ScrollView {
                 VStack {
                     switch userData {
                     case let .success(data):
                         VStack {
-                            Text("libraryLoggedInAsLabel")
+                            Text("profileLoggedInAsLabel")
                                 .font(.sdoCaption)
                             Text(data.userEmail)
                                 .font(.sdoCallout)
@@ -27,11 +27,24 @@ struct LibraryTabView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
-                    case .failure:
-                        Text("libraryLoggedInLabel")
-                            .font(.sdoCallout)
-                            .listRowSeparator(.hidden)
+                    case let .failure(error):
+                        if ((error as? BusinessErrors.anonymousUserError) != nil) {
+                            VStack {
+                                Text("profileNotLoggedInLabel")
+                                    .font(.sdoCallout)
+                                    .listRowSeparator(.hidden)
+                                    .padding(.bottom)
+                                Text("profileVisitMyAccountLabel")
+                                    .font(.sdoCallout)
+                                    .listRowSeparator(.hidden)
+                            }
                             .padding(.vertical, 20)
+                        } else {
+                            Text("profileLoggedInLabel")
+                                .font(.sdoCallout)
+                                .listRowSeparator(.hidden)
+                                .padding(.vertical, 20)
+                        }
                     }
                     
                     VStack {
@@ -42,14 +55,14 @@ struct LibraryTabView: View {
                                 HStack {
                                     Image(systemName: "person.crop.circle.fill")
                                         .padding(.horizontal, 5)
-                                    Text("libraryMyAccountOptionLabel")
+                                    Text("profileMyAccountOptionLabel")
                                         .font(.sdoBody)
                                     Spacer()
                                 }
                                 Divider()
                             }
                         }
-                        
+
                         NavigationLink {
                             AboutTheAppView()
                         } label: {
@@ -57,7 +70,7 @@ struct LibraryTabView: View {
                                 HStack {
                                     Image(systemName: "info.circle.fill")
                                         .padding(.horizontal, 5)
-                                    Text("libraryAboutOptionLabel")
+                                    Text("profileAboutOptionLabel")
                                         .font(.sdoBody)
                                     Spacer()
                                 }
@@ -68,38 +81,39 @@ struct LibraryTabView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 30)
                     
-                    Button {
-                        authViewModel.signOut()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("librarySignOutLabel")
-                                .font(.custom("Gill Sans", size: 20))
-                                .foregroundColor(Color(uiColor: .systemBackground))
-                            Spacer()
+                    if case let .signedIn(user) = authViewModel.state,
+                       user.isAnonymous
+                    {
+                        ActionButton(
+                            customFont: .sdoTitle2, text: "profileLeaveAppLabel") {
+                                authViewModel.signOut()
                         }
-                        .frame(height: 60)
-                        .background(Color(uiColor: .label))
-                        .cornerRadius(7)
-                        .buttonBorderShape(.roundedRectangle(radius: 7))
+                        .frame(width: 250)
+                        .padding()
+                    } else {
+                        ActionButton(
+                            customFont: .sdoTitle2, text: "profileSignOutLabel") {
+                                authViewModel.signOut()
+                        }
+                        .frame(width: 250)
                         .padding()
                     }
                 }
-                .navigationBarTitle(Text("libraryScreenTitle", comment: "Label: Navigation bar title of Library Screen"))
+                .navigationBarTitle(Text("profileScreenTitle", comment: "Label: Navigation bar title of Profile Screen"))
             .navigationBarTitleDisplayMode(.inline)
             }
         } else {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)
                 .onAppear {
-                    libraryTabViewModel.onLoaded(user: authViewModel.getUser())
+                    profileTabViewModel.onLoaded(user: authViewModel.getUser())
                 }
         }
     }
 }
 
-struct LibraryTabView_Previews: PreviewProvider {
+struct ProfileTabView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryTabView()
+        ProfileTabView()
     }
 }

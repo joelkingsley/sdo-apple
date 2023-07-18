@@ -10,7 +10,7 @@ import FirebaseAuth
 
 extension Key: CaseIterable {
     static var allCases: [Key] {
-        return [.userPrimaryKey, .userUuid, .userEmail, .accessToken, .appleRefreshToken]
+        return [.userPrimaryKey, .userUuid, .userEmail, .accessToken, .appleRefreshToken, .isAnonymousUser]
     }
 
     static let userPrimaryKey: Key = "userPrimaryKey"
@@ -18,6 +18,7 @@ extension Key: CaseIterable {
     static let userEmail: Key = "userEmail"
     static let accessToken: Key = "accessToken"
     static let appleRefreshToken: Key = "appleRefreshToken"
+    static let isAnonymousUser: Key = "isAnonymousUser"
 }
 
 enum UserSession {
@@ -35,11 +36,18 @@ enum UserSession {
     
     @UserDefault(key: .appleRefreshToken)
     public static var appleRefreshToken: String?
+    
+    @UserDefault(key: .isAnonymousUser)
+    public static var isAnonymousUser: Bool?
 
     static func setUserData(userData: UserData) {
         userPrimaryKey = userData.id
         userUuid = userData.userUuid
         userEmail = userData.userEmail
+    }
+    
+    static func setIsAnonymousUser(to value: Bool) {
+        isAnonymousUser = value
     }
     
     static func setUserSession(user: SDOUser, forcingRefresh: Bool = false) async throws {

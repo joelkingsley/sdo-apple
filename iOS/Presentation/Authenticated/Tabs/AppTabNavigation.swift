@@ -34,7 +34,7 @@ struct AppTabNavigation: View {
             .onAppear {
                 self.isNavigationBarHidden = true
             }
-            
+
             // Search Tab
             NavigationView {
                 SearchTabView(tabSelection: $selection)
@@ -48,7 +48,7 @@ struct AppTabNavigation: View {
             .onAppear {
                 self.isNavigationBarHidden = true
             }
-            
+
             // Channels Tab
             NavigationView {
                 ChannelsTabView()
@@ -56,13 +56,13 @@ struct AppTabNavigation: View {
                 Label("channelsTabLabel", systemImage: "rectangle.stack.badge.play.fill")
                     .accessibilityLabel("channelsTabLabel")
             }.tag(Tab.Channels)
-            
-            // Library Tab
+
+            // Profile Tab
             NavigationView {
-                LibraryTabView()
+                ProfileTabView()
             }.tabItem {
-                Label("libraryTabLabel", systemImage: "play.rectangle.on.rectangle.fill")
-                    .accessibilityLabel("libraryTabLabel")
+                Label("profileTabLabel", systemImage: "play.rectangle.on.rectangle.fill")
+                    .accessibilityLabel("profileTabLabel")
             }.tag(Tab.Library)
         }
     }

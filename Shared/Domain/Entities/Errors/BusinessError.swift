@@ -21,6 +21,9 @@ enum BusinessErrors: BusinessError {
     struct customError: BusinessError {
         let code: String
     }
+    
+    // User Errors
+    struct anonymousUserError: BusinessError {}
 }
 
 extension BusinessErrors.serverError: LocalizedError {
