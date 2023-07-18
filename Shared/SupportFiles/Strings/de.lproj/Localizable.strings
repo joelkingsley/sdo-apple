@@ -12,8 +12,11 @@
 
 // Sign In
 "signInSubtitleLabel" = "Unabhängige fundamentalistische Baptistenpredigten aus der ganzen Welt";
-"signInReasonLabel" = "Melden Sie sich an, um auf kostenlose Inhalte zuzugreifen und personalisierte Empfehlungen zu erhalten";
+"signInReasonLabel" = "Melden Sie sich an, um Zugriff auf personalisierte Inhaltsempfehlungen zu erhalten";
 "signInWithGoogleLabel" = "Anmeldung mit Google";
+"signInWaysToSignIn" = "Möglichkeiten zur Anmeldung";
+"signInSkipForNowLabel" = "Für jetzt überspringen";
+"signInFeatureNeedsAccountToWorkLabel" = "Für diese Funktion ist ein Benutzerkonto erforderlich.";
 
 // Home
 "homeTabLabel" = "Startseite";
@@ -67,15 +70,18 @@
 "channelDetailOpenWebsiteLabel" = "Webseite";
 "channelDetailNoVideosInChannelLabel" = "Keine Videos im Kanal";
 
-// Library
-"libraryTabLabel" = "Profil";
-"libraryScreenTitle" = "Profil";
-"libraryLoggedInAsLabel" = "Eingeloggt als";
-"libraryLoggedInLabel" = "Eingeloggt";
-"librarySignOutLabel" = "Ausloggen";
-"libraryAnonymousLabel" = "Anonym";
-"libraryMyAccountOptionLabel" = "Mein Konto";
-"libraryAboutOptionLabel" = "Über die App";
+// Profile
+"profileTabLabel" = "Profil";
+"profileScreenTitle" = "Profil";
+"profileLoggedInAsLabel" = "Eingeloggt als";
+"profileLoggedInLabel" = "Eingeloggt";
+"profileSignOutLabel" = "Ausloggen";
+"profileAnonymousLabel" = "Anonym";
+"profileMyAccountOptionLabel" = "Mein Konto";
+"profileAboutOptionLabel" = "Über die App";
+"profileNotLoggedInLabel" = "Nicht eingeloggt.";
+"profileVisitMyAccountLabel" = "Besuchen Sie „Mein Konto“, um sich anzumelden.";
+"profileLeaveAppLabel" = "Verlasse die App";
 
 // My Account
 "myAccountLabel" = "Mein Konto";
@@ -86,6 +92,7 @@
 "myAccountNoOptionLabel" = "Nein";
 "myAccountSuccessfulDeletionAlertLabel" = "Ihr Benutzerkonto wurde erfolgreich aus unseren Systemen entfernt. Bitte melden Sie sich erneut an, um ein neues Konto zu erstellen.";
 "myAccountUnsuccessfulDeletionAlertLabel" = "Dieser Vorgang ist vertraulich und erfordert eine kürzlich erfolgte Authentifizierung. Melden Sie sich erneut an, bevor Sie diese Anfrage wiederholen.";
+"myAccountRegisterSignInButtonLabel" = "Registrieren / Anmelden";
 
 // About the App
 "aboutTheAppLabel" = "Über die App";

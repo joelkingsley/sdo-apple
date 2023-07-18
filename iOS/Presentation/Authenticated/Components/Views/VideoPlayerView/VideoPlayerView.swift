@@ -19,10 +19,12 @@ protocol PlayableVideo {
 }
 
 struct VideoPlayerView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @ObservedObject var videoPlayerViewModel = VideoPlayerViewModel()
     @State var video: PlayableVideo
+    @State var isShowingSignInSheet: Bool = false
     
     var body: some View {
         VStack {
@@ -62,18 +64,24 @@ struct VideoPlayerView: View {
                     Spacer()
                     
                     Button {
-                        if video.likedByUser != true {
-                            video.likedByUser = true
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: true,
-                                forVideoId: video.videoId
-                            )
+                        if case let .signedIn(user) = authViewModel.state,
+                           user.isAnonymous
+                        {
+                            isShowingSignInSheet = true
                         } else {
-                            video.likedByUser = nil
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: nil,
-                                forVideoId: video.videoId
-                            )
+                            if video.likedByUser != true {
+                                video.likedByUser = true
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: true,
+                                    forVideoId: video.videoId
+                                )
+                            } else {
+                                video.likedByUser = nil
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: nil,
+                                    forVideoId: video.videoId
+                                )
+                            }
                         }
                     } label: {
                         VStack {
@@ -90,18 +98,24 @@ struct VideoPlayerView: View {
                     }
                     
                     Button {
-                        if video.likedByUser != false {
-                            video.likedByUser = false
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: false,
-                                forVideoId: video.videoId
-                            )
+                        if case let .signedIn(user) = authViewModel.state,
+                           user.isAnonymous
+                        {
+                            isShowingSignInSheet = true
                         } else {
-                            video.likedByUser = nil
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: nil,
-                                forVideoId: video.videoId
-                            )
+                            if video.likedByUser != false {
+                                video.likedByUser = false
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: false,
+                                    forVideoId: video.videoId
+                                )
+                            } else {
+                                video.likedByUser = nil
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: nil,
+                                    forVideoId: video.videoId
+                                )
+                            }
                         }
                     } label: {
                         VStack {
@@ -122,6 +136,11 @@ struct VideoPlayerView: View {
                 
                 Spacer()
             }
+        }
+        .sheet(isPresented: $isShowingSignInSheet) {
+            SignInSheetView(showFeatureNeedsAnAccountToWork: true)
+                .presentationDetents([.height(300)])
+                .presentationDragIndicator(.visible)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {

@@ -1,35 +1,39 @@
 //
-//  SignInView.swift
-//  SDO
+//  SignInSheetView.swift
+//  SDO (iOS)
 //
-//  Created by Joel Kingsley on 27/06/2022.
+//  Created by Joel Kingsley on 18.07.23.
 //
 
 import SwiftUI
-import GoogleSignInSwift
 import AuthenticationServices
 
-struct SignInView: View {
+struct SignInSheetView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.colorScheme) var colorScheme
-    
+    var showFeatureNeedsAnAccountToWork: Bool = false
+
     var body: some View {
-        Image("Text Logo")
-            .resizable()
-            .frame(width: 80, height: 80, alignment: .center)
-            .padding()
-        Text("signInSubtitleLabel")
-            .multilineTextAlignment(.center)
-            .italic()
-            .padding()
-        
-        Spacer()
-        
-        Text("signInReasonLabel")
-            .multilineTextAlignment(.center)
-            .padding()
-        
         VStack {
+            if showFeatureNeedsAnAccountToWork {
+                HStack {
+                    Spacer()
+                    Text("signInFeatureNeedsAccountToWorkLabel")
+                    Spacer()
+                }
+                .padding(.top, 20)
+            }
+            
+            HStack {
+                Spacer()
+                Text("signInWaysToSignIn")
+                    .font(.sdoTitle2)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+            }
+            
             if colorScheme == .light {
                 Button {
                     authViewModel.signInWithGoogle()
@@ -97,26 +101,12 @@ struct SignInView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
             }
-            
-            HStack {
-                Spacer()
-                Button {
-                    authViewModel.signInAnonymously()
-                } label: {
-                    Text("signInSkipForNowLabel")
-                        .font(.sdoCallout)
-                        .underline()
-                        .padding(.vertical)
-                        .padding(.bottom)
-                }
-                Spacer()
-            }
         }
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
+struct SignInSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignInSheetView()
     }
 }

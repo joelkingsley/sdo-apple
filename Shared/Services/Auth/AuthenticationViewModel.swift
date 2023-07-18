@@ -50,30 +50,41 @@ final class AuthenticationViewModel: ObservableObject {
 
     func restorePreviousSignIn() {
         Task { [weak self] in
+            guard let self = self else {
+                AppLogger.error("self unexpectedly nil in restorePreviousSignIn")
+                return
+            }
             if state == .signedOut || state == .loading {
                 let state = await authService.restorePreviousSignIn()
                 if case let .signedIn(user) = state {
                     try? await UserSession.setUserSession(user: user, forcingRefresh: true)
                 }
-                self?.state = state
+                self.state = state
             }
         }
     }
 
     /// Signs the user in with Google
     func signInWithGoogle() {
-        state = .loading
         Task { [weak self] in
+            guard let self = self else {
+                AppLogger.error("self unexpectedly nil in signInWithGoogle")
+                return
+            }
             let state = await authService.signInWithGoogle()
             if case let .signedIn(user) = state {
+                self.state = .loading
+                UserSession.setIsAnonymousUser(to: false)
+
                 try? await UserSession.setUserSession(user: user)
 
                 // Fetch and set user data in user session
                 if let userData = try? await getUserDataUseCase.execute(userUuid: user.uid).get() {
                     UserSession.setUserData(userData: userData)
                 }
+
+                self.state = state
             }
-            self?.state = state
         }
     }
 
@@ -84,24 +95,50 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Apple
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
-        state = .loading
         Task { [weak self] in
+            guard let self = self else {
+                AppLogger.error("self unexpectedly nil in signInWithApple")
+                return
+            }
             let (state, authorizationCode) = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
+                self.state = .loading
+                UserSession.setIsAnonymousUser(to: false)
+
                 try? await UserSession.setUserSession(user: user)
 
                 // Fetch and set user data in user session
                 if let userData = try? await getUserDataUseCase.execute(userUuid: user.uid).get() {
                     UserSession.setUserData(userData: userData)
                 }
+                
+                if let authorizationCode,
+                   let refreshToken = try? await getAppleIdRefreshTokenUseCase.execute(
+                    authorizationCode: authorizationCode).get().refreshToken
+                {
+                    UserSession.setAppleTokens(refreshToken: refreshToken)
+                }
+                
+                self.state = state
             }
-            if let authorizationCode,
-               let refreshToken = try? await getAppleIdRefreshTokenUseCase.execute(
-                authorizationCode: authorizationCode).get().refreshToken
-            {
-                UserSession.setAppleTokens(refreshToken: refreshToken)
+        }
+    }
+    
+    /// Signs in as an anonymous user
+    func signInAnonymously() {
+        state = .loading
+        Task { [weak self] in
+            guard let self = self else {
+                AppLogger.error("self unexpectedly nil in signInAnonymously")
+                return
             }
-            self?.state = state
+            let state = await authService.signInAnonymously()
+            if case let .signedIn(user) = state {
+                UserSession.setIsAnonymousUser(to: true)
+
+                try? await UserSession.setUserSession(user: user)
+            }
+            self.state = state
         }
     }
 
@@ -140,7 +177,7 @@ final class AuthenticationViewModel: ObservableObject {
             AppLogger.debug("Successfully deleted user account from Firebase")
             
             // Delete user data from SDO database
-            if case let .signedIn(user) = state,
+            if case .signedIn = state,
                let userPrimaryKey = UserSession.userPrimaryKey
             {
                 async let deleteAllUserDataRequest = deleteAllUserDataUseCase.execute(userPrimaryKey: userPrimaryKey)

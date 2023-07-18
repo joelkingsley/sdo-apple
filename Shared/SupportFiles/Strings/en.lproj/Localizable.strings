@@ -12,8 +12,11 @@
 
 // Sign In
 "signInSubtitleLabel" = "Independent Fundamental Baptist preaching from around the world";
-"signInReasonLabel" = "Sign in to get access to free content and get personalized recommendations";
+"signInReasonLabel" = "Sign in to get access to personalized content recommendations";
 "signInWithGoogleLabel" = "Sign in with Google";
+"signInWaysToSignIn" = "Ways to Sign In";
+"signInSkipForNowLabel" = "Skip for now";
+"signInFeatureNeedsAccountToWorkLabel" = "This feature needs a user account to work.";
 
 
 // Home
@@ -69,14 +72,17 @@
 "channelDetailNoVideosInChannelLabel" = "No videos in channel";
 
 // Library
-"libraryTabLabel" = "Library";
-"libraryScreenTitle" = "Library";
-"libraryLoggedInAsLabel" = "Logged in as";
-"libraryLoggedInLabel" = "Logged in";
-"librarySignOutLabel" = "Sign Out";
-"libraryAnonymousLabel" = "Anonymous";
-"libraryMyAccountOptionLabel" = "My Account";
-"libraryAboutOptionLabel" = "About the App";
+"profileTabLabel" = "Library";
+"profileScreenTitle" = "Library";
+"profileLoggedInAsLabel" = "Logged in as";
+"profileLoggedInLabel" = "Logged in";
+"profileSignOutLabel" = "Sign Out";
+"profileAnonymousLabel" = "Anonymous";
+"profileMyAccountOptionLabel" = "My Account";
+"profileAboutOptionLabel" = "About the App";
+"profileNotLoggedInLabel" = "Not logged in.";
+"profileVisitMyAccountLabel" = "Visit \"My Account\" to sign in.";
+"profileLeaveAppLabel" = "Leave App";
 
 // My Account
 "myAccountLabel" = "My Account";
@@ -87,6 +93,7 @@
 "myAccountNoOptionLabel" = "No";
 "myAccountSuccessfulDeletionAlertLabel" = "Your user account has been successfully removed from our systems. Please sign up again to create a new account.";
 "myAccountUnsuccessfulDeletionAlertLabel" = "This operation is sensitive and requires recent authentication. Log in again before retrying this request.";
+"myAccountRegisterSignInButtonLabel" = "Register / Sign In";
 
 // About the App
 "aboutTheAppLabel" = "About the App";
