@@ -7,11 +7,32 @@
 
 import Foundation
 
-extension UpdateVideoLikeDislikeStatusMutation.Data {
+extension UpdateVideoAsLikedByUserMutation.Data {
     func toEntity() throws -> UpdateVideoLikeDislikeResponseData {
-        guard let insertVideosLikesDislikesOne else {
+        guard let insertUserLikedVideosOne,
+              !insertUserLikedVideosOne.a.isEmpty,
+              !insertUserLikedVideosOne.b.isEmpty
+        else {
             throw BusinessErrors.parsingError()
         }
-        return UpdateVideoLikeDislikeResponseData(liked: insertVideosLikesDislikesOne.liked)
+        return UpdateVideoLikeDislikeResponseData(liked: true)
+    }
+}
+
+extension UpdateVideoAsDislikedByUserMutation.Data {
+    func toEntity() throws -> UpdateVideoLikeDislikeResponseData {
+        guard let insertUserDislikedVideosOne,
+              !insertUserDislikedVideosOne.a.isEmpty,
+              !insertUserDislikedVideosOne.b.isEmpty
+        else {
+            throw BusinessErrors.parsingError()
+        }
+        return UpdateVideoLikeDislikeResponseData(liked: false)
+    }
+}
+
+extension DeleteVideoLikeStatusForUserMutation.Data {
+    func toEntity() -> UpdateVideoLikeDislikeResponseData {
+        return UpdateVideoLikeDislikeResponseData(liked: nil)
     }
 }

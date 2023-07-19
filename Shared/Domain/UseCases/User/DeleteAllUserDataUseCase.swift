@@ -14,9 +14,9 @@ class DeleteAllUserDataUseCase {
         self.userRepository = userRepository
     }
     
-    func execute(userUuid: String) async -> Result<DeleteAllUserData, BusinessError> {
+    func execute(userPrimaryKey: String) async -> Result<DeleteAllUserData, BusinessError> {
         do {
-            let data = try await userRepository.deleteAllUserData(userUuid: userUuid).get()
+            let data = try await userRepository.deleteAllUserData(userPrimaryKey: userPrimaryKey).get()
             return .success(data)
         } catch {
             if let customError = error as? BusinessErrors.customError {

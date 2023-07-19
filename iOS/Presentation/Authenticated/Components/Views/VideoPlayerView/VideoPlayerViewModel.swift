@@ -25,8 +25,8 @@ class VideoPlayerViewModel: ObservableObject {
         PlayerState.shared.stopVideoIfPlayingAsEmbedded()
     }
     
-    func updateLikeDislikeStatus(with isLikedByUser: Bool?, forUser user: SDOUser?, forVideoId videoId: String) {
-        guard let user else {
+    func updateLikeDislikeStatus(with isLikedByUser: Bool?, forVideoId videoId: String) {
+        guard let userPrimaryKey = UserSession.userPrimaryKey else {
             return
         }
         task?.cancel()
@@ -35,7 +35,7 @@ class VideoPlayerViewModel: ObservableObject {
                 payload: VideoLikeDislikeInputData(
                     likedByUser: isLikedByUser,
                     videoId: videoId,
-                    userId: user.uid
+                    userPrimaryKey: userPrimaryKey
                 ))
         }
     }

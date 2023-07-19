@@ -9,13 +9,13 @@ import Foundation
 
 extension DeleteAllUserDataMutation.Data {
     func toEntity() throws -> DeleteAllUserData {
-        guard let deleteUsersByPk else {
+        guard let deleteUserByPk else {
             throw BusinessErrors.parsingError()
         }
         
         return DeleteAllUserData(
-            userEmail: deleteUsersByPk.userEmail,
-            userUuid: deleteUsersByPk.userUuid
+            userEmail: deleteUserByPk.userEmail,
+            userUuid: deleteUserByPk.userUuid
         )
     }
 }

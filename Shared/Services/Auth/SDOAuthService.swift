@@ -21,6 +21,9 @@ protocol SDOAuthService {
     /// Signs in user with the Apple sign-in
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) async -> (AuthState, String?)
 
+    /// Signs in the user as an anonymous user
+    func signInAnonymously() async -> AuthState
+
     /// Signs in to firebase using the given auth credentials
     /// - note: To be invoked after authenticating with username-password or social sign-in
     func signOut() -> Bool

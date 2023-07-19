@@ -7,11 +7,12 @@
 
 import Foundation
 
-enum VideoType: String {
+enum VideoType: String, Equatable {
     case sermon = "videoDetailVideoTypeSermon"
     case documentary = "videoDetailVideoTypeDocumentary"
     case short = "videoDetailVideoTypeShort"
     case music = "videoDetailVideoTypeMusic"
+    case interview = "videoDetailVideoTypeInterview"
     
     func localizedString() -> String {
         return String(localized: String.LocalizationValue(self.rawValue))

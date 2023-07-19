@@ -1,38 +1,55 @@
 //
-//  SignInView.swift
-//  SDO
+//  SignInSheetView.swift
+//  SDO (iOS)
 //
-//  Created by Joel Kingsley on 27/06/2022.
+//  Created by Joel Kingsley on 18.07.23.
 //
 
 import SwiftUI
-import GoogleSignInSwift
 import AuthenticationServices
 
-struct SignInView: View {
+struct SignInSheetView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.colorScheme) var colorScheme
-    
+    @Environment(\.dismiss) var dismiss
+
+    var showFeatureNeedsAnAccountToWork: Bool = false
+
     var body: some View {
-        Image("Text Logo")
-            .resizable()
-            .frame(width: 80, height: 80, alignment: .center)
-            .padding()
-        Text("signInSubtitleLabel")
-            .multilineTextAlignment(.center)
-            .italic()
-            .padding()
-        
-        Spacer()
-        
-        Text("signInReasonLabel")
-            .multilineTextAlignment(.center)
-            .padding()
-        
         VStack {
+            if showFeatureNeedsAnAccountToWork {
+                HStack {
+                    Spacer()
+                    Text("signInFeatureNeedsAccountToWorkLabel")
+                        .multilineTextAlignment(.center)
+                        .font(.sdoCaption)
+                    Spacer()
+                }
+                .padding(.top, 20)
+                
+                HStack {
+                    Spacer()
+                    Text("signInFeatureNeedsAccountToWorkHintLabel")
+                        .multilineTextAlignment(.center)
+                        .font(.sdoCaption)
+                    Spacer()
+                }
+            }
+            
+            HStack {
+                Spacer()
+                Text("signInWaysToSignIn")
+                    .font(.sdoTitle2)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+            }
+            
             if colorScheme == .light {
                 Button {
                     authViewModel.signInWithGoogle()
+                    dismiss()
                 } label: {
                     HStack {
                         Spacer()
@@ -60,6 +77,7 @@ struct SignInView: View {
                    authViewModel.configure(appleSignInAuthorizationRequest: aSAuthorizationAppleIdRequest)
                 } onCompletion: { result in
                     authViewModel.signInWithApple(requestAuthorizationResult: result)
+                    dismiss()
                 }
                 .signInWithAppleButtonStyle(.black)
                 .frame(height: 45)
@@ -68,6 +86,7 @@ struct SignInView: View {
             } else {
                 Button {
                     authViewModel.signInWithGoogle()
+                    dismiss()
                 } label: {
                     HStack {
                         Spacer()
@@ -91,32 +110,19 @@ struct SignInView: View {
                    authViewModel.configure(appleSignInAuthorizationRequest: aSAuthorizationAppleIdRequest)
                 } onCompletion: { result in
                     authViewModel.signInWithApple(requestAuthorizationResult: result)
+                    dismiss()
                 }
                 .signInWithAppleButtonStyle(.white)
                 .frame(height: 45)
                 .padding(.horizontal)
                 .padding(.bottom)
             }
-            
-            HStack {
-                Spacer()
-                Button {
-                    authViewModel.signInAnonymously()
-                } label: {
-                    Text("signInSkipForNowLabel")
-                        .font(.sdoCallout)
-                        .underline()
-                        .padding(.vertical)
-                        .padding(.bottom)
-                }
-                Spacer()
-            }
         }
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
+struct SignInSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignInSheetView()
     }
 }

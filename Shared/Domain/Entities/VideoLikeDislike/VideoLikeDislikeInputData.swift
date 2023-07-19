@@ -10,5 +10,5 @@ import Foundation
 struct VideoLikeDislikeInputData {
     let likedByUser: Bool?
     let videoId: String
-    let userId: String
+    let userPrimaryKey: String
 }

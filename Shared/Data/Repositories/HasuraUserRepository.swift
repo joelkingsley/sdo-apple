@@ -29,9 +29,9 @@ class HasuraUserRepository: UserRepository {
     }
     
     /// Delete all the user data
-    func deleteAllUserData(userUuid: String) async -> Result<DeleteAllUserData, BusinessError> {
+    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, BusinessError> {
         do {
-            let data = try await graphQLService.executeMutation(mutation: DeleteAllUserDataMutation(userUuid: userUuid))
+            let data = try await graphQLService.executeMutation(mutation: DeleteAllUserDataMutation(id: userPrimaryKey))
             return .success(try data.toEntity())
         } catch {
             AppLogger.error("Error in deleteAllUserData: \(error)")

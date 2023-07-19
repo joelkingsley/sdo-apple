@@ -14,12 +14,12 @@ struct ChannelDetailData {
     }
     
     struct Video: Identifiable {
-        struct Speaker {
+        struct Speaker: Equatable {
             let speakerId: String
             let speakerName: String
         }
         
-        struct Language {
+        struct Language: Equatable {
             let languageCode: String
             let sourceCountryFlag: String
             

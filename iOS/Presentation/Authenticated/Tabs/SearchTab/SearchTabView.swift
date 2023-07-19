@@ -18,6 +18,9 @@ struct SearchTabView: View {
     @State private var showDocumentariesResultView = false
     @State private var showShortsResultView = false
     @State private var showMusicResultView = false
+    @State private var showInterviewsResultView = false
+    
+    @State private var isOnLoadedInvoked = false
     
     var body: some View {
         Group {
@@ -75,8 +78,18 @@ struct SearchTabView: View {
                                 }
                             }
                             .padding(.horizontal, 10)
-                            TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
-                                tabSelection = .Channels
+                            HStack {
+                                NavigationLink(
+                                    destination: SearchResultView(ofItemType: .interviews, language: LanguageData()),
+                                    isActive: $showInterviewsResultView) {
+                                    TileButton(text: "searchInterviewsButtonLabel", imageName: "interviews") {
+                                        showInterviewsResultView = true
+                                    }
+                                }
+                                Spacer()
+                                TileButton(text: "searchChannelsButtonLabel", imageName: "channels") {
+                                    tabSelection = .Channels
+                                }
                             }
                             .padding(.horizontal, 10)
                             .padding(.bottom, 10)
@@ -134,11 +147,14 @@ struct SearchTabView: View {
                     .progressViewStyle(.circular)
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarTitle(Text("searchScreenTitle", comment: "Label: Navigation bar title of Search Screen"))
-                    .onAppear {
-                        searchTabViewModel.onLoaded()
-                    }
             }
         }
+        .onAppear(perform: {
+            if !isOnLoadedInvoked {
+                searchTabViewModel.onLoaded()
+                isOnLoadedInvoked = true
+            }
+        })
     }
 }
 

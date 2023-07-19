@@ -12,6 +12,8 @@ struct AboutTheAppView: View {
         ScrollView {
             VStack {
                 Image("Text Logo")
+                    .resizable()
+                    .frame(width: 70, height: 70, alignment: .center)
                 Text("aboutTheAppDescription1Text")
                     .padding(.horizontal)
                     .padding(.vertical, 5)

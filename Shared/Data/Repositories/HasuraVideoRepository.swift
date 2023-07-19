@@ -63,7 +63,7 @@ class HasuraVideoRepository: VideoRepository {
                 {
                     let data = try await graphQLService.executeQuery(query: GetVideosForSearchTextVideoTypeAndLanguageCodeQuery(
                         searchText: "%\(inputData.searchText)%",
-                        videoType: video_types_enum(videoType: videoType),
+                        videoType: VideoTypeDTO(videoType: videoType).rawValue,
                         languageCode: languageCode,
                         limit: inputData.limit,
                         offset: inputData.offset
@@ -83,7 +83,7 @@ class HasuraVideoRepository: VideoRepository {
                 {
                     let data = try await graphQLService.executeQuery(query: GetVideosForSearchTextAndVideoTypeQuery(
                         searchText: "%\(inputData.searchText)%",
-                        videoType: video_types_enum(videoType: videoType),
+                        videoType: VideoTypeDTO(videoType: videoType).rawValue,
                         limit: inputData.limit,
                         offset: inputData.offset
                     )).toEntity()
@@ -107,17 +107,43 @@ class HasuraVideoRepository: VideoRepository {
     func updateVideoLikeDislikeStatus(
         withPayload payload: VideoLikeDislikeInputData) async -> Result<UpdateVideoLikeDislikeResponseData, BusinessError>
     {
-        do {
-            let data = try await graphQLService.executeMutation(
-                mutation: UpdateVideoLikeDislikeStatusMutation(
-                    userUuid: payload.userId,
-                    videoId: payload.videoId,
-                    liked: payload.likedByUser
-                )).toEntity()
-            return .success(data)
-        } catch {
-            AppLogger.error("Error in updateVideoLikeDislikeStatus: \(error)")
-            return .failure(GraphQLErrorTransformer.transform(apiError: error))
+        switch payload.likedByUser {
+        case true:
+            do {
+                let data = try await graphQLService.executeMutation(
+                    mutation: UpdateVideoAsLikedByUserMutation(
+                        userId: payload.userPrimaryKey,
+                        videoId: payload.videoId
+                    )).toEntity()
+                return .success(data)
+            } catch {
+                AppLogger.error("Error in UpdateVideoAsLikedByUserMutation: \(error)")
+                return .failure(GraphQLErrorTransformer.transform(apiError: error))
+            }
+        case false:
+            do {
+                let data = try await graphQLService.executeMutation(
+                    mutation: UpdateVideoAsDislikedByUserMutation(
+                        userId: payload.userPrimaryKey,
+                        videoId: payload.videoId
+                    )).toEntity()
+                return .success(data)
+            } catch {
+                AppLogger.error("Error in UpdateVideoAsDislikedByUserMutation: \(error)")
+                return .failure(GraphQLErrorTransformer.transform(apiError: error))
+            }
+        default:
+            do {
+                let data = try await graphQLService.executeMutation(
+                    mutation: DeleteVideoLikeStatusForUserMutation(
+                        userId: payload.userPrimaryKey,
+                        videoId: payload.videoId
+                    )).toEntity()
+                return .success(data)
+            } catch {
+                AppLogger.error("Error in DeleteVideoLikeStatusForUserMutation: \(error)")
+                return .failure(GraphQLErrorTransformer.transform(apiError: error))
+            }
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct UserData {
+    let id: String
     let userUuid: String
     let userEmail: String
 }

@@ -12,8 +12,12 @@
 
 // Sign In
 "signInSubtitleLabel" = "Unabhängige fundamentalistische Baptistenpredigten aus der ganzen Welt";
-"signInReasonLabel" = "Melden Sie sich an, um auf kostenlose Inhalte zuzugreifen und personalisierte Empfehlungen zu erhalten";
+"signInReasonLabel" = "Melden Sie sich an, um Zugriff auf personalisierte Inhaltsempfehlungen zu erhalten";
 "signInWithGoogleLabel" = "Anmeldung mit Google";
+"signInWaysToSignIn" = "Möglichkeiten zur Anmeldung";
+"signInSkipForNowLabel" = "Für jetzt überspringen";
+"signInFeatureNeedsAccountToWorkLabel" = "Für diese Funktion ist ein Benutzerkonto erforderlich.";
+"signInFeatureNeedsAccountToWorkHintLabel" = "(Hinweis: Nach der Anmeldung kehren Sie zum Startbildschirm zurück)";
 
 // Home
 "homeTabLabel" = "Startseite";
@@ -22,6 +26,7 @@
 "homeSermonsLabel" = "Predigten";
 "homeShortsLabel" = "Kurze Videos";
 "homeMusicLabel" = "Musik";
+"homeInterviewsLabel" = "Interviews";
 "homeShowAllLabel" = "Zeige alles";
 
 // Search
@@ -33,6 +38,7 @@
 "searchDocumentariesButtonLabel" = "Dokumentarfilme";
 "searchShortsButtonLabel" = "Kurze Videos";
 "searchMusicButtonLabel" = "Musik";
+"searchInterviewsButtonLabel" = "Interviews";
 "searchChannelsButtonLabel" = "Kanäle";
 "searchLanguagesLabel" = "Sprachen";
 
@@ -44,6 +50,7 @@
 "searchResultsItemTypeDocumentaries" = "Dokumentarfilme";
 "searchResultsItemTypeShorts" = "Kurze Videos";
 "searchResultsItemTypeMusic" = "Musik";
+"searchResultsItemTypeInterviews" = "Interviews";
 "searchResultsFilterByLanguageLabel" = "Nach Sprache filtern:";
 "searchResultsLanguageNoneLabel" = "Keiner";
 
@@ -64,15 +71,18 @@
 "channelDetailOpenWebsiteLabel" = "Webseite";
 "channelDetailNoVideosInChannelLabel" = "Keine Videos im Kanal";
 
-// Library
-"libraryTabLabel" = "Profil";
-"libraryScreenTitle" = "Profil";
-"libraryLoggedInAsLabel" = "Eingeloggt als";
-"libraryLoggedInLabel" = "Eingeloggt";
-"librarySignOutLabel" = "Ausloggen";
-"libraryAnonymousLabel" = "Anonym";
-"libraryMyAccountOptionLabel" = "Mein Konto";
-"libraryAboutOptionLabel" = "Über die App";
+// Profile
+"profileTabLabel" = "Profil";
+"profileScreenTitle" = "Profil";
+"profileLoggedInAsLabel" = "Eingeloggt als";
+"profileLoggedInLabel" = "Eingeloggt";
+"profileSignOutLabel" = "Ausloggen";
+"profileAnonymousLabel" = "Anonym";
+"profileMyAccountOptionLabel" = "Mein Konto";
+"profileAboutOptionLabel" = "Über die App";
+"profileNotLoggedInLabel" = "Nicht eingeloggt.";
+"profileVisitMyAccountLabel" = "Besuchen Sie „Mein Konto“, um sich anzumelden.";
+"profileLeaveAppLabel" = "Verlasse die App";
 
 // My Account
 "myAccountLabel" = "Mein Konto";
@@ -83,6 +93,7 @@
 "myAccountNoOptionLabel" = "Nein";
 "myAccountSuccessfulDeletionAlertLabel" = "Ihr Benutzerkonto wurde erfolgreich aus unseren Systemen entfernt. Bitte melden Sie sich erneut an, um ein neues Konto zu erstellen.";
 "myAccountUnsuccessfulDeletionAlertLabel" = "Dieser Vorgang ist vertraulich und erfordert eine kürzlich erfolgte Authentifizierung. Melden Sie sich erneut an, bevor Sie diese Anfrage wiederholen.";
+"myAccountRegisterSignInButtonLabel" = "Registrieren / Anmelden";
 
 // About the App
 "aboutTheAppLabel" = "Über die App";
@@ -99,6 +110,7 @@
 "videoDetailVideoTypeDocumentary" = "Dokumentarfilm";
 "videoDetailVideoTypeShort" = "Kurze Video";
 "videoDetailVideoTypeMusic" = "Musik";
+"videoDetailVideoTypeInterview" = "Interview";
 "videoDetailPlayButtonLabel" = "Wiedergeben";
 "videoDetailStopButtonLabel" = "Halt";
 "videoDetailMoreTextLabel" = "mehr";

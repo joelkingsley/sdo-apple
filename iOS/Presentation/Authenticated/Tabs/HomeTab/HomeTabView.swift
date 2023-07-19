@@ -50,6 +50,14 @@ struct HomeTabView: View {
                                     showAllItemType: .music
                                 )
                             }
+                            if !data.interviews.isEmpty {
+                                HomeVideosRow(
+                                    title: "homeInterviewsLabel",
+                                    videoThumbnailStyle: .small,
+                                    videos: data.interviews,
+                                    showAllItemType: .interviews
+                                )
+                            }
                         }
                     }
                     .refreshable {

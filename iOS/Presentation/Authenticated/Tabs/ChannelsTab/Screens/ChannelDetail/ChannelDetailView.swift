@@ -15,6 +15,7 @@ struct ChannelDetailView: View {
     
     init(channelId: String?) {
         self.channelDetailViewModel = ChannelDetailViewModel(channelId: channelId)
+        AppLogger.initLog()
     }
     
     var body: some View {
@@ -64,8 +65,8 @@ struct ChannelDetailView: View {
                         Spacer()
                     } else {
                         ScrollView(.vertical, showsIndicators: false) {
-                            LazyVStack {
-                                ForEach(data.videosInChannel, id: \.id) { video in
+                            VStack {
+                                ForEach(data.videosInChannel) { video in
                                     VideoInChannelRow(video: video)
                                 }
                             }

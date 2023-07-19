@@ -24,6 +24,7 @@ struct VideoPlayerView: View {
     
     @ObservedObject var videoPlayerViewModel = VideoPlayerViewModel()
     @State var video: PlayableVideo
+    @State var isShowingSignInSheet: Bool = false
     
     var body: some View {
         VStack {
@@ -44,14 +45,17 @@ struct VideoPlayerView: View {
             ScrollView {
                 Text(video.title)
                     .font(.sdoTitle3)
+                    .multilineTextAlignment(.center)
                 
                 Text("\(video.speakerName) · \(video.channelName)")
                     .font(.sdoCaption)
                     .foregroundColor(Color(uiColor: .secondaryLabel))
+                    .multilineTextAlignment(.center)
                 
                 Text(video.datePublished.formatted(date: .abbreviated, time: .omitted))
                     .font(.sdoCaption)
                     .foregroundColor(Color(uiColor: .secondaryLabel))
+                    .multilineTextAlignment(.center)
                 
                 Spacer()
                     .frame(height: 20)
@@ -60,20 +64,24 @@ struct VideoPlayerView: View {
                     Spacer()
                     
                     Button {
-                        if video.likedByUser != true {
-                            video.likedByUser = true
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: true,
-                                forUser: authViewModel.getUser(),
-                                forVideoId: video.videoId
-                            )
+                        if case let .signedIn(user) = authViewModel.state,
+                           user.isAnonymous
+                        {
+                            isShowingSignInSheet = true
                         } else {
-                            video.likedByUser = nil
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: nil,
-                                forUser: authViewModel.getUser(),
-                                forVideoId: video.videoId
-                            )
+                            if video.likedByUser != true {
+                                video.likedByUser = true
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: true,
+                                    forVideoId: video.videoId
+                                )
+                            } else {
+                                video.likedByUser = nil
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: nil,
+                                    forVideoId: video.videoId
+                                )
+                            }
                         }
                     } label: {
                         VStack {
@@ -90,20 +98,24 @@ struct VideoPlayerView: View {
                     }
                     
                     Button {
-                        if video.likedByUser != false {
-                            video.likedByUser = false
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: false,
-                                forUser: authViewModel.getUser(),
-                                forVideoId: video.videoId
-                            )
+                        if case let .signedIn(user) = authViewModel.state,
+                           user.isAnonymous
+                        {
+                            isShowingSignInSheet = true
                         } else {
-                            video.likedByUser = nil
-                            videoPlayerViewModel.updateLikeDislikeStatus(
-                                with: nil,
-                                forUser: authViewModel.getUser(),
-                                forVideoId: video.videoId
-                            )
+                            if video.likedByUser != false {
+                                video.likedByUser = false
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: false,
+                                    forVideoId: video.videoId
+                                )
+                            } else {
+                                video.likedByUser = nil
+                                videoPlayerViewModel.updateLikeDislikeStatus(
+                                    with: nil,
+                                    forVideoId: video.videoId
+                                )
+                            }
                         }
                     } label: {
                         VStack {
@@ -124,6 +136,11 @@ struct VideoPlayerView: View {
                 
                 Spacer()
             }
+        }
+        .sheet(isPresented: $isShowingSignInSheet) {
+            SignInSheetView(showFeatureNeedsAnAccountToWork: true)
+                .presentationDetents([.height(300)])
+                .presentationDragIndicator(.visible)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {

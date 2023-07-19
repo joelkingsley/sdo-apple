@@ -139,7 +139,19 @@ class FirebaseAuthService: SDOAuthService {
             return (.signedOut, nil)
         }
     }
-    
+
+    /// Signs in to firebase as an anonymous user
+    func signInAnonymously() async -> AuthState {
+        do {
+            let authDataResult = try await Auth.auth().signInAnonymously()
+            let user = authDataResult.user
+            return .signedIn(user)
+        } catch {
+            AppLogger.error("Unexpectedly got error while signing in anonymously with firebase: \(error)")
+            return .signedOut
+        }
+    }
+
     /// Signs in to firebase using the given auth credentials
     /// - note: To be invoked after authenticating with username-password or social sign-in
     private func signInOnFirebase(with credential: AuthCredential) async -> AuthState {

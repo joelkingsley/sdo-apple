@@ -11,8 +11,13 @@ struct VideoInChannelRow: View {
     let video: ChannelDetailData.Video
     @State var thumbnailWidth: CGFloat = 0
     
+    init(video: ChannelDetailData.Video) {
+        self.video = video
+        AppLogger.initLog()
+    }
+
     var body: some View {
-        Group {
+        HStack {
             NavigationLink {
                 VideoDetailView(
                     videoId: video.videoId,

@@ -4,9 +4,46 @@ mutation GetVideoUrlData($videoId: String!) {
   }
 }
 
-mutation UpdateVideoLikeDislikeStatus($userUuid: String!, $videoId: uuid!, $liked: Boolean) {
-  insert_videos_likes_dislikes_one(object: {liked: $liked, user_uuid: $userUuid, video_id: $videoId}, on_conflict: {constraint: videos_likes_dislikes_pkey, update_columns: liked}) {
-    liked
+mutation UpdateVideoAsLikedByUser($userId: uuid!, $videoId: String!) {
+  insert__User_likedVideos_one(object: {A: $userId, B: $videoId}) {
+    A
+    B
+  }
+  delete__User_dislikedVideos(where: {A: {_eq: $userId}, B: {_eq: $videoId}}) {
+    returning {
+      User {
+        userUuid
+      }
+      Video {
+        id
+      }
+    }
+  }
+}
+
+mutation UpdateVideoAsDislikedByUser($userId: uuid!, $videoId: String!) {
+  insert__User_dislikedVideos_one(object: {A: $userId, B: $videoId}) {
+    A
+    B
+  }
+  delete__User_likedVideos(where: {A: {_eq: $userId}, B: {_eq: $videoId}}) {
+    returning {
+      User {
+        userUuid
+      }
+      Video {
+        id
+      }
+    }
+  }
+}
+
+mutation DeleteVideoLikeStatusForUser($userId: uuid!, $videoId: String!) {
+  delete__User_dislikedVideos(where: {A: {_eq: $userId}, B: {_eq: $videoId}}) {
+    affected_rows
+  }
+  delete__User_likedVideos(where: {A: {_eq: $userId}, B: {_eq: $videoId}}) {
+    affected_rows
   }
 }
 
@@ -22,9 +59,9 @@ mutation RevokeAppleIdRefreshToken($refreshToken: String!) {
   }
 }
 
-mutation DeleteAllUserData($userUuid: String!) {
-  delete_users_by_pk(user_uuid: $userUuid) {
-    user_email
-    user_uuid
+mutation DeleteAllUserData($id: uuid!) {
+  delete_User_by_pk(id: $id) {
+    userEmail
+    userUuid
   }
 }

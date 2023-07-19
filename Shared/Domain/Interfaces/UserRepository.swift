@@ -15,5 +15,5 @@ protocol UserRepository {
     func getUserData(userUuid: String) async -> Result<UserData, BusinessError>
     
     /// Delete all the user data
-    func deleteAllUserData(userUuid: String) async -> Result<DeleteAllUserData, BusinessError>
+    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, BusinessError>
 }
