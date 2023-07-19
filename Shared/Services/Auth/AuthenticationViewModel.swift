@@ -59,6 +59,7 @@ final class AuthenticationViewModel: ObservableObject {
                 if case let .signedIn(user) = state {
                     try? await UserSession.setUserSession(user: user, forcingRefresh: true)
                 }
+                PlayerState.shared.stopVideoIfPlayingAsEmbedded()
                 self.state = state
             }
         }
@@ -66,6 +67,9 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Google
     func signInWithGoogle() {
+        PlayerState.shared.stopVideoIfPlayingAsEmbedded()
+
+        let oldState = state
         Task { [weak self] in
             guard let self = self else {
                 AppLogger.error("self unexpectedly nil in signInWithGoogle")
@@ -73,7 +77,14 @@ final class AuthenticationViewModel: ObservableObject {
             }
             let state = await authService.signInWithGoogle()
             if case let .signedIn(user) = state {
-                self.state = .loading
+                // Only update state if previously not signed in
+                switch oldState {
+                case .signedIn:
+                    break
+                default:
+                    self.state = .loading
+                }
+
                 UserSession.setIsAnonymousUser(to: false)
 
                 try? await UserSession.setUserSession(user: user)
@@ -83,7 +94,13 @@ final class AuthenticationViewModel: ObservableObject {
                     UserSession.setUserData(userData: userData)
                 }
 
-                self.state = state
+                // Only update state if previously not signed in
+                switch oldState {
+                case .signedIn(user):
+                    self.state = state
+                default:
+                    self.state = state
+                }
             }
         }
     }
@@ -95,6 +112,9 @@ final class AuthenticationViewModel: ObservableObject {
 
     /// Signs the user in with Apple
     func signInWithApple(requestAuthorizationResult result: Result<ASAuthorization, Error>) {
+        PlayerState.shared.stopVideoIfPlayingAsEmbedded()
+
+        let oldState = state
         Task { [weak self] in
             guard let self = self else {
                 AppLogger.error("self unexpectedly nil in signInWithApple")
@@ -102,7 +122,14 @@ final class AuthenticationViewModel: ObservableObject {
             }
             let (state, authorizationCode) = await authService.signInWithApple(requestAuthorizationResult: result)
             if case let .signedIn(user) = state {
-                self.state = .loading
+                // Only update state if previously not signed in
+                switch oldState {
+                case .signedIn:
+                    break
+                default:
+                    self.state = .loading
+                }
+
                 UserSession.setIsAnonymousUser(to: false)
 
                 try? await UserSession.setUserSession(user: user)
@@ -119,7 +146,13 @@ final class AuthenticationViewModel: ObservableObject {
                     UserSession.setAppleTokens(refreshToken: refreshToken)
                 }
                 
-                self.state = state
+                // Only update state if previously not signed in
+                switch oldState {
+                case .signedIn(user):
+                    self.state = state
+                default:
+                    self.state = state
+                }
             }
         }
     }
@@ -137,6 +170,7 @@ final class AuthenticationViewModel: ObservableObject {
                 UserSession.setIsAnonymousUser(to: true)
 
                 try? await UserSession.setUserSession(user: user)
+                PlayerState.shared.stopVideoIfPlayingAsEmbedded()
             }
             self.state = state
         }
