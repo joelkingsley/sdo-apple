@@ -17,6 +17,7 @@
 "signInWaysToSignIn" = "Möglichkeiten zur Anmeldung";
 "signInSkipForNowLabel" = "Für jetzt überspringen";
 "signInFeatureNeedsAccountToWorkLabel" = "Für diese Funktion ist ein Benutzerkonto erforderlich.";
+"signInFeatureNeedsAccountToWorkHintLabel" = "(Hinweis: Nach der Anmeldung kehren Sie zum Startbildschirm zurück)";
 
 // Home
 "homeTabLabel" = "Startseite";

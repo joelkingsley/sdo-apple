@@ -100,12 +100,23 @@ struct ProfileTabView: View {
                     }
                 }
                 .navigationBarTitle(Text("profileScreenTitle", comment: "Label: Navigation bar title of Profile Screen"))
-            .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.inline)
+                .onAppear {
+                    // Load user data if anonymous user has logged in
+                    if case let .failure(error) = userData,
+                       (error as? BusinessErrors.anonymousUserError) != nil,
+                       case let .signedIn(user) = authViewModel.state,
+                       !user.isAnonymous
+                    {
+                        profileTabViewModel.onLoaded(user: authViewModel.getUser())
+                    }
+                }
             }
         } else {
             ProgressView("progressViewLoadingLabel")
                 .progressViewStyle(.circular)
                 .onAppear {
+                    // Load user data if rendering first time after log in
                     profileTabViewModel.onLoaded(user: authViewModel.getUser())
                 }
         }

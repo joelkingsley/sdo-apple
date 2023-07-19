@@ -11,6 +11,8 @@ import AuthenticationServices
 struct SignInSheetView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.dismiss) var dismiss
+
     var showFeatureNeedsAnAccountToWork: Bool = false
 
     var body: some View {
@@ -19,9 +21,19 @@ struct SignInSheetView: View {
                 HStack {
                     Spacer()
                     Text("signInFeatureNeedsAccountToWorkLabel")
+                        .multilineTextAlignment(.center)
+                        .font(.sdoCaption)
                     Spacer()
                 }
                 .padding(.top, 20)
+                
+                HStack {
+                    Spacer()
+                    Text("signInFeatureNeedsAccountToWorkHintLabel")
+                        .multilineTextAlignment(.center)
+                        .font(.sdoCaption)
+                    Spacer()
+                }
             }
             
             HStack {
@@ -37,6 +49,7 @@ struct SignInSheetView: View {
             if colorScheme == .light {
                 Button {
                     authViewModel.signInWithGoogle()
+                    dismiss()
                 } label: {
                     HStack {
                         Spacer()
@@ -64,6 +77,7 @@ struct SignInSheetView: View {
                    authViewModel.configure(appleSignInAuthorizationRequest: aSAuthorizationAppleIdRequest)
                 } onCompletion: { result in
                     authViewModel.signInWithApple(requestAuthorizationResult: result)
+                    dismiss()
                 }
                 .signInWithAppleButtonStyle(.black)
                 .frame(height: 45)
@@ -72,6 +86,7 @@ struct SignInSheetView: View {
             } else {
                 Button {
                     authViewModel.signInWithGoogle()
+                    dismiss()
                 } label: {
                     HStack {
                         Spacer()
@@ -95,6 +110,7 @@ struct SignInSheetView: View {
                    authViewModel.configure(appleSignInAuthorizationRequest: aSAuthorizationAppleIdRequest)
                 } onCompletion: { result in
                     authViewModel.signInWithApple(requestAuthorizationResult: result)
+                    dismiss()
                 }
                 .signInWithAppleButtonStyle(.white)
                 .frame(height: 45)

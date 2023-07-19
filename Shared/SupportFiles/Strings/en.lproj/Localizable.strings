@@ -17,6 +17,7 @@
 "signInWaysToSignIn" = "Ways to Sign In";
 "signInSkipForNowLabel" = "Skip for now";
 "signInFeatureNeedsAccountToWorkLabel" = "This feature needs a user account to work.";
+"signInFeatureNeedsAccountToWorkHintLabel" = "(Note: You will be taken back to home screen after sign in)";
 
 
 // Home
