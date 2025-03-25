@@ -10,6 +10,18 @@ import MapKit
 import AVKit
 import AVFoundation
 
+/**
+ A view that displays various elements within a kitchen sink layout.
+ 
+ - Parameters:
+    - region: State variable representing the geographic region on a map.
+    - thumbnailWidth: State variable representing the width of thumbnails.
+ 
+ Example usage:
+ ```
+ KitchenSinkView()
+ ```
+ */
 struct KitchenSinkView: View {
     @State private var region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868),
