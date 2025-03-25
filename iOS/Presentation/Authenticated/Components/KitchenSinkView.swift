@@ -30,6 +30,7 @@ struct KitchenSinkView: View {
     @State var thumbnailWidth: CGFloat = 0
     
     var body: some View {
+        print("hello")
         VStack {
 //            Map(coordinateRegion: $region)
 //                .frame(height: 300)
