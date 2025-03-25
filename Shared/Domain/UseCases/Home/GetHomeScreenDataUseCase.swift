@@ -29,3 +29,68 @@ class GetHomeScreenDataUseCase {
     }
 }
 
+// MARK: - Unit Tests
+
+import XCTest
+
+class GetHomeScreenDataUseCaseTests: XCTestCase {
+    var useCase: GetHomeScreenDataUseCase!
+    var mockVideoRepository: MockVideoRepository!
+
+    override func setUp() {
+        super.setUp()
+        mockVideoRepository = MockVideoRepository()
+        useCase = GetHomeScreenDataUseCase(videoRepository: mockVideoRepository)
+    }
+
+    override func tearDown() {
+        useCase = nil
+        mockVideoRepository = nil
+        super.tearDown()
+    }
+
+    func testExecuteSuccess() async {
+        // Arrange
+        let expectedData = HomeScreenData() // Assuming HomeScreenData has a default initializer
+        mockVideoRepository.result = .success(expectedData)
+
+        // Act
+        let result = await useCase.execute(userUuid: "testUuid")
+
+        // Assert
+        switch result {
+        case .success(let data):
+            XCTAssertEqual(data, expectedData)
+        case .failure:
+            XCTFail("Expected success but got failure")
+        }
+    }
+
+    func testExecuteFailure() async {
+        // Arrange
+        let expectedError = BusinessErrors.customError(code: "testError")
+        mockVideoRepository.result = .failure(expectedError)
+
+        // Act
+        let result = await useCase.execute(userUuid: "testUuid")
+
+        // Assert
+        switch result {
+        case .success:
+            XCTFail("Expected failure but got success")
+        case .failure(let error):
+            XCTAssertEqual(error.localizedDescription, expectedError.localizedDescription)
+        }
+    }
+}
+
+// MARK: - Mock VideoRepository
+
+class MockVideoRepository: VideoRepository {
+    var result: Result<HomeScreenData, BusinessError>!
+
+    func getHomeScreenData() async -> Result<HomeScreenData, BusinessError> {
+        return result
+    }
+}
+
