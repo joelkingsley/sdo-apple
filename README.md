@@ -22,3 +22,35 @@ Looking for non-charismatic, non-ecumenical, Independent Fundamental Baptist (IF
 Sound Doctrine Online is a video streaming platform that hosts IFB content from around the world.
 
 The aim of Sound Doctrine Online is to make Hard Preaching from across the world accessible to everyone. It includes documentaries, sermons, congregational singing, and short excerpts of preaching.
+
+---
+
+## Running the App (Development)
+
+### Prerequisites
+- [Xcode](https://developer.apple.com/xcode/) 13 or later (recommended: latest version)
+- macOS 11.0 or later
+- An Apple Developer account (for running on a real device)
+
+### Steps
+1. **Clone the repository:**
+   ```sh
+   git clone <repo-url>
+   cd sdo-apple
+   ```
+2. **Open the project in Xcode:**
+   - Double-click `SDO.xcodeproj` or open it from Xcode (`File > Open...`).
+3. **Select the target:**
+   - For iOS: Select `SDO (iOS)` as the scheme and choose a simulator or your device.
+   - For macOS: Select `SDO (macOS)` as the scheme.
+4. **Install dependencies:**
+   - If prompted, resolve Swift Package Manager dependencies in Xcode (`File > Packages > Resolve Package Versions`).
+5. **Build and run:**
+   - Click the ▶️ (Run) button in Xcode, or press `Cmd+R`.
+
+### Notes
+- For iOS, the app supports iOS 16 and above.
+- For macOS, the app supports macOS 11.0 and above.
+- You may need to set up signing with your Apple ID in Xcode for device deployment.
+
+---

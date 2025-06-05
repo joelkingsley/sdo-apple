@@ -13891,7 +13891,7 @@
         "enumValues": [
           {
             "name": "_User_dislikedVideos_AB_unique",
-            "description": "unique or primary key constraint on columns \"B\", \"A\"",
+            "description": "unique or primary key constraint on columns \"A\", \"B\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -15002,7 +15002,7 @@
         "enumValues": [
           {
             "name": "_User_likedVideos_AB_unique",
-            "description": "unique or primary key constraint on columns \"B\", \"A\"",
+            "description": "unique or primary key constraint on columns \"A\", \"B\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -16113,7 +16113,7 @@
         "enumValues": [
           {
             "name": "_Video_speaker_AB_unique",
-            "description": "unique or primary key constraint on columns \"B\", \"A\"",
+            "description": "unique or primary key constraint on columns \"A\", \"B\"",
             "isDeprecated": false,
             "deprecationReason": null
           }
