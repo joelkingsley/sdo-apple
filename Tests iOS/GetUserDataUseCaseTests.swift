@@ -7,28 +7,27 @@ class MockUserRepositoryForGetUser: UserRepository {
     var userData: UserData?
     var error: Error?
 
-    func getUserData(userUuid: String) async -> Result<UserData, Error> {
+    func getUserData(userUuid: String) async -> Result<UserData, BusinessError> {
         if shouldSucceed, let data = userData {
             return .success(data)
         } else if shouldThrowCustomError {
-            return .failure(BusinessErrors.customError(message: "Custom error"))
+            return .failure(BusinessErrors.customError(code: "Custom error"))
         } else if let error = error {
-            return .failure(error)
+            return .failure(error as! BusinessError)
         } else {
-            return .failure(NSError(domain: "Test", code: 1, userInfo: nil))
+            return .failure(BusinessErrors.unknownError())
         }
     }
 
-    // Add other protocol requirements as needed for compilation
-    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, Error> {
-        return .failure(NSError(domain: "Test", code: 0, userInfo: nil))
+    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, BusinessError> {
+        return .failure(BusinessErrors.unknownError())
     }
 }
 
 final class GetUserDataUseCaseTests: XCTestCase {
     func testExecute_Success() async {
         let mockRepo = MockUserRepositoryForGetUser()
-        let expectedData = UserData(uuid: "user1", name: "Test User")
+        let expectedData = UserData(id: "user1", userUuid: "user1", userEmail: "test@example.com")
         mockRepo.shouldSucceed = true
         mockRepo.userData = expectedData
         let useCase = GetUserDataUseCase(userRepository: mockRepo)
@@ -36,8 +35,9 @@ final class GetUserDataUseCaseTests: XCTestCase {
         let result = await useCase.execute(userUuid: "user1")
         switch result {
         case .success(let data):
-            XCTAssertEqual(data.uuid, "user1")
-            XCTAssertEqual(data.name, "Test User")
+            XCTAssertEqual(data.id, "user1")
+            XCTAssertEqual(data.userUuid, "user1")
+            XCTAssertEqual(data.userEmail, "test@example.com")
         default:
             XCTFail("Expected success")
         }
@@ -62,13 +62,13 @@ final class GetUserDataUseCaseTests: XCTestCase {
         let mockRepo = MockUserRepositoryForGetUser()
         mockRepo.shouldSucceed = false
         mockRepo.shouldThrowCustomError = false
-        mockRepo.error = NSError(domain: "Test", code: 2, userInfo: nil)
+        mockRepo.error = BusinessErrors.unknownError()
         let useCase = GetUserDataUseCase(userRepository: mockRepo)
 
         let result = await useCase.execute(userUuid: "user1")
         switch result {
         case .failure(let error):
-            XCTAssertFalse(error is BusinessError)
+            XCTAssertTrue(error is BusinessError)
         default:
             XCTFail("Expected failure with generic error")
         }

@@ -11,6 +11,22 @@ struct ChannelData {
     let channelId: String
     let channelName: String
     let channelType: ChannelTypeData
+    
+    func descriptionString() -> String {
+        return "Channel ID: \(channelId), Channel Name: \(channelName), Channel Type: \(channelType.rawValue)"
+    }
+    
+    func isChurch() -> Bool {
+        channelType == ChannelTypeData.church
+    }
+    
+    func isSoulWinningClub() -> Bool {
+        channelType == ChannelTypeData.soulWinningClub
+    }
+    
+    func channelNameInAllCaps() -> String {
+        channelName.uppercased()
+    }
 }
 
 enum ChannelTypeData: String {

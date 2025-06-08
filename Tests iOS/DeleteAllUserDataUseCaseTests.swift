@@ -7,15 +7,19 @@ class MockUserRepository: UserRepository {
     var deleteAllUserData: DeleteAllUserData?
     var error: Error?
 
-    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, Error> {
+    func getUserData(userUuid: String) async -> Result<UserData, BusinessError> {
+        return .failure(BusinessErrors.unknownError())
+    }
+
+    func deleteAllUserData(userPrimaryKey: String) async -> Result<DeleteAllUserData, BusinessError> {
         if shouldSucceed, let data = deleteAllUserData {
             return .success(data)
         } else if shouldThrowCustomError {
-            return .failure(BusinessErrors.customError(message: "Custom error"))
+            return .failure(BusinessErrors.customError(code: "Custom error"))
         } else if let error = error {
-            return .failure(error)
+            return .failure(error as! BusinessError)
         } else {
-            return .failure(NSError(domain: "Test", code: 1, userInfo: nil))
+            return .failure(BusinessErrors.unknownError())
         }
     }
 
@@ -25,7 +29,7 @@ class MockUserRepository: UserRepository {
 final class DeleteAllUserDataUseCaseTests: XCTestCase {
     func testExecute_Success() async {
         let mockRepo = MockUserRepository()
-        let expectedData = DeleteAllUserData(success: true)
+        let expectedData = DeleteAllUserData(userEmail: "test@example.com", userUuid: "user1")
         mockRepo.shouldSucceed = true
         mockRepo.deleteAllUserData = expectedData
         let useCase = DeleteAllUserDataUseCase(userRepository: mockRepo)
@@ -33,7 +37,8 @@ final class DeleteAllUserDataUseCaseTests: XCTestCase {
         let result = await useCase.execute(userPrimaryKey: "user1")
         switch result {
         case .success(let data):
-            XCTAssertTrue(data.success)
+            XCTAssertEqual(data.userEmail, "test@example.com")
+            XCTAssertEqual(data.userUuid, "user1")
         default:
             XCTFail("Expected success")
         }
@@ -58,13 +63,13 @@ final class DeleteAllUserDataUseCaseTests: XCTestCase {
         let mockRepo = MockUserRepository()
         mockRepo.shouldSucceed = false
         mockRepo.shouldThrowCustomError = false
-        mockRepo.error = NSError(domain: "Test", code: 2, userInfo: nil)
+        mockRepo.error = BusinessErrors.unknownError()
         let useCase = DeleteAllUserDataUseCase(userRepository: mockRepo)
 
         let result = await useCase.execute(userPrimaryKey: "user1")
         switch result {
         case .failure(let error):
-            XCTAssertFalse(error is BusinessError)
+            XCTAssertTrue(error is BusinessError)
         default:
             XCTFail("Expected failure with generic error")
         }

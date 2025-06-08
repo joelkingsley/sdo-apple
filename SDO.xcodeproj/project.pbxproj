@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D733AEB2DF5CE4100DB4823 /* Tests iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Tests iOS.xctestplan"; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F13983CD28906ED9004A2375 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SDO (iOS).entitlements"; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		F1F00FDD2800AF0E005DC240 = {
 			isa = PBXGroup;
 			children = (
+				5D733AEB2DF5CE4100DB4823 /* Tests iOS.xctestplan */,
 				F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */,
 				F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */,
 				F1F00FE22800AF0E005DC240 /* Shared */,

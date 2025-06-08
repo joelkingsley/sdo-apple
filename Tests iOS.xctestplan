@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8818EEBB-1BC6-489D-A58F-72CA482C9FA2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SDO.xcodeproj",
+        "identifier" : "F1F00FF62800AF10005DC240",
+        "name" : "Tests iOS"
+      }
+    }
+  ],
+  "version" : 1
+}
