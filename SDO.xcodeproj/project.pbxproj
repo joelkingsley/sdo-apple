@@ -29,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5D733EC52DF5D38A00DB4823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1F00FDE2800AF0E005DC240 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F00FE92800AF10005DC240;
+			remoteInfo = "SDO (iOS)";
+		};
 		F1F00FF82800AF10005DC240 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1F00FDE2800AF0E005DC240 /* Project object */;
@@ -46,7 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D733AEB2DF5CE4100DB4823 /* Tests iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Tests iOS.xctestplan"; sourceTree = "<group>"; };
+		5D733EC12DF5D38A00DB4823 /* SDOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D733EDA2DF5D5B600DB4823 /* SDOTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SDOTests.xctestplan; sourceTree = "<group>"; };
 		F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SDO--iOS--Info.plist"; sourceTree = "<group>"; };
 		F13983CD28906ED9004A2375 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SDO (iOS).entitlements"; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5D733EC22DF5D38A00DB4823 /* SDOTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SDOTests; sourceTree = "<group>"; };
 		F17D6F462DF0AF9B00E3FDBE /* Tests iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tests iOS"; sourceTree = "<group>"; };
 		F17D6F4B2DF0AFA100E3FDBE /* macOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F17D6F4D2DF0AFA100E3FDBE /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = macOS; sourceTree = "<group>"; };
 		F17D6F9B2DF0AFA500E3FDBE /* iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F17D6FD32DF0AFA500E3FDBE /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOS; sourceTree = "<group>"; };
@@ -118,6 +127,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D733EBE2DF5D38A00DB4823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F00FE72800AF10005DC240 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,7 +208,7 @@
 		F1F00FDD2800AF0E005DC240 = {
 			isa = PBXGroup;
 			children = (
-				5D733AEB2DF5CE4100DB4823 /* Tests iOS.xctestplan */,
+				5D733EDA2DF5D5B600DB4823 /* SDOTests.xctestplan */,
 				F14B18CE290EF04200DE8229 /* SDO (iOS).entitlements */,
 				F1157BA8286C22FE00309134 /* SDO--iOS--Info.plist */,
 				F1F00FE22800AF0E005DC240 /* Shared */,
@@ -200,6 +216,7 @@
 				F17D6F4B2DF0AFA100E3FDBE /* macOS */,
 				F17D6F462DF0AF9B00E3FDBE /* Tests iOS */,
 				F17D71222DF0B01800E3FDBE /* Tests macOS */,
+				5D733EC22DF5D38A00DB4823 /* SDOTests */,
 				F1F00FEB2800AF10005DC240 /* Products */,
 				F139837C28821964004A2375 /* Frameworks */,
 			);
@@ -228,6 +245,7 @@
 				F1F00FF02800AF10005DC240 /* SDO.app */,
 				F1F00FF72800AF10005DC240 /* Tests iOS.xctest */,
 				F1F010032800AF10005DC240 /* Tests macOS.xctest */,
+				5D733EC12DF5D38A00DB4823 /* SDOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,6 +253,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5D733EC02DF5D38A00DB4823 /* SDOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D733EC92DF5D38A00DB4823 /* Build configuration list for PBXNativeTarget "SDOTests" */;
+			buildPhases = (
+				5D733EBD2DF5D38A00DB4823 /* Sources */,
+				5D733EBE2DF5D38A00DB4823 /* Frameworks */,
+				5D733EBF2DF5D38A00DB4823 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D733EC62DF5D38A00DB4823 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5D733EC22DF5D38A00DB4823 /* SDOTests */,
+			);
+			name = SDOTests;
+			packageProductDependencies = (
+			);
+			productName = SDOTests;
+			productReference = 5D733EC12DF5D38A00DB4823 /* SDOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F1F00FE92800AF10005DC240 /* SDO (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F010132800AF10005DC240 /* Build configuration list for PBXNativeTarget "SDO (iOS)" */;
@@ -354,9 +395,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					5D733EC02DF5D38A00DB4823 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = F1F00FE92800AF10005DC240;
+					};
 					F1F00FE92800AF10005DC240 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -398,11 +443,19 @@
 				F1F00FEF2800AF10005DC240 /* SDO (macOS) */,
 				F1F00FF62800AF10005DC240 /* Tests iOS */,
 				F1F010022800AF10005DC240 /* Tests macOS */,
+				5D733EC02DF5D38A00DB4823 /* SDOTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D733EBF2DF5D38A00DB4823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F00FE82800AF10005DC240 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +514,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D733EBD2DF5D38A00DB4823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F00FE62800AF10005DC240 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +554,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5D733EC62DF5D38A00DB4823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1F00FE92800AF10005DC240 /* SDO (iOS) */;
+			targetProxy = 5D733EC52DF5D38A00DB4823 /* PBXContainerItemProxy */;
+		};
 		F1F00FF92800AF10005DC240 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1F00FE92800AF10005DC240 /* SDO (iOS) */;
@@ -507,6 +572,58 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5D733EC72DF5D38A00DB4823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5U7V8A368;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joelkingsleyr.SDOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDO.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SDO";
+			};
+			name = Debug;
+		};
+		5D733EC82DF5D38A00DB4823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5U7V8A368;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joelkingsleyr.SDOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDO.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SDO";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		F1F010112800AF10005DC240 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -857,6 +974,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D733EC92DF5D38A00DB4823 /* Build configuration list for PBXNativeTarget "SDOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D733EC72DF5D38A00DB4823 /* Debug */,
+				5D733EC82DF5D38A00DB4823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1F00FE12800AF0E005DC240 /* Build configuration list for PBXProject "SDO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

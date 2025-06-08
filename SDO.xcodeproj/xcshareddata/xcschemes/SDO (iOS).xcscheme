@@ -38,6 +38,17 @@
                ReferencedContainer = "container:SDO.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5D733EC02DF5D38A00DB4823"
+               BuildableName = "SDOTests.xctest"
+               BlueprintName = "SDOTests"
+               ReferencedContainer = "container:SDO.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

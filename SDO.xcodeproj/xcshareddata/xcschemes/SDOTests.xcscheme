@@ -14,18 +14,19 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests iOS.xctestplan"
+            reference = "container:SDOTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1F00FF62800AF10005DC240"
-               BuildableName = "Tests iOS.xctest"
-               BlueprintName = "Tests iOS"
+               BlueprintIdentifier = "5D733EC02DF5D38A00DB4823"
+               BuildableName = "SDOTests.xctest"
+               BlueprintName = "SDOTests"
                ReferencedContainer = "container:SDO.xcodeproj">
             </BuildableReference>
          </TestableReference>

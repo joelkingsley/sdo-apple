@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "8818EEBB-1BC6-489D-A58F-72CA482C9FA2",
+      "id" : "C7806BE0-4275-4FD7-A0E6-7EF95FA046BD",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -13,10 +13,11 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:SDO.xcodeproj",
-        "identifier" : "F1F00FF62800AF10005DC240",
-        "name" : "Tests iOS"
+        "identifier" : "5D733EC02DF5D38A00DB4823",
+        "name" : "SDOTests"
       }
     }
   ],
