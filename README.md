@@ -54,3 +54,29 @@ The aim of Sound Doctrine Online is to make Hard Preaching from across the world
 - You may need to set up signing with your Apple ID in Xcode for device deployment.
 
 ---
+
+## Code Analysis with CodeQL
+
+You can create a CodeQL database for Swift code analysis and run custom queries as follows:
+
+### Creating a CodeQL Database
+
+Run the following command in your project root to generate a CodeQL database for Swift:
+
+```sh
+codeql database create ./databases/swift-database \
+  --language=swift \
+  --command="xcodebuild build -project SDO.xcodeproj -scheme \"SDO (iOS)\""
+```
+
+### Running CodeQL Queries
+
+You can use the custom queries provided in the `queries/codeql-custom-queries-swift/` folder. For example, to run a query:
+
+```sh
+codeql query run --database=./databases/swift-database queries/codeql-custom-queries-swift/example.ql
+```
+
+Refer to the [CodeQL documentation](https://codeql.github.com/docs/codeql-cli/) for more details on advanced usage.
+
+---
